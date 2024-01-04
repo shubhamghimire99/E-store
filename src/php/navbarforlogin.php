@@ -18,17 +18,14 @@
 
     body {
         background-color: #F5F5F5;
-        overflow-x: hidden;
     }
 
     nav {
-        position: absolute;
         width: 100%;
         display: flex;
         justify-content: center;
         background-color: #1D1D1F;
         height: 70px;
-       
     }
 
     .navbar {
@@ -51,6 +48,7 @@
     .navbar ul li  {
         display: flex;
         align-items: center;
+        
     } 
 
     a {
@@ -91,8 +89,6 @@
     .search-btn:hover {
         background-color: grey;
     } 
-
-  
 </style>
 </head>
 
@@ -130,8 +126,8 @@
                         </g>
                     </svg>
                 
-                    <a href="">Login |</a>
-                    <a href=""> signup</a>
+                    <a href="">Sell Items</a>
+
                 </li>
 
                 <li>
