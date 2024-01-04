@@ -1,7 +1,96 @@
-.content{
-    /* background: red; */
+ .category {
+    margin-top: 10px;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: row;
+} 
+
+.categories {
+
+    margin-right: 10px;
+    background-color: #FFFFFF;
+    width: 248px;
+    height: 330px;
+    border-radius: 30px;
 }
 
-.categories{
+.slidshow {
+    margin-left: 5px;
+    background-color: #FFFFFF;
+    width: 778px;
+    height: 330px;
+    border-radius: 30px;
+}
 
+.product {
+    
+    margin-top: 10px;
+    margin-left: 240px;
+    display: flex;
+    flex-direction: row;
+}
+
+.products {
+    margin-right: 16px;
+    background-color: #FFFFFF;
+    width: 248px;
+    height: 268px;
+    border-radius: 30px;
+}
+
+
+
+ h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 36px;
+    color: #1D1D1F;
+    margin: 10px 0 10px 240px;
+}
+/* line right below h1 tag using after property */
+h1::after{
+    content: '';
+    display: block;
+    width: 81%;
+    height: 3px;
+    background: #1D1D1F;
+    margin-bottom: 10px
+   
+}
+
+.card{
+    
+    margin-left: 240px;
+    display: grid;
+    grid-template-columns: repeat(4,0fr);
+   
+}
+
+.cards{
+    margin-right: 16px;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+    width:248px;
+    height: 268px;
+    border-radius: 30px;
+}
+
+.btn   {
+    margin: 10px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #F5F5F5;
+    background: #1D1D1F;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 22px;
 }

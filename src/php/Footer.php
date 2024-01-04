@@ -15,14 +15,12 @@
         }
         body{
             background-color: #F5F5F5;
-            /* overflow-x: hidden;  */
+           
         }
         .footer{
-            
-                position: absolute;  
-               width: 100%;
-               bottom: 0;
-               height: 30px;
+            width: 100%;
+            height: 30px;
+
         }
 
         .footer-section {
@@ -36,8 +34,7 @@
         }
 
         .footer::before {
-            position: absolute;
-            bottom: 30px;
+        
             content: '';
             display: block;
             width: 100%;

@@ -18,11 +18,11 @@
 
         body {
             background-color: #F5F5F5;
-            overflow-x: hidden;
+            /* overflow-x: hidden; */
         }
 
         nav {
-            position: absolute;
+            
             width: 100%;
             display: flex;
             justify-content: center;

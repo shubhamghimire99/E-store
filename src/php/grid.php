@@ -29,22 +29,21 @@
 
 <style>
 
-    .grid-container {
 
+    .grid-container {
         display: grid;
         justify-content: center;
+        align-self: center;
         grid-template-columns: repeat(12, 72px);
-       
-        gap: 16px;
-        
+        gap: 16px; 
         padding: 20px;
-       
+        height: 100vh;
     }
 
     .item {
         background-color: #141313;
-        height: 100vh;
-        padding: 20px;
+       height: 100vh;
+        /* padding: 20px; */
         text-align: center;
         opacity: 0.1;
     }
