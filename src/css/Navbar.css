@@ -36,6 +36,8 @@ nav {
     align-items: center;
 }
 
+
+
 .navbar ul li {
     display: flex;
     align-items: center;
@@ -100,3 +102,15 @@ ul li button {
 .search-btn:hover {
     background-color: grey;
 }
+
+
+.hidden-categories{
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: #0000fc;
+    display: none;
+}
+

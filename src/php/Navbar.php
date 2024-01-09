@@ -67,15 +67,13 @@
                 </li>
 
                 <div class="hidden-categories">
-                    <!-- <ul>
-                        <li><a href="">Mobiles</a></li>
-                        <li><a href="">Laptops</a></li>
-                        <li><a href="">Tablets</a></li>
-                        <li><a href="">Cameras</a></li>
-                        <li><a href="">Headphones</a></li>
-                        <li><a href="">Speakers</a></li>
-                        <li><a href="">Accessories</a></li>
-                    </ul>    -->
+                    <!-- unordered list for men's fashion -->
+                    <ul>
+                        <h2>Men's fashion</h2>
+                        <li>pants</li>
+                        <li>shirt</li>
+                        <li>t-shirt</li>
+                    </ul>
                 </div>
 
             </ul>
