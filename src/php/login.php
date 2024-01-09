@@ -22,20 +22,20 @@
         <div class="main">
             <h1>Login to your account</h1>
             <form action="">
-            <input class="login-input" type="email" placeholder="Email" required><br>
-            <input class="login-input" type="password" placeholder="Password" required><br>
-            <div class="buttons">
-                <button class="login-button" type="submit">Signup</button>
-                <button class="login-button" type="submit">Login</button>
-            </div>
-            <a href="">
-                <p class="pass-forgot">Forgot password?</p>
-        </a>    
-        <div class="or">
+                <input class="login-input" type="email" placeholder="Email" required><br>
+                <input class="login-input" type="password" placeholder="Password" required><br>
+                <div class="buttons">
+                    <a href="signup.php"><button class="login-button" type="submit">Signup</button></a>
+                    <button class="login-button" type="submit">Login</button>
+                </div>
+                <a href="">
+                    <p class="pass-forgot">Forgot password?</p>
+                </a>
+                <div class="or">
                     <p class="i">Or</p>
                 </div>
                 <div class="social-button">
-                    <button >
+                    <button>
 
                         <svg class="media-svg" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_2_191)">
@@ -59,8 +59,7 @@
                         </svg>
                         Login with Google</button>
                 </div>
-
-        </form>
+            </form>
         </div>
     </div>
 </body>

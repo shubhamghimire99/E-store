@@ -39,7 +39,7 @@
 
                 <li class="login-signup">
                     <i class="fa-solid fa-user"></i>
-                    <a href="">Login |</a>
+                    <a href="login.php">Login |</a>
                     <a href="signup.php"> signup</a>
                 </li>
 

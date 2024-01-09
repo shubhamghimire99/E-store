@@ -31,12 +31,6 @@
                     <input type="text" id="lname" placeholder="Last Name" required>
                     <span id="lnameError" class="error"></span>
                 </div>
-<<<<<<< HEAD
-                <input class="input" type="email" placeholder="Email" required><br>
-                <input class="input" type="password" placeholder="Password" required><br>
-                <button class="button">Create account</button>
-                <a href="login.php">
-=======
 
                 <input class="input" type="email" id="email" placeholder="Email" required><br>
                 <span id="emailError" class="error"></span>
@@ -46,8 +40,7 @@
 
                 <button class="button" value="submit">Create account</button>
 
-                <a href="">
->>>>>>> 0101ce293ded6aec3ee333efb08c9d3463f8cbce
+                <a href="login.php">
                     <p class="anker">Already have an account? Login</p>
                 </a>
 
@@ -56,12 +49,7 @@
                 </div>
 
                 <div class="social-button">
-<<<<<<< HEAD
-                    <button >
-
-=======
                     <button>
->>>>>>> 0101ce293ded6aec3ee333efb08c9d3463f8cbce
                         <svg class="media-svg" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_2_191)">
                                 <path d="M38 19C38 8.50668 29.4933 0 19 0C8.50668 0 0 8.50668 0 19C0 27.9102 6.13472 35.3871 14.4104 37.4406V24.8064H10.4926V19H14.4104V16.4981C14.4104 10.0312 17.3371 7.0338 23.6862 7.0338C24.89 7.0338 26.9671 7.27016 27.8168 7.50576V12.7688C27.3684 12.7216 26.5894 12.6981 25.6219 12.6981C22.5066 12.6981 21.3028 13.8784 21.3028 16.9465V19H27.509L26.4427 24.8064H21.3028V37.8609C30.7108 36.7247 38.0008 28.7143 38.0008 19H38Z" fill="#0866FF" />
@@ -73,12 +61,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-<<<<<<< HEAD
-                        Sign Up with Facebook
-
-=======
                         Sign Up with FaceBook
->>>>>>> 0101ce293ded6aec3ee333efb08c9d3463f8cbce
                     </button>
 
                     <button>
