@@ -6,112 +6,8 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
 
-    <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: poppins;
-
-        }
-
-        body {
-            background-color: #F5F5F5;
-            /* overflow-x: hidden; */
-        }
-
-        nav {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background-color: #1D1D1F;
-            height: 70px;
-        }
-
-        .navbar {
-
-            width: 68%;
-            display: flex;
-            justify-content: space-between;
-            font-size: 25px;
-            color: #FFF;
-            font-weight: semi-bold;
-        }
-
-        .navbar ul {
-            list-style: none;
-            width: 100%;
-            display: inline-flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar ul li {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            color: #FFF;
-        }
-
-        .search {
-            position: relative;
-        }
-
-        .search-box {
-            padding-left: 20px;
-            text-align: start;
-            border: #000000 solid 1px;
-            border-radius: 30px;
-            background: #FFFEFE;
-            height: 35px;
-            width: 280px;
-        }
-
-        .search-btn {
-            position: absolute;
-            top: 1px;
-            right: 0px;
-            height: 33px;
-            width: 25px;
-            border: none;
-            border-left: none;
-            border-radius: 0px 30px 30px 0px;
-            cursor: pointer;
-        }
-
-/* 
-        ul li input {
-
-            width: 333.51px;
-            height: 33.721px;
-            background: #FFFFFF;
-            border-radius: 30px 0px 0px 30px;
-            border: none;
-            position: relative;
-            bottom: 0px;
-        }
-
-        ul li button {
-            width: 33.49px;
-            height: 33.721px;
-            background-color: #FFFFFF;
-            border-radius: 0px 30px 30px 0px;
-            border: none;
-            position: relative;
-        } */
-
-        .search-box:focus {
-            outline: none;
-        }
-
-        .search-btn:hover {
-            background-color: grey;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 
 <body>
@@ -129,45 +25,62 @@
                 </li>
 
                 <li> <a href="">Categories</a></li>
+
+
                 <li class="search">
                     <input type="text" name="search" class="search-box" id="search-box" placeholder="Search in E-store">
                     <button class="search-btn">
-                        <svg class="search-icon" width="11" height="19" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- <svg class="search-icon" width="11" height="19" viewBox="0 0 11 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path id="Vector" d="M7.48336 11.4497H7.07154L6.92558 11.1691C7.4541 9.9471 7.74458 8.38701 7.74401 6.77355C7.74401 5.43765 7.54528 4.13176 7.17296 3.021C6.80064 1.91024 6.27144 1.04451 5.6523 0.533286C5.03315 0.0220611 4.35186 -0.111699 3.69457 0.148922C3.03729 0.409542 2.43354 1.05284 1.95966 1.99746C1.48579 2.94208 1.16307 4.1456 1.03233 5.45583C0.901591 6.76605 0.968692 8.12414 1.22515 9.35835C1.48161 10.5926 1.91591 11.6475 2.47313 12.3896C3.03034 13.1318 3.68546 13.528 4.35562 13.528C5.19489 13.528 5.9664 12.9149 6.56068 11.8965L6.70142 12.1875V13.0084L9.30788 18.1937L10.0846 16.6454L7.48336 11.4497ZM4.35562 11.4497C3.0576 11.4497 2.00981 9.36101 2.00981 6.77355C2.00981 4.18609 3.0576 2.09742 4.35562 2.09742C5.65363 2.09742 6.70142 4.18609 6.70142 6.77355C6.70142 9.36101 5.65363 11.4497 4.35562 11.4497Z" fill="#1D1D1F" />
-                        </svg>
+                        </svg> -->
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
                     </button>
                 </li>
 
-                <!-- <li><input type="text" placeholder="  Search in E-Store  ">
-                    <button type="submit"><svg class="search" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.391 12.5786H13.4929L13.1746 12.2699C14.3272 10.9251 14.9607 9.20834 14.9595 7.43282C14.9595 5.96275 14.5261 4.52569 13.7141 3.30337C12.9021 2.08105 11.748 1.12837 10.3978 0.565793C9.04753 0.00322052 7.56175 -0.143974 6.12832 0.142823C4.69489 0.42962 3.37821 1.13753 2.34476 2.17702C1.31132 3.21652 0.607537 4.54092 0.322411 5.98275C0.0372846 7.42457 0.183622 8.91907 0.742917 10.2772C1.30221 11.6354 2.24935 12.7963 3.46455 13.613C4.67975 14.4297 6.10843 14.8656 7.56994 14.8656C9.40027 14.8656 11.0828 14.191 12.3788 13.0703L12.6858 13.3905V14.2939L18.37 20L20.0639 18.2962L14.391 12.5786ZM7.56994 12.5786C4.73919 12.5786 2.45412 10.2802 2.45412 7.43282C2.45412 4.58548 4.73919 2.28702 7.56994 2.28702C10.4007 2.28702 12.6858 4.58548 12.6858 7.43282C12.6858 10.2802 10.4007 12.5786 7.56994 12.5786Z" fill="black" />
-                        </svg>
-                    </button>
-                </li> -->
+        
 
                 <li class="login-signup">
-                    <svg class="profile" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- <svg class="profile" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Group 20">
                             <g id="Group">
                                 <path id="Vector" d="M17.88 1C8.55718 1 1 8.55718 1 17.88C1 27.2028 8.55718 34.76 17.88 34.76C27.2028 34.76 34.76 27.2028 34.76 17.88C34.76 8.55718 27.2028 1 17.88 1Z" stroke="#F8F8F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                 <path id="Vector_2" d="M4.83334 28.5923C4.83334 28.5923 8.5959 23.7883 17.8799 23.7883C27.1639 23.7883 30.9281 28.5923 30.9281 28.5923M17.8799 17.8803C19.2229 17.8803 20.511 17.3468 21.4607 16.3971C22.4104 15.4474 22.9439 14.1593 22.9439 12.8163C22.9439 11.4732 22.4104 10.1852 21.4607 9.2355C20.511 8.28582 19.2229 7.75229 17.8799 7.75229C16.5368 7.75229 15.2488 8.28582 14.2991 9.2355C13.3494 10.1852 12.8159 11.4732 12.8159 12.8163C12.8159 14.1593 13.3494 15.4474 14.2991 16.3971C15.2488 17.3468 16.5368 17.8803 17.8799 17.8803Z" stroke="#F8F8F8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             </g>
                         </g>
-                    </svg>
+                    </svg> -->
 
+<<<<<<< HEAD
                     <a href="signup.php">Login |</a>
+=======
+                    <i class="fa-solid fa-user"></i>
+                    <a href="">Login |</a>
+>>>>>>> ea34fadd891e192ecb92475e0cd765a7f0abee1d
                     <a href=""> signup</a>
                 </li>
 
                 <li>
                     <a href="">
-                        <svg width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- <svg width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M27.1307 8.04771H21.7046V6.43817C21.7046 4.73066 20.9424 3.09309 19.5856 1.8857C18.2288 0.678305 16.3885 0 14.4697 0C12.5509 0 10.7107 0.678305 9.35391 1.8857C7.99711 3.09309 7.23487 4.73066 7.23487 6.43817V8.04771H1.80872C1.32902 8.04771 0.868961 8.21729 0.529761 8.51914C0.190561 8.82099 0 9.23038 0 9.65726V27.3622C0 28.6429 0.571682 29.871 1.58928 30.7766C2.60688 31.6821 3.98705 32.1909 5.42615 32.1909H23.5133C24.9524 32.1909 26.3326 31.6821 27.3502 30.7766C28.3678 29.871 28.9395 28.6429 28.9395 27.3622V9.65726C28.9395 9.23038 28.7489 8.82099 28.4097 8.51914C28.0705 8.21729 27.6105 8.04771 27.1307 8.04771ZM10.8523 6.43817C10.8523 5.58442 11.2334 4.76563 11.9118 4.16193C12.5902 3.55824 13.5103 3.21909 14.4697 3.21909C15.4291 3.21909 16.3492 3.55824 17.0276 4.16193C17.706 4.76563 18.0872 5.58442 18.0872 6.43817V8.04771H10.8523V6.43817ZM25.322 27.3622C25.322 27.7891 25.1315 28.1985 24.7923 28.5003C24.4531 28.8022 23.993 28.9718 23.5133 28.9718H5.42615C4.94645 28.9718 4.48639 28.8022 4.14719 28.5003C3.80799 28.1985 3.61743 27.7891 3.61743 27.3622V11.2668H7.23487V12.8763C7.23487 13.3032 7.42543 13.7126 7.76463 14.0145C8.10383 14.3163 8.56388 14.4859 9.04358 14.4859C9.52328 14.4859 9.98334 14.3163 10.3225 14.0145C10.6617 13.7126 10.8523 13.3032 10.8523 12.8763V11.2668H18.0872V12.8763C18.0872 13.3032 18.2777 13.7126 18.6169 14.0145C18.9561 14.3163 19.4162 14.4859 19.8959 14.4859C20.3756 14.4859 20.8356 14.3163 21.1748 14.0145C21.514 13.7126 21.7046 13.3032 21.7046 12.8763V11.2668H25.322V27.3622Z" fill="#F8F8F8" />
                             <ellipse cx="26.2397" cy="27.0403" rx="5.76007" ry="6.24007" fill="white" />
                             <path d="M23.6374 27.0856C23.6374 25.7016 23.8854 24.6176 24.3814 23.8336C24.8854 23.0496 25.7174 22.6576 26.8774 22.6576C28.0374 22.6576 28.8654 23.0496 29.3614 23.8336C29.8654 24.6176 30.1174 25.7016 30.1174 27.0856C30.1174 28.4776 29.8654 29.5696 29.3614 30.3616C28.8654 31.1536 28.0374 31.5496 26.8774 31.5496C25.7174 31.5496 24.8854 31.1536 24.3814 30.3616C23.8854 29.5696 23.6374 28.4776 23.6374 27.0856ZM28.4614 27.0856C28.4614 26.4936 28.4214 25.9976 28.3414 25.5976C28.2694 25.1896 28.1174 24.8576 27.8854 24.6016C27.6614 24.3456 27.3254 24.2176 26.8774 24.2176C26.4294 24.2176 26.0894 24.3456 25.8574 24.6016C25.6334 24.8576 25.4814 25.1896 25.4014 25.5976C25.3294 25.9976 25.2934 26.4936 25.2934 27.0856C25.2934 27.6936 25.3294 28.2056 25.4014 28.6216C25.4734 29.0296 25.6254 29.3616 25.8574 29.6176C26.0894 29.8656 26.4294 29.9896 26.8774 29.9896C27.3254 29.9896 27.6654 29.8656 27.8974 29.6176C28.1294 29.3616 28.2814 29.0296 28.3534 28.6216C28.4254 28.2056 28.4614 27.6936 28.4614 27.0856Z" fill="black" />
-                        </svg>
+                        </svg> -->
+                        <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                 </li>
+
+                <div class="hidden-categories">
+                    <!-- <ul>
+                        <li><a href="">Mobiles</a></li>
+                        <li><a href="">Laptops</a></li>
+                        <li><a href="">Tablets</a></li>
+                        <li><a href="">Cameras</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">Speakers</a></li>
+                        <li><a href="">Accessories</a></li>
+                    </ul>    -->
+                </div>
 
             </ul>
         </div>
