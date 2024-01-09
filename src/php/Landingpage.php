@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/landingpage.css">
+    <title>Home</title>
 
 </head>
 
 <body>
     <?php include 'Navbar.php'; ?>
-    
+
     <div class="category">
         <div class="categories">
             <div class="items">
@@ -78,73 +79,337 @@
         </div>
     </div>
 
-    <div class="product">
-        <div class="products">
+    <div class="products">
+
+        <div class="product">
             <a href="">
-            <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
-            <span>Gaming Products</span>
+                <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+                <span>Gaming Products</span>
             </a>
         </div>
-        <div class="products">
-            <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+        <div class="product">
+            <a href="">
+                <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+                <span>Gaming Products</span>
+            </a>
         </div>
-        <div class="products">
-            <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+        <div class="product">
+            <a href="">
+                <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+                <span>Gaming Products</span>
+            </a>
         </div>
-        <div class="products">
-            <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+        <div class="product">
+            <a href="">
+                <img class="product-img" src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="image can't be loaded">
+                <span>Gaming Products</span>
+            </a>
         </div>
     </div>
 
     <h1>Just For You</h1>
 
-    <div class="card">
-        <div class="cards">
-            <div class="card-img">
-
+    <div class="cards">
+        <div class="card">
+            <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
             </div>
-            <div class="card-heading">
 
+        </div>
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
             </div>
-            <div class="card-description">
-
+        </div>
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
             </div>
-            <div class="card-rating">
-                
+        </div>
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
             </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
-        <div class="cards">
-
-        </div>
-        <div class="cards">
-
-        </div>
-        <div class="cards">
-
-        </div>
-        <div class="cards">
-
+        <div class="card">
+        <a href="">
+                <div class="card-img">
+                    <img src="../images/mateo-nCU4yq5xDEQ-unsplash.jpg" alt="">
+                </div>
+                <div class="card-des">
+                        <span >Gaming House</span>
+                        <h3> gaming Keyboard for epic gaming experience</h3>
+                        <span>Rs. 1000</span>
+                </div>
+            </a>
+            <div class="card-footer">
+                <div class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <span>4.0</span>
+                </div>
+                <div class="card-cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </div>
+            </div>
         </div>
     </div>
 
