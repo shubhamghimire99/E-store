@@ -155,7 +155,7 @@
                         </g>
                     </svg>
 
-                    <a href="">Login |</a>
+                    <a href="signup.php">Login |</a>
                     <a href=""> signup</a>
                 </li>
 
