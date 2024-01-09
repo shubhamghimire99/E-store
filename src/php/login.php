@@ -1,18 +1,14 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
-    <link rel="stylesheet" href="../css/signup.css">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/src/css/signup.css">
 </head>
 
 <body>
-
-
     <div class="background">
         <div class="container">
 
@@ -24,36 +20,23 @@
             <h1>Buy your best <br> products</h1>
         </div>
         <div class="main">
-            <h1>Create account</h1>
-        
-            <form action="" id="signupForm" class="signupForm" method="POST" onsubmit="return validateForm()" novalidate>
-
-                <div class="input-box">
-                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
-                    <span id="fnameError" class="ferror"></span>
-
-                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
-                    <span id="lnameError" class="error"></span>
+            <h1>Login to your account</h1>
+            <form action="">
+                <input class="login-input" type="email" placeholder="Email" required><br>
+                <input class="login-input" type="password" placeholder="Password" required><br>
+                <div class="buttons">
+                    <a href="signup.php"><button class="login-button" type="submit">Signup</button></a>
+                    <button class="login-button" type="submit">Login</button>
                 </div>
-
-                <input class="input" type="email" name="email" id="email" placeholder="Email" required>
-                <span id="emailError" class="error"></span>
-
-                <input class="input" type="password" id="Pass" name="password" placeholder="Password" required>
-                <span id="passwordError" class="error"></span>
-
-                <button class="button" value="submit">Create account</button>
-
-                <a href="login.php">
-                    <p class="anker">Already have an account? Login</p>
+                <a href="">
+                    <p class="pass-forgot">Forgot password?</p>
                 </a>
-
                 <div class="or">
                     <p class="i">Or</p>
                 </div>
-
                 <div class="social-button">
                     <button>
+
                         <svg class="media-svg" width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_2_191)">
                                 <path d="M38 19C38 8.50668 29.4933 0 19 0C8.50668 0 0 8.50668 0 19C0 27.9102 6.13472 35.3871 14.4104 37.4406V24.8064H10.4926V19H14.4104V16.4981C14.4104 10.0312 17.3371 7.0338 23.6862 7.0338C24.89 7.0338 26.9671 7.27016 27.8168 7.50576V12.7688C27.3684 12.7216 26.5894 12.6981 25.6219 12.6981C22.5066 12.6981 21.3028 13.8784 21.3028 16.9465V19H27.509L26.4427 24.8064H21.3028V37.8609C30.7108 36.7247 38.0008 28.7143 38.0008 19H38Z" fill="#0866FF" />
@@ -65,25 +48,20 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        Sign Up with FaceBook
-                    </button>
+                        Login with Facebook
 
-                    <button>
-                        <svg class="media-svg" width="34" height="38" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    </button>
+                    <button><svg class="media-svg" width="34" height="38" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.9997 15.5454V22.9036H26.1488C25.7471 25.2699 24.5415 27.2737 22.7333 28.6209L28.2505 33.4055C31.4651 30.0892 33.3196 25.2183 33.3196 19.4319C33.3196 18.0847 33.2115 16.7891 33.0105 15.5456L16.9997 15.5454Z" fill="#4285F4" />
                             <path d="M7.47246 22.6164L6.22811 23.681L1.82349 27.5154C4.62076 33.7163 10.354 38 16.9994 38C21.5893 38 25.4374 36.3073 28.2502 33.4055L22.7329 28.6209C21.2184 29.7609 19.2865 30.4519 16.9994 30.4519C12.5794 30.4519 8.82405 27.1183 7.47941 22.6273L7.47246 22.6164Z" fill="#34A853" />
                             <path d="M1.8235 10.4845C0.664476 13.0408 0 15.9254 0 18.9999C0 22.0744 0.664476 24.959 1.8235 27.5152C1.8235 27.5324 7.47996 22.6098 7.47996 22.6098C7.13997 21.4698 6.939 20.2608 6.939 18.9997C6.939 17.7386 7.13997 16.5296 7.47996 15.3896L1.8235 10.4845Z" fill="#FBBC05" />
                             <path d="M16.9997 7.56545C19.5034 7.56545 21.7288 8.5327 23.5061 10.3982L28.3742 4.95734C25.4224 1.88284 21.5898 0 16.9997 0C10.3543 0 4.62076 4.26636 1.82349 10.4846L7.47978 15.39C8.82424 10.8991 12.5797 7.56545 16.9997 7.56545Z" fill="#EA4335" />
                         </svg>
-                        Sign Up with Google
-                    </button>
+                        Login with Google</button>
                 </div>
-
-            
-
+            </form>
         </div>
     </div>
-    <script src="../js/signupvalidate.js"></script>
 </body>
 
 </html>
