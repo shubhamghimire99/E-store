@@ -21,12 +21,12 @@
         </div>
         <div class="main">
             <h1>Create account</h1>
-
+        
             <form action="" id="signupForm" onsubmit="return validateForm()" novalidate>
 
                 <div class="input-box">
                     <input type="text" id="fname" placeholder="First Name" required>
-                    <span id="fnameError" class="error"></span>
+                    <span id="fnameError" class="ferror"></span>
 
                     <input type="text" id="lname" placeholder="Last Name" required>
                     <span id="lnameError" class="error"></span>
@@ -39,6 +39,8 @@
                 <span id="passwordError" class="error"></span>
 
                 <button class="button" value="submit">Create account</button>
+
+                </form>
 
                 <a href="">
                     <p class="anker">Already have an account? Login</p>
@@ -75,7 +77,7 @@
                     </button>
                 </div>
 
-            </form>
+            
 
         </div>
     </div>
