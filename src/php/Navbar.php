@@ -22,16 +22,15 @@
         }
 
         nav {
-            
             width: 100%;
             display: flex;
             justify-content: center;
             background-color: #1D1D1F;
             height: 70px;
-
         }
 
         .navbar {
+
             width: 68%;
             display: flex;
             justify-content: space-between;
@@ -53,7 +52,7 @@
             align-items: center;
         }
 
-        a {
+        .navbar ul li a {
             text-decoration: none;
             color: #FFF;
         }
