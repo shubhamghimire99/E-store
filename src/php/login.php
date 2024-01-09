@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="/src/css/signup.css">
 </head>
 
@@ -20,20 +20,18 @@
             <h1>Buy your best <br> products</h1>
         </div>
         <div class="main">
-            <h1>Create account</h1>
-
+            <h1>Login to your account</h1>
             <form action="">
-                <div class="input-box">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
-                <input class="input" type="email" placeholder="Email" required><br>
-                <input class="input" type="password" placeholder="Password" required><br>
-                <button class="button">Create account</button>
-                <a href="login.php">
-                    <p class="anker">Already have an account? Login</p>
-                </a>
-                <div class="or">
+            <input class="login-input" type="email" placeholder="Email" required><br>
+            <input class="login-input" type="password" placeholder="Password" required><br>
+            <div class="buttons">
+                <button class="login-button" type="submit">Signup</button>
+                <button class="login-button" type="submit">Login</button>
+            </div>
+            <a href="">
+                <p class="pass-forgot">Forgot password?</p>
+        </a>    
+        <div class="or">
                     <p class="i">Or</p>
                 </div>
                 <div class="social-button">
@@ -50,7 +48,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                        Sign Up with Facebook
+                        Login with Facebook
 
                     </button>
                     <button><svg class="media-svg" width="34" height="38" viewBox="0 0 34 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,14 +57,12 @@
                             <path d="M1.8235 10.4845C0.664476 13.0408 0 15.9254 0 18.9999C0 22.0744 0.664476 24.959 1.8235 27.5152C1.8235 27.5324 7.47996 22.6098 7.47996 22.6098C7.13997 21.4698 6.939 20.2608 6.939 18.9997C6.939 17.7386 7.13997 16.5296 7.47996 15.3896L1.8235 10.4845Z" fill="#FBBC05" />
                             <path d="M16.9997 7.56545C19.5034 7.56545 21.7288 8.5327 23.5061 10.3982L28.3742 4.95734C25.4224 1.88284 21.5898 0 16.9997 0C10.3543 0 4.62076 4.26636 1.82349 10.4846L7.47978 15.39C8.82424 10.8991 12.5797 7.56545 16.9997 7.56545Z" fill="#EA4335" />
                         </svg>
-                        Sign Up with Google</button>
+                        Login with Google</button>
                 </div>
 
-            </form>
-
+        </form>
         </div>
     </div>
-
 </body>
 
 </html>

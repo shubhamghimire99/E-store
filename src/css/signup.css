@@ -66,10 +66,10 @@
     line-height: normal;
     margin-top: 10%;
     margin-left: 15%;
+    margin-bottom: 20px;
 }
 
 .main .input-box{
-    margin-top: 14px;
     margin-bottom: 14px;
     margin-left: 15%;
 }
@@ -213,4 +213,50 @@
     height: 20px;
     width: 20px;
     margin-right: 10px;
+}
+
+.main .login-input{
+    
+    margin-left: 15%;
+    width: 66%;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #535353;
+    margin-bottom: 14px;
+    padding: 0 20px;
+}
+
+.main .buttons{
+    margin-bottom: 5px;
+    margin-left: 15%;
+}
+
+.buttons button{
+    width: 38%;
+    height: 45px;
+    margin-right: 5px;
+    border-radius: 8px;
+    border: 1px solid #535353;
+    position: relative;
+    padding: 0 20px;
+    background: #1F1F1F;
+    color: #FFFEFE;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    
+}
+
+.main .pass-forgot{
+    margin-right: 19%;
+    color: #888;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: end;
 }
