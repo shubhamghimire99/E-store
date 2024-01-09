@@ -50,8 +50,12 @@
                         </g>
                     </svg> -->
 
+<<<<<<< HEAD
+                    <a href="signup.php">Login |</a>
+=======
                     <i class="fa-solid fa-user"></i>
                     <a href="">Login |</a>
+>>>>>>> ea34fadd891e192ecb92475e0cd765a7f0abee1d
                     <a href=""> signup</a>
                 </li>
 
