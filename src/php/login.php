@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="/src/css/signup.css">
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 
 <body>
@@ -21,16 +21,25 @@
         </div>
         <div class="main">
             <h1>Login to your account</h1>
-            <form action="">
-                <input class="login-input" type="email" placeholder="Email" required><br>
-                <input class="login-input" type="password" placeholder="Password" required><br>
+            <form action="" id="loginForm" class="loginForm" onsubmit="return validateLogin()" novalidate>
+
+                <input class="login-input" type="email" id="email"  placeholder="Email" required>
+                <span id="emailError" class="error"></span>
+
+                <input class="login-input" type="password" id="password" placeholder="Password" required>
+                <span id="passwordError" class="error"></span>
+
                 <div class="buttons">
-                    <a href="signup.php"><button class="login-button" type="submit">Signup</button></a>
+                    <button class="login-button" onclick="redirectToSignup()" type="submit">Signup</button>
                     <button class="login-button" type="submit">Login</button>
                 </div>
+
+                </form>
                 <a href="">
                     <p class="pass-forgot">Forgot password?</p>
                 </a>
+
+                
                 <div class="or">
                     <p class="i">Or</p>
                 </div>
@@ -59,9 +68,10 @@
                         </svg>
                         Login with Google</button>
                 </div>
-            </form>
+            
         </div>
     </div>
+    <script src="../js/loginvalidate.js"></script>
 </body>
 
 </html>

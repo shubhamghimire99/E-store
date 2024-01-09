@@ -73,6 +73,16 @@
     margin-left: 15%;
 }
 
+.signupForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+}
+
 .input-box input{
     width: 38%;
     height: 45px;
@@ -81,6 +91,8 @@
     border: 1px solid #535353;
     padding: 0 20px;
 }
+
+
 
 .main .input{
     margin-left: 15%;
