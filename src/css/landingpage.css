@@ -3,7 +3,7 @@
      margin-left: 240px;
      display: flex;
      flex-direction: row;
-    
+
  }
 
  .categories {
@@ -23,7 +23,7 @@
      align-items: center;
      margin: 8px 0 10px 0;
      padding: 3px;
-   
+
  }
 
  .items:hover {
@@ -62,7 +62,7 @@
      flex-wrap: wrap;
      gap: 16px;
      /* give border shadow */
-      
+
  }
 
  .product {
@@ -121,8 +121,10 @@
 
  .cards {
      margin-left: 240px;
-     display: grid;
-     grid-template-columns: repeat(4, 0fr);
+     /* display: grid;
+     grid-template-columns: repeat(4, 0fr); */
+     display: flex;
+     flex-wrap: wrap;
      gap: 16px;
  }
 
@@ -174,7 +176,7 @@
      justify-content: space-between;
      align-items: center;
      overflow: hidden;
-    padding: 0 10px 0 10px;
+     padding: 0 10px 0 10px;
  }
 
  .rating {
