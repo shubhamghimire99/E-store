@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <div class="background">
         <div class="container">
 
@@ -30,7 +28,7 @@
 
                 <div class="input-box">
                     <input type="text" id="fname" name="fname" placeholder="First Name" required>
-                    <span id="fnameError" class="ferror"></span>
+                    <span id="fnameError" class="error"></span>
 
                     <input type="text" id="lname" name="lname" placeholder="Last Name" required>
                     <span id="lnameError" class="error"></span>
@@ -39,7 +37,7 @@
                 <input class="input" type="email" name="email" id="email" placeholder="Email" required>
                 <span id="emailError" class="error"></span>
 
-                <input class="input" type="password" id="Pass" name="password" placeholder="Password" required>
+                <input class="input" type="password" id="Pass" name="pass" placeholder="Password" required>
                 <span id="passwordError" class="error"></span>
 
                 <button class="button" value="submit">Create account</button>
