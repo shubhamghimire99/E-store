@@ -1,0 +1,141 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    display: inline-flex;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.wrapper{
+    /* background-color: red; */
+    height: 100vh;
+    width: 50%;
+}
+
+.content{
+    /* background-color: blue; */
+    height: 100vh;
+    width: 50%;
+}
+.logo{
+    padding: 20px 0px 20px 30px;
+    /* background-color: aqua; */
+    width: 100%;
+}
+
+.element{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    height: 600px;
+    width: auto;
+}
+
+.element-box{
+    width:429px;
+    height: 229px;
+}
+
+.element-box h1{
+    font-size: 45px;
+    padding-bottom: 10px;
+    /* font-weight: 200; */
+}
+
+.element-box h3{
+    font-size: 30px;
+    font-weight: 550;
+    padding-bottom: 30px;
+}
+
+.element-box a{
+    text-decoration: none;
+    color: #4D47C3;
+    font-weight: 500;
+}
+.element .svg{
+    position: relative;
+    left: 250px;
+    bottom: 150px;
+    width: auto;
+    height: auto;
+}
+
+.seller-logo{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+.seller-logo a{
+    text-decoration: none;
+    color: black;
+}
+.content .form{
+    width: auto;
+    height: auto;
+    display: flex;
+    /* position: relative; */
+    /* right: 50px; */
+    flex-direction: column;
+    padding-top: 50px;
+    align-items: center;
+}
+
+.sign-up{
+    display: flex;;
+    justify-content: flex-start;
+    height: auto;
+    width: 40%;
+
+}
+
+.sign-up h2{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.form input{
+    /* flex-shrink: 0; */
+    height: 20px;
+    width: 40%;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #F0EFFF;
+    border: none;
+}
+
+.form button{
+    height: 45px;
+    width: 40%;
+    border: none;
+    border-radius: 8px;
+    background-color: #4D47C3;
+    color: white;
+    margin-bottom: 35px;
+    cursor: pointer;
+}
+
+.form p{
+    font-size: 12px;
+    padding-bottom: 20px;
+    color: #B5B5B5;
+}
+
+.form .social-icon{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 15%;
+}
