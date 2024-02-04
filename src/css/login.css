@@ -93,12 +93,11 @@
     align-items: center;
 }
 
-.sign-up{
+.form .sign-up{
     display: flex;;
     justify-content: flex-start;
     height: auto;
     width: 40%;
-
 }
 
 .sign-up h2{
@@ -126,6 +125,7 @@
     color: white;
     margin-bottom: 35px;
     cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(96, 54, 211, 0.25);
 }
 
 .form p{
@@ -135,6 +135,87 @@
 }
 
 .form .social-icon{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.content .login-form{
+    width: auto;
+    height: auto;
+    display: flex;
+    /* position: relative; */
+    /* right: 50px; */
+    flex-direction: column;
+    padding-top: 100px;
+    align-items: center;
+}
+
+.login-form .login{
+    display: flex;;
+    justify-content: flex-start;
+    height: auto;
+    width: 40%;
+}
+
+
+.login h2{
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+
+.login-form input{
+    height: 20px;
+    width: 40%;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    background-color: #F0EFFF;
+    border: none;
+}
+
+.login-form .forget-pass{
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    width: 40%;
+    /* padding: 25px; */
+    margin-bottom: 40px;
+
+}
+
+.forget-pass p{
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+
+.forget-pass a{
+    text-decoration: none;
+    color: #B5B5B5;
+    font-weight: 500;
+}
+
+.login-form button{
+    height: 45px;
+    width: 40%;
+    border: none;
+    border-radius: 8px;
+    background-color: #4D47C3;
+    color: white;
+    margin-bottom: 35px;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(96, 54, 211, 0.25);
+}
+
+
+.login-form p{
+    font-size: 12px;
+    padding-bottom: 20px;
+    color: #B5B5B5;
+}
+
+.login-form .social-icon{
     display: inline-flex;
     justify-content: space-between;
     width: 15%;
