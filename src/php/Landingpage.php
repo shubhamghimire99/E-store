@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="main">
+    <div class="main">
         <?php include 'Navbar.php'; ?>
         <div class="slidshow">
             <!-- insert image -->
@@ -19,12 +19,13 @@
 
         <div class="browse">
             <h1>Browse Our Categories</h1>
+            <!-- <span>We provide Varities of Products</span> -->
 
             <div class="category">
                 <div class="product">
                     <a href="">
                         <img class="product-img" src="../images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
-                        <span>Electronics</span> 
+                        <span>Electronics</span>
                     </a>
                 </div>
                 <div class="product">
@@ -40,8 +41,113 @@
                     </a>
                 </div>
             </div>
+
         </div>
-        
+
+        <div class="cards">
+            <h1>Our Products</h1>
+            <div class="product-card">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    </div>
+
+                    <div class="card-desc">
+                        <h1>HEllo</h1>
+                        <span>aabshjdba</span>
+                        <span>Rs.2387652398</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+
+                    </div>
+
+                    <div class="card-desc">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btn fade-up">
+                <button>Show More</button>
+            </div>
+
+        </div>
+
 
 
         <!-- <div class="products">
@@ -374,14 +480,11 @@
             </div>
         </div> -->
 
-        <!-- <div class="our-products">
-            <div class="btn fade-up">
-                <button>Load More</button>
-            </div>
-        </div> -->
 
+
+        <?php include('Footer.php'); ?>
     </div>
-    <?php include('Footer.php'); ?>
+
 
     <script src="../js/landingpage.js"></script>
 
