@@ -11,16 +11,17 @@
 
 .slider {
     background-color: #FFFFFF;
-    width: 100%;
-    height: 60vh;
     border-radius: 10px;
+    width: 208vh;
+    height: 60vh;
+    margin: 0 10px;
 
 }
 
 .slides{
-    width: 100%;
-    background-color: #4D47C3;
+    /* width: 100%; */
      height: 60vh;
+     width: 208vh;
     display: flex;
     overflow: hidden;
     /* object-fit: cover; */
@@ -31,20 +32,88 @@
 }
 
 .slide img{ 
-    width: 100%;
+    width: 208vh;
     height: 60vh;
-    border-radius: 20px
+    border-radius: 20px;
+    object-fit: cover;
+    image-resolution: from-image;
 }
 
+/* css for Manual Navigation */
+.navigation-manual{
+    position: absolute;
+    width: 208vh;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+}
 
-
-/* .slidshow-img {
-    object-fit: fill;
+.manual-btn{
+    border: 2px solid #40d3dc;
+    padding: 5px;
     border-radius: 10px;
-    width: 90%;
-    height: 60vh;
+    cursor: pointer;
+    transition: 1s;
+}
 
-} */
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background: #40d3dc;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -100%;
+}
+#radio3:checked ~ .first{
+    margin-left: -200%;
+}
+#radio4:checked ~ .first{
+    margin-left: -300%;
+}
+#radio5:checked ~ .first{
+    margin-left: -400%;
+}
+
+/* css for automatic navigation */
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 208vh;
+    justify-content: center;
+    margin-top: 56vh;
+}
+
+.navigation-auto div{
+    border: 2px solid #40d3dc;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background: #40d3dc;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background: #40d3dc;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background: #40d3dc;
+}
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background: #40d3dc;
+}
+#radio5:checked ~ .navigation-auto .auto-btn5{
+    background: #40d3dc;
+}
+
 
 .browse {
     display: flex;

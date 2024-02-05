@@ -28,7 +28,7 @@
                 <div class="slide first">
                     <img src="../images/1.jpg" alt="">
                 </div>
-                <!-- <div class="slide">
+                <div class="slide">
                     <img src="../images/2.jpg" alt="">
                 </div>
                 <div class="slide">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="slide">
                     <img src="../images/5.jpg" alt="">
-                </div> -->
+                </div>
                 <!-- Slide image end -->
                 <!-- automatic navigation start -->
                 <div class="navigation-auto">
@@ -199,6 +199,17 @@
 
     </div>
 
+    <!-- Slider Js -->
+    <script>
+        var counter = 1;
+        setInterval(function() {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 5) {
+                counter = 1;
+            }
+        }, 3000);
+    </script>
 
     <script src="../js/landingpage.js"></script>
 

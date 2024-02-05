@@ -1,5 +1,3 @@
-// slider
-
 
 
 // Fade Up Animation
@@ -35,3 +33,9 @@ document.addEventListener("scroll", (e) => {
 
 //triggering this function once on startup to prevent glitches.
 scrollRevealCheck();
+
+
+// slider
+
+
+
