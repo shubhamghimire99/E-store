@@ -5,24 +5,46 @@
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     gap: 32px;
 }
 
-.slidshow {
+.slider {
     background-color: #FFFFFF;
-    height: 80vh;
+    width: 100%;
+    height: 60vh;
     border-radius: 10px;
-    padding: 0 10px;
+
 }
 
-.slidshow-img {
+.slides{
+    width: 100%;
+    background-color: #4D47C3;
+     height: 60vh;
+    display: flex;
+    overflow: hidden;
+    /* object-fit: cover; */
+}
+
+.slides input{
+    display: none;
+}
+
+.slide img{ 
+    width: 100%;
+    height: 60vh;
+    border-radius: 20px
+}
+
+
+
+/* .slidshow-img {
     object-fit: fill;
     border-radius: 10px;
-    width: 100%;
-    height: 80vh;
+    width: 90%;
+    height: 60vh;
 
-}
+} */
 
 .browse {
     display: flex;

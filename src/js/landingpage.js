@@ -1,3 +1,8 @@
+// slider
+
+
+
+// Fade Up Animation
 const fadeUpElements = document.querySelectorAll(".fade-up");
 
 function isElementOutOfView(element) {
