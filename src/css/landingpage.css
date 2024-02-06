@@ -11,7 +11,7 @@
 /* slider start */
 .slider {
     background-color: #FFFFFF;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     width: 208vh;
     height: 60vh;
     margin: 0 10px;
@@ -34,12 +34,13 @@
 .slide img{ 
     width: 208vh;
     height: 60vh;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     object-fit: cover;
     image-resolution: from-image;
 }
 
 /* css for Manual Navigation */
+
 .navigation-manual{
     position: absolute;
     width: 208vh;
@@ -53,7 +54,7 @@
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 1s ease-in;
+    transition: all 1s ease-in;
 }
 
 .manual-btn:not(:last-child){
@@ -64,17 +65,30 @@
     background: #40d3dc;
 }
 
+.first{
+    transition: all 1s ease-in;
+
+}
+
 #radio2:checked ~ .first{
     margin-left: -100%;
+    transition: all 1s ease-in;
+
 }
 #radio3:checked ~ .first{
     margin-left: -200%;
+    transition: all 1s ease-in;
+
 }
 #radio4:checked ~ .first{
     margin-left: -300%;
+    transition: all 1s ease-in;
+
 }
 #radio5:checked ~ .first{
     margin-left: -400%;
+    transition: all 1s ease-in;
+
 }
 
 /* css for automatic navigation */
@@ -96,6 +110,8 @@
 }
 .navigation-auto div:not(:last-child){
     margin-right: 40px;
+    /* transition: all 1s ease-in; */
+
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1{
@@ -231,7 +247,7 @@
     flex-direction: column;
     background-color: #F5F5F5;
     flex-wrap: wrap;
-    width: 285px;
+    width: 300px;
     height: 446px;
     overflow: hidden;
 }

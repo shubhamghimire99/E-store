@@ -12,6 +12,9 @@
 <body>
     <div class="main">
         <?php include 'Navbar.php'; ?>
+
+
+
         <div class="slider">
             <!-- insert image -->
             <!-- <img class="slidshow-img" src="../images/daniel-romero-SG8V9r1BiIc-unsplash.jpg" alt="image can't be loaded"> -->
@@ -168,24 +171,7 @@
 
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-image">
-
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
-                </div>
+            
 
             </div>
 
