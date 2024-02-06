@@ -8,7 +8,7 @@
     justify-content: center; 
     gap: 32px;
 }
-
+/* slider start */
 .slider {
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -114,6 +114,7 @@
     background: #40d3dc;
 }
 
+/* slide */
 
 .browse {
     display: flex;
