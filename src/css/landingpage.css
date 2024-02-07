@@ -58,6 +58,7 @@
     background-color: #40d3dc;
     color: #FFFFFF;
     border-radius: 10px;
+    transition: all 1s ease-in
 }
 .categories .category a:hover {
     color: #FFFFFF;
