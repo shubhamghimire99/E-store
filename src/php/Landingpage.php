@@ -12,59 +12,102 @@
 <body>
     <div class="main">
         <?php include 'Navbar.php'; ?>
-
-
-
-        <div class="slider">
-            <!-- insert image -->
-            <!-- <img class="slidshow-img" src="../images/daniel-romero-SG8V9r1BiIc-unsplash.jpg" alt="image can't be loaded"> -->
-            <div class="slides">
-                <!-- radio-btn  start-->
-                <input type="radio" name="radio-btn" id="radio1">
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-                <input type="radio" name="radio-btn" id="radio5">
-                <!-- radio-btn end -->
-
-                <!-- slide images start -->
-                <div class="slide first">
-                    <img src="../images/1.jpg" alt="">
+        <div class="first-main">
+            <div class="categories">
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-person-dress"></i>
+                        Women's Fashion
+                    </a>
                 </div>
-                <div class="slide">
-                    <img src="../images/2.jpg" alt="">
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-shirt"></i>
+                        Men's Fashion
+                    </a>
                 </div>
-                <div class="slide">
-                    <img src="../images/3.jpg" alt="">
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-mobile"></i>
+                        Electronics
+                    </a>
                 </div>
-                <div class="slide">
-                    <img src="../images/4.jpg" alt="">
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-couch"></i>
+                        Home & Lifestyle
+                    </a>
                 </div>
-                <div class="slide">
-                    <img src="../images/5.jpg" alt="">
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicine
+                    </a>
                 </div>
-                <!-- Slide image end -->
-                <!-- automatic navigation start -->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                    <div class="auto-btn5"></div>
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-volleyball"></i>
+                        Sports and Outdoor
+                    </a>
                 </div>
-                <!-- automatic navigation end -->
+                <div class="category">
+                    <a href="">
+                        <i class="fa-solid fa-baby-carriage"></i>
+                        baby & Toys
+                    </a>
+                </div>
             </div>
 
-            <!-- manual navigation start -->
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
-                <label for="radio5" class="manual-btn"></label>
-            </div>
-            <!-- manual navigation end -->
+            <div class="slider">
+                <!-- insert image -->
+                <!-- <img class="slidshow-img" src="../images/daniel-romero-SG8V9r1BiIc-unsplash.jpg" alt="image can't be loaded"> -->
+                <div class="slides">
+                    <!-- radio-btn  start-->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <input type="radio" name="radio-btn" id="radio5">
+                    <!-- radio-btn end -->
 
+                    <!-- slide images start -->
+                    <div class="slide first">
+                        <img src="../images/slider/angela-bailey-jlo7Bf4tUoY-unsplash.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="../images/slider/christopher-gower-_aXa21cf7rY-unsplash.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="../images/slider/denny-muller-mGP8gyGb8zY-unsplash.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="../images/slider/jazmin-quaynor-FoeIOgztCXo-unsplash.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="../images/slider/virender-singh-hE0nmTffKtM-unsplash.jpg" alt="">
+                    </div>
+                    <!-- Slide image end -->
+                    <!-- automatic navigation start -->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                        <div class="auto-btn5"></div>
+                    </div>
+                    <!-- automatic navigation end -->
+                </div>
+
+                <!-- manual navigation start -->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                    <label for="radio5" class="manual-btn"></label>
+                </div>
+                <!-- manual navigation end -->
+            </div>
         </div>
 
         <div class="browse">
@@ -80,14 +123,14 @@
                 </div>
                 <div class="product">
                     <a href="">
-                        <img class="product-img" src="../images/download.jpg" alt="image can't be loaded">
-                        <span>Fashion</span>
+                        <img class="product-img" src="../images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="image can't be loaded">
+                        <span>Furnitures</span>
                     </a>
                 </div>
                 <div class="product">
                     <a href="">
                         <img class="product-img" src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <span>Shoes</span>
+                        <span>Shoes </span>
                     </a>
                 </div>
             </div>
@@ -98,80 +141,188 @@
             <h1>Our Products</h1>
             <div class="product-card">
                 <div class="card">
-                    <div class="card-image">
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    </div>
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    <div class="card-desc">
-                        <h1>Product Name</h1>
-                        <p>Description </p>
-                        <span>Rs.2387652398</span>
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
+                </div>
                 </div>
                 <div class="card">
-                    <div class="card-image">
+                <div class="card">
+                    <a href="">
+                        <div class="card-image">
+                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        </div>
 
-                    </div>
-
-                    <div class="card-desc">
-
-                    </div>
+                        <div class="card-desc">
+                            <h3>Shoes</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                            <h6>Rs.2000</h6>
+                            <ul>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star checked"></i></li>
+                                <li><i class="fa fa-star "></i></li>
+                            </ul>
+                        </div>
+                        <!-- <button>Buy now</button> -->
+                    </a>
                 </div>
-            
+                </div>
+
 
             </div>
 
