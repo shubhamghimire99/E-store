@@ -4,6 +4,10 @@
     font-family: poppins !important;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .cart{
     display: flex;
     justify-content: center;

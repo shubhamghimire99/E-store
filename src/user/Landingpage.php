@@ -564,7 +564,8 @@
         }, 3000);
 
     </script>
-    <script src="../js/FadeUpAnimation.js"></script>
+   
+   <script src="../js/buyer/FadeUpAnimation.js"></script>
 
 </body>
 

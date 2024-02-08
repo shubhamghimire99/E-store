@@ -6,6 +6,10 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 .container{
     display: inline-flex;
@@ -144,8 +148,6 @@
     width: auto;
     height: auto;
     display: flex;
-    /* position: relative; */
-    /* right: 50px; */
     flex-direction: column;
     padding-top: 100px;
     align-items: center;
@@ -165,7 +167,7 @@
 }
 
 
-.login-form input{
+.login-form input[type="text"] ,.login-form input[type="password"] , .login-form input[type="email"]{
     height: 20px;
     width: 40%;
     padding: 25px;
@@ -174,6 +176,14 @@
     background-color: #F0EFFF;
     border: none;
 }
+
+
+/* style only input having files s type */
+.login-form input[type="file"]{
+    text-align: center;
+}
+
+
 
 .login-form .forget-pass{
     display: flex;
