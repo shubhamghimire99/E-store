@@ -139,13 +139,12 @@
 
         <div class="cards">
             <h1>Our Products</h1>
-            <div class="product-card">
+            <div class="product-card" id="ProductCards">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -155,19 +154,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="card">
-                <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -177,20 +204,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -200,20 +254,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -223,20 +304,49 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
+            </div>
+            <div class="product-card" id="ProductCards">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -246,20 +356,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -269,20 +406,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -292,20 +456,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                <div class="card">
                 <div class="card">
                     <a href="">
-                        <div class="card-image">
-                            <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        </div>
-
+                        <!-- <div class="card-image"> -->
+                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <!-- </div> -->
                         <div class="card-desc">
                             <h3>Shoes</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -315,21 +506,47 @@
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
                                 <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star "></i></li>
+                                <li><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
-                        <!-- <button>Buy now</button> -->
                     </a>
+                    <div class="additional-content">
+                        <div class="content">
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                </div>
-
-
             </div>
 
             <div class="btn fade-up">
-                <button>Show More</button>
+                <button id="loadmorebtn">Show More</button>
             </div>
-
         </div>
 
         <?php include('Footer.php'); ?>
@@ -348,7 +565,8 @@
         }, 3000);
     </script>
 
-    <script src="../js/landingpage.js"></script>
+
+    <script src="../js/FadeUpAnimation.js"></script>
 
 </body>
 

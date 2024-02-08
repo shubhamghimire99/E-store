@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Single Product</title>
-    <link rel="stylesheet" href="/src/css/product.css">
+    <link rel="stylesheet" href="../css/product.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
             </div>
             <div class="main-image">
                 <div class="inner-image">
-                    <img src="\src\images\Asgaard sofa 3.png" alt="">
+                    <img src="../images/Asgaard sofa 3.png" alt="">
                     </div>
                 </div>
             <div class="description">

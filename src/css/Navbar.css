@@ -81,10 +81,6 @@ ul li {
     font-size: 30px;
 }
 
-.profile :hover {
-    color: #FFFFFF;
-    background-color: #4D47C3;
-}
 
 .wishlist a {
     text-decoration: none;
