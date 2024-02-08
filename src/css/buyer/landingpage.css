@@ -32,7 +32,8 @@
     width: 25%;
     height: 60vh;
 }
-.categories .category{
+
+.categories .category {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -53,12 +54,13 @@
     text-align: center;
 }
 
- .categories .category:hover {
+.categories .category:hover {
     background-color: #40d3dc;
     color: #FFFFFF;
     border-radius: 10px;
     transition: all 1s ease-in
 }
+
 .categories .category a:hover {
     color: #FFFFFF;
 }
@@ -198,7 +200,7 @@
     background-color: #FFFFFF;
     border-radius: 10px;
     margin: 0 10px;
-  
+
 }
 
 .browse h1 {
@@ -215,7 +217,7 @@
 }
 
 
- .category {
+.category {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -235,12 +237,12 @@
     align-items: center;
     flex-direction: column;
     background-color: #F4F5F7;
-   
+
 }
 
 .product a:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-     transform: scale(1.05);
+    transform: scale(1.05);
     transition: 0.5s ease-in;
 }
 
@@ -275,7 +277,6 @@
     flex-wrap: wrap;
     gap: 30px;
     background-color: #FFFFFF;
- 
     margin: 0 10px;
 }
 
@@ -305,23 +306,23 @@
     overflow: hidden;
 }
 
-.additional-content{
+.additional-content {
     display: none;
     position: absolute;
-    display: flex;
-    flex-wrap: wrap;
+
     width: 300px;
     height: 440px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     flex-direction: column;
     gap: 10px;
     color: #fff;
     font-size: 20px;
     text-align: center;
 }
-.additional-content .content{
+
+.additional-content .content {
     position: absolute;
     width: 300px;
     top: 100px;
@@ -333,32 +334,33 @@
     gap: 50px;
 
 }
-.share{
+
+.share {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 30px;
     flex-wrap: wrap;
 }
-.share h6 a{
+
+.share h6 a {
     color: #fff;
 }
 
 
-.additional-content button{
+.additional-content button {
     align-items: center;
     appearance: none;
     background-color: #fff;
     border-radius: 10px;
-
     border-style: none;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
     box-sizing: border-box;
     color: #3c4043;
     cursor: pointer;
     display: inline-flex;
     fill: currentcolor;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
     font-size: 20px;
     font-weight: 500;
     height: 48px;
@@ -371,29 +373,28 @@
     position: relative;
     text-align: center;
     text-transform: none;
-    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1), opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
-    will-change: transform,opacity;
+    will-change: transform, opacity;
     z-index: 0;
     padding: 24px;
 }
 
-.additional-content button:hover{
+.additional-content button:hover {
     background: #F6F9FE;
     color: #174ea6;
 }
 
-.additional-content button:focus{
+.additional-content button:focus {
     outline: none;
-  border: 2px solid #4285f4;
+    border: 2px solid #4285f4;
 }
 
-.card:hover .additional-content{
+.card:hover .additional-content {
     display: block;
-
 }
 
 
@@ -405,30 +406,29 @@
     width: 300px;
     height: 300px;
 }
-/* .card img:hover .additional-content{
-    display: block;
-}  */
 
-.card a{
+
+.card a {
     text-decoration: none;
     color: #000000;
 }
 
-.card  {
+.card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
-.card-desc h3{
+
+.card-desc h3 {
     text-align: center;
     font-size: 30px;
     padding-top: 10px;
     margin: 0;
 }
 
-.card-desc h6{
+.card-desc h6 {
     text-align: center;
     font-size: 20px;
     padding-top: 10px;
@@ -443,12 +443,12 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-  
+
     margin: 0;
 }
 
 .btn {
-   
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,33 +456,21 @@
 
 }
 
-/* .btn button {
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    color: #4D47C3;
-    border: 1px solid #4D47C3;
-    background: #F5F5F5;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 25px;
-    line-height: 22px;
-} */
 
 
-.btn button{
+.btn button {
     align-items: center;
     appearance: none;
     background-color: #fff;
     border-radius: 24px;
     border-style: none;
-    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+    box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
     box-sizing: border-box;
     color: #3c4043;
     cursor: pointer;
     display: inline-flex;
     fill: currentcolor;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
     font-size: 14px;
     font-weight: 500;
     height: 48px;
@@ -495,37 +483,23 @@
     position: relative;
     text-align: center;
     text-transform: none;
-    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+    transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1), opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     width: auto;
-    will-change: transform,opacity;
+    will-change: transform, opacity;
     z-index: 0;
 }
 
-.btn button:hover{
+.btn button:hover {
     background: #F6F9FE;
     color: #174ea6;
 }
 
-.btn button :focus{
+.btn button :focus {
     outline: none;
-  border: 2px solid #4285f4;
+    border: 2px solid #4285f4;
 }
 
 
-/* css for fade up */
-
-.fade-up {
-    transform: translateY(100px);
-    opacity: 0;
-    scale: 0.9;
-    transition: 0.5s ease-out;
-}
-
-.fade-up-scrolled {
-    transform: translateY(0px);
-    opacity: 1;
-    scale: 1;
-}

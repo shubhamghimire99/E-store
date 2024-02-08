@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/landingpage.css">
+    <link rel="stylesheet" type="text/css" href="../css/buyer/landingpage.css">
+    <link rel="stylesheet" href="../css/fadeup.css">
     <title>Home</title>
 
 </head>
@@ -138,28 +139,27 @@
         </div>
 
         <div class="cards">
-            <h1>Our Products</h1>
+            <h1 class="fade-up">Our Products</h1>
             <div class="product-card" id="ProductCards">
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -185,31 +185,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -235,31 +235,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -285,31 +285,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -335,33 +335,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-            </div>
-            <div class="product-card" id="ProductCards">
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -387,31 +385,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -437,31 +435,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -487,31 +485,31 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
-                <div class="card">
-                    <a href="">
-                        <!-- <div class="card-image"> -->
-                        <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <!-- </div> -->
-                        <div class="card-desc">
-                            <h3>Shoes</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                            <h6>Rs.2000</h6>
-                            <ul>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star checked"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </a>
+                <div class="card fade-up">
+                    <!-- <div class="card-image"> -->
+                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
                     <div class="additional-content">
-                        <div class="content">
+                        <div class="content"> 
                             <button>
                                 <i class="fa-solid fa-cart-plus"></i>
                                 Add To Cart
@@ -537,10 +535,11 @@
                                 </h6>
                             </div>
                             <button>
-                                Buy Now
+                                <a href="product.php">Buy Now</a>
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -563,9 +562,8 @@
                 counter = 1;
             }
         }, 3000);
+
     </script>
-
-
     <script src="../js/FadeUpAnimation.js"></script>
 
 </body>

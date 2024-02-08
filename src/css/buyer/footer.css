@@ -11,10 +11,11 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: #ffffff;
-
-    
+    background-color: #ffffff;  
 }
+/* line before starting footer */
+
+
 
 .content-logo{
     display: flex;
@@ -22,11 +23,12 @@
     justify-content: center;
     align-items: start;
     gap: 20px;
+    
 }
+
 .content-logo li{
     list-style: none;
 
-  
 }
 
 .content-logo li span{
@@ -45,6 +47,12 @@
 
 .content-links li{
     list-style: none;
+}
+.content-links li a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    transition: 0.5s ease all;
 }
 
 
