@@ -87,13 +87,48 @@
                 </div>
                 <hr>
                 <div class="des-footer">
-
+                    <div class="footer-1">
+                        <p>SKU</p>
+                        <p>Category</p>
+                        <p>Tags</p>
+                        <p>Share</p>
+                    </div>
+                    <div class="footer-2">
+                        <p>: SS001</p>
+                        <p>: Sofas</p>
+                        <p>: Sofa, Chair, Home, Shop</p>
+                        <div class="icons"><p>:</p><a href=""><i class="fab fa-facebook"></i></a><a href=""><i class="fab fa-linkedin"></i></a><a href=""><i class="fab fa-twitter"></i></a></div>
+                    </div>
                 </div>
             </div>
-
-        
         </div>
-        <?php include 'Footer.php'; ?>
+    <div class="description-2">
+    <hr>
+        <h1>Description</h1>
+        <div class="des-list">
+        <p>Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn 
+            portable active stereo 
+            speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.</p>
+        <p>Weighing in under 7 pounds, the Kilburn is a lightweight 
+            piece of vintage styled engineering. Setting the bar as one of the loudest speakers in
+             its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced.
+              The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leat
+            her strap enables easy and stylish travel.</p>    
+        </div>            
+    <div class="image-container">
+       <div class="des-image">
+              <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
+       </div>
+         <div class="des-image">
+                  <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt=""> 
+    </div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        
+    </div>
+    </div>
 </body>
 
 </html>

@@ -1,10 +1,26 @@
+<?php 
+include "../Database/db.php";
+
+if(isset($_POST['submit'])){
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+    $password = $_POST['con-pass'];
+
+    //sql query to insert data into database
+    $sql = "INSERT INTO `user` (`firstname`, `lastname`,`email`, `contact`, `password`) VALUES ('$firstname', '$lastname', '$email', '$contact', '$password')";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/buyer/login.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
     <title>E-store register</title>
 </head>
@@ -59,8 +75,8 @@
                 <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name">
                 <input type="text" name="contact" id='contact' placeholder="Contact number">
                 <input type="password" name="Pass" id="pass" placeholder="Password">
-                <input type="password" id="confirm_pass" placeholder="Confirm password">
-                <button>Register</button>
+                <input type="password" name="con_pass" id="confirm_pass" placeholder="Confirm password">
+                <button type="submit">Register</button>
                 <p>or continue with</p>
                 <div class="social-icon">
                     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
