@@ -1,3 +1,28 @@
+<?php 
+include "../Database/connect.php";
+
+if(isset($_POST['submit'])){
+    $firstname = $_POST['firstName'];
+    $lastname = $_POST['lastName'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+    $password = $_POST['Pass'];
+    $ctext = base64_encode($password);
+    
+
+    //sql query to insert data into database
+    $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email', '$contact', '$ctext')";
+
+    
+    if($conn->query($sql) === TRUE){
+        header('location: Landingpage.php');
+    }else{
+        echo "Error:" .mysqli_error($conn);
+    }
+}
+ 
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +36,26 @@
 </head>
 
 <body>
+    <script>
+        
+        function validateform(){
+            const password = document.getElementById("pass");
+            const cpassword = document.getElementById("confirm_pass");
+            var error = document.getElementById('password_mismatch');
+
+             error.style.color = "red";
+            // cpassword.parentNode.insertBefore(error,cpassword);
+            
+            if(password.value != cpassword.value){
+                // error.textContent = "Password does not match";
+                error.style.display = "block";
+                return false;
+            }else{
+                error.style.display = "none";
+                return true;
+            }
+        }
+    </script>
     <div class="container">
         <div class="wrapper">
             <div class="logo">
@@ -51,22 +96,22 @@
                     <h4>Become a Seller</h4>
                 </a>
             </div>
-            <form action="" method="post" class="form" onsubmit="validateForm(event)">
+            <form onsubmit="return validateform()"  action="#" method="post" class="form">
                 <div class="sign-up">
                     <h2>Sign Up</h2>
                 </div>
-                <span id="emailError" class="error"></span>
-                <input type="email" name="email" id="email" placeholder="Enter Email">
-                <input type="text" name="firstName" id="firstname" placeholder="Enter First Name">
-                <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name">
-                <input type="text" name="contact" id='contact' placeholder="Contact number">
-                <span id="passwordError" class="error"></span>
-                <input type="password" name="Pass" id="password" placeholder="Password">
-                <input type="password" name="con_pass" id="confirm_pass" placeholder="Confirm password">
-                <button type="submit">Register</button>
+                <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                <input type="text" name="firstName" id="firstname" placeholder="Enter First Name" required>
+                <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name" required>
+                <input type="text" name="contact" id='contact' minlength="10" maxlength="10" placeholder="Contact number" required>
+                <input type="password" name="Pass" id="pass" placeholder="Password" required>
+                <div id="password_mismatch" style="display: none; font-size: 12px;">Password does not match!</div>
+                <input type="password" name="con_pass" id="confirm_pass" placeholder="Confirm password" required>
+                <button type="submit" name="submit">Register</button>
                 <p>or continue with</p>
                 <div class="social-icon">
-                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse cx="25" cy="23" rx="21.875" ry="21.875" fill="url(#paint0_linear_259_182)" />
                         <path d="M33.1464 31.6899L34.1181 25.5158H28.0394V21.5109C28.0394 19.8214 28.887 18.1735 31.6096 18.1735H34.375V12.9172C34.375 12.9172 31.8664 12.5 29.4692 12.5C24.4607 12.5 21.1901 15.4577 21.1901 20.8101V25.5158H15.625V31.6899H21.1901V46.6164C22.3074 46.7874 23.4504 46.875 24.6147 46.875C25.7791 46.875 26.9221 46.7874 28.0394 46.6164V31.6899H33.1464Z" fill="white" />
                         <defs>
@@ -76,12 +121,15 @@
                             </linearGradient>
                         </defs>
                     </svg>
-                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </a>
+                    <a href="">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M46.8773 25.4859C46.8773 23.6873 46.7284 22.3748 46.4061 21.0137H25.4487V29.1316H37.7502C37.5023 31.1491 36.163 34.1873 33.1868 36.2288L33.145 36.5006L39.7714 41.5313L40.2304 41.5762C44.4466 37.7602 46.8773 32.1455 46.8773 25.4859" fill="#4285F4" />
                         <path d="M25.4473 46.875C31.474 46.875 36.5334 44.9304 40.229 41.5763L33.1853 36.2289C31.3004 37.5171 28.7706 38.4164 25.4473 38.4164C19.5446 38.4164 14.5347 34.6005 12.7488 29.3262L12.4871 29.348L5.59694 34.5737L5.50684 34.8192C9.17742 41.965 16.7171 46.875 25.4473 46.875Z" fill="#34A853" />
                         <path d="M12.7501 29.3266C12.2789 27.9655 12.0062 26.507 12.0062 25.0002C12.0062 23.4931 12.2789 22.0348 12.7253 20.6738L12.7128 20.3839L5.73635 15.0742L5.50809 15.1806C3.99526 18.1459 3.1272 21.4759 3.1272 25.0002C3.1272 28.5245 3.99526 31.8542 5.50809 34.8195L12.7501 29.3266" fill="#FBBC05" />
                         <path d="M25.4474 11.5833C29.6388 11.5833 32.4661 13.3576 34.0783 14.8403L40.3779 8.8125C36.509 5.2882 31.4741 3.125 25.4474 3.125C16.7172 3.125 9.17744 8.03468 5.50684 15.1805L12.7241 20.6736C14.5348 15.3993 19.5447 11.5833 25.4474 11.5833" fill="#EB4335" />
                     </svg>
+                </a>
                 </div>
             </form>
         </div>
