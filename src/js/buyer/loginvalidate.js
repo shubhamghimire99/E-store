@@ -1,6 +1,11 @@
 
-function validateLogin(){
+// document.getElementById("loginbtn").addEventListener("click" , function(event)
+// {
 
+// });
+
+function validateLogin(event){
+    event.preventDefault();
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
@@ -31,8 +36,4 @@ function validateLogin(){
     }
 
     return true;
-}
-
-function redirectToSignup() {
-    window.location.href = "signup.php";
 }

@@ -43,17 +43,27 @@
         <div class="content">
 
 
-            <form class="login-form">
+            <form class="login-form" action="" method="post" onsubmit="validateLogin(event)" novalidate>
 
                 <div class="login">
                     <h2>Login</h2>
                 </div>
-                <input type="email" placeholder="Enter Email">
-                <input type="password" placeholder="Password">
+
+                <span id="emailError" class="error"></span>
+
+                <input type="email" id="email" name="email" placeholder="Enter Email">
+
+                <span id="passwordError" class="error"></span>
+                
+                <input type="password" id="password" name="pass" placeholder="Password">
+                
                 <div class="forget-pass">
                     <p><a href="">Forgot password?</a></p>
                 </div>
-                <button>Register</button>
+                <button type="submit" id="loginbtn"
+                 >
+                 Register</button>
+
                 <p>or continue with</p>
                 <div class="social-icon">
                     <a href=""><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,6 +86,7 @@
             </form>
         </div>
     </div>
+    <script src="../js/buyer/loginvalidate.js"></script>
 </body>
 
 </html>
