@@ -1,18 +1,3 @@
-<?php 
-include "../Database/db.php";
-
-if(isset($_POST['submit'])){
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    $password = $_POST['con-pass'];
-
-    //sql query to insert data into database
-    $sql = "INSERT INTO `user` (`firstname`, `lastname`,`email`, `contact`, `password`) VALUES ('$firstname', '$lastname', '$email', '$contact', '$password')";
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,15 +51,17 @@ if(isset($_POST['submit'])){
                     <h4>Become a Seller</h4>
                 </a>
             </div>
-            <form action="registerProcess.php" method="post" class="form">
+            <form action="" method="post" class="form" onsubmit="validateForm(event)">
                 <div class="sign-up">
                     <h2>Sign Up</h2>
                 </div>
+                <span id="emailError" class="error"></span>
                 <input type="email" name="email" id="email" placeholder="Enter Email">
                 <input type="text" name="firstName" id="firstname" placeholder="Enter First Name">
                 <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name">
                 <input type="text" name="contact" id='contact' placeholder="Contact number">
-                <input type="password" name="Pass" id="pass" placeholder="Password">
+                <span id="passwordError" class="error"></span>
+                <input type="password" name="Pass" id="password" placeholder="Password">
                 <input type="password" name="con_pass" id="confirm_pass" placeholder="Confirm password">
                 <button type="submit">Register</button>
                 <p>or continue with</p>
@@ -100,6 +87,7 @@ if(isset($_POST['submit'])){
             </form>
         </div>
     </div>
+    <script src="../js/buyer/registervalidate.js"></script>
 </body>
 
 </html>

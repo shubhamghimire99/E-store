@@ -41,9 +41,9 @@
             </div>
         </div>
         <div class="content">
+            <form class="login-form" action="../Database/loginprocess.php" method="post" onsubmit="validateLogin(event)"  novalidate>
 
-
-            <form class="login-form" action="" method="post" onsubmit="validateLogin(event)" novalidate>
+            <!--  -->
 
                 <div class="login">
                     <h2>Login</h2>
@@ -54,15 +54,13 @@
                 <input type="email" id="email" name="email" placeholder="Enter Email">
 
                 <span id="passwordError" class="error"></span>
-                
+
                 <input type="password" id="password" name="pass" placeholder="Password">
-                
+
                 <div class="forget-pass">
                     <p><a href="">Forgot password?</a></p>
                 </div>
-                <button type="submit" id="loginbtn"
-                 >
-                 Register</button>
+                <button type="submit">Register</button>
 
                 <p>or continue with</p>
                 <div class="social-icon">
