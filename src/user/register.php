@@ -134,6 +134,7 @@ $conn->close();
             </form>
         </div>
     </div>
+    <script src="../js/buyer/registervalidate.js"></script>
 </body>
 
 </html>

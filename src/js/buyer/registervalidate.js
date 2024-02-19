@@ -1,13 +1,9 @@
-
-// document.getElementById("loginbtn").addEventListener("click" , function(event)
-// {
-
-// });
-
-function validateLogin(event){
+function validateForm(event){
+    
     event.preventDefault();
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    // var name = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
 
     if (email == null || email == "") {
         document.getElementById('emailError').innerHTML = 'Email is required';

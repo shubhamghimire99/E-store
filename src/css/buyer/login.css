@@ -177,6 +177,18 @@
     border: none;
 }
 
+.login-form span{
+    color: red;
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+
+/* .login-form .error{
+    color: red;
+    font-size: 12px;
+    padding-bottom: 20px;
+} */
+
 
 /* style only input having files s type */
 .login-form input[type="file"]{
