@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 
     
     if($conn->query($sql) === TRUE){
-        header('location: Landingpage.php');
+        header('location: login.php');
     }else{
         echo "Error:" .mysqli_error($conn);
     }
