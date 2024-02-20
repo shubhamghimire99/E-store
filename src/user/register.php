@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     
 
     //sql query to insert data into database
-    $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email', '$contact', '$ctext')";
+    $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`,`isAdmin`,`isSeller`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email',0,0,'$contact', '$ctext')";
 
     
     if($conn->query($sql) === TRUE){

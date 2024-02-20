@@ -51,6 +51,7 @@
                 <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name">
                 <input type="text" name="contact" id='contact' placeholder="Contact number">
                 <input type="password" name="Pass" id="pass" placeholder="Password">
+                <input type="password" name="confirmPass" id="confirmPass" placeholder="Confirm Password">
                 <input type="file" class="custom-file-input" id="citizenship" name="citizenship" placeholder="citizenship" required>
                 <input type="file" class="custom-file-input" id="panNumber" name="panNumber" placeholder="pan number" required>
                 <input type="file" class="custom-file-input" id="registrationCertificate" name="registrationCertificate" placeholder="Company Registration Certificate" required> 
