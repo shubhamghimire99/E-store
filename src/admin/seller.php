@@ -13,14 +13,14 @@
     <!-- sidebar -->
     <div class="sidebar">
         <ul> 
-            <li class="active">
+            <li >
                 <a href="dashboard.php" class="sidebar-link">Dashboard</a>
             </li>
-            <li>
+            <li class="active">
                 <a href="seller.php" class="sidebar-link">Seller</a>
             </li>
             <li>
-                <a href="verifyseller" class="sidebar-link">Verify Seller</a>
+                <a href="verifyseller.php" class="sidebar-link">Verify Seller</a>
             </li>
             <li>
                 <a href="#" class="sidebar-link">Logout</a>
@@ -65,7 +65,8 @@
         <div class="main-content">
             <div class="content">
                 <h1>Dashboard</h1>
-                <p> Welcome to the admin dashboard</p>
+                <p> Welcome to the admin seller page
+                </p>
             </div>
         </div>
     </div>
