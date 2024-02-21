@@ -13,7 +13,12 @@ $routes = [
     "/sellers" => "src/admin/seller.php",
     "/sellerverify" => "src/admin/verifyseller.php",
     "/deleteseller" => "src/admin/delete_record.php",
-
+    "/seller-dashboard" => "src/seller/dashboard.php",
+    "/seller-order" => "src/seller/orders.php",
+    "/seller-product" => "src/seller/product.php",
+    "/seller-inventory" => "src/seller/inventory.php",
+    "/seller-payment" => "src/seller/payment.php",
+    "/seller-setting" => "src/seller/settings.php",
     
 ];
 

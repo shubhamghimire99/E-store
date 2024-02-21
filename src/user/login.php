@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                     }
                     elseif ($user_data['isSeller'] == 1) {
                         $_SESSION['id'] = $user_data['id'];
-                        header("Location: src/seller/dashboard.php");
+                        header("Location: /seller-dashboard");
                         die;
                     }
                     
