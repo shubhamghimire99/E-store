@@ -1,9 +1,6 @@
 <?php 
 
 
-    
-
-
 $routes = [
     "/" => "src/user/landingpage.php",
     "/login" => "src/user/login.php",

@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 
     
     if($conn->query($sql) === TRUE){
-        header('location: login.php');
+        header('location: /login');
     }else{
         echo "Error:" .mysqli_error($conn);
     }
