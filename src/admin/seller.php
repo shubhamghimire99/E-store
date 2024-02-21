@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="/src/css/admin/dashboard.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
 
     <style>
         table {
             border-collapse: collapse;
             width: 100%;
+            background-color: #FFFFFF;
         }
 
         th,
@@ -19,6 +20,7 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            background-color: #FFFFFF;
         }
 
         th {
@@ -67,13 +69,13 @@
     <div class="sidebar">
         <ul>
             <li>
-                <a href="dashboard.php" class="sidebar-link">Dashboard</a>
+                <a href="/admin" class="sidebar-link">Dashboard</a>
             </li>
             <li class="active">
-                <a href="seller.php" class="sidebar-link">Seller</a>
+                <a href="/sellers" class="sidebar-link">Seller</a>
             </li>
             <li>
-                <a href="verifyseller.php" class="sidebar-link">Verify Seller</a>
+                <a href="/sellerverify" class="sidebar-link">Verify Seller</a>
             </li>
             <li>
                 <a href="#" class="sidebar-link">Logout</a>
@@ -106,7 +108,7 @@
 
                 <div class="profile">
                     <a href="">
-                        <img src="profile.jpg" alt="profile_pic">
+                        <img src="src/admin/profile.jpg" alt="profile_pic">
                     </a>
                 </div>
             </div>
@@ -129,7 +131,7 @@
                         <th>delete</th>
                     </tr>
                     <?php
-                    include("../Database/connect.php");
+                    include("src/Database/connect.php");
 
                     $sql = "select * FROM user WHERE isseller = '1'";
 
@@ -158,7 +160,7 @@
     <script>
         function deleteRecord(id){
             if (confirm("Are you sure you want to delete this record?")) {
-            window.location.href = 'delete_record.php?id=' + id;
+            window.location.href = '/deleteseller?id=' + id;
         }
         }
     </script>

@@ -10,15 +10,15 @@
 <body>
 
     <div class="main">
-        <?php include "../user/navbar.php" ?>
+        <?php include "src/user/navbar.php" ?>
 
         <div class="cart">
            <div class="cart-header">
-                <img src="../images/bgimage.png" alt="cartheader">
+                <img src="/src/images/bgimage.png" alt="cartheader">
            </div>
         </div>
 
-        <?php include "../user/Footer.php" ?>
+        <?php include "src/user/Footer.php" ?>
     </div>
 
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../css/admin/dashboard.css">
+    <link rel="stylesheet" href="/src/css/admin/dashboard.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
 </head>
 
@@ -14,13 +14,13 @@
     <div class="sidebar">
         <ul> 
             <li class="active">
-                <a href="dashboard.php" class="sidebar-link">Dashboard</a>
+                <a href="/admin" class="sidebar-link">Dashboard</a>
             </li>
             <li>
-                <a href="seller.php" class="sidebar-link">Seller</a>
+                <a href="/sellers" class="sidebar-link">Seller</a>
             </li>
             <li>
-                <a href="verifyseller" class="sidebar-link">Verify Seller</a>
+                <a href="/sellerverify" class="sidebar-link">Verify Seller</a>
             </li>
             <li>
                 <a href="#" class="sidebar-link">Logout</a>
@@ -53,7 +53,7 @@
                       
                       <div class="profile">
                             <a href="">
-                              <img src="profile.jpg" alt="profile_pic">
+                              <img src="src/admin/profile.jpg" alt="profile_pic">
                             </a>
                       </div> 
                 </div>

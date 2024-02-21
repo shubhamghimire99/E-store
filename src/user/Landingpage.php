@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/buyer/landingpage.css">
-    <link rel="stylesheet" href="../css/fadeup.css">
-    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/src/css/buyer/landingpage.css">
+    <link rel="stylesheet" href="/src/css/fadeup.css">
+    <title>home</title>
 
 </head>
 
@@ -73,19 +73,19 @@
 
                     <!-- slide images start -->
                     <div class="slide first">
-                        <img src="../images/slider/angela-bailey-jlo7Bf4tUoY-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/angela-bailey-jlo7Bf4tUoY-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="../images/slider/christopher-gower-_aXa21cf7rY-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/christopher-gower-_aXa21cf7rY-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="../images/slider/denny-muller-mGP8gyGb8zY-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/denny-muller-mGP8gyGb8zY-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="../images/slider/jazmin-quaynor-FoeIOgztCXo-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/jazmin-quaynor-FoeIOgztCXo-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="../images/slider/virender-singh-hE0nmTffKtM-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/virender-singh-hE0nmTffKtM-unsplash.jpg" alt="">
                     </div>
                     <!-- Slide image end -->
                     <!-- automatic navigation start -->
@@ -118,19 +118,19 @@
             <div class="category">
                 <div class="product">
                     <a href="">
-                        <img class="product-img" src="../images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
+                        <img class="product-img" src="/src/images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
                         <span>Electronics</span>
                     </a>
                 </div>
                 <div class="product">
                     <a href="">
-                        <img class="product-img" src="../images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="image can't be loaded">
+                        <img class="product-img" src="/src/images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="image can't be loaded">
                         <span>Furnitures</span>
                     </a>
                 </div>
                 <div class="product">
                     <a href="">
-                        <img class="product-img" src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                        <img class="product-img" src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                         <span>Shoes </span>
                     </a>
                 </div>
@@ -143,7 +143,7 @@
             <div class="product-card" id="ProductCards">
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -185,7 +185,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -235,7 +235,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -243,7 +243,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -285,7 +285,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -335,7 +335,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -385,7 +385,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -393,7 +393,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -435,7 +435,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -443,7 +443,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -485,7 +485,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -493,7 +493,7 @@
                 </div>
                 <div class="card fade-up">
                     <!-- <div class="card-image"> -->
-                    <img src="../images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
                     <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
@@ -535,7 +535,7 @@
                                 </h6>
                             </div>
                             <button>
-                                <a href="product.php">Buy Now</a>
+                                <a href="/productdetails">Buy Now</a>
                             </button>
                         </div>
                     </div>
@@ -565,7 +565,7 @@
 
     </script>
    
-   <script src="../js/FadeUpAnimation.js"></script>
+   <script src="/src/js/FadeUpAnimation.js"></script>
 
 </body>
 

@@ -6,6 +6,6 @@
     <title>Notification</title>
 </head>
 <body>
-    WishLists
+    <h1>notifiaction</h1>
 </body>
 </html>
