@@ -25,7 +25,7 @@
                     <h1>Seller - Sign Up </h1>
                     <h3>sell your best products</h3>
                     <p>If you already have an account</p>
-                    <p>You can <a href="../user/login.php"> Login here!</a> </p>
+                    <p>You can <a href="/login"> Login here!</a> </p>
                 </div>
                 <div class="svg">
                     <svg class="img" width="313" height="470" viewBox="0 0 313 470" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

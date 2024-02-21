@@ -64,14 +64,18 @@ li svg{
 }
 
 li:hover{
-    background-color: #4D47C3;
+    background-color: #F8FAFF;
 }
 
 li:hover a{
-    color: #FFFFFF;
+    color: #000000;
 }
 
+li a i{
+    width: 18px;
+    height: 18px;
+}
 .active{
-    background-color: #4D47C3;
+    background-color: #F8FAFF;
     color: #FFFFFF;
 }
