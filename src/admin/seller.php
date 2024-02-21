@@ -7,13 +7,66 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/admin/dashboard.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td button {
+            background: #FF4742;
+            border: 1px solid #FF4742;
+            border-radius: 6px;
+            box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 16px;
+            min-height: 40px;
+            outline: 0;
+            padding: 12px 14px;
+            text-align: center;
+            text-rendering: geometricprecision;
+            text-transform: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+        }
+
+        td button:hover,
+        td button:active {
+            background-color: initial;
+            background-position: 0 0;
+            color: #FF4742;
+        }
+        td button:active {
+            opacity: .5;
+        }
+    </style>
 </head>
 
 <body>
     <!-- sidebar -->
     <div class="sidebar">
-        <ul> 
-            <li >
+        <ul>
+            <li>
                 <a href="dashboard.php" class="sidebar-link">Dashboard</a>
             </li>
             <li class="active">
@@ -39,38 +92,76 @@
                 </svg>
             </a>
         </div>
-            <div class="nav-elements">
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    
+        <div class="nav-elements">
+            <div class="search">
+                <input type="text" placeholder="Search">
+
+            </div>
+
+            <div class="profile_elements">
+                <div class="notification">
+                    <a href=""> <i class="fa-regular fa-bell"></i></a>
                 </div>
 
-                <div class="profile_elements">
-                    <div class="notification">
-                        <a href="">  <i class="fa-regular fa-bell"></i></a> 
-                      </div>
-      
-                      
-                      <div class="profile">
-                            <a href="">
-                              <img src="profile.jpg" alt="profile_pic">
-                            </a>
-                      </div> 
+
+                <div class="profile">
+                    <a href="">
+                        <img src="profile.jpg" alt="profile_pic">
+                    </a>
                 </div>
-                
             </div>
+
+        </div>
     </div>
 
     <div class="main-container">
         <div class="main-content">
             <div class="content">
-                <h1>Dashboard</h1>
-                <p> Welcome to the admin seller page
-                </p>
+                <!-- <p> Welcome to the admin seller page</p> -->
+                <h1>sellers Records</h1>
+
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>email</th>
+                        <th>Contact</th>
+                        <th>delete</th>
+                    </tr>
+                    <?php
+                    include("../Database/connect.php");
+
+                    $sql = "select * FROM user WHERE isseller = '1'";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] . 
+                            "</td><td>". $row["contact"] . 
+                            "</td><td> <button onclick= 'deleteRecord(" . $row["id"] ." )'> Delete </button> </td></tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No sellers are registered</td></tr>";
+                    
+                    }
+                    ?>
+
+                </table>
+
+
             </div>
         </div>
     </div>
 
+    <script>
+        function deleteRecord(id){
+            if (confirm("Are you sure you want to delete this record?")) {
+            window.location.href = 'delete_record.php?id=' + id;
+        }
+        }
+    </script>
 
 
 </body>

@@ -24,8 +24,11 @@
 
 .sidebar ul{
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
 
 }
 
@@ -37,7 +40,7 @@
     display: block;
     justify-content: space-around;
     align-items: start;
-margin: 10px;
+    margin: 10px;
 }
 
 
@@ -50,16 +53,17 @@ margin: 10px;
     display: block;
     align-items: center;
     justify-content: space-around;
-    padding: 20px;
+    padding: 10px;
     gap: 50px;
     transition: 0.5s;
+    font-size: 25px;
 }
 .sidebar-link{
     background-color:transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     transition: 0.5s;
     z-index: 1;
 }
@@ -154,4 +158,13 @@ svg{
     transition: 0.5s;
     height: 100vh;
     width: 80%;
+}
+
+.main-content{
+    background-color: #ffffff;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff; */
 }
