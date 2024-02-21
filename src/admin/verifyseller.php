@@ -7,6 +7,61 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/src/css/admin/dashboard.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
+
+    <style>
+         table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #FFFFFF;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            background-color: #FFFFFF;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td button {
+            background: #FF4742;
+            border: 1px solid #FF4742;
+            border-radius: 6px;
+            box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 16px;
+            min-height: 40px;
+            outline: 0;
+            padding: 12px 14px;
+            text-align: center;
+            text-rendering: geometricprecision;
+            text-transform: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+        }
+
+        td button:hover,
+        td button:active {
+            background-color: initial;
+            background-position: 0 0;
+            color: #FF4742;
+        }
+        td button:active {
+            opacity: .5;
+        }
+    </style>
 </head>
 
 <body>
@@ -64,9 +119,37 @@
     <div class="main-container">
         <div class="main-content">
             <div class="content">
-                <h1>Dashboard</h1>
-                <p> Welcome to the admin seller verification page
-                </p>
+                <h1>Verify sellers</h1>
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>email</th>
+                        <th>Contact</th>
+                        <th>view details</th>
+                        <th>verify</th>
+                    </tr>
+                    <?php
+                    include("src/Database/connect.php");
+
+                    $sql = "select * FROM user WHERE isseller = '1'";
+
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] . 
+                            "</td><td>". $row["contact"] . 
+                            "</td><td> <button > View details </button> </td><td> <button > verify </button> </td></tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No sellers are registered</td></tr>";
+                    
+                    }
+                    ?>
+
+                </table>
             </div>
         </div>
     </div>
