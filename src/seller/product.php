@@ -4,16 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seller Dashboard</title>
+    <title>Product</title>
     <link rel="stylesheet" href="../css/seller/dashboard.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-        .content{
-            width:80%;
-            background-color: red;
+
+        .content {
+            width: 80%;
+            height: 100vh;
+            background-color: #F8F7FC;
+        }
+
+        .content .header{
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+        }
+        
+        .header h1{
+            font-size: 24px;
+            /* font-weight: 500; */
+            color: #333333;
+            margin-left: 20px;
+        }
+
+        .form{
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        .title{
+            width:60%;
+            height: auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .title h4{
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .title input{
+            width: 100%;
+            height: 40px;
+            margin: 10px 0px;
+            padding: 10px;
+            border: 1px solid #E5E5E5;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .title #short-des{
+            height: 150px;
+            width: 100%;
+            margin:10px 0px;
+            padding: 5px;
+            color:grey;
+            border: 1px solid #E5E5E5;
+            border-radius: 5px;
+            outline: none;
+        }
+
+
+        
+        .title #des{
+            height: 200px;
+            width: 100%;
+            margin:10px 0px;
+            padding: 5px;
+            color:gray;
+            border: 1px solid #E5E5E5;
+            border-radius: 5px;
+            outline: none;
         }
     </style>
 </head>
@@ -28,18 +97,18 @@
         </div>
         <nav>
             <ul>
-                <li class="active"><a href="dashboard.php"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="dashboard.php"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 10H7C7.55 10 8 9.55 8 9V1C8 0.45 7.55 0 7 0H1C0.45 0 0 0.45 0 1V9C0 9.55 0.45 10 1 10ZM1 18H7C7.55 18 8 17.55 8 17V13C8 12.45 7.55 12 7 12H1C0.45 12 0 12.45 0 13V17C0 17.55 0.45 18 1 18ZM11 18H17C17.55 18 18 17.55 18 17V9C18 8.45 17.55 8 17 8H11C10.45 8 10 8.45 10 9V17C10 17.55 10.45 18 11 18ZM10 1V5C10 5.55 10.45 6 11 6H17C17.55 6 18 5.55 18 5V1C18 0.45 17.55 0 17 0H11C10.45 0 10 0.45 10 1Z" fill="#A7B7DD" />
                         </svg>Dashboard</a></li>
                 <li><a href="orders.php"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 16C4.9 16 4.01 16.9 4.01 18C4.01 19.1 4.9 20 6 20C7.1 20 8 19.1 8 18C8 16.9 7.1 16 6 16ZM0 1C0 1.55 0.45 2 1 2H2L5.6 9.59L4.25 12.03C3.52 13.37 4.48 15 6 15H17C17.55 15 18 14.55 18 14C18 13.45 17.55 13 17 13H6L7.1 11H14.55C15.3 11 15.96 10.59 16.3 9.97L19.88 3.48C19.9643 3.32843 20.0075 3.15747 20.0054 2.98406C20.0034 2.81064 19.956 2.64077 19.8681 2.49126C19.7803 2.34175 19.6549 2.21778 19.5043 2.13162C19.3538 2.04546 19.1834 2.00009 19.01 2H4.21L3.54 0.570001C3.45963 0.399307 3.3323 0.255042 3.17291 0.154095C3.01352 0.0531475 2.82867 -0.000302861 2.64 1.29085e-06H1C0.45 1.29085e-06 0 0.450001 0 1ZM16 16C14.9 16 14.01 16.9 14.01 18C14.01 19.1 14.9 20 16 20C17.1 20 18 19.1 18 18C18 16.9 17.1 16 16 16Z" fill="#A7B7DD" />
                         </svg>
                         Orders</a></li>
-                <li><a href="product.php"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li class="active"><a href="product.php"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z" fill="#A7B7DD" />
                         </svg>Product
                     </a></li>
-                    <li>
+                <li>
                     <a href="inventory.php"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1916 5.13895L4.08961 7.18995L12.73 11.8701L16.8319 9.81914L8.1916 5.13895ZM2.96558 8.28701V17.2155C2.96558 17.4996 3.12608 17.7593 3.38017 17.8863L11.9655 22.179V13.162L2.96558 8.28701ZM13.4655 22.1791L22.051 17.8863C22.3051 17.7593 22.4656 17.4996 22.4656 17.2155V8.67937L18.9655 10.4294V13.2156C18.9655 13.6298 18.6297 13.9656 18.2155 13.9656C17.8013 13.9656 17.4655 13.6298 17.4655 13.2156V11.1794L13.4655 13.1794V22.1791ZM21.7159 7.37714L13.051 3.04467C12.8398 2.9391 12.5913 2.9391 12.3802 3.04467L9.82928 4.32011L18.4696 9.0003L21.7159 7.37714Z" fill="#A7B7DD" />
                         </svg>
@@ -57,7 +126,28 @@
         </nav>
     </div>
     <div class="content">
-        <h1>Dashboard</h1>
+        <div class="header">
+            <h1>Add Product</h1>
+        </div>
+        <div class="form">
+            <form action="inventory.php" method="post">
+                <div class="title">
+                    <h4>Title</h3>
+                    <input type="text" name="title" id="title" placeholder="Enter product title">
+                    <h4>Short Description</h3>   
+                    <textarea name="short-des" id="short-des" cols="30" rows="10">Short Description</textarea>
+                    <h4>Description</h4>
+                    <textarea name="des" id="des" cols="30" rows="10">Description</textarea>
+                </div>
+
+                <div class="Media">
+                    
+                </div>
+
+            
+
+        </form>
+        </div>        
     </div>
 </body>
 
