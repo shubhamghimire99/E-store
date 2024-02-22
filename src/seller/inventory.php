@@ -1,5 +1,5 @@
 <?php
-    include "src/seller/authentication.php";
+include "src/seller/authentication.php";
 ?>
 
 
@@ -14,12 +14,77 @@
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-        .content{
-            width:80%;
+
+        .content {
+            width: 80%;
             background-color: #F5F5F5;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            padding: 20px 0px 20px 20px;
+        }
+
+        .wrapper {
+            width: auto;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-top: 40px;
+        }
+
+
+        .table .heading {
+            width: 100%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: flex-start;
+            padding: 0 50px;
+        }
+
+        .table h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #000000;
+            padding: 20px 0;
+        }
+
+        .table {
+            width: 80%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            border-spacing: 0;
+
+        }
+
+        th {
+            background-color: grey;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 0px;
+        }
+
+        td {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 0px;
+            text-align: center;
+            background-color: #FFFFFF;
         }
     </style>
 </head>
@@ -34,7 +99,7 @@
         </div>
         <nav>
             <ul>
-            <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 10H7C7.55 10 8 9.55 8 9V1C8 0.45 7.55 0 7 0H1C0.45 0 0 0.45 0 1V9C0 9.55 0.45 10 1 10ZM1 18H7C7.55 18 8 17.55 8 17V13C8 12.45 7.55 12 7 12H1C0.45 12 0 12.45 0 13V17C0 17.55 0.45 18 1 18ZM11 18H17C17.55 18 18 17.55 18 17V9C18 8.45 17.55 8 17 8H11C10.45 8 10 8.45 10 9V17C10 17.55 10.45 18 11 18ZM10 1V5C10 5.55 10.45 6 11 6H17C17.55 6 18 5.55 18 5V1C18 0.45 17.55 0 17 0H11C10.45 0 10 0.45 10 1Z" fill="#A7B7DD" />
                         </svg>Dashboard</a></li>
                 <li><a href="/seller-order"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +110,7 @@
                             <path d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z" fill="#A7B7DD" />
                         </svg>Product
                     </a></li>
-                    <li  class="active">
+                <li class="active">
                     <a href="/seller-inventory"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1916 5.13895L4.08961 7.18995L12.73 11.8701L16.8319 9.81914L8.1916 5.13895ZM2.96558 8.28701V17.2155C2.96558 17.4996 3.12608 17.7593 3.38017 17.8863L11.9655 22.179V13.162L2.96558 8.28701ZM13.4655 22.1791L22.051 17.8863C22.3051 17.7593 22.4656 17.4996 22.4656 17.2155V8.67937L18.9655 10.4294V13.2156C18.9655 13.6298 18.6297 13.9656 18.2155 13.9656C17.8013 13.9656 17.4655 13.6298 17.4655 13.2156V11.1794L13.4655 13.1794V22.1791ZM21.7159 7.37714L13.051 3.04467C12.8398 2.9391 12.5913 2.9391 12.3802 3.04467L9.82928 4.32011L18.4696 9.0003L21.7159 7.37714Z" fill="#A7B7DD" />
                         </svg>
@@ -73,6 +138,50 @@
     </div>
     <div class="content">
         <h1>INVENTORY</h1>
+        <div class="wrapper">
+            <div class="table">
+                <div class="heading">
+                    <h4>Products</h4>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Price(Rs)</th>
+                        <th>Vendor</th>
+                        <th>Category</th>
+                        <th>Stock</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                        include "src/Database/connect.php";
+                        $sql = "SELECT * from `product`";
+                        $result = $conn->query($sql);
+                        if($result){
+                            while($row=mysqli_fetch_assoc($result)){
+                                $title = $row['title'];
+                                $image = $row['image'];
+                                $price = $row['price'];
+                                $vendor = $row['vendor'];
+                                $category = $row['product_type'];
+                                $stock = $row['quantity'];
+                                echo'<tr>
+                                    <td>'.$title.'</td>
+                                    <td><img src="'.$image.'" alt="image" width="50px" height="50px"></td>
+                                    <td>'.$price.'</td>
+                                    <td>'.$vendor.'</td>
+                                    <td>'.$category.'</td>
+                                    <td>'.$stock.'</td>
+                                    </tr>';
+                            }
+                        }
+                    ?>  
+                </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
