@@ -249,9 +249,7 @@ include "src/seller/authentication.php";
         function deleteProduct(id){
             if (confirm("Are you sure you want to verify this seller?")) {
                 window.location.href = "/seller-delete-product?id="+id;
-            }
-
-            
+            }   
         }
 
     </script>

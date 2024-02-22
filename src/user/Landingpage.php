@@ -1,6 +1,14 @@
 <!-- landing page for buyer -->
 <?php
-    include 'src/user/authentication.php';
+include 'src/user/authentication.php';
+
+include 'src/database/connect.php';
+
+// get all products
+$sql = "SELECT * FROM product";
+$result = mysqli_query($conn, $sql);
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 ?>
 
 
@@ -147,10 +155,109 @@
         <div class="cards">
             <h1 class="fade-up">Our Products</h1>
             <div class="product-card" id="ProductCards">
-                <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
+                <?php foreach ($products as $product) : ?>
+                    <div class="card fade-up">
+                        <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
+                        <div class="card-desc">
+                            <h3><?php echo $product['title']; ?></h3>
+                            <p><?php echo $product['des']; ?></p>
+                            <h6>Rs.<?php echo $product['price']; ?></h6>
+                            <ul>
+                                <!-- <?php for ($i = 0; $i < $product['rating']; $i++) : ?>
+                                    <li><i class="fa fa-star checked"></i></li>
+                                <?php endfor; ?>
+                                <?php for ($i = $product['rating']; $i < 5; $i++) : ?>
+                                    <li><i class="fa fa-star"></i></li>
+                                <?php endfor; ?> -->
+                            </ul>
+                        </div>
+                        <div class="additional-content">
+                            <div class="content">
+                                <button>
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    Add To Cart
+                                </button>
+                                <div class="share">
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            Share
+                                        </a>
+                                    </h6>
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-solid fa-code-compare"></i>
+                                            Compare
+                                        </a>
+                                    </h6>
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-regular fa-heart"></i>
+                                            Like
+                                        </a>
+                                    </h6>
+                                </div>
+                                <button>
+                                    <a href="/productdetails">Buy Now</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+                <!-- <div class="card fade-up">
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
+                    <div class="additional-content">
+                        <div class="content"> 
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                <a href="/productdetails">Buy Now</a>
+                            </button>
+                        </div>
+                    </div>
+
+                </div> -->
+                <!-- 
+                <div class="card fade-up">
+                   
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+                 
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -198,9 +305,7 @@
 
                 </div>
                 <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -248,9 +353,56 @@
 
                 </div>
                 <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
+                    <div class="card-desc">
+                        <h3>Shoes</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <h6>Rs.2000</h6>
+                        <ul>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star checked"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+                    </div>
+
+                    <div class="additional-content">
+                        <div class="content"> 
+                            <button>
+                                <i class="fa-solid fa-cart-plus"></i>
+                                Add To Cart
+                            </button>
+                            <div class="share">
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-share-nodes"></i>
+                                        Share
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-solid fa-code-compare"></i>
+                                        Compare
+                                    </a>
+                                </h6>
+                                <h6>
+                                    <a href="">
+                                        <i class="fa-regular fa-heart"></i>
+                                        Like
+                                    </a>
+                                </h6>
+                            </div>
+                            <button>
+                                <a href="/productdetails">Buy Now</a>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card fade-up">  
+                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
+
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -298,9 +450,9 @@
 
                 </div>
                 <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
+                   
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
+                   
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -348,9 +500,9 @@
 
                 </div>
                 <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
+                   
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
+                
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -398,9 +550,9 @@
 
                 </div>
                 <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
+                  
                     <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
+                  
                     <div class="card-desc">
                         <h3>Shoes</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
@@ -447,131 +599,30 @@
                     </div>
 
                 </div>
-                <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
+                </div> -->
 
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                    <!-- <div class="card-image"> -->
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <!-- </div> -->
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
+                <div class="btn fade-up">
+                    <button id="loadmorebtn">Show More</button>
                 </div>
             </div>
 
-            <div class="btn fade-up">
-                <button id="loadmorebtn">Show More</button>
-            </div>
+            <?php include('Footer.php'); ?>
+
         </div>
 
-        <?php include('Footer.php'); ?>
+        <!-- Slider Js -->
+        <script>
+            var counter = 1;
+            setInterval(function() {
+                document.getElementById('radio' + counter).checked = true;
+                counter++;
+                if (counter > 5) {
+                    counter = 1;
+                }
+            }, 3000);
+        </script>
 
-    </div>
-
-    <!-- Slider Js -->
-    <script>
-        var counter = 1;
-        setInterval(function() {
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if (counter > 5) {
-                counter = 1;
-            }
-        }, 3000);
-
-    </script>
-   
-   <script src="/src/js/FadeUpAnimation.js"></script>
+        <script src="/src/js/FadeUpAnimation.js"></script>
 
 </body>
 
