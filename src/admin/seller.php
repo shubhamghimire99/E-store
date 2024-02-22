@@ -58,6 +58,7 @@ include 'src/admin/authentication.php';
                 <th>Name</th>
                 <th>email</th>
                 <th>Contact</th>
+                <th>verified</th>
                 <th>delete</th>
             </tr>
             <?php
@@ -72,6 +73,7 @@ include 'src/admin/authentication.php';
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
                         "</td><td>" . $row["contact"] .
+                        "</td><td>" .  ($row["isVerified"] ==1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>") .
                         "</td><td> <button onclick= 'deleteRecord(" . $row["id"] . " )'> Delete </button> </td></tr>";
                 }
             } else {

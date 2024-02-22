@@ -70,7 +70,8 @@ include 'src/admin/authentication.php';
                     echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
                         "</td><td>" . $row["contact"] .
                         "</td><td> <button> View details </button > </td><td> 
-                                <button id='verifyButton' onclick = 'verifySeller(" . $row["id"] . ") '> " .
+                                <button id='verifyButton' onclick =
+                                'verifySeller(" . $row["id"] . ") '> " .
                         ($row["isVerified"] == 1 ? "Verified"  : "Verify") .
                         "</button> </td></tr>";
                 }
