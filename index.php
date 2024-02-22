@@ -19,6 +19,8 @@ $routes = [
     "/seller-inventory" => "src/seller/inventory.php",
     "/seller-payment" => "src/seller/payment.php",
     "/seller-setting" => "src/seller/settings.php",
+    "/connect" => "src/Database/connect.php",
+    "/inventory" => "src/seller/inventory.php",
     
 ];
 

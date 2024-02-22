@@ -10,7 +10,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         .content{
             width:80%;
-            background-color: red;
+            background-color: #F5F5F5;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,7 +57,7 @@
         </nav>
     </div>
     <div class="content">
-        <h1>iNVENTORY</h1>
+        <h1>INVENTORY</h1>
     </div>
 </body>
 

@@ -1,3 +1,40 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "ROOT";
+$dbname = "ESTORE";
+
+// Create Connection
+$conn = new mysqli($servername, $username, $password , $dbname);
+
+if ($conn->connect_error) {
+    die("connection Failed: " . $conn->connect_error);
+}
+
+
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $short_des = $_POST['short-des'];
+    $des = $_POST['des'];
+    $image = $_POST['image'];
+    $price = $_POST['price'];
+    $brand = $_POST['brand'];
+    $product_type = $_POST['product_type'];
+    $vendor = $_POST['vendor'];
+    $quantity = $_POST['quantity'];
+
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$image','$price', '$brand', '$product_type', '$vendor', '$quantity')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        header("Location: /inventory");
+    } else {
+        echo "Error:" .mysqli_error($conn);
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,47 +48,48 @@
 
         .content {
             width: 80%;
-            height: 100vh;
+            height: auto;
             background-color: #F8F7FC;
         }
 
-        .content .header{
+        .content .header {
             display: flex;
             justify-content: space-between;
             padding: 30px;
         }
-        
-        .header h1{
+
+        .header h1 {
             font-size: 24px;
             /* font-weight: 500; */
             color: #333333;
             margin-left: 20px;
         }
 
-        .form{
+        .form {
             width: 100%;
-            height: 100vh;
+            height: auto;
             margin: 0 auto;
             padding: 50px;
         }
 
-        .title{
-            width:60%;
+        .title {
+            width: 60%;
             height: auto;
             background-color: #FFFFFF;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
-        .title h4{
+        .title h4 {
             font-size: 18px;
             font-weight: 500;
             color: #333333;
             margin-bottom: 10px;
         }
 
-        .title input{
+        .title input {
             width: 100%;
             height: 40px;
             margin: 10px 0px;
@@ -61,28 +99,81 @@
             outline: none;
         }
 
-        .title #short-des{
+        .title #short-des {
             height: 150px;
             width: 100%;
-            margin:10px 0px;
+            margin: 10px 0px;
             padding: 5px;
-            color:grey;
+            color: grey;
             border: 1px solid #E5E5E5;
             border-radius: 5px;
             outline: none;
         }
 
 
-        
-        .title #des{
+
+        .title #des {
             height: 200px;
             width: 100%;
-            margin:10px 0px;
+            margin: 10px 0px;
             padding: 5px;
-            color:gray;
+            color: gray;
             border: 1px solid #E5E5E5;
             border-radius: 5px;
             outline: none;
+        }
+
+        .Media {
+            width: 60%;
+            height: auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .pricing {
+            width: 60%;
+            height: auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .pricing h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .pricing h6 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            display: flex;
+        }
+
+        .inner-price {
+            height: auto;
+            padding: 10px;
+        }
+
+        .extra {
+            width: 60%;
+            height: auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -97,7 +188,7 @@
         </div>
         <nav>
             <ul>
-            <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 10H7C7.55 10 8 9.55 8 9V1C8 0.45 7.55 0 7 0H1C0.45 0 0 0.45 0 1V9C0 9.55 0.45 10 1 10ZM1 18H7C7.55 18 8 17.55 8 17V13C8 12.45 7.55 12 7 12H1C0.45 12 0 12.45 0 13V17C0 17.55 0.45 18 1 18ZM11 18H17C17.55 18 18 17.55 18 17V9C18 8.45 17.55 8 17 8H11C10.45 8 10 8.45 10 9V17C10 17.55 10.45 18 11 18ZM10 1V5C10 5.55 10.45 6 11 6H17C17.55 6 18 5.55 18 5V1C18 0.45 17.55 0 17 0H11C10.45 0 10 0.45 10 1Z" fill="#A7B7DD" />
                         </svg>Dashboard</a></li>
                 <li><a href="/seller-order"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +199,7 @@
                             <path d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z" fill="#A7B7DD" />
                         </svg>Product
                     </a></li>
-                    <li>
+                <li>
                     <a href="/seller-inventory"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1916 5.13895L4.08961 7.18995L12.73 11.8701L16.8319 9.81914L8.1916 5.13895ZM2.96558 8.28701V17.2155C2.96558 17.4996 3.12608 17.7593 3.38017 17.8863L11.9655 22.179V13.162L2.96558 8.28701ZM13.4655 22.1791L22.051 17.8863C22.3051 17.7593 22.4656 17.4996 22.4656 17.2155V8.67937L18.9655 10.4294V13.2156C18.9655 13.6298 18.6297 13.9656 18.2155 13.9656C17.8013 13.9656 17.4655 13.6298 17.4655 13.2156V11.1794L13.4655 13.1794V22.1791ZM21.7159 7.37714L13.051 3.04467C12.8398 2.9391 12.5913 2.9391 12.3802 3.04467L9.82928 4.32011L18.4696 9.0003L21.7159 7.37714Z" fill="#A7B7DD" />
                         </svg>
@@ -130,24 +221,55 @@
             <h1>Add Product</h1>
         </div>
         <div class="form">
-            <form action="inventory.php" method="post">
+            <form action="# " method="post">
                 <div class="title">
                     <h4>Title</h3>
-                    <input type="text" name="title" id="title" placeholder="Enter product title">
-                    <h4>Short Description</h3>   
-                    <textarea name="short-des" id="short-des" cols="30" rows="10">Short Description</textarea>
-                    <h4>Description</h4>
-                    <textarea name="des" id="des" cols="30" rows="10">Description</textarea>
+                        <input type="text" name="title" id="title" placeholder="Enter product title">
+                        <h4>Short Description</h3>
+                            <textarea name="short-des" id="short-des" cols="30" rows="10">Short Description</textarea>
+                            <h4>Description</h4>
+                            <textarea name="des" id="des" cols="30" rows="10">Description</textarea>
                 </div>
 
                 <div class="Media">
-                    
+                    <input type="file" name="image" placeholder="upload new">
                 </div>
 
-            
+                <div class="pricing">
+                    <h4>Pricing</h4>
+                    <div class="price">
 
-        </form>
-        </div>        
+                        <div class="inner-price">
+                            <h6>Price</h6>
+                            <input type="text" name="price" placeholder="price">
+                        </div>
+                        <div class="inner-price">
+                            <h6>Compare-at price</h6>
+                            <input type="text" name="compare-price" placeholder="compare price">
+                        </div>
+                    </div>
+                    <div class="profit">
+                        <div class="inner-profit">
+                            <input type="text" placeholder="Rs 100">
+                        </div>
+                        <div class="inner-profit">
+                            <input type="text" placeholder="--">
+                        </div>
+                    </div>
+                </div>
+                <div class="extra">
+                    <h4>product type</h4>
+                    <input type="text" name="product_type" placeholder="product type">
+                    <h4>Vendor</h4>
+                    <input type="text" name="vendor" placeholder="vendor">
+                    <h4>Brand</h4>
+                    <input type="text" name="brand" placeholder="brand">
+                    <h4>Quantity</h4>
+                    <input type="number" name="quantity" placeholder="quantity">
+                </div>
+                <button type="submit" name="submit">Save</button>
+            </form>
+        </div>
     </div>
 </body>
 
