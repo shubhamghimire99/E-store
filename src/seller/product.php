@@ -6,6 +6,7 @@
 
     include "src/Database/connect.php";
 
+
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $short_des = $_POST['short-des'];
@@ -15,9 +16,10 @@ if (isset($_POST['submit'])) {
     $brand = $_POST['brand'];
     $product_type = $_POST['product_type'];
     $vendor = $_POST['vendor'];
-    $quantity = $_POST['quantity'];
+    $quantity = $_POST['quantity']; 
+    $userid = $_SESSION['user_id'];
 
-    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$image','$price', '$brand', '$product_type', '$vendor', '$quantity')";
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$image' , '$userid','$price', '$brand', '$product_type', '$vendor', '$quantity')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: /inventory");
