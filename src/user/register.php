@@ -2,7 +2,7 @@
 include "src/Database/connect.php";
 
 if(isset($_POST['submit'])){
-    $firstname = $_POST['firstName'];
+    $firstname = $_POST['firstName'];   
     $lastname = $_POST['lastName'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
     
 
     //sql query to insert data into database
-    $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`,`isAdmin`,`isSeller`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email',0,0,'$contact', '$ctext')";
+    $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`,`isAdmin`,`isSeller`,`isVerified`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email',0,0,0,'$contact', '$ctext')";
 
     
     if($conn->query($sql) === TRUE){

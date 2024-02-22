@@ -1,6 +1,28 @@
 
 <?php
-    include "src/seller/authentication.php";
+    include "src/Database/connect.php";
+    if(isset($_POST['submit'])){
+        $firstname = $_POST['firstName'];   
+        $lastname = $_POST['lastName'];
+        $email = $_POST['email'];
+        $contact = $_POST['contact'];
+        $password = $_POST['Pass'];
+        $ctext = base64_encode($password);
+        
+    
+        //sql query to insert data into database
+        $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`,`isAdmin`,`isSeller`,`isVerified`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email',0,1,0,'$contact', '$ctext')";
+    
+        
+        if($conn->query($sql) === TRUE){
+            header('location: /login');
+        }else{
+            echo "Error:" .mysqli_error($conn);
+        }
+    }
+     
+    $conn->close();
+    
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +37,27 @@
 </head>
 
 <body>
+<script>
+        
+        function validateform(){
+            const password = document.getElementById("pass");
+            const cpassword = document.getElementById("confirm_pass");
+            var error = document.getElementById('password_mismatch');
+
+             error.style.color = "red";
+            // cpassword.parentNode.insertBefore(error,cpassword);
+            
+            if(password.value != cpassword.value){
+                // error.textContent = "Password does not match";
+                error.style.display = "block";
+                return false;
+            }else{
+                error.style.display = "none";
+                return true;
+            }
+        }
+    </script>
+
     <div class="container">
         <div class="wrapper">
             <div class="logo">
@@ -47,20 +90,18 @@
         </div>
         <div class="content">
 
-            <form action="registerProcess.php" method="post" class="form">
+            <form action="#" onsubmit="return validateform()" method="post" class="form">
                 <div class="sign-up">
                     <h2>Sign Up</h2>
                 </div>
-                <input type="email" name="email" id="email" placeholder="Enter Email">
-                <input type="text" name="firstName" id="firstname" placeholder="Enter First Name"> 
-                <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name">
-                <input type="text" name="contact" id='contact' placeholder="Contact number">
-                <input type="password" name="Pass" id="pass" placeholder="Password">
-                <input type="password" name="confirmPass" id="confirmPass" placeholder="Confirm Password">
-                <input type="file" class="custom-file-input" id="citizenship" name="citizenship" placeholder="citizenship" required>
-                <input type="file" class="custom-file-input" id="panNumber" name="panNumber" placeholder="pan number" required>
-                <input type="file" class="custom-file-input" id="registrationCertificate" name="registrationCertificate" placeholder="Company Registration Certificate" required> 
-                <button>Register</button>
+                <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                <input type="text" name="firstName" id="firstname" placeholder="Enter First Name" required> 
+                <input type="text" name="lastName" id="lastname" placeholder="Enter Last Name" required>
+                <input type="text" name="contact" id='contact' minlength="10" maxlength="10" placeholder="Contact number" required>
+                <input type="password" name="Pass" id="pass" placeholder="Password" required>
+                <div id="password_mismatch" style="display: none; font-size: 12px;">Password does not match!</div>
+                <input type="password" name="con_pass" id="confirm_pass" placeholder="Confirm password" required>
+                <button type="submit" name="submit">Register</button>
 
             </form>
         </div>
