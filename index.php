@@ -22,6 +22,8 @@ $routes = [
     "/connect" => "src/Database/connect.php",
     "/inventory" => "src/seller/inventory.php",
     "/verify" => "src/admin/verify.php",
+    "/seller-edit-product"=> "src/seller/edit_product.php",
+    "/seller-delete-product"=> "src/seller/delete_product.php",
     "/logout" => "src/Database/logout.php",
 ];
 
