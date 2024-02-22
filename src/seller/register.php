@@ -1,3 +1,8 @@
+
+<?php
+    include "src/seller/authentication.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,8 @@
+<?php
+    include 'src/admin/authentication.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +83,7 @@
                 <a href="/sellerverify" class="sidebar-link">Verify Seller</a>
             </li>
             <li>
-                <a href="#" class="sidebar-link">Logout</a>
+                <a href="/logout" class="sidebar-link">Logout</a>
             </li>
         </ul>
     </div>

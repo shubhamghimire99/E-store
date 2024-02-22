@@ -6,42 +6,70 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     $email = $_POST['email'];
     $password = base64_encode( $_POST['pass']);
 
-    
-
     if(!empty($email) && !empty($password) && !is_numeric($email)){
-        $query = "select * from user where email = '$email' limit 1";
+        $query = "SELECT * FROM user WHERE email='$email' AND pass='$password'";
         $result = mysqli_query($conn,$query);
-        if($result){
-            if($result && mysqli_num_rows($result) > 0){
-                $user_data = mysqli_fetch_assoc($result);
-                if($user_data['pass'] === $password){
-                    if($user_data['isAdmin'] == 1 ){
-                        $_SESSION['id'] = $user_data['id'];
-                        header("Location: /admin");
-                        die;
-                    }
-                    elseif ($user_data['isSeller'] == 1) {
-                        $_SESSION['id'] = $user_data['id'];
-                        header("Location: /seller-dashboard");
-                        die;
-                    }
-                    
-                    else{
-                        $_SESSION['user_id'] = $user_data['user_id'];
-                    header("Location: /");
-                    die;
-                    }
-                    
-                }
+
+        if(mysqli_num_rows($result) == 1){
+            $row = mysqli_fetch_assoc($result);
+            $_SESSION['user_id'] = $row['id'];
+
+            if($row['isAdmin']){
+                $_SESSION['role'] = 'admin';
+                 header("Location: /admin");
+               
+            }
+            elseif ($row['isSeller']) {
+                $_SESSION['role'] = 'seller';
+                header("Location: /seller-dashboard");
+                
+            }
+            else{
+                $_SESSION['role'] = 'buyer';
+                header("Location: /");    
             }
         }
-        echo "<script>alert('Please enter some valid information')</script>";
+        else{
+            echo "<script>alert('Please enter some valid information')</script>";
+        }
     }
-    
     else{
-        echo "<script>alert('Please enter some valid information')</script>";
+        echo "<script>alert('user not found')</script>";
+    
     }
 }
+
+    //     if($result){
+    //         if($result && mysqli_num_rows($result) > 0){
+    //             $user_data = mysqli_fetch_assoc($result);
+    //             if($user_data['pass'] === $password){
+    //                 if($user_data['isAdmin'] == 1 ){
+    //                     $_SESSION['id'] = $user_data['id'];
+    //                     header("Location: /admin");
+    //                     die;
+    //                 }
+    //                 elseif ($user_data['isSeller'] == 1) {
+    //                     $_SESSION['id'] = $user_data['id'];
+    //                     header("Location: /seller-dashboard");
+    //                     die;
+    //                 }
+                    
+    //                 else{
+    //                     $_SESSION['user_id'] = $user_data['user_id'];
+    //                 header("Location: /");
+    //                 die;
+    //                 }
+                    
+    //             }
+    //         }
+    //     }
+    //     echo "<script>alert('Please enter some valid information')</script>";
+    // }
+    
+//     else{
+//         echo "<script>alert('Please enter some valid information')</script>";
+//     }
+// }
 
 ?>
 
@@ -89,9 +117,6 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
         </div>
         <div class="content">
             <form class="login-form" action="#" method="post" onsubmit="validateLogin(event)"  novalidate>
-
-            <!--  -->
-
                 <div class="login">
                     <h2>Login</h2>
                 </div>
@@ -131,7 +156,6 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
             </form>
         </div>
     </div>
-    <!-- <script src="../js/buyer/loginvalidate.js"></script> -->
 </body>
 
 </html>

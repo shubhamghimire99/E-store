@@ -19,7 +19,7 @@ $routes = [
     "/seller-inventory" => "src/seller/inventory.php",
     "/seller-payment" => "src/seller/payment.php",
     "/seller-setting" => "src/seller/settings.php",
-    
+    "/logout" => "src/Database/logout.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

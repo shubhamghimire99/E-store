@@ -65,10 +65,11 @@ li svg{
 
 li:hover{
     background-color: #F8FAFF;
+    color: #A7B7DD;
 }
 
 li:hover a{
-    color: #000000;
+    color: #2A4178;
 }
 
 li a i{
@@ -77,5 +78,5 @@ li a i{
 }
 .active{
     background-color: #F8FAFF;
-    color: #FFFFFF;
+    color: #2A4178;
 }
