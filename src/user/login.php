@@ -38,39 +38,6 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     
     }
 }
-
-    //     if($result){
-    //         if($result && mysqli_num_rows($result) > 0){
-    //             $user_data = mysqli_fetch_assoc($result);
-    //             if($user_data['pass'] === $password){
-    //                 if($user_data['isAdmin'] == 1 ){
-    //                     $_SESSION['id'] = $user_data['id'];
-    //                     header("Location: /admin");
-    //                     die;
-    //                 }
-    //                 elseif ($user_data['isSeller'] == 1) {
-    //                     $_SESSION['id'] = $user_data['id'];
-    //                     header("Location: /seller-dashboard");
-    //                     die;
-    //                 }
-                    
-    //                 else{
-    //                     $_SESSION['user_id'] = $user_data['user_id'];
-    //                 header("Location: /");
-    //                 die;
-    //                 }
-                    
-    //             }
-    //         }
-    //     }
-    //     echo "<script>alert('Please enter some valid information')</script>";
-    // }
-    
-//     else{
-//         echo "<script>alert('Please enter some valid information')</script>";
-//     }
-// }
-
 ?>
 
 <!DOCTYPE html>
