@@ -70,6 +70,10 @@
     </div>
     <div class="content">
         <h1>Dashboard</h1>
+
+        <?php
+            echo "Welcome " . $_SESSION['user_id'] . "!";
+        ?>
     </div>
 </body>
 

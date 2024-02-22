@@ -7,7 +7,8 @@ if(!isset($_SESSION['user_id'])) {
 }
 
 if($_SESSION['role'] != 'admin') {
-    echo "You don't have permission to access this page.";
+    echo "You don't have permission to access admin page. Please contact admin for more information.";
     exit();
+    
 }
 ?>

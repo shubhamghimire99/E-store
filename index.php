@@ -21,7 +21,7 @@ $routes = [
     "/seller-setting" => "src/seller/settings.php",
     "/connect" => "src/Database/connect.php",
     "/inventory" => "src/seller/inventory.php",
-    
+    "/verify" => "src/admin/verify.php",
     "/logout" => "src/Database/logout.php",
 ];
 
