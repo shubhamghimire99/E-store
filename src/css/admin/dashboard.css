@@ -1,174 +1,66 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-}
 
-.sidebar{
-    /* margin-top: 70px; */
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    background: #ffffff;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    overflow: hidden;
-    /* z-index: -1; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-}
-
-.sidebar ul{
-    width: 100%;
-    padding: 10px;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-self: start;
-
-}
-
-.sidebar ul li{
-    list-style: none;
-    background-color: #ffffff;
-    padding: 5px;
-    border-radius: 15px;
-    display: block;
-    justify-content: space-around;
-    align-items: start;
-    margin: 10px;
-}
-
-
-
-
-.sidebar ul li a{
-    background-color:transparent;
-    text-decoration: none;
-    color: #000000;
-    display: block;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    gap: 50px;
-    transition: 0.5s;
-    font-size: 25px;
-}
-.sidebar-link{
-    background-color:transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    transition: 0.5s;
-    z-index: 1;
-}
-
-.sidebar ul li a:hover ,.sidebar ul li.active {
-    background-color: #4D47C3 !important;
-    color: #ffffff !important;
-    border-radius: 15px;
-}
-
-
-.admin_nav{
-    height: 70px;
-    width: 100%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-}
-svg{
-    background-color: #ffffff;
-   
-}  
-
-.logo{
-    background-color: #ffffff;
-    margin-left: 0 10px;
-    z-index: 100;
-}
-
-
-.nav-elements{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #ffffff;
-    
-}
-
-.search{
-    background-color: #ffffff;
-    width: 250px;
-}
-.search input{
-    width: 200%;
-    height: 40px;
-    border-radius: 20px;
-    border: 1px solid #000000;
-    padding: 0 10px;
-    background-color: #ffffff;
-}
-
-.profile_elements{
-    background-color: #ffffff;
-    width: 200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-.notification{
-    background-color: #ffffff;
-}
-
-.notification a{
-    background-color: #ffffff;
-    text-decoration: none;
-    color: #000000;
-    padding: 20px;
-    transition: 0.5s;
-
-}
-
-.profile{
-    background-color: #ffffff;
-}
-
-.profile img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.main-container{
-    margin-top: 10px;
-    margin-left: 18%;
-    padding: 20px;
-    background-color: #ffffff;
-    transition: 0.5s;
-    height: 100vh;
+.content {
     width: 80%;
-}
-
-.main-content{
-    background-color: #ffffff;
-    /* display: flex;
-    justify-content: space-between;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
-    background-color: #ffffff; */
+    border-radius: 30px;
 }
 
-.content{
+table {
+    border-collapse: collapse;
+    width: 80%;
     background-color: #FFFFFF;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    background-color: #FFFFFF;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td button {
+    background: #FF4742;
+    border: 1px solid #FF4742;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+td button:hover,
+td button:active {
+    background-color: initial;
+    background-position: 0 0;
+    color: #FF4742;
+}
+
+td button:active {
+    opacity: .5;
 }

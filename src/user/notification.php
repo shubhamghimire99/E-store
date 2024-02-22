@@ -1,3 +1,7 @@
+<?php
+    include 'src/user/authentication.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

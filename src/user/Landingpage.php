@@ -1,3 +1,9 @@
+<!-- landing page for buyer -->
+<?php
+    include 'src/user/authentication.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

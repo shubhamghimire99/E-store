@@ -22,6 +22,7 @@ $routes = [
     "/connect" => "src/Database/connect.php",
     "/inventory" => "src/seller/inventory.php",
     
+    "/logout" => "src/Database/logout.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
