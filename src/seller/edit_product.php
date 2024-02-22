@@ -27,6 +27,10 @@ if (isset($_POST['submit'])) {
     $vendor = $_POST['vendor'];
     $quantity = $_POST['quantity'];
 
+    if($image == '') {
+        $image = $product['image'];
+    }
+
 
     //sql query to update data to database
     $sql = "update product set title='$title',
