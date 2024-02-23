@@ -221,16 +221,6 @@ include "src/seller/authentication.php";
                                 $vendor = $row['vendor'];
                                 $category = $row['product_type'];
                                 $stock = $row['quantity'];
-<<<<<<< HEAD
-                                echo'<tr>
-                                    <td>'.$title.'</td>
-                                    <td><img src="/src/images/"'.$image.'" alt="image" width="50px" height="50px"></td>
-                                    <td>'.$price.'</td>
-                                    <td>'.$vendor.'</td>
-                                    <td>'.$category.'</td>
-                                    <td>'.$stock.'</td>
-                                    </tr>';
-=======
                                 echo"<tr>
                                     <td>".$title."</td>
                                     <td><img src='/src/images/".$image." ' alt='image' width='50px' height='50px'></td>
@@ -241,7 +231,6 @@ include "src/seller/authentication.php";
                                     <td> <button onclick = 'editProduct( ". $row['product_id'] ." ) '>Edit</button> 
                                      <button onclick = 'deleteProduct( ". $row['product_id'] ." ) '>delete</button> </td>
                                      </tr>";
->>>>>>> 8502282ed5434ff340693c4323122551acea663f
                             }
                         }
                         else{
@@ -254,16 +243,11 @@ include "src/seller/authentication.php";
         </div>          
     </div>
     <script>
-        function editProduct(id){
-            window.location.href = "/seller-edit-product?id="+id;
-        }
-        function deleteProduct(id){
-            if (confirm("Are you sure you want to verify this seller?")) {
-                window.location.href = "/seller-delete-product?id="+id;
-            }   
-        }
+    
 
     </script>
+
+    <script src="/src/js/seller/seller.js"></script>
 
 </body>
 
