@@ -1,3 +1,31 @@
+<?php
+include "src/seller/authentication.php";
+include "src/Database/connect.php";
+
+$seller_id = $_SESSION['user_id'];
+$sql = "select * from user where id = '$seller_id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if(isset($_POST['submit'])){
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $contact = $_POST['contact'];
+
+    //sql query to update data to database
+    $sql = "update `user` set firstname='$first_name',lastname='$last_name',email='$email',contact='$contact' where id='$seller_id'";
+    $result = mysqli_query($conn, $sql);
+
+    if($result){
+        header('location: /seller-profile');    
+    }
+    else{
+        die(mysqli_error($conn));
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,12 +106,7 @@
             padding: 10px;
         }
 
-        .pass-box {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-        .save{
+        .save {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -103,7 +126,7 @@
                 <div class="profile">
                     P
                 </div>
-                <p>Profile</p>
+                <p><?php echo $row['firstname']?></p>
             </nav>
         </header>
 
@@ -130,45 +153,37 @@
                     <div class="box">
                         <h1>Details</h1>
                         <form action="#" method="post" class="details">
-                            
-                                <div class="name">
-                                    <div class="first">
-                                        <label for="">first name</label>
-                                        <input type="text">
-                                    </div>
-                                    <div class="last">
-                                        <label for="">lastname</label>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <hr>
 
-                                <div class="email-box">
-                                    <div class="email">
-                                        <label for="">email</label>
-                                        <input type="text" placeholder="">
-                                    </div>
-                                    <button>Update</button>
+                            <div class="name">
+                                <div class="first">
+                                    <label for="">first name</label>
+                                    <input type="text" name="first_name" value="<?php echo $row['firstname'] ?>">
                                 </div>
-                                <hr>
-                                <div class="contact-box">
-                                    <div class="contact">
-                                        <label for="">contact</label>
-                                        <input type="text">
-                                    </div>
-                                    <button>update</button>
+                                <div class="last">
+                                    <label for="">lastname</label>
+                                    <input type="text"name="last_name" value="<?php echo $row['lastname'] ?>">
                                 </div>
-                                <hr>    
-                                <div class="pass-box">
-                                    <div class="pass">
-                                        <label for="">password</label>
-                                        <input type="password">
-                                    </div>
-                                    <button>update</button>
+                            </div>
+                            <hr>
+
+                            <div class="email-box">
+                                <div class="email">
+                                    <label for="">email</label>
+                                    <input type="text" name="email" value="<?php echo $row['email'] ?>">
                                 </div>
-                                <hr>
+                                <button>Update</button>
+                            </div>
+                            <hr>
+                            <div class="contact-box">
+                                <div class="contact">
+                                    <label for="">contact</label>
+                                    <input type="text" name="contact" value="<?php echo $row['contact'] ?>">
+                                </div>
+                                <button>update</button>
+                            </div>
+                            <hr>
                             <div class="save">
-                                <button>Save </button>
+                                <button type="submit">Save</button>
                             </div>
                         </form>
                     </div>

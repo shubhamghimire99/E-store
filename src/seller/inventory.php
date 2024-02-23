@@ -221,16 +221,6 @@ include "src/seller/authentication.php";
                                 $vendor = $row['vendor'];
                                 $category = $row['product_type'];
                                 $stock = $row['quantity'];
-<<<<<<< HEAD
-                                echo'<tr>
-                                    <td>'.$title.'</td>
-                                    <td><img src="/src/images/"'.$image.'" alt="image" width="50px" height="50px"></td>
-                                    <td>'.$price.'</td>
-                                    <td>'.$vendor.'</td>
-                                    <td>'.$category.'</td>
-                                    <td>'.$stock.'</td>
-                                    </tr>';
-=======
                                 echo"<tr>
                                     <td>".$title."</td>
                                     <td><img src='/src/images/".$image." ' alt='image' width='50px' height='50px'></td>
@@ -241,7 +231,6 @@ include "src/seller/authentication.php";
                                     <td> <button onclick = 'editProduct( ". $row['product_id'] ." ) '>Edit</button> 
                                      <button onclick = 'deleteProduct( ". $row['product_id'] ." ) '>delete</button> </td>
                                      </tr>";
->>>>>>> 8502282ed5434ff340693c4323122551acea663f
                             }
                         }
                         else{
