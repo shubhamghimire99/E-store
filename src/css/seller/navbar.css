@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+li, a{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+}
+
+input{
+    margin: auto;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 22px 50px 22px 15%;
+    width: 100%;
+
+}
+
+ul{
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    padding: 0 50px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.search{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-button{
+    width: 100%;
+    max-width: 700px;
+    background-color: #b9b5c9;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+}
+
+.search-button input{
+    background-color: transparent;
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    font-size: 16px;
+
+}
+
+.bx{
+ font-size: 1.4rem;
+ color:rgb(87, 87, 87);
+}
+
+
+.search-button button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}

@@ -1,8 +1,7 @@
-
 <!-- dasboard for seller -->
 
 <?php
-    include "src/seller/authentication.php";
+include "src/seller/authentication.php";
 ?>
 
 
@@ -16,10 +15,12 @@
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-        .content{
-            width:80%;
+
+        .content {
+            width: 80%;
             background-color: red;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -47,7 +48,7 @@
                             <path d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z" fill="#A7B7DD" />
                         </svg>Product
                     </a></li>
-                    <li>
+                <li>
                     <a href="/seller-inventory"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1916 5.13895L4.08961 7.18995L12.73 11.8701L16.8319 9.81914L8.1916 5.13895ZM2.96558 8.28701V17.2155C2.96558 17.4996 3.12608 17.7593 3.38017 17.8863L11.9655 22.179V13.162L2.96558 8.28701ZM13.4655 22.1791L22.051 17.8863C22.3051 17.7593 22.4656 17.4996 22.4656 17.2155V8.67937L18.9655 10.4294V13.2156C18.9655 13.6298 18.6297 13.9656 18.2155 13.9656C17.8013 13.9656 17.4655 13.6298 17.4655 13.2156V11.1794L13.4655 13.1794V22.1791ZM21.7159 7.37714L13.051 3.04467C12.8398 2.9391 12.5913 2.9391 12.3802 3.04467L9.82928 4.32011L18.4696 9.0003L21.7159 7.37714Z" fill="#A7B7DD" />
                         </svg>
@@ -69,11 +70,7 @@
         </nav>
     </div>
     <div class="content">
-        <h1>Dashboard</h1>
-
-        <?php
-            echo "Welcome " . $_SESSION['user_id'] . "!";
-        ?>
+        <a href="/seller-profile">Profile</a>
     </div>
 </body>
 

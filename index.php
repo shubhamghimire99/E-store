@@ -23,6 +23,8 @@ $routes = [
     "/inventory" => "src/seller/inventory.php",
     "/verify" => "src/admin/verify.php",
     "/logout" => "src/Database/logout.php",
+    "/seller-profile" => "src/seller/profile.php",
+    "/seller-setup" => "src/seller/setup.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

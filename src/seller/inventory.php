@@ -164,7 +164,7 @@ include "src/seller/authentication.php";
                                 $stock = $row['quantity'];
                                 echo'<tr>
                                     <td>'.$title.'</td>
-                                    <td><img src="'.$image.'" alt="image" width="50px" height="50px"></td>
+                                    <td><img src="/src/images/"'.$image.'" alt="image" width="50px" height="50px"></td>
                                     <td>'.$price.'</td>
                                     <td>'.$vendor.'</td>
                                     <td>'.$category.'</td>
