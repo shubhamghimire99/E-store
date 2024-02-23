@@ -5,7 +5,7 @@ include 'src/user/authentication.php';
 include 'src/database/connect.php';
 
 // get all products
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product limit 8";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -197,412 +197,15 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </a>
                                     </h6>
                                 </div>
-                                <button>
-                                    <a href="/productdetails">Buy Now</a>
+                                <button onclick="showProduct(<?php echo  $product['product_id']  ?>)">
+                                    Buy Now
                                 </button>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-                <!-- <div class="card fade-up">
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- 
-                <div class="card fade-up">
-                   
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                 
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">  
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                   
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                   
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                   
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card fade-up">
-                  
-                    <img src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                  
-                    <div class="card-desc">
-                        <h3>Shoes</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                        <h6>Rs.2000</h6>
-                        <ul>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star checked"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-
-                    <div class="additional-content">
-                        <div class="content"> 
-                            <button>
-                                <i class="fa-solid fa-cart-plus"></i>
-                                Add To Cart
-                            </button>
-                            <div class="share">
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-share-nodes"></i>
-                                        Share
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-solid fa-code-compare"></i>
-                                        Compare
-                                    </a>
-                                </h6>
-                                <h6>
-                                    <a href="">
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like
-                                    </a>
-                                </h6>
-                            </div>
-                            <button>
-                                <a href="/productdetails">Buy Now</a>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                </div> -->
-
                 <div class="btn fade-up">
-                    <button id="loadmorebtn">Show More</button>
+                    <button id="loadmorebtn" onclick="loadMore()">Show More</button>
                 </div>
             </div>
 
@@ -612,6 +215,73 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         <!-- Slider Js -->
         <script>
+            function loadMore() {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', '/productApi?limit=2', true);
+                xhr.onload = function() {
+                    if (this.status == 200) {
+
+                        var products = JSON.parse(this.responseText);
+                        console.log(products);
+                        var ProductCards = document.getElementById("ProductCards");
+                        ProductCards.innerHTML = "";
+                        products.forEach(element => {
+                            ProductCards.innerHTML += `<div class="card" >
+                        <img src="/src/images/${element.image}" alt="image can't be loaded">
+                        <div class="card-desc">
+                            <h3>${element.title}</h3>
+                            <p>${element.des}</p>
+                            <h6>Rs.${element.price}</h6>
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="additional-content">
+                            <div class="content">
+                                <button>
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    Add To Cart
+                                </button>
+                                <div class="share">
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-solid fa-share-nodes"></i>
+                                            Share
+                                        </a>
+                                    </h6>
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-solid fa-code-compare"></i>
+                                            Compare
+                                        </a>
+                                    </h6>
+                                    <h6>
+                                        <a href="">
+                                            <i class="fa-regular fa-heart"></i>
+                                            Like
+                                        </a>
+                                    </h6>
+                                </div>
+                                <button onclick="showProduct(${element.product_id})">
+                                    Buy Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                        });
+
+
+                    }
+                }
+                xhr.send();
+            }
+
+
+            function showProduct(id) {
+                window.location.href = "/productdetails?id=" + id;
+            }
+
             var counter = 1;
             setInterval(function() {
                 document.getElementById('radio' + counter).checked = true;

@@ -1,5 +1,36 @@
 <?php
     include 'src/user/authentication.php';
+
+    include 'src/database/connect.php';
+
+    // get all products
+    // $sql = "SELECT * FROM product limit 8";
+    // $result = mysqli_query($conn, $sql);
+    // $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    if(isset($_GET['id'])){
+        $id = mysqli_real_escape_string($conn , $_GET['id'] );
+        // view the product
+        $sql = "select * from product where product_id='$id'";
+        $result = mysqli_query($conn, $sql);
+        $product = mysqli_fetch_assoc($result);
+
+        // if(mysqli_query($conn, $sql)){
+            
+        //     // echo $product['product_id'];
+
+        //     //  header("Location: /productdetails");
+        // }
+        // // if isverified=1 then send alert message
+        
+
+        // else{
+        //     echo "Error finding product" . mysqli_error($conn);
+            
+        // }
+
+    }   
+
 ?>
 
 <!DOCTYPE html>

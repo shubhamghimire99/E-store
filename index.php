@@ -8,6 +8,7 @@ $routes = [
     "/seller-register" => "src/seller/register.php",
     "/cart" => "src/user/cart.php",
     "/productdetails" => "src/user/product.php",
+    "/show_products" => "src/user/show_products.php",
     "/notification" => "src/user/notification.php",
     "/admin" => "src/admin/dashboard.php",
     "/sellers" => "src/admin/seller.php",
@@ -24,6 +25,7 @@ $routes = [
     "/verify" => "src/admin/verify.php",
     "/seller-edit-product"=> "src/seller/edit_product.php",
     "/seller-delete-product"=> "src/seller/delete_product.php",
+    "/productApi" => "src/user/product_api.php",
     "/logout" => "src/Database/logout.php",
 ];
 

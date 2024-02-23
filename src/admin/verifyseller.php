@@ -108,10 +108,6 @@ include 'src/admin/authentication.php';
     <script>
     
 
-        // if(verifybtn.innerHTML == "Verified"){
-        //     verifybtn.style.backgroundColor = "green";
-        //     verifybtn.style.disabled = true;
-        // }
 
         function verifySeller(id) {
             if (confirm("Are you sure you want to verify this seller?")) {
