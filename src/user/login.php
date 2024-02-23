@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                  header("Location: /admin");
                
             }
-            elseif ($row['isSeller']) {
+            elseif ($row['isSeller'] && $row['isVerified'] == 1) {
                 $_SESSION['role'] = 'seller';
                 header("Location: /seller-dashboard");
                 

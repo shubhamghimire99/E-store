@@ -29,7 +29,7 @@ th {
     background-color: #f2f2f2;
 }
 
-td button {
+/* td button {
     background: #FF4742;
     border: 1px solid #FF4742;
     border-radius: 6px;
@@ -63,4 +63,4 @@ td button:active {
 
 td button:active {
     opacity: .5;
-}
+} */

@@ -76,8 +76,8 @@ include 'src/admin/authentication.php';
                 <th>Name</th>
                 <th>email</th>
                 <th>Contact</th>
-                <th>view details</th>
-                <th>verify</th>
+                
+                <th>action</th>
             </tr>
             <?php
             include("src/Database/connect.php");
@@ -91,8 +91,9 @@ include 'src/admin/authentication.php';
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
                         "</td><td>" . $row["contact"] .
-                        "</td><td> <button> View details </button > </td><td> 
-                                <button id='verifyButton' onclick =
+                        "</td><td> <button> View details </button >
+                               
+                        <button id='verifyButton' onclick =
                                 'verifySeller(" . $row["id"] . ") '> " .
                         ($row["isVerified"] == 1 ? "Verified"  : "Verify") .
                         "</button> </td></tr>";

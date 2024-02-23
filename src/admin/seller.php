@@ -77,7 +77,7 @@ include 'src/admin/authentication.php';
                 <th>email</th>
                 <th>Contact</th>
                 <th>verified</th>
-                <th>delete</th>
+                <th>actions</th>
             </tr>
             <?php
             include("src/Database/connect.php");

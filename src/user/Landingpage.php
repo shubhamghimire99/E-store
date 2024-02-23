@@ -20,6 +20,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/landingpage.css">
     <link rel="stylesheet" href="/src/css/fadeup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>home</title>
 
 </head>
@@ -153,10 +154,10 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
 
         <div class="cards">
-            <h1 class="fade-up">Our Products</h1>
+            <h1>Our Products</h1>
             <div class="product-card" id="ProductCards">
                 <?php foreach ($products as $product) : ?>
-                    <div class="card fade-up">
+                    <div class="card">
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
                             <h3><?php echo $product['title']; ?></h3>
@@ -173,10 +174,12 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="additional-content">
                             <div class="content">
-                                <button>
+                            
+                                <button type="submit" id="addtocartbtn" onclick="addToCart(<?php echo  $product['product_id']?>)">
                                     <i class="fa-solid fa-cart-plus"></i>
-                                    Add To Cart
+                                  Add To Cart
                                 </button>
+                             
                                 <div class="share">
                                     <h6>
                                         <a href="">
@@ -197,14 +200,14 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </a>
                                     </h6>
                                 </div>
-                                <button onclick="showProduct(<?php echo  $product['product_id']  ?>)">
+                                <button onclick="showProduct(<?php echo  $product['product_id']?>)">
                                     Buy Now
                                 </button>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <div class="btn fade-up">
+                <div class="btn">
                     <button id="loadmorebtn" onclick="loadMore()">Show More</button>
                 </div>
             </div>
@@ -213,84 +216,8 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         </div>
 
-        <!-- Slider Js -->
-        <script>
-            function loadMore() {
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', '/productApi?limit=2', true);
-                xhr.onload = function() {
-                    if (this.status == 200) {
-
-                        var products = JSON.parse(this.responseText);
-                        console.log(products);
-                        var ProductCards = document.getElementById("ProductCards");
-                        ProductCards.innerHTML = "";
-                        products.forEach(element => {
-                            ProductCards.innerHTML += `<div class="card" >
-                        <img src="/src/images/${element.image}" alt="image can't be loaded">
-                        <div class="card-desc">
-                            <h3>${element.title}</h3>
-                            <p>${element.des}</p>
-                            <h6>Rs.${element.price}</h6>
-                            <ul>
-                            </ul>
-                        </div>
-                        <div class="additional-content">
-                            <div class="content">
-                                <button>
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                    Add To Cart
-                                </button>
-                                <div class="share">
-                                    <h6>
-                                        <a href="">
-                                            <i class="fa-solid fa-share-nodes"></i>
-                                            Share
-                                        </a>
-                                    </h6>
-                                    <h6>
-                                        <a href="">
-                                            <i class="fa-solid fa-code-compare"></i>
-                                            Compare
-                                        </a>
-                                    </h6>
-                                    <h6>
-                                        <a href="">
-                                            <i class="fa-regular fa-heart"></i>
-                                            Like
-                                        </a>
-                                    </h6>
-                                </div>
-                                <button onclick="showProduct(${element.product_id})">
-                                    Buy Now
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                        });
-
-
-                    }
-                }
-                xhr.send();
-            }
-
-
-            function showProduct(id) {
-                window.location.href = "/productdetails?id=" + id;
-            }
-
-            var counter = 1;
-            setInterval(function() {
-                document.getElementById('radio' + counter).checked = true;
-                counter++;
-                if (counter > 5) {
-                    counter = 1;
-                }
-            }, 3000);
-        </script>
+   
+    <script src="/src/js/buyer/landingpage.js"></script>
 
         <script src="/src/js/FadeUpAnimation.js"></script>
 
