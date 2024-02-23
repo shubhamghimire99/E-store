@@ -13,6 +13,11 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // foreach($products as $product){
 //     $total += $product['product_price'];
 // }
+ 
+$total_price = 0;
+// foreach ($cart_items as $cart_items) {
+//     $total_price += $cart_items['product_total'];
+// }
 
 ?>
 
@@ -70,7 +75,9 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <?php foreach ($cart_items as $cart_items) : ?>
                         <div class="card_item">
                             <div class="product_img">
-                                <img src="/src/images/<?php echo $cart_items['product_image']; ?>" alt="image not found" />
+                                <img src="/src/images/<?php echo $cart_items['product_image']; 
+                               
+                                ?>" alt="image not found" />
                             </div>
                             <div class="product_info">
                                 <h1><?php echo $cart_items['product_name']; ?></h1>
@@ -79,10 +86,13 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <div class="product_rate_info">
-                                    <h1>Rs. <?php echo $cart_items['product_price']; ?></h1>
-                                    <span class="pqt-minus">-</span>
-                                    <span class="pqt">1</span>
-                                    <span class="pqt-plus">+</span>
+                                    <h1>Rs. <?php echo $cart_items['product_price']; 
+                                         $total_price +=  $cart_items['product_total'];
+                                         
+                                    ?></h1>
+                                    <button onclick="subtractQuantity(<?php echo  $cart_items['cart_id']?>)" class="pqt-minus">-</button>
+                                    <span class="pqt"><?php echo $cart_items['product_quantity']; ?></span>
+                                    <button onclick="addQuantity(<?php echo  $cart_items['cart_id']?>)" class="pqt-plus">+</button>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +100,8 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     <div class="order_price">
                         <p>Order summary</p>
-                        <h4>RS.400</h4>
+
+                        <h4>RS.<?php echo  $total_price ?></h4>
                     </div>
                     <div class="order_service">
                         <p>delivery Charge</p>
@@ -98,7 +109,7 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                     <div class="order_total">
                         <p>Total Amount</p>
-                        <h4>Rs.370</h4>
+                        <h4>Rs.<?php echo  $total_price + 65?></h4>
                     </div>
 
                 </div>
@@ -109,16 +120,7 @@ $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php include "src/user/Footer.php" ?>
     </div>
 
-    <script>
-        // delete from cart
-        function deleteFromCart(id) {
-            if (confirm("Are you sure you want to delete this item from cart?")){
-                window.location.href = "/deleteFromCart?id=" + id;
-            }
-          
-        }
-    </script>
-
+    <script src="/src/js/buyer/cart.js"></script>
 </body>
 
 </html>
