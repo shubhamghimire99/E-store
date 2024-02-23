@@ -1,8 +1,9 @@
-
+limit = 4;
 
 function loadMore() {
+    limit += 4;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/productApi?limit=10', true);
+    xhr.open('GET', `/productApi?limit=${limit}`, true);
     xhr.onload = function() {
         if (this.status == 200) {
 

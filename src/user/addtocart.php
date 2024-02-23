@@ -35,5 +35,20 @@ if (isset($_GET['id'])) {
     }else{
         echo "Error:" .mysqli_error($conn);
     }
+
+    // if id exists in cart table then add in quantity
+    //  $productexists = "SELECT * FROM cart WHERE product_id='$id' AND user_id='$user_id'";
+    //     $result = mysqli_query($conn, $productexists );
+    //     $products = mysqli_fetch_assoc($result);
+    //     if ($products) {
+    //         $product_quantity = $product['product_quantity'] + 1;
+    //         $product_total = $product['product_price'] * $product_quantity;
+    //         $sql = "UPDATE cart SET product_quantity='$product_quantity', product_total='$product_total' WHERE product_id='$id' AND user_id='$user_id'";
+    //         if ($conn->query($sql) === TRUE) {
+    //             header('location: /cart');
+    //         } else {
+    //             echo "Error: " . mysqli_error($conn);
+    //         }
+    //     }
 }
 

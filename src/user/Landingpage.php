@@ -174,12 +174,12 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="additional-content">
                             <div class="content">
-                            
-                                <button type="submit" id="addtocartbtn" onclick="addToCart(<?php echo  $product['product_id']?>)">
+
+                                <button type="submit" id="addtocartbtn" onclick="addToCart(<?php echo  $product['product_id'] ?>)">
                                     <i class="fa-solid fa-cart-plus"></i>
-                                  Add To Cart
+                                    Add To Cart
                                 </button>
-                             
+
                                 <div class="share">
                                     <h6>
                                         <a href="">
@@ -200,24 +200,24 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </a>
                                     </h6>
                                 </div>
-                                <button onclick="showProduct(<?php echo  $product['product_id']?>)">
+                                <button onclick="showProduct(<?php echo  $product['product_id'] ?>)">
                                     Buy Now
                                 </button>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <div class="btn">
-                    <button id="loadmorebtn" onclick="loadMore()">Show More</button>
-                </div>
-            </div>
 
+            </div>
+            <div class="btn">
+                <button id="loadmorebtn" onclick="loadMore()">Show More</button>
+            </div>
             <?php include('Footer.php'); ?>
 
         </div>
 
-   
-    <script src="/src/js/buyer/landingpage.js"></script>
+
+        <script src="/src/js/buyer/landingpage.js"></script>
 
         <script src="/src/js/FadeUpAnimation.js"></script>
 
