@@ -8,6 +8,7 @@ $routes = [
     "/seller-register" => "src/seller/register.php",
     "/cart" => "src/user/cart.php",
     "/addtocart" => "src/user/addtocart.php",
+    "/deleteFromCart" => "src/user/deleteFromCart.php",
     "/productdetails" => "src/user/product.php",
     "/show_products" => "src/user/show_products.php",
     "/notification" => "src/user/notification.php",
