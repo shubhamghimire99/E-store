@@ -1,5 +1,6 @@
 <?php
-
+include 'src/user/navbar.php';
+// include 'src/seller/authentication.php';
 
 include 'src/database/connect.php';
 
@@ -34,7 +35,6 @@ $total_price = 0;
 <body>
 
     <div class="main">
-        <?php include "src/user/navbar.php" ?>
 
         <div class="container">
             <div class="payment_details">

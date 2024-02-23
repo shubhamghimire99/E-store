@@ -106,7 +106,7 @@ include 'src/admin/authentication.php';
 
     </div>
 
-    <script>
+    <!-- <script>
     
 
 
@@ -116,9 +116,9 @@ include 'src/admin/authentication.php';
             }
 
         }
-    </script>
+    </script> -->
 
-
+<script src="/src/js/admin/admin.js"></script>
 
 </body>
 

@@ -102,13 +102,14 @@ include 'src/admin/authentication.php';
         </table>
 
     </div>
-    <script>
+    <!-- <script>
         function deleteRecord(id) {
             if (confirm("Are you sure you want to delete this record?")) {
                 window.location.href = '/deleteseller?id=' + id;
             }
         }
-    </script>
+    </script> -->
+    <script src="/src/js/admin/admin.js"></script>
 
 
 </body>

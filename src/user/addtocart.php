@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include "src/Database/connect.php";
 
 if (isset($_GET['id'])) {

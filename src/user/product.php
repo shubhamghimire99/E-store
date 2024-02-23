@@ -3,11 +3,6 @@
 
 include 'src/database/connect.php';
 
-// get all products
-// $sql = "SELECT * FROM product limit 8";
-// $result = mysqli_query($conn, $sql);
-// $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
     // view the product
@@ -37,7 +32,9 @@ if (isset($_GET['id'])) {
                 <a href="/"> Home</a>    
                 </h3>
             </a>
-            <h3 class="product-name"><?php echo $product["title"] ?></h3>
+            <h3 class="product-name">
+                <?php echo $product["title"] ?>
+            </h3>
         </div>
         <div class="container">
             <div class="side-image">
@@ -98,11 +95,12 @@ if (isset($_GET['id'])) {
                 </div> -->
 
                 <div class="cart">
-                    <div class="quantity">
+                    <!-- <div class="quantity">
                         <p class="increase">-</p>
                         <p>1</p>
                         <p class="increase">+</p>
-                    </div>
+                    </div> -->
+                    <button onclick="buyNow(<?php echo  $product['product_id'] ?>)">Buy now</button>
                     <button onclick="addToCart(<?php echo  $product['product_id'] ?>)">Add to Cart</button>
                 </div>
                 <hr>
