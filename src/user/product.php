@@ -1,35 +1,20 @@
 <?php
-    include 'src/user/authentication.php';
 
-    include 'src/database/connect.php';
 
-    // get all products
-    // $sql = "SELECT * FROM product limit 8";
-    // $result = mysqli_query($conn, $sql);
-    // $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+include 'src/database/connect.php';
 
-    if(isset($_GET['id'])){
-        $id = mysqli_real_escape_string($conn , $_GET['id'] );
-        // view the product
-        $sql = "select * from product where product_id='$id'";
-        $result = mysqli_query($conn, $sql);
-        $product = mysqli_fetch_assoc($result);
+// get all products
+// $sql = "SELECT * FROM product limit 8";
+// $result = mysqli_query($conn, $sql);
+// $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        // if(mysqli_query($conn, $sql)){
-            
-        //     // echo $product['product_id'];
-
-        //     //  header("Location: /productdetails");
-        // }
-        // // if isverified=1 then send alert message
-        
-
-        // else{
-        //     echo "Error finding product" . mysqli_error($conn);
-            
-        // }
-
-    }   
+if (isset($_GET['id'])) {
+    $id = mysqli_real_escape_string($conn, $_GET['id']);
+    // view the product
+    $sql = "select * from product where product_id='$id'";
+    $result = mysqli_query($conn, $sql);
+    $product = mysqli_fetch_assoc($result);
+}
 
 ?>
 
@@ -48,10 +33,11 @@
         <?php include 'Navbar.php'; ?>
         <div class="home">
             <a href="">
-                <h3 class="h3">Home
+                <h3 class="h3">
+                <a href="/"> Home</a>    
                 </h3>
             </a>
-            <h3 class="product-name">Product Name</h3>
+            <h3 class="product-name"><?php echo $product["title"] ?></h3>
         </div>
         <div class="container">
             <div class="side-image">
@@ -70,13 +56,13 @@
             </div>
             <div class="main-image">
                 <div class="inner-image">
-                    <img src="../images/Asgaard sofa 3.png" alt="">
+                    <img src="/src/images/<?php echo $product['image']; ?>" alt="">
                 </div>
             </div>
             <div class="description">
-                <h1>Asgaard Sofa</h1>
-                <h3>Rs. 250,000.00</h3>
-                <div class="ratings">
+                <h1><?php echo $product["title"] ?></h1>
+                <h3>RS. <?php echo $product["price"] ?></h3>
+                <!-- <div class="ratings">
                     <svg width="124" height="20" viewBox="0 0 124 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 1L13 7L19 7.75L14.88 12.37L16 19L10 16L4 19L5.13 12.37L1 7.75L7 7L10 1Z" fill="#FFC700" />
                         <path d="M36 1L39 7L45 7.75L40.88 12.37L42 19L36 16L30 19L31.13 12.37L27 7.75L33 7L36 1Z" fill="#FFC700" />
@@ -85,12 +71,11 @@
                         <path d="M111.156 7.0125L104.8 7.9375L109.4 12.4188L108.312 18.75L114 15.7625V1.25L111.156 7.0125Z" fill="#FFC700" />
                     </svg>
                     <p>5 customer review</p>
-                </div>
+                </div> -->
                 <div class="paragraph">
-                    <p>Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound.
-                    </p>
+                    <p><?php echo $product["short_des"] ?></p>
                 </div>
-                <h5>Size</h5>
+                <!-- <h5>Size</h5>
                 <div class="size">
                     <div class="size-box">
                         <p>L</p>
@@ -101,8 +86,8 @@
                     <div class="size-box">
                         <p>XS</p>
                     </div>
-                </div>
-                <h5>Color</h5>
+                </div> -->
+                <!-- <h5>Color</h5>
                 <div class="color">
                     <div class="colorbox1">
                     </div>
@@ -110,7 +95,7 @@
                     </div>
                     <div class="colorbox3">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="cart">
                     <div class="quantity">
@@ -118,52 +103,52 @@
                         <p>1</p>
                         <p class="increase">+</p>
                     </div>
-                    <button>Add to Cart</button>
+                    <button onclick="addToCart(<?php echo  $product['product_id'] ?>)">Add to Cart</button>
                 </div>
                 <hr>
                 <div class="des-footer">
                     <div class="footer-1">
                         <p>SKU</p>
                         <p>Category</p>
-                        <p>Tags</p>
                         <p>Share</p>
                     </div>
                     <div class="footer-2">
                         <p>: SS001</p>
-                        <p>: Sofas</p>
-                        <p>: Sofa, Chair, Home, Shop</p>
-                        <div class="icons"><p>:</p><a href=""><i class="fab fa-facebook"></i></a><a href=""><i class="fab fa-linkedin"></i></a><a href=""><i class="fab fa-twitter"></i></a></div>
+                        <p>: <?php echo $product["product_type"] ?></p>
+                        <div class="icons">
+                            <p>:</p><a href=""><i class="fab fa-facebook"></i></a><a href=""><i class="fab fa-linkedin"></i></a><a href=""><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    <div class="description-2">
-    <hr>
-        <h1>Description</h1>
-        <div class="des-list">
-        <p>Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn 
-            portable active stereo 
-            speaker takes the unmistakable look and sound of Marshall, unplugs the chords, and takes the show on the road.</p>
-        <p>Weighing in under 7 pounds, the Kilburn is a lightweight 
-            piece of vintage styled engineering. Setting the bar as one of the loudest speakers in
-             its class, the Kilburn is a compact, stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs for a sound that is both articulate and pronounced.
-              The analogue knobs allow you to fine tune the controls to your personal preferences while the guitar-influenced leat
-            her strap enables easy and stylish travel.</p>    
-        </div>            
-    <div class="image-container">
-       <div class="des-image">
-              <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
-       </div>
-         <div class="des-image">
-                  <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt=""> 
-    </div>
+        <div class="description-2">
+            <hr>
+            <h1>Description</h1>
+            <div class="des-list">
+                <p><?php echo $product["short_des"] ?></p>
+                <p><?php echo $product["des"] ?></p>
+            </div>
+            <div class="image-container">
+                <div class="des-image">
+                    <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
+                </div>
+                <div class="des-image">
+                    <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+
         </div>
     </div>
 
-    <div class="product-card">
-        
-    </div>
-    </div>
+    <script>
+        function addToCart(id) {
+            window.location.href = "/addtocart?id=" + id;
+        }
+    </script>
 </body>
 
 </html>

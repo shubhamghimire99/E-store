@@ -1,5 +1,5 @@
 <?php
-include 'src/user/authentication.php';
+
 
 include 'src/database/connect.php';
 

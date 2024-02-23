@@ -33,6 +33,9 @@ $routes = [
     "/logout" => "src/Database/logout.php",
     "/seller-profile" => "src/seller/profile.php",
     "/seller-setup" => "src/seller/setup.php",
+    "/user-profile" => "src/user/profile.php",
+    "/user-settings" => "src/user/settings.php",
+    "/search" => "src/user/search.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

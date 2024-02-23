@@ -1,7 +1,6 @@
 <?php
 
 include "src/Database/connect.php";
-include "src/user/authentication.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

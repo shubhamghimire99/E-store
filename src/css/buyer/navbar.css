@@ -81,17 +81,98 @@ ul li {
     font-size: 30px;
 }
 
-
-.wishlist a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 30px;
+.paste-button {
+    position: relative;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.cart a {
+.button {
+    background-color: #F0EFFF;
+    color: #A7B7DD;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    margin-top: 100px;
+    display: none;
+    font-size: 13px;
+    position: absolute;
+    z-index: 1;
+    min-width: 200px;
+    background-color: #F0EFFF;
+    border: 2px solid #A7B7DD;
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: #A7B7DD;
+    padding: 8px 10px;
     text-decoration: none;
-    color: #000000;
-    font-size: 30px;
+    display: block;
+    transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+    background-color: #F8FAFF;
+    color: #212121;
+}
+
+.dropdown-content a:focus {
+    background-color: #212121;
+    color: #F0EFFF;
+}
+
+.dropdown-content #top:hover {
+    border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+    border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+    border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+    display: block;
+}
+
+.search-output {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 30%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1;
+    margin-left: 25%;
+}
+
+.search-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 4px solid #6767673e;
+    padding: 20px;
+}
+
+.search-item-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left:10px;
 }
 
 /* Media Quearies */

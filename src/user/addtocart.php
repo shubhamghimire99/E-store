@@ -1,5 +1,5 @@
 <?php
-include "src/user/authentication.php";
+
 include "src/Database/connect.php";
 
 if (isset($_GET['id'])) {
