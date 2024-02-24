@@ -114,18 +114,6 @@ include 'src/admin/authentication.php';
 
     </div>
 
-    <!-- <script>
-    
-
-
-        function verifySeller(id) {
-            if (confirm("Are you sure you want to verify this seller?")) {
-                window.location.href = "/verify?id=" + id;
-            }
-
-        }
-    </script> -->
-
     <script src="/src/js/admin/admin.js"></script>
 
 </body>
