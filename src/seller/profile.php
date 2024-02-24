@@ -6,20 +6,21 @@ $seller_id = $_SESSION['user_id'];
 $sql = "select * from user where id = '$seller_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-if(isset($_POST['submit'])){
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
+// echo json_encode($row);
+// echo $seller_id;
+if (isset($_POST['submit'])) {
+    $first_name = $_POST['firstname'];
+    $last_name = $_POST['lastname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
 
     //sql query to update data to database
-    $sql = "update `user` set firstname='$first_name',lastname='$last_name',email='$email',contact='$contact' where id='$seller_id'";
+    $sql = "update user set firstname='$first_name',lastname='$last_name',email='$email',contact='$contact' where id='$seller_id'";
     $result = mysqli_query($conn, $sql);
 
-    if($result){
-        header('location: /seller-profile');    
-    }
-    else{
+    if ($result) {
+        header('location: /seller-profile');
+    } else {
         die(mysqli_error($conn));
     }
 }
@@ -126,7 +127,7 @@ if(isset($_POST['submit'])){
                 <div class="profile">
                     P
                 </div>
-                <p><?php echo $row['firstname']?></p>
+                <p><?php echo $row['firstname'] ?></p>
             </nav>
         </header>
 
@@ -141,10 +142,19 @@ if(isset($_POST['submit'])){
                                 </g>
                             </svg>
                             General</a></li>
-                    <li><a href="/seller-setup"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
+                    <li onclick="openFormPage()"><a href="/seller-setup"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="m17 16l-.15-1.25q-.2-.075-.35-.162t-.3-.238l-1.15.5l-1-1.75l1-.75q-.05-.2-.05-.375t.05-.375l-1-.75l1.05-1.7l1.1.45q.15-.125.3-.2t.35-.15L17 8h2l.15 1.25q.2.075.35.15t.3.2l1.1-.45l1.05 1.7l-1 .75q.05.2.05.375t-.05.375l1 .75l-1 1.75l-1.15-.5q-.15.15-.3.237t-.35.163L19 16zm1-2.5q.65 0 1.075-.425T19.5 12q0-.65-.425-1.075T18 10.5q-.65 0-1.075.425T16.5 12q0 .65.425 1.075T18 13.5M5 23V1h14v6h-2V6H7v12h10v-1h2v6z" />
                             </svg>
                             Store</a></li>
+                    <li>
+                        <a href="/logout">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.91625 14.7756C6.91625 15.0258 6.81689 15.2656 6.64002 15.4425C6.46315 15.6194 6.22326 15.7188 5.97313 15.7188H1.57188C1.15499 15.7188 0.755175 15.5531 0.460392 15.2584C0.165608 14.9636 0 14.5638 0 14.1469V1.57188C0 1.15499 0.165608 0.755175 0.460392 0.460392C0.755175 0.165608 1.15499 0 1.57188 0H5.97313C6.22326 0 6.46315 0.0993647 6.64002 0.276235C6.81689 0.453105 6.91625 0.692993 6.91625 0.943125C6.91625 1.19326 6.81689 1.43314 6.64002 1.61002C6.46315 1.78689 6.22326 1.88625 5.97313 1.88625H1.88625V13.8325H5.97313C6.22326 13.8325 6.46315 13.9319 6.64002 14.1087C6.81689 14.2856 6.91625 14.5255 6.91625 14.7756ZM15.4429 7.19211L12.2991 4.04836C12.122 3.87119 11.8817 3.77165 11.6311 3.77165C11.3805 3.77165 11.1402 3.87119 10.963 4.04836C10.7859 4.22554 10.6863 4.46584 10.6863 4.71641C10.6863 4.96698 10.7859 5.20728 10.963 5.38446L12.4964 6.91625H5.97313C5.72299 6.91625 5.48311 7.01561 5.30623 7.19248C5.12936 7.36936 5.03 7.60924 5.03 7.85938C5.03 8.10951 5.12936 8.34939 5.30623 8.52626C5.48311 8.70313 5.72299 8.8025 5.97313 8.8025H12.4964L10.9623 10.3359C10.7851 10.513 10.6855 10.7533 10.6855 11.0039C10.6855 11.2545 10.7851 11.4948 10.9623 11.672C11.1394 11.8491 11.3797 11.9487 11.6303 11.9487C11.8809 11.9487 12.1212 11.8491 12.2984 11.672L15.4421 8.52821C15.5301 8.44064 15.5999 8.33657 15.6476 8.22196C15.6952 8.10735 15.7198 7.98445 15.7199 7.86032C15.72 7.73619 15.6955 7.61327 15.648 7.49861C15.6005 7.38394 15.5308 7.27979 15.4429 7.19211Z" fill="#000000" />
+                            </svg>
+
+                            logout
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="content">
@@ -152,16 +162,16 @@ if(isset($_POST['submit'])){
                     <hr>
                     <div class="box">
                         <h1>Details</h1>
-                        <form action="#" method="post" class="details">
+                        <form action="" method="post" class="details">
 
                             <div class="name">
                                 <div class="first">
                                     <label for="">first name</label>
-                                    <input type="text" name="first_name" value="<?php echo $row['firstname'] ?>">
+                                    <input type="text" name="firstname" value="<?php echo $row['firstname'] ?>">
                                 </div>
                                 <div class="last">
                                     <label for="">lastname</label>
-                                    <input type="text"name="last_name" value="<?php echo $row['lastname'] ?>">
+                                    <input type="text" name="lastname" value="<?php echo $row['lastname'] ?>">
                                 </div>
                             </div>
                             <hr>
@@ -183,7 +193,7 @@ if(isset($_POST['submit'])){
                             </div>
                             <hr>
                             <div class="save">
-                                <button type="submit">Save</button>
+                                <button type="submit" name="submit">Save</button>
                             </div>
                         </form>
                     </div>
