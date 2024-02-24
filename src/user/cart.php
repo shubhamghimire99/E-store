@@ -1,7 +1,5 @@
 <?php
 include 'src/user/navbar.php';
-// include 'src/seller/authentication.php';
-
 include 'src/database/connect.php';
 
 // get all products form cart

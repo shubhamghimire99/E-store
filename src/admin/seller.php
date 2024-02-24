@@ -24,7 +24,7 @@ include 'src/admin/authentication.php';
             </svg>
         </div>
         <nav>
-        <ul>
+            <ul>
                 <li>
                     <a href="/admin">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,55 +60,57 @@ include 'src/admin/authentication.php';
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.91625 14.7756C6.91625 15.0258 6.81689 15.2656 6.64002 15.4425C6.46315 15.6194 6.22326 15.7188 5.97313 15.7188H1.57188C1.15499 15.7188 0.755175 15.5531 0.460392 15.2584C0.165608 14.9636 0 14.5638 0 14.1469V1.57188C0 1.15499 0.165608 0.755175 0.460392 0.460392C0.755175 0.165608 1.15499 0 1.57188 0H5.97313C6.22326 0 6.46315 0.0993647 6.64002 0.276235C6.81689 0.453105 6.91625 0.692993 6.91625 0.943125C6.91625 1.19326 6.81689 1.43314 6.64002 1.61002C6.46315 1.78689 6.22326 1.88625 5.97313 1.88625H1.88625V13.8325H5.97313C6.22326 13.8325 6.46315 13.9319 6.64002 14.1087C6.81689 14.2856 6.91625 14.5255 6.91625 14.7756ZM15.4429 7.19211L12.2991 4.04836C12.122 3.87119 11.8817 3.77165 11.6311 3.77165C11.3805 3.77165 11.1402 3.87119 10.963 4.04836C10.7859 4.22554 10.6863 4.46584 10.6863 4.71641C10.6863 4.96698 10.7859 5.20728 10.963 5.38446L12.4964 6.91625H5.97313C5.72299 6.91625 5.48311 7.01561 5.30623 7.19248C5.12936 7.36936 5.03 7.60924 5.03 7.85938C5.03 8.10951 5.12936 8.34939 5.30623 8.52626C5.48311 8.70313 5.72299 8.8025 5.97313 8.8025H12.4964L10.9623 10.3359C10.7851 10.513 10.6855 10.7533 10.6855 11.0039C10.6855 11.2545 10.7851 11.4948 10.9623 11.672C11.1394 11.8491 11.3797 11.9487 11.6303 11.9487C11.8809 11.9487 12.1212 11.8491 12.2984 11.672L15.4421 8.52821C15.5301 8.44064 15.5999 8.33657 15.6476 8.22196C15.6952 8.10735 15.7198 7.98445 15.7199 7.86032C15.72 7.73619 15.6955 7.61327 15.648 7.49861C15.6005 7.38394 15.5308 7.27979 15.4429 7.19211Z" fill="#A7B7DD" />
                         </svg>
-
                         logout
                     </a>
                 </li>
             </ul>
         </nav>
     </div>
+
+
     <div class="content">
         <h1>sellers Records</h1>
+        <div class="wrapper">
+            <div class="table">
 
-        <table>
-            <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>email</th>
-                <th>Contact</th>
-                <th>verified</th>
-                <th>actions</th>
-            </tr>
-            <?php
-            include("src/Database/connect.php");
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>email</th>
+                        <th>Contact</th>
+                        <th>verified</th>
+                        <th>actions</th>
+                    </tr>
+                    <?php
+                    include("src/Database/connect.php");
 
-            $sql = "select * FROM user WHERE isseller = '1'";
+                    $sql = "select * FROM user WHERE isseller = '1'";
 
-            $result = $conn->query($sql);
+                    $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
+                    if ($result->num_rows > 0) {
 
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
-                        "</td><td>" . $row["contact"] .
-                        "</td><td>" .  ($row["isVerified"] ==1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>") .
-                        "</td><td> <button onclick= 'deleteRecord(" . $row["id"] . " )'> Delete </button> </td></tr>";
-                }
-            } else {
-                echo "<tr><td colspan='4'>No sellers are registered</td></tr>";
-            }
-            ?>
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
+                                "</td><td>" . $row["contact"] .
+                                "</td><td>" .  ($row["isVerified"] == 1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>") .
+                                "</td><td width='100px' > <button class='delete-button' onclick= 'deleteRecord(" . $row["id"] . " )'>
+                                <svg class='delete-svgIcon' viewBox='0 0 448 512'>
+                                <path d='M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z'></path>
+                              </svg>
+                                 </button> </td></tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='4'>No sellers are registered</td></tr>";
+                    }
+                    ?>
 
-        </table>
-
+                </table>
+            </div>
+        </div>
     </div>
-    <!-- <script>
-        function deleteRecord(id) {
-            if (confirm("Are you sure you want to delete this record?")) {
-                window.location.href = '/deleteseller?id=' + id;
-            }
-        }
-    </script> -->
+
     <script src="/src/js/admin/admin.js"></script>
 
 
