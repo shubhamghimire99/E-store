@@ -27,6 +27,7 @@ $routes = [
     "/connect" => "src/Database/connect.php",
     "/inventory" => "src/seller/inventory.php",
     "/verify" => "src/admin/verify.php",
+    "/unverifyseller"=> "src/admin/unverify.php",
     "/seller-edit-product"=> "src/seller/edit_product.php",
     "/seller-delete-product"=> "src/seller/delete_product.php",
     "/productApi" => "src/user/product_api.php",
@@ -34,6 +35,9 @@ $routes = [
     "/seller-profile" => "src/seller/profile.php",
     "/seller-setup" => "src/seller/setup.php",
     "/seller-update" => "src/seller/setup-update.php",
+    "/user-profile" => "src/user/profile.php",
+    "/user-settings" => "src/user/settings.php",
+    "/search" => "src/user/search.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

@@ -14,7 +14,6 @@
 .background{
     height: 100vh;
     width: 100%;
-    /* color: #FFFFFF; */
 }
 
 .background .home{
@@ -29,7 +28,7 @@
 }
 
 .home .h3{
-    padding-left: 80px;
+    padding-left: 30px;
     color: #9F9F9F;
     font-size: 17px;
     transition: 0.5s ease all;
@@ -49,19 +48,16 @@
   content: '';
   position: absolute;
   top: 14%;
-   left: 13%;  /*Adjust as needed */
+    left: 13%;  /*Adjust as needed */
   width: 2px; /* Same width as the line */
   height: 5%; /* Height covering the whole container */
   background-color: #9F9F9F; /* Color of the pseudo-element */
 }
 
-.home .h3::after{
-    content: ">";
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #9F9F9F;
-}
+.home a{
+    text-decoration: none;
 
+}
 .home .h3:hover{
     color: #000000;
 }

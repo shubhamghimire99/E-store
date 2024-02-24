@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,17 +28,56 @@
             <li class="search">
 
                 <input type="text" class="search-area" placeholder="Search for products, Brands and More . . .">
+                <span class="search-output" style="display: none;">
+                    <!-- list products related to search.value using addEventlistener to search input  -->
+                </span>
+                <script>
+                    const search = document.querySelector('.search-area');
+                    const searchOutput = document.querySelector('.search-output');
+                    search.addEventListener('input', () => {
+                        if (search.value === '') {
+                            searchOutput.style.display = 'none';
+                            return;
+                        }
+                        searchOutput.style.display = 'flex';
+                        searchOutput.style.flexDirection = 'column';
+                        searchOutput.innerHTML = '';
+                        fetch(`/search?search=${search.value}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                data.forEach(product => {
+                                    searchOutput.innerHTML += `<a href="/productdetails?id=${product.product_id}"><div class="search-item">
+                                    <img src="/src/images/${product.image}" alt="${product.title}" width="70" height="70">
+                                    <div class="search-item-details">
+                                    <p>Rs. ${product.price}</p>
+                                    <p>${product.title}</p>
+                                    <p>${product.short_des}</p>
+                                    </div>
+                                    </div>
+                                    </a>`;
+                                });
+                            });
+                    });
+                </script>
                 <i class="fas fa-search"></i>
             </li>
 
-            <li class="profile">
-                <a href="/register">
-                    <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.3333 9.99984V4.1665H23.6667V11.1665H21.3333M21.3333 15.8332H23.6667V13.4998H21.3333M9.66667 11.1665C12.7817 11.1665 19 12.7298 19 15.8332V19.3332H0.333336V15.8332C0.333336 12.7298 6.55167 11.1665 9.66667 11.1665ZM9.66667 0.666504C10.9043 0.666504 12.0913 1.15817 12.9665 2.03334C13.8417 2.90851 14.3333 4.09549 14.3333 5.33317C14.3333 6.57085 13.8417 7.75783 12.9665 8.633C12.0913 9.50817 10.9043 9.99984 9.66667 9.99984C8.42899 9.99984 7.24201 9.50817 6.36684 8.633C5.49167 7.75783 5 6.57085 5 5.33317C5 4.09549 5.49167 2.90851 6.36684 2.03334C7.24201 1.15817 8.42899 0.666504 9.66667 0.666504ZM9.66667 13.3832C6.20167 13.3832 2.55 15.0865 2.55 15.8332V17.1165H16.7833V15.8332C16.7833 15.0865 13.1317 13.3832 9.66667 13.3832ZM9.66667 2.88317C9.01689 2.88317 8.39372 3.14129 7.93426 3.60076C7.47479 4.06022 7.21667 4.68339 7.21667 5.33317C7.21667 5.98295 7.47479 6.60612 7.93426 7.06558C8.39372 7.52505 9.01689 7.78317 9.66667 7.78317C10.3165 7.78317 10.9396 7.52505 11.3991 7.06558C11.8585 6.60612 12.1167 5.98295 12.1167 5.33317C12.1167 4.68339 11.8585 4.06022 11.3991 3.60076C10.9396 3.14129 10.3165 2.88317 9.66667 2.88317Z" fill="black" />
-                    </svg>
-                </a>
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <li class="paste-button">
+                    <button class="button">profile &nbsp; ▼</button>
+                    <div class="dropdown-content">
+                        <a id="top" href="/user-profile">Profile</a>
+                        <!-- <a id="middle" href="/user-settings">settings</a> -->
+                        <a id="middle" href="/logout">Logout</a>
+                    </div>
+                </li>
+            <?php else : ?>
+                <li class="profile">
+                    <a href="/login">Login</a>
+                </li>
 
-            </li>
+
+            <?php endif; ?>
 
             <li class="wishlist">
                 <a href="/notification">

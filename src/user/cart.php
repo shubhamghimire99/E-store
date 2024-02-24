@@ -1,7 +1,8 @@
 <?php
-include 'src/user/authentication.php';
-
+include 'src/user/navbar.php';
 include 'src/database/connect.php';
+
+
 
 // get all products form cart
 $user_id = $_SESSION['user_id'];
@@ -34,7 +35,6 @@ $total_price = 0;
 <body>
 
     <div class="main">
-        <?php include "src/user/navbar.php" ?>
 
         <div class="container">
             <div class="payment_details">
