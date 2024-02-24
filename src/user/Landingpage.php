@@ -153,7 +153,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         </div>
 
-        <div class="cards">
+        <div class="cards fade-up">
             <h1>Our Products</h1>
             <div class="product-card" id="ProductCards">
                 <?php foreach ($products as $product) : ?>

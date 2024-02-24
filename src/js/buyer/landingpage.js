@@ -15,6 +15,8 @@ document.getElementById("loadMoreBtn").addEventListener("click", function() {
       loading.style.display = "none"; // Hide loading animation
     }, 2000); // Simulated delay of 2 seconds
   });
+
+  
   
 function loadMore() {
 

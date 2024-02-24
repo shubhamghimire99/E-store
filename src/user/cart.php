@@ -2,6 +2,8 @@
 include 'src/user/navbar.php';
 include 'src/database/connect.php';
 
+
+
 // get all products form cart
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM cart where user_id = $user_id";
