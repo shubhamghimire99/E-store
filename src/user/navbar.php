@@ -66,9 +66,10 @@ session_start();
                 <li class="paste-button">
                     <button class="button">profile &nbsp; ▼</button>
                     <div class="dropdown-content">
-                        <a id="top" href="/user-profile">Profile</a>
-                        <!-- <a id="middle" href="/user-settings">settings</a> -->
-                        <a id="middle" href="/logout">Logout</a>
+                        <a id="top" href="/user-profile">Manage My Profile</a>
+                        <a id="middle" href="/user-orders">My Orders</a>
+                        <a id="middle" href="/user-reviews">My Reviews</a>
+                        <a id="button" href="/logout">Logout</a>
                     </div>
                 </li>
             <?php else : ?>
