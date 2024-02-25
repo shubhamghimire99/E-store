@@ -15,10 +15,65 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
         .content{
             width:80%;
-            background-color: red;
+            background-color: #F8F7FC;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .wrappper{
+            width: 80%;
+            height:80%;
+            background-color: #F8F7FC;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px;
+            border: 5px  solid #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        .topic{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .status{
+            width: 50%;
+            height: auto;
+            padding: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .orders{
+            width: 100px;
+            height: 40px;
+            background-color: #F8F7FC;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #A7B7DD;  
+        }
+
+        .orders a{
+            text-decoration: none;
+            color: #000000;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #A7B7DD;
+            padding: 8px;
+            text-align: center;
         }
     </style>
 </head>
@@ -70,7 +125,44 @@
         </nav>
     </div>
     <div class="content">
-        <h1>Orders</h1>
+        <div class="wrappper">
+            <div class="topic">
+                <h1>Orders</h1>
+                <div class="status">
+                <div class="orders">
+                    <a href="">New Orders</a>
+                </div>
+                <div class="orders">
+                    <a href="">Pending orders</a>
+                </div>
+                <div class="orders">
+                    <a href="">See all</a>
+                </div>    
+            </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Order Date</th>
+                        <th>Order Status</th>
+                        <th>Order Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>12/12/2020</td>
+                        <td>Processing</td>
+                        <td>1000</td>
+                        <td><a href="">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
