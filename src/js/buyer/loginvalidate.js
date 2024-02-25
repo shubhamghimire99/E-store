@@ -1,5 +1,4 @@
 
-
 function validateLogin(event){
     event.preventDefault();
     let email = document.getElementById("email").value;

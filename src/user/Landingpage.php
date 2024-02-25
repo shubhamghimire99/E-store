@@ -160,12 +160,12 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="card">
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
-                            <h2><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
+                            <h2 id="productTitle"><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
                             
                             <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0,60) . ".." : $product['des']; ?>
-                            <p class="product_des"><?php echo $short_description; ?></p>
+                            <p id="productDs" class="product_des"><?php echo $short_description; ?></p>
 
-                            <h3 class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
+                            <h3 id="ProductPtice" class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
                         </div>
                         <div class="additional-content">
                             <div class="content">

@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
 <body>
     <div class="background">
         <?php include 'Navbar.php'; ?>
+        
         <div class="home">
             <a href="">
                 <h3 class="h3">

@@ -32,8 +32,23 @@ function loadMore() {
         xhr.open('GET', `/productApi?limit=${limit}`, true);
         xhr.onload = function() {
             if (this.status == 200) {
-    
+                
                 var products = JSON.parse(this.responseText);
+                // make abbreviations for long descriptions for products api
+                products.forEach(element => {
+                    if (element.des.length > 60) {
+                        element.des = element.des.substring(0, 60) + "...";
+                    }
+                    if (element.title.length > 20) {
+                        element.title = element.title.substring(0, 20) + "...";
+                    }
+                });
+
+                // formate the price with commas
+                products.forEach(element => {
+                    element.price = element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                });
+
                 console.log(products);
                 var ProductCards = document.getElementById("ProductCards");
                 ProductCards.innerHTML = "";
@@ -41,11 +56,9 @@ function loadMore() {
                     ProductCards.innerHTML += `<div class="card" >
                 <img src="/src/images/${element.image}" alt="image can't be loaded">
                 <div class="card-desc">
-                    <h3>${element.title}</h3>
+                    <h2>${element.title}</h2>
                     <p>${element.des}</p>
-                    <h6>Rs.${element.price}</h6>
-                    <ul>
-                    </ul>
+                    <h3>Rs.${element.price}</h3>
                 </div>
                 <div class="additional-content">
                     <div class="content">
