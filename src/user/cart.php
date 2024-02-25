@@ -1,24 +1,14 @@
 <?php
-include 'src/user/navbar.php';
+ include "src/user/navbar.php";
+
 include 'src/database/connect.php';
 
 
-
-// get all products form cart
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM cart where user_id = $user_id";
 $result = mysqli_query($conn, $sql);
 $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-// get total amount
-// $total = 0;
-// foreach($products as $product){
-//     $total += $product['product_price'];
-// }
- 
 $total_price = 0;
-// foreach ($cart_items as $cart_items) {
-//     $total_price += $cart_items['product_total'];
-// }
 
 ?>
 
@@ -33,6 +23,8 @@ $total_price = 0;
 </head>
 
 <body>
+
+   
 
     <div class="main">
 
@@ -75,24 +67,24 @@ $total_price = 0;
                     <?php foreach ($cart_items as $cart_items) : ?>
                         <div class="card_item">
                             <div class="product_img">
-                                <img src="/src/images/<?php echo $cart_items['product_image']; 
-                               
-                                ?>" alt="image not found" />
+                                <img src="/src/images/<?php echo $cart_items['product_image'];
+
+                                                        ?>" alt="image not found" />
                             </div>
                             <div class="product_info">
                                 <h1><?php echo $cart_items['product_name']; ?></h1>
                                 <!-- <p><?php echo $cart_items['product_des']; ?></p> -->
-                                <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id']?>)">
+                                <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                     <i class="fa fa-close"></i>
                                 </button>
                                 <div class="product_rate_info">
-                                    <h1>Rs. <?php echo $cart_items['product_price']; 
-                                         $total_price +=  $cart_items['product_total'];
-                                         
-                                    ?></h1>
-                                    <button onclick="subtractQuantity(<?php echo  $cart_items['cart_id']?>)" class="pqt-minus">-</button>
+                                    <h1>Rs. <?php echo $cart_items['product_price'];
+                                            $total_price +=  $cart_items['product_total'];
+
+                                            ?></h1>
+                                    <button onclick="subtractQuantity(<?php echo  $cart_items['cart_id'] ?>)" class="pqt-minus">-</button>
                                     <span class="pqt"><?php echo $cart_items['product_quantity']; ?></span>
-                                    <button onclick="addQuantity(<?php echo  $cart_items['cart_id']?>)" class="pqt-plus">+</button>
+                                    <button onclick="addQuantity(<?php echo  $cart_items['cart_id'] ?>)" class="pqt-plus">+</button>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +101,7 @@ $total_price = 0;
                     </div>
                     <div class="order_total">
                         <p>Total Amount</p>
-                        <h4>Rs.<?php echo  $total_price + 65?></h4>
+                        <h4>Rs.<?php echo  $total_price + 65 ?></h4>
                     </div>
 
                 </div>

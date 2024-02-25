@@ -32,44 +32,43 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <div class="categories">
                 <div class="category">
                     <a href="">
-                        <i class="fa-solid fa-person-dress"></i>
-                        Women's Fashion
+                    <i class="fa-solid fa-laptop"></i>
+                        Laptops
                     </a>
                 </div>
                 <div class="category">
                     <a href="">
-                        <i class="fa-solid fa-shirt"></i>
-                        Men's Fashion
+                    <i class="fa-solid fa-mobile"></i>
+                        Smartphones and mobile
+                    </a>
+                </div>
+                <div class="category">
+                    <a href=""> <i class="fa-solid fa-tv"></i>
+                    Monitors    
+                </a>
+                </div>
+                <div class="category">
+                    <a href="">
+                    <i class="fa-solid fa-headset"></i>
+                        HeadPhone And EarPhone
                     </a>
                 </div>
                 <div class="category">
                     <a href="">
-                        <i class="fa-solid fa-mobile"></i>
-                        Electronics
+                    <i class="fa-solid fa-gamepad"></i>
+                        Gaming accessories
                     </a>
                 </div>
                 <div class="category">
                     <a href="">
-                        <i class="fa-solid fa-couch"></i>
-                        Home & Lifestyle
+                    <i class="fa-brands fa-apple"></i>
+                        Airpods and EarBuds
                     </a>
                 </div>
                 <div class="category">
                     <a href="">
-                        <i class="fa-solid fa-capsules"></i>
-                        Medicine
-                    </a>
-                </div>
-                <div class="category">
-                    <a href="">
-                        <i class="fa-solid fa-volleyball"></i>
-                        Sports and Outdoor
-                    </a>
-                </div>
-                <div class="category">
-                    <a href="">
-                        <i class="fa-solid fa-baby-carriage"></i>
-                        baby & Toys
+                    <i class="fa-solid fa-computer-mouse"></i>
+                        KeyBoards and Mouse
                     </a>
                 </div>
             </div>
@@ -161,8 +160,8 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
                             <h2 id="productTitle"><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
-                            
-                            <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0,60) . ".." : $product['des']; ?>
+
+                            <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0, 60) . ".." : $product['des']; ?>
                             <p id="productDs" class="product_des"><?php echo $short_description; ?></p>
 
                             <h3 id="ProductPtice" class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
