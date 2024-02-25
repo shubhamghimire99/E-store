@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
         <div class="container">
             <div class="side-image">
                 <div class="image">
-
+                    
                 </div>
                 <div class="image">
 

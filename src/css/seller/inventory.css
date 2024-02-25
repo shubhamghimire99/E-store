@@ -2,23 +2,15 @@
 
 .content {
     width: 80%;
-    background-color: #f2f2f2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
+    background-color: #F5F5F5;
 }
 
-/* for header in a page */
 h1 {
     font-size: 24px;
     font-weight: 700;
     color: #000000;
     padding: 20px 0px 20px 20px;
 }
-
-/* for tables in inventory and sellers page */
 
 .wrapper {
     width: 100%;
@@ -46,7 +38,7 @@ h1 {
     padding: 20px 0;
 }
 
-.table {
+.table {              
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -61,17 +53,11 @@ h1 {
 table {
     width: 90%;
     border-collapse: collapse;
+    border: #000000;
     border-spacing: 0;
-    
+
 }
 
- th {
-
-    color: #000000;
-    text-align: start;
-    font-size: 16px;
-    font-weight: 700;
-}
 
 tr{
     width: 100%;
@@ -85,41 +71,30 @@ tr{
     margin: 10px 10px;
     padding: 10px 0px;
     transition-duration: 0.3s;
-    
-}
-
-/* set an fixed width for every td in an tr */
-td {
-    font-size: 14px;
-    width: 100%;
-    font-weight: 500;
-    padding: 10px 0;
-    background-color: #FFFFFF;
-
 }
 
 td {
-    font-size: 14px;
-    width: 100px;
-    font-weight: 500;
-    padding: 10px 0;
-    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
 
 }
 
 .action-btns{
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
     gap: 10px;
     width: 150px;
 }
 
+/* delete button */
 .delete-button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgb(20, 20, 20);
+    background-color: red;
     border: none;
     font-weight: 600;
     display: flex;
@@ -142,7 +117,7 @@ td {
 }
 
 .delete-button:hover {
-    width: 90px;
+    width: 50px;
     border-radius: 50px;
     transition-duration: 0.3s;
     background-color: rgb(255, 69, 69);
@@ -160,35 +135,20 @@ td {
     transform: rotate(360deg);
 }
 
-.delete-button::before {
+/* .delete-button::before {
     display: none;
     content: "Delete";
     color: white;
     transition-duration: 0.3s;
     font-size: 2px;
-}
+} */
 
-.view-button::before{
-    display: none;
-    content: "View details";
-    color: white;
-    transition-duration: 0.3s;
-    font-size: 2px;
-}
-
-.delete-button:hover::before {
-    display: block;
-    padding-right: 10px;
-    font-size: 13px;
-    opacity: 1;
-    transform: translateY(0px);
-    transition-duration: 0.3s;
-}
-.verify-button {
+/* edit Button */
+.edit-button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: green;
+    background-color: rgb(32, 255, 3);
     border: none;
     font-weight: 600;
     display: flex;
@@ -201,24 +161,25 @@ td {
     position: relative;
 }
 
-.verify-svgIcon {
-    width: 30px;
+.edit-svgIcon {
+    width: 15px;
     transition-duration: 0.3s;
 }
 
-.verify-svgIcon path {
+.etit-svgIcon path {
     fill: white;
+
 }
 
-.verify-button:hover {
-    width: 90px;
+.edit-button:hover {
+    width: 50px;
     border-radius: 50px;
     transition-duration: 0.3s;
-    background-color: green;
+    background-color: rgb(32, 255, 3);
     align-items: center;
 }
 
-.verify-button:hover .verify-svgIcon {
+.edit-button:hover .edit-svgIcon {
     width: 20px;
     transition-duration: 0.3s;
     transform: translateY(60%);
@@ -229,81 +190,10 @@ td {
     transform: rotate(360deg);
 }
 
-.verify-button::before {
+.edit-button::before {
     display: none;
-    content: "Verify";
+    content: "Edit";
     color: white;
     transition-duration: 0.3s;
     font-size: 2px;
 }
-.verify-button:hover::before {
-    display: block;
-    padding-right: 10px;
-    font-size: 13px;
-    opacity: 1;
-    transform: translateY(0px);
-    transition-duration: 0.3s;
-}
-.view-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: gray;
-    border: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-    transition-duration: 0.3s;
-    overflow: hidden;
-    position: relative;
-}
-
-.view-svgIcon {
-    width: 30px;
-    transition-duration: 0.3s;
-}
-
-.view-svgIcon path,circle {
-    stroke: white;
-}
-
-.view-button:hover {
-    width: 90px;
-    border-radius: 50px;
-    transition-duration: 0.3s;
-    background-color: gray;
-    align-items: center;
-}
-
-.view-button:hover .view-svgIcon {
-    width: 20px;
-    transition-duration: 0.3s;
-    transform: translateY(60%);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-}
-
-.view-button::before {
-    display: none;
-    content: "Details";
-    color: white;
-    transition-duration: 0.3s;
-    font-size: 2px;
-}
-.view-button:hover::before {
-    display: block;
-    padding-right: 10px;
-    font-size: 13px;
-    opacity: 1;
-    transform: translateY(0px);
-    transition-duration: 0.3s;
-}
-
-
-
