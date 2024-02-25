@@ -34,6 +34,7 @@ $routes = [
     "/logout" => "src/Database/logout.php",
     "/seller-profile" => "src/seller/profile.php",
     "/seller-setup" => "src/seller/setup.php",
+    "/seller-update" => "src/seller/setup-update.php",
     "/user-profile" => "src/user/profile.php",
     "/user-settings" => "src/user/settings.php",
     "/search" => "src/user/search.php",
@@ -47,4 +48,3 @@ if (array_key_exists($uri, $routes)) {
     include 'views/404.php';
     http_response_code(404);
 }
-?>

@@ -71,7 +71,8 @@ include "src/seller/authentication.php";
         </nav>
     </div>
     <div class="content">
-        <h1>setting</h1>
+        
+    <a href="/seller-profile">Profile</a>
     </div>
 </body>
 

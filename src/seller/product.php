@@ -1,31 +1,57 @@
-
-
-
 <?php
-    include "src/seller/authentication.php";
+include "src/seller/authentication.php";
 
-    include "src/Database/connect.php";
+include "src/Database/connect.php";
 
+// Check if the form was submitted
 
 if (isset($_POST['submit'])) {
 
     $title = $_POST['title'];
     $short_des = $_POST['short-des'];
     $des = $_POST['des'];
-    $image = $_POST['image'];
+    // $image = $_POST['image'];
     $price = $_POST['price'];
     $brand = $_POST['brand'];
     $product_type = $_POST['product_type'];
     $vendor = $_POST['vendor'];
-    $quantity = $_POST['quantity']; 
+    $quantity = $_POST['quantity'];
     $userid = $_SESSION['user_id'];
 
-    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$image' , '$userid','$price', '$brand', '$product_type', '$vendor', '$quantity')";
+    if(isset($_FILES['image'])){
+        echo "inside the saving file";
+        $errors= array();
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $file_type = $_FILES['image']['type'];
+
+        $file_ext=strtolower(explode('.',$file_name)[1]);
+        
+        $extensions= array("jpeg","jpg","png");
+        
+        if(in_array($file_ext,$extensions)=== false){
+           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+        }
+        
+        if($file_size > 2097152) {
+           $errors[]='File size must be excately 2 MB';
+        }
+        
+        if(empty($errors)==true) {
+           move_uploaded_file($file_tmp,"src/images/".$file_name);
+           echo "Success";
+        }else{
+           print_r($errors);
+        }
+     }
+
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$file_name' , '$userid','$price', '$brand', '$product_type', '$vendor', '$quantity')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: /inventory");
     } else {
-        echo "Error:" .mysqli_error($conn);
+        echo "Error:" . mysqli_error($conn);
     }
 }
 
@@ -209,7 +235,7 @@ if (isset($_POST['submit'])) {
                             <path d="M16.4783 10.94C16.5183 10.64 16.5383 10.33 16.5383 10C16.5383 9.68003 16.5183 9.36003 16.4683 9.06003L18.4983 7.48003C18.5858 7.40793 18.6456 7.30772 18.6675 7.19649C18.6894 7.08527 18.672 6.96989 18.6183 6.87003L16.6983 3.55003C16.6418 3.44959 16.5516 3.3724 16.4436 3.33214C16.3356 3.29187 16.2168 3.29112 16.1083 3.33003L13.7183 4.29003C13.2183 3.91003 12.6883 3.59003 12.0983 3.35003L11.7383 0.810027C11.7206 0.695557 11.6625 0.591234 11.5744 0.516003C11.4863 0.440772 11.3742 0.399623 11.2583 0.400027H7.41834C7.17834 0.400027 6.98834 0.570027 6.94834 0.810027L6.58834 3.35003C5.99834 3.59003 5.45834 3.92003 4.96834 4.29003L2.57834 3.33003C2.35834 3.25003 2.10834 3.33003 1.98834 3.55003L0.078343 6.87003C-0.0416569 7.08003 -0.00165707 7.34003 0.198343 7.48003L2.22834 9.06003C2.17834 9.36003 2.13834 9.69003 2.13834 10C2.13834 10.31 2.15834 10.64 2.20834 10.94L0.178343 12.52C0.0908669 12.5921 0.0310966 12.6923 0.00921549 12.8036C-0.0126656 12.9148 0.00469628 13.0302 0.0583431 13.13L1.97834 16.45C2.09834 16.67 2.34834 16.74 2.56834 16.67L4.95834 15.71C5.45834 16.09 5.98834 16.41 6.57834 16.65L6.93834 19.19C6.98834 19.43 7.17834 19.6 7.41834 19.6H11.2583C11.4983 19.6 11.6983 19.43 11.7283 19.19L12.0883 16.65C12.6783 16.41 13.2183 16.09 13.7083 15.71L16.0983 16.67C16.3183 16.75 16.5683 16.67 16.6883 16.45L18.6083 13.13C18.7283 12.91 18.6783 12.66 18.4883 12.52L16.4783 10.94ZM9.33834 13.6C7.35834 13.6 5.73834 11.98 5.73834 10C5.73834 8.02003 7.35834 6.40003 9.33834 6.40003C11.3183 6.40003 12.9383 8.02003 12.9383 10C12.9383 11.98 11.3183 13.6 9.33834 13.6Z" fill="#A7B7DD" />
                         </svg>
                         Settings</a></li>
-                        <li>
+                <li>
                     <a href="/logout">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.91625 14.7756C6.91625 15.0258 6.81689 15.2656 6.64002 15.4425C6.46315 15.6194 6.22326 15.7188 5.97313 15.7188H1.57188C1.15499 15.7188 0.755175 15.5531 0.460392 15.2584C0.165608 14.9636 0 14.5638 0 14.1469V1.57188C0 1.15499 0.165608 0.755175 0.460392 0.460392C0.755175 0.165608 1.15499 0 1.57188 0H5.97313C6.22326 0 6.46315 0.0993647 6.64002 0.276235C6.81689 0.453105 6.91625 0.692993 6.91625 0.943125C6.91625 1.19326 6.81689 1.43314 6.64002 1.61002C6.46315 1.78689 6.22326 1.88625 5.97313 1.88625H1.88625V13.8325H5.97313C6.22326 13.8325 6.46315 13.9319 6.64002 14.1087C6.81689 14.2856 6.91625 14.5255 6.91625 14.7756ZM15.4429 7.19211L12.2991 4.04836C12.122 3.87119 11.8817 3.77165 11.6311 3.77165C11.3805 3.77165 11.1402 3.87119 10.963 4.04836C10.7859 4.22554 10.6863 4.46584 10.6863 4.71641C10.6863 4.96698 10.7859 5.20728 10.963 5.38446L12.4964 6.91625H5.97313C5.72299 6.91625 5.48311 7.01561 5.30623 7.19248C5.12936 7.36936 5.03 7.60924 5.03 7.85938C5.03 8.10951 5.12936 8.34939 5.30623 8.52626C5.48311 8.70313 5.72299 8.8025 5.97313 8.8025H12.4964L10.9623 10.3359C10.7851 10.513 10.6855 10.7533 10.6855 11.0039C10.6855 11.2545 10.7851 11.4948 10.9623 11.672C11.1394 11.8491 11.3797 11.9487 11.6303 11.9487C11.8809 11.9487 12.1212 11.8491 12.2984 11.672L15.4421 8.52821C15.5301 8.44064 15.5999 8.33657 15.6476 8.22196C15.6952 8.10735 15.7198 7.98445 15.7199 7.86032C15.72 7.73619 15.6955 7.61327 15.648 7.49861C15.6005 7.38394 15.5308 7.27979 15.4429 7.19211Z" fill="#A7B7DD" />
@@ -226,7 +252,7 @@ if (isset($_POST['submit'])) {
             <h1>Add Product</h1>
         </div>
         <div class="form">
-            <form action="# " method="post">
+            <form action="# " method="post" enctype="multipart/form-data">
                 <div class="title">
                     <h4>Title</h3>
                         <input type="text" name="title" id="title" placeholder="Enter product title">

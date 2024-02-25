@@ -6,7 +6,7 @@ function verifySeller(id, verified) {
         }
     }else{
         if (confirm("Are you sure you want to verify this seller?")) {
-            window.location.href = '/verifyseller?id=' + id;
+            window.location.href = '/verify?id=' + id;
         }
     }
 
