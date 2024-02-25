@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
         <div class="home">
             <a href="">
                 <h3 class="h3">
-                <a href="/"> Home</a>    
+                    <a href="/"> Home</a>
                 </h3>
             </a>
             <h3 class="product-name">
@@ -95,11 +95,11 @@ if (isset($_GET['id'])) {
                 </div> -->
 
                 <div class="cart">
-                    <!-- <div class="quantity">
-                        <p class="increase">-</p>
-                        <p>1</p>
-                        <p class="increase">+</p>
-                    </div> -->
+                    <div class="quantity">
+                        <button class="decrease" onclick="decreaseQuantity()" >-</button>
+                        <p id="quantity">0</p>
+                        <button class="increase" onclick="increaseQuantity()"  >+</button>
+                    </div>
                     <button onclick="buyNow(<?php echo  $product['product_id'] ?>)">Buy now</button>
                     <button onclick="addToCart(<?php echo  $product['product_id'] ?>)">Add to Cart</button>
                 </div>
@@ -129,10 +129,10 @@ if (isset($_GET['id'])) {
             </div>
             <div class="image-container">
                 <div class="des-image">
-                    <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
+                    <img src="/src/images/Cloud sofa three seater + ottoman_1 1.png" alt="">
                 </div>
                 <div class="des-image">
-                    <img src="../images/Cloud sofa three seater + ottoman_1 1.png" alt="">
+                    <img src="/src/images/Cloud sofa three seater + ottoman_1 1.png" alt="">
                 </div>
             </div>
         </div>
@@ -141,12 +141,7 @@ if (isset($_GET['id'])) {
 
         </div>
     </div>
-
-    <script>
-        function addToCart(id) {
-            window.location.href = "/addtocart?id=" + id;
-        }
-    </script>
+    <script src="/src/js/buyer/product.js"></script>
 </body>
 
 </html>
