@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $product_type = $_POST['product_type'];
     $vendor = $_POST['vendor'];
     $quantity = $_POST['quantity'];
-    $userid = $_SESSION['user_id'];
+    $userid = $_SESSION['user_id']; 
 
     if(isset($_FILES['image'])){
         echo "inside the saving file";
@@ -46,7 +46,10 @@ if (isset($_POST['submit'])) {
         }
      }
 
-    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`) VALUES (NULL,'$title', '$short_des', '$des','$file_name' , '$userid','$price', '$brand', '$product_type', '$vendor', '$quantity')";
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`)
+     VALUES (NULL,'$title', '$short_des', '$des','$file_name' , 
+     '$userid','$price', '$brand', '$product_type', '$vendor', 
+     '$quantity')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: /inventory");

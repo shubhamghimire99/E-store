@@ -77,8 +77,15 @@ ul li {
 
 .profile a {
     text-decoration: none;
-    color: #000000;
-    font-size: 30px;
+    background-color: #F0EFFF;
+    padding: 10px;
+    border-radius: 10px ;
+    color: #A7B7DD;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    /* font-size: 30px; */
 }
 
 .paste-button {
@@ -94,6 +101,9 @@ ul li {
     font-size: 15px;
     font-weight: bold;
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border-radius: 15px;
     cursor: pointer;
 }

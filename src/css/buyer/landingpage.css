@@ -298,17 +298,18 @@
 .card {
     display: flex;
     flex-direction: column;
-    background-color: #F5F5F5;
+    align-items: flex-start;
+    background-color: #F4F5F7;
     flex-wrap: wrap;
     width: 300px;
     height: 440px;
-    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    /* overflow: hidden; */
 }
 
 .additional-content {
     display: none;
     position: absolute;
-
     width: 300px;
     height: 440px;
     background: rgba(0, 0, 0, 0.5);
@@ -400,58 +401,23 @@
 .card img {
     width: 300px;
     height: 300px;
-    overflow: hidden;
-    object-fit: cover;
-    width: 300px;
-    height: 300px;
+    object-fit : cover;
+    /* give box shadow in buttom of the image */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-
-.card a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.card {
+.card-desc{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.card-desc h3 {
-    text-align: center;
-    font-size: 30px;
-    padding-top: 10px;
-    margin: 0;
-}
-
-.card-desc h6 {
-    text-align: center;
-    font-size: 20px;
-    padding-top: 10px;
-    margin: 0;
-
-}
-
-
-.card-desc ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding: 10px;
     gap: 10px;
-
-    margin: 0;
 }
 
-.btn {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+.card-desc h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #1D1D1F;
 
 }
 

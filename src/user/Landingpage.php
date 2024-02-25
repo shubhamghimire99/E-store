@@ -160,17 +160,12 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="card">
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
-                            <h3><?php echo $product['title']; ?></h3>
-                            <p><?php echo $product['des']; ?></p>
-                            <h6>Rs.<?php echo $product['price']; ?></h6>
-                            <ul>
-                                <!-- <?php for ($i = 0; $i < $product['rating']; $i++) : ?>
-                                    <li><i class="fa fa-star checked"></i></li>
-                                <?php endfor; ?>
-                                <?php for ($i = $product['rating']; $i < 5; $i++) : ?>
-                                    <li><i class="fa fa-star"></i></li>
-                                <?php endfor; ?> -->
-                            </ul>
+                            <h2><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
+                            
+                            <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0,60) . ".." : $product['des']; ?>
+                            <p class="product_des"><?php echo $short_description; ?></p>
+
+                            <h3 class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
                         </div>
                         <div class="additional-content">
                             <div class="content">
