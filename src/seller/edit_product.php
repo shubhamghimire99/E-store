@@ -31,10 +31,37 @@ if (isset($_POST['submit'])) {
         $image = $product['image'];
     }
 
+    if(isset($_FILES['image'])){
+        echo "inside the saving file";
+        $errors= array();
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $file_type = $_FILES['image']['type'];
+
+        $file_ext=strtolower(explode('.',$file_name)[1]);
+        
+        $extensions= array("jpeg","jpg","png");
+        
+        if(in_array($file_ext,$extensions)=== false){
+           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+        }
+        
+        if($file_size > 2097152) {
+           $errors[]='File size must be excately 2 MB';
+        }
+        
+        if(empty($errors)==true) {
+           move_uploaded_file($file_tmp,"src/images/".$file_name);
+           echo "Success";
+        }else{
+           print_r($errors);
+        }
+     }
 
     //sql query to update data to database
     $sql = "update product set title='$title',
-    short_des='$short_des', des='$des',image='$image',
+    short_des='$short_des', des='$des',image='$file_name',
     price=$price ,brand='$brand', product_type='$product_type',
     vendor='$vendor', quantity=$quantity
     where product_id=$product_id ";
@@ -248,7 +275,7 @@ if (isset($_POST['submit'])) {
             <h1>Edit Product</h1>
         </div>
         <div class="form">
-            <form action="#" method="post">
+            <form action="#" method="post" enctype="multipart/form-data">
                 <div class="title">
                     <h4>Title</h3>
                         <input type="text" name="title" id="title" value="<?php echo $product['title'] ?>">
