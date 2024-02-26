@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
 <body>
     <div class="background">
         <?php include 'Navbar.php'; ?>
+        
         <div class="home">
             <a href="">
                 <h3 class="h3">
@@ -39,7 +40,7 @@ if (isset($_GET['id'])) {
         <div class="container">
             <div class="side-image">
                 <div class="image">
-
+                    
                 </div>
                 <div class="image">
 

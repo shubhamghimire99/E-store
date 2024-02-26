@@ -7,6 +7,7 @@ function decreaseQuantity() {
     let quantity = parseInt(quantityText.textContent); // Parse integer
     console.log(quantity);
     if (!isNaN(quantity) && quantity > 1) { // Check if it's a valid number
+        decreaseBtn.disabled = false;
         quantity--;
         quantityText.textContent = quantity;
     }

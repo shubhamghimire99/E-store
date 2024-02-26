@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
     $vendor = $_POST['vendor'];
     $quantity = $_POST['quantity'];
 
-    if($image == '') {
+    if ($image == '') {
         $image = $product['image'];
     }
 
