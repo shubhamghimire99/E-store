@@ -9,6 +9,13 @@
   font-family: "Nunito", sans-serif;
 }
 
+.main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
 h1 {
   font-size: 16px;
   margin: 5px;
@@ -16,7 +23,6 @@ h1 {
 
 .container {
   width: 100%;
-
   display: flex;
   background-color: #f9fafc;
   justify-content: space-around;
@@ -155,7 +161,7 @@ h1 {
   Payment Information all input
   */
 
-input {
+.details_card input {
   outline: 0;
   background: #f2f2f2;
   border-radius: 4px;

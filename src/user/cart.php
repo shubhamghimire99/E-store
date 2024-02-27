@@ -1,8 +1,6 @@
 <?php
 include "src/user/navbar.php";
-
 include 'src/database/connect.php';
-
 
 $user_id = $_SESSION['user_id'];
 $sql = "SELECT * FROM cart where user_id = $user_id";
@@ -19,11 +17,12 @@ $total_price = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/buyer/cart.css">
-    <title>Document</title>
+    <title>Cart</title>
 </head>
 
 <body>
     <div class="main">
+       
         <div class="container">
             <div class="payment_details">
                 <h1>Payment Information</h1>
