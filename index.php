@@ -38,6 +38,7 @@ $routes = [
     "/user-profile" => "src/user/profile.php",
     "/user-settings" => "src/user/settings.php",
     "/search" => "src/user/search.php",
+    "/user-update" => "src/user/update.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

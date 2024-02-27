@@ -1,13 +1,11 @@
-<?php
-    include "src/user/authentication.php";
-    include "src/Database/connect.php";
-    $buyer_id = $_SESSION['user_id'];
-$sql = "select * from user where id = '$buyer_id'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-
-?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,8 +71,8 @@ $row = mysqli_fetch_assoc($result);
             justify-content: space-between;
             padding: 20px;
         }
-        .phone {
-            width: 70%;
+        .phone{
+            width: 30%;
             height:80px;
             display: flex;
             flex-direction: column;
@@ -82,11 +80,10 @@ $row = mysqli_fetch_assoc($result);
 
         .gender{
             width: 30%;
-            height:80px;
-            display: flex;
-            flex-direction: column;    
+            height: 80px;
+            display: inline-block;
+            position: relative;
         }
-
         .btn{
             margin-top: 20px;
             width: 45%;
@@ -116,7 +113,7 @@ $row = mysqli_fetch_assoc($result);
                 <div class="profile">
                     P
                 </div>
-                <p><?php echo $row['firstname'] ?></p>
+                <p></p>
             </nav>
         </header>
 
@@ -124,7 +121,7 @@ $row = mysqli_fetch_assoc($result);
             <div class="menubar">
                 <h2>Manage my account</h2>
                 <ul>
-                    <li class="active"><a href="/user-profile">
+                    <li class="active"><a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
                                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
                                     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2" />
@@ -142,40 +139,36 @@ $row = mysqli_fetch_assoc($result);
             <h2>My profile</h1>
             <hr>
             <div class="box">
-                <form action="/user-update" method="post" class="form">
+                <form action="/user-profile" method="post" class="form">
                     <div class="detail-1">
                         <div class="first-name">
                             <p>First Name</p>
-                            <p><?php echo $row['firstname'] ?></p>
+                            <input type="text" placeholder="Enter your first-name">
                         </div>
                         <div class="last-name">
                             <p>Last Name</p>
-                            <p><?php echo $row['lastname'] ?></p>
+                            <input type="text" placeholder="Enter your last-name">
                         </div>
                         <div class="email">
                             <p>Email</p>
-                            <p><?php echo $row['email'] ?></p>
+                            <input type="text" placeholder="Enter your email">
                         </div>
                     </div>
                     <div class="detail-2">
                         <div class="phone">
                             <p>Phone</p>
-                            <p><?php echo $row['contact'] ?></p>
+                            <input type="text" placeholder="Phone No">
                         </div>
                         <div class="gender">
-                            <p>Gender</p>
-                            <p><?php
-
-                                if($row['gender']==null){
-                                    echo "Gender";
-                                }
-                                    echo  $row['gender'];
-                                
-                             ?></p>
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
                         </div>
                     </div>
                     <div class="btn">
-                        <button type="submit" >Edit Profile</button>
+                        <button type="submit" >Save Changes</button>
                     </div>
                 </div>
             </div>
@@ -183,5 +176,7 @@ $row = mysqli_fetch_assoc($result);
         </div>
 
 </div>
+</body>
+</html>
 </body>
 </html>
