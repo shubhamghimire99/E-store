@@ -96,7 +96,7 @@ $conn->close();
                     <h4>Become a Seller</h4>
                 </a>
             </div>
-            <form onsubmit="return validateform()"  action="#" method="post" class="form">
+            <form onsubmit="return validateform()"  method="post" class="form">
                 <div class="sign-up">
                     <h2>Sign Up</h2>
                 </div>

@@ -1,6 +1,7 @@
 <!-- landing page for buyer -->
 <?php
 // include 'src/user/authentication.php';
+include 'src/user/Navbar.php';
 
 include 'src/database/connect.php';
 
@@ -21,13 +22,13 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/landingpage.css">
     <link rel="stylesheet" href="/src/css/fadeup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>home</title>
+    <title>Home</title>
 
 </head>
 
 <body>
     <div class="main">
-        <?php include 'Navbar.php'; ?>
+        <?php  ?>
         <div class="first-main">
             <div class="categories">
                 <div class="category">

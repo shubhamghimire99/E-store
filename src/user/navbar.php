@@ -9,7 +9,6 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>navbar</title>
     <link rel="stylesheet" href="/src/css/buyer/navbar.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
 </head>
