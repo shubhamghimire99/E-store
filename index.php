@@ -40,7 +40,9 @@ $routes = [
     "/search" => "src/user/search.php",
     "/user-update" => "src/user/update.php",
     "/address-book" => "src/user/addressBook.php",
+    "/addAddress" => "src/user/addAddress.php",
     "/order" => "src/user/order.php",
+
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
