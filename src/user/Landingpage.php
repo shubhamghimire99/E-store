@@ -86,7 +86,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <!-- radio-btn end -->
 
                     <!-- slide images start -->
-                    <div class="slide first">
+                    <div class="slide first" id="slider">
                         <img src="/src/images/slider/angela-bailey-jlo7Bf4tUoY-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
@@ -160,7 +160,6 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
                             <h2 id="productTitle"><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
-
                             <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0, 60) . ".." : $product['des']; ?>
                             <p id="productDs" class="product_des"><?php echo $short_description; ?></p>
 
@@ -222,7 +221,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         </div>
 
-
+    </div>
         <script src="/src/js/buyer/landingpage.js"></script>
 
         <script src="/src/js/FadeUpAnimation.js"></script>

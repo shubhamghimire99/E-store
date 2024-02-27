@@ -38,14 +38,13 @@
     flex-direction: column;
     align-items: start;
     width: 100%;
-    padding: 3px;
+    padding: 3px 0;
 }
 
 .categories .category a {
     text-decoration: none;
     color: #000000;
     border-radius: 10px;
-
 }
 
 .categories .category a i {
@@ -58,7 +57,7 @@
     background-color: #40d3dc;
     color: #FFFFFF;
     border-radius: 10px;
-    transition: all 1s ease-in
+    transition: all 1s ease-in;
 }
 
 .categories .category a:hover {
@@ -67,13 +66,10 @@
 
 /* slider start */
 .slider {
-
     border-radius: 10px;
     width: 130vh;
     height: 60vh;
     margin: 0 10px;
-
-
 }
 
 .slides {

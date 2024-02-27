@@ -16,6 +16,7 @@ h1 {
 
 .container {
   width: 100%;
+
   display: flex;
   background-color: #f9fafc;
   justify-content: space-around;
@@ -39,13 +40,19 @@ h1 {
 .summary_card {
   background-color: #fff;
   width: 350px;
+  height: 70vh;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 10px;
   height: fit-content;
 }
 
-.summary_card {}
+.scrollable-container {
+  max-height: 380px; /* Adjust the maximum height as per your requirement */
+  overflow-y: auto;
+}
+
+
 
 /*
   Order Card Item Card

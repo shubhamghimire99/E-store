@@ -28,7 +28,7 @@ session_start();
 
             <li class="search">
 
-                <input type="text" class="search-area" placeholder="Search for products, Brands and More . . .">
+                <input type="search" class="search-area" placeholder="Search for products, Brands and More . . .">
                 <span class="search-output" style="display: none;">
                     <!-- list products related to search.value using addEventlistener to search input  -->
                 </span>
@@ -61,7 +61,7 @@ session_start();
                     });
                 </script>
                 <i class="fas fa-search"></i>
-            </li>
+                </li>
 
             <?php if (isset($_SESSION['user_id'])) : ?>
                 <li class="paste-button">

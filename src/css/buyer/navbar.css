@@ -52,7 +52,7 @@ ul li {
 .search-area {
     width: 100%;
     min-width: 700px;
-
+    border: #000000;
     width: fit-content;
     height: 40px;
     border: none;
