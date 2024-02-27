@@ -1,3 +1,35 @@
+<?php
+     include "src/user/authentication.php";
+     include "src/Database/connect.php";
+    
+     $buyer_id = $_SESSION['user_id'];
+    $sql = "select * from `user` where id = '$buyer_id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+
+if (isset($_POST['submit'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $gender = $_POST['gender'];
+
+    //sql query to update data to database
+    $sql = "update user set firstname='$firstname',lastname='$lastname',email='$email',contact='$phone',gender='$gender' where id='$buyer_id'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        echo "<script> data updated successfully </script>";
+        header('location: /user-profile');
+    } else {
+        die(mysqli_error($conn));
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,25 +171,25 @@
             <h2>My profile</h1>
             <hr>
             <div class="box">
-                <form action="/user-profile" method="post" class="form">
+                <form action="#" method="post" class="form">
                     <div class="detail-1">
                         <div class="first-name">
                             <p>First Name</p>
-                            <input type="text" placeholder="Enter your first-name">
+                            <input type="text" placeholder="Enter your first-name" value="<?php echo $row['firstname'] ?>" name="firstname">
                         </div>
                         <div class="last-name">
                             <p>Last Name</p>
-                            <input type="text" placeholder="Enter your last-name">
+                            <input type="text" placeholder="Enter your last-name" value="<?php echo $row['lastname'] ?>" name="lastname" >
                         </div>
                         <div class="email">
                             <p>Email</p>
-                            <input type="text" placeholder="Enter your email">
+                            <input type="text" placeholder="Enter your email" value="<?php echo $row['email'] ?>" name="email" >
                         </div>
                     </div>
                     <div class="detail-2">
                         <div class="phone">
                             <p>Phone</p>
-                            <input type="text" placeholder="Phone No">
+                            <input type="text" placeholder="Phone No" value="<?php echo $row['contact'] ?>" name="phone">
                         </div>
                         <div class="gender">
                             <label for="gender">Gender</label>
@@ -168,7 +200,7 @@
                         </div>
                     </div>
                     <div class="btn">
-                        <button type="submit" >Save Changes</button>
+                        <button type="submit" name="submit">Save Changes</button>
                     </div>
                 </div>
             </div>
