@@ -2,9 +2,12 @@
 include "src/user/Navbar.php";
 include "src/Database/connect.php";
 $buyer_id = $_SESSION['user_id'];
-$sql = "select * from user where id = '$buyer_id'";
-$result = mysqli_query($conn, $sql);
-$userdata = mysqli_fetch_assoc($result);
+$user = "select * from user where id = '$buyer_id'";
+$userresult = mysqli_query($conn, $user);
+$userdata = mysqli_fetch_assoc($userresult);
+$address = "SELECT * FROM addressbook WHERE user_id = '$buyer_id'";
+$addressresult = mysqli_query($conn, $address);
+$address = mysqli_fetch_assoc($addressresult);
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +51,40 @@ $userdata = mysqli_fetch_assoc($result);
                     <hr>
                     <div class="address">
                         <div class="delivery">
-                            <p>Save your delivery and billing address here.</p>
-                            <button class="open-button" onclick="openForm()"> <i class="fa-solid fa-plus"></i> Add New Delivery Address</button>
+                            <?php foreach ($addressresult as $address) : ?>
+                                <div class="card">
+                                    <h3>Delivery Address - 
+                                        <?php if ($address['effectivedelivery'] == 'Home') {
+                                            echo "<span>Home</span>";
+                                        } else {
+                                            echo "<span>Office</span>";
+                                        } ?>
+                                    </h3>
+                                    <div class="address-details">
+                                        <h1><?php echo $address['phone'] ?></h1>
+                                        <p><?php echo $address['address'] ?></p>
+                                        <p><?php echo $address['Landmark'] ?></p>
+                                    </div>
+                                    <button>edit</button>
+                                </div>
+                            <?php endforeach; ?>
+
+
+
+                            <!-- if no data in database -->
+                            <?php
+
+                            if (mysqli_num_rows($addressresult) == 0) {
+                                echo "<p>Save your delivery and billing address here.</p>";
+                                echo "<button class='open-button' onclick='openForm()'> <i class='fa-solid fa-plus'></i> Add New Delivery Address</button>";
+                            }
+                            else{
+                                echo "<button class='open-button' onclick='openForm()'> <i class='fa-solid fa-plus'></i> Add New Delivery Address</button>";
+                            }
+                               
+                            ?>
+                            <!-- <p>Save your delivery and billing address here.</p>
+                            <button class="open-button" onclick="openForm()"> <i class="fa-solid fa-plus"></i> Add New Delivery Address</button> -->
 
                             <div class="form-popup" id="myForm">
                                 <form action="/addAddress" class="form-container" method="post">
@@ -97,7 +132,7 @@ $userdata = mysqli_fetch_assoc($result);
                                         </div>
                                     </div>
                                     <div class="action-btns">
-                                        <button type="Submit"  class="btn">Save</button>
+                                        <button type="Submit" class="btn">Save</button>
                                         <button class="btn cancel" onclick="closeForm()">Close</button>
                                     </div>
                                 </form>
