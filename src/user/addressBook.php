@@ -63,12 +63,12 @@ $address = mysqli_fetch_assoc($addressresult);
                                         </h3>
                                         <div class="address-details">
                                             <h1><?php echo $address['phone'] ?></h1>
-                                            <p><?php echo $address['address'] ?></p>
-                                            <p><?php echo $address['Landmark'] ?></p>
+                                            <p><?php echo $address['province'] .', ' . $address['city']  . ', ' . $address['area']  ?></p>
+                                            <p><?php echo $address['address'] . ', ' .$address['Landmark'] ?></p>
                                         </div>
                                         <div class="action-btn">
-                                            <button>edit</button>
-                                            <button>Delete</button>
+                                            <button onclick="edditAddress(<?php $address['address_id'] ?>)">Edit</button>
+                                            <button onclick="edditAddress(<?php $address['address_id'] ?>)">Delete</button>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>

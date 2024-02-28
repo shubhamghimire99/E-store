@@ -115,3 +115,11 @@ var nepalData = {
     option.value = state;
     stateSelect.appendChild(option);
   }
+
+  function editAddress(id) {
+    window.location.href = "/editAddress?id=" + id;
+  }
+
+  function deleteAddress(id) {
+    window.location.href = "/deleteAddress?id=" + id;
+  }
