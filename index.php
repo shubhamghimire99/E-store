@@ -42,6 +42,9 @@ $routes = [
     "/address-book" => "src/user/addressBook.php",
     "/addAddress" => "src/user/addAddress.php",
     "/order" => "src/user/order.php",
+    "/buynow" => "src/user/buysingleproduct.php",
+    "/buy" => "src/user/buyfromcart.php",
+
 
 ];
 

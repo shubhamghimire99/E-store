@@ -13,3 +13,7 @@ function addQuantity(id) {
         window.location.href = "/addquantity?id=" + id;
  
 }
+
+function buyNow(id) {
+    window.location.href = "/buy?id=" + id;
+}

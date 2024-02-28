@@ -51,24 +51,28 @@ $address = mysqli_fetch_assoc($addressresult);
                     <hr>
                     <div class="address">
                         <div class="delivery">
-                            <?php foreach ($addressresult as $address) : ?>
-                                <div class="card">
-                                    <h3>Delivery Address - 
-                                        <?php if ($address['effectivedelivery'] == 'Home') {
-                                            echo "<span>Home</span>";
-                                        } else {
-                                            echo "<span>Office</span>";
-                                        } ?>
-                                    </h3>
-                                    <div class="address-details">
-                                        <h1><?php echo $address['phone'] ?></h1>
-                                        <p><?php echo $address['address'] ?></p>
-                                        <p><?php echo $address['Landmark'] ?></p>
+                            <div class="cards">
+                                <?php foreach ($addressresult as $address) : ?>
+                                    <div class="card">
+                                        <h3>Delivery Address -
+                                            <?php if ($address['effectivedelivery'] == 'Home') {
+                                                echo "<span>Home</span>";
+                                            } else {
+                                                echo "<span>Office</span>";
+                                            } ?>
+                                        </h3>
+                                        <div class="address-details">
+                                            <h1><?php echo $address['phone'] ?></h1>
+                                            <p><?php echo $address['address'] ?></p>
+                                            <p><?php echo $address['Landmark'] ?></p>
+                                        </div>
+                                        <div class="action-btn">
+                                            <button>edit</button>
+                                            <button>Delete</button>
+                                        </div>
                                     </div>
-                                    <button>edit</button>
-                                </div>
-                            <?php endforeach; ?>
-
+                                <?php endforeach; ?>
+                            </div>
 
 
                             <!-- if no data in database -->
@@ -77,11 +81,10 @@ $address = mysqli_fetch_assoc($addressresult);
                             if (mysqli_num_rows($addressresult) == 0) {
                                 echo "<p>Save your delivery and billing address here.</p>";
                                 echo "<button class='open-button' onclick='openForm()'> <i class='fa-solid fa-plus'></i> Add New Delivery Address</button>";
-                            }
-                            else{
+                            } else {
                                 echo "<button class='open-button' onclick='openForm()'> <i class='fa-solid fa-plus'></i> Add New Delivery Address</button>";
                             }
-                               
+
                             ?>
                             <!-- <p>Save your delivery and billing address here.</p>
                             <button class="open-button" onclick="openForm()"> <i class="fa-solid fa-plus"></i> Add New Delivery Address</button> -->
@@ -142,11 +145,8 @@ $address = mysqli_fetch_assoc($addressresult);
                     </div>
             </div>
         </div>
-
     </div>
-
     <script src="/src/js/buyer/addressbook.js"></script>
-
 </body>
 
 </html>
