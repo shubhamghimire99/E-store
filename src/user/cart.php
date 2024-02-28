@@ -100,6 +100,8 @@ $total_price = 0;
                         <h4>Rs.<?php echo  number_format($total_price + 65 )?></h4>
                     </div>
 
+                    <button onclick="buyNow(<?php echo $cart_items['user_id']?>)" >Buy now</button>
+
                 </div>
             </div>
         </div>

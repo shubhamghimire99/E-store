@@ -39,6 +39,13 @@ $routes = [
     "/user-settings" => "src/user/settings.php",
     "/search" => "src/user/search.php",
     "/user-update" => "src/user/update.php",
+    "/address-book" => "src/user/addressBook.php",
+    "/addAddress" => "src/user/addAddress.php",
+    "/order" => "src/user/order.php",
+    "/buynow" => "src/user/buysingleproduct.php",
+    "/buy" => "src/user/buyfromcart.php",
+
+
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

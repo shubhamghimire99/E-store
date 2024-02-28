@@ -28,3 +28,9 @@ function addToCart(id) {
     window.location.href = "/addtocart?id=" + id;
 }
 
+
+function buyNow(id) {
+
+    window.location.href = "/buynow?id=" + id;
+}
+
