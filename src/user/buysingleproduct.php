@@ -20,8 +20,8 @@ if(isset($_GET['id'])){
     $seller_id = $row['user_id'];
 
     // insert in table order
-    $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id , order_date, order_status)
-     VALUES (NULL, '$user_id', '$seller_id', '$product_id', NULL , CURRENT_TIMESTAMP, 'on process')";
+    $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status)
+     VALUES (NULL, '$user_id', '$seller_id', '$product_id', NULL ,null ,CURRENT_TIMESTAMP, 'on process')";
     $result = mysqli_query($conn, $sql);
     if($result){
         // header("Location: ");        
