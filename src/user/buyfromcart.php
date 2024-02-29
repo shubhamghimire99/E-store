@@ -29,8 +29,8 @@ foreach ($cart_user_id as $cart_id) {
     $seller_id = $row['user_id'];
 
     //  insert in order table
-    $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id , order_date, order_status)
-     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , CURRENT_TIMESTAMP, 'on process')";
+    $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status)
+     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , null , CURRENT_TIMESTAMP, 'on process')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo "order inserted";
