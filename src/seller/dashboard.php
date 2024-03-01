@@ -2,6 +2,18 @@
 
 <?php
 include "src/seller/authentication.php";
+include "src/Database/connect.php";
+$seller_id = $_SESSION['user_id'];
+
+$sql = "select seller_status from user where id = '$seller_id'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if($row['seller_status'] == 'disabled'){
+    echo "<script>";
+    echo " alert('You have been restricted from accessing this page due to violation of our terms and conditions. Please contact the admin for more information.');";
+    echo "window.location.href = '/logout'";
+    echo "</script>";
+}
 ?>
 
 

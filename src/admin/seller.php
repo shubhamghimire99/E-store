@@ -93,10 +93,10 @@
         <td>';         
         if($status=='enabled'){
         
-           echo ' <a  href="/status?id='.$row['id'].'&status=disabled">'.$row['seller_status']. '</a> ';
+           echo ' <a  href="/status?id='.$row['id'].'&status=disabled">disable</a> ';
         }
         else{
-            echo' <a  href="/status?id='.$row['id'].'&status=enabled">'.$row['seller_status'].'</a> ';
+            echo' <a  href="/status?id='.$row['id'].'&status=enabled">enable</a> ';
 
         }
         echo ' </td>
