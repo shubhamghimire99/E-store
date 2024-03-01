@@ -10,7 +10,7 @@
         $image_path = "src/images/".$row_img['image'];
         unlink($image_path);
 
-        $sql = "DELETE FROM product WHERE product_id = $id";
+        $sql = "update product set product_status = 'draft' where product_id = $id";
         if($conn->query($sql) === TRUE){
             header("Location: /inventory");
         }else{

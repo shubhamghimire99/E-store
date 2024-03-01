@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
     $vendor = $_POST['vendor'];
     $quantity = $_POST['quantity'];
     $userid = $_SESSION['user_id']; 
+    $status = $_POST['status'];
 
     if(isset($_FILES['image'])){
         echo "inside the saving file";
@@ -46,10 +47,10 @@ if (isset($_POST['submit'])) {
         }
      }
 
-    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`)
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`,`product_status`)
      VALUES (NULL,'$title', '$short_des', '$des','$file_name' , 
      '$userid','$price', '$brand', '$product_type', '$vendor', 
-     '$quantity')";
+     '$quantity','$status')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: /inventory");
@@ -300,6 +301,8 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="brand" placeholder="brand">
                     <h4>Quantity</h4>
                     <input type="number" name="quantity" placeholder="quantity">
+                    <h4>Status</h4>
+                    <input type="text" name="status" placeholder="status">
                 </div>
                 <button type="submit" name="submit">Save</button>
             </form>
