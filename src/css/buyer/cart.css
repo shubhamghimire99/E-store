@@ -100,6 +100,8 @@ h1 {
   justify-content: space-between;
 }
 
+
+
 /*
   cart item + & -
   */
@@ -160,6 +162,11 @@ h1 {
 /*
   Payment Information all input
   */
+  .details_card{
+    display: block;
+    height: auto;
+    margin-bottom: 10px;
+  }
 
 .details_card input {
   outline: 0;
@@ -175,35 +182,51 @@ h1 {
 }
 
 .first_lastName,
-.shipping_card,
 .address {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
 }
+/* */
+.shipping_card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: auto;
 
-.new_card {
+}
+
+/* .new_card {
   width: 100%;
-  height: 100px;
+  height: auto;
   border: 2px solid #53b5aa;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-}
+} */
+
 
 .add_savedcard {
-  width: 100%;
-  height: 100px;
+  width: 40%;
+  height: auto;
   border: 2px solid #a1a1a1;
   padding: 10px;
-  margin: 10px;
+  display: flex;
   border-radius: 10px;
+  margin: 10px;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 /*
   Procced Payment button
   */
-.proced_payment a {
+.proced_payment button {
   padding: 10px 20px;
   width: 200px;
   border: 2px solid #f5f5f5;

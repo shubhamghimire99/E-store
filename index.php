@@ -44,6 +44,7 @@ $routes = [
     "/addAddress" => "src/user/addAddress.php",
     "/order" => "src/user/order.php",
     "/buynow" => "src/user/buysingleproduct.php",
+    "/buyNow" => "src/user/buyNOW.php",
     "/buy" => "src/user/buyfromcart.php",
     "/status" => "src/admin/status.php",
 
