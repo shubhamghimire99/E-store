@@ -19,11 +19,11 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
                  header("Location: /admin");
                
             }
-            elseif ($row['isSeller'] && $row['isVerified'] == 0) {
+            elseif ($row['isSeller']) {
                 $_SESSION['role'] = 'seller';   
-                header("Location: /seller-dashboard");
-                
+                header("Location: /seller-dashboard");                
             }
+            
             else{
                 $_SESSION['role'] = 'buyer';
                 header("Location: /");    

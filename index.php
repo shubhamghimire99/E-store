@@ -27,6 +27,7 @@ $routes = [
     "/connect" => "src/Database/connect.php",
     "/inventory" => "src/seller/inventory.php",
     "/verify" => "src/admin/verify.php",
+    "/admin-seller" => "src/admin/seller.php",
     "/unverifyseller"=> "src/admin/unverify.php",
     "/seller-edit-product"=> "src/seller/edit_product.php",
     "/seller-delete-product"=> "src/seller/delete_product.php",
@@ -44,6 +45,7 @@ $routes = [
     "/order" => "src/user/order.php",
     "/buynow" => "src/user/buysingleproduct.php",
     "/buy" => "src/user/buyfromcart.php",
+    "/status" => "src/admin/status.php",
 
 
 ];

@@ -13,8 +13,20 @@ function verifySeller(id, verified) {
 
 }
 
-function deleteRecord(id) {
-    if (confirm("Are you sure you want to delete this record?")) {
-        window.location.href = '/deleteseller?id=' + id;
-    }
+// function deleteRecord(id) {
+//     if (confirm("Are you sure you want to delete this record?")) {
+//         window.location.href = '/deleteseller?id=' + id;
+//     }
+// }
+
+function toggleStatus(vendorId, currentStatus) {
+    var newStatus = currentStatus === 'enabled' ? 'disabled' : 'enabled';
+    $.post("toggle_vendor_status.php", {
+        vendor_id: vendorId,
+        new_status: newStatus
+    }, function(data, status) {
+        alert(data);
+        // Reload the page or update UI if needed
+        location.reload();
+    });
 }

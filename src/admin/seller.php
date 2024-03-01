@@ -1,7 +1,4 @@
-<?php
-include 'src/admin/authentication.php';
-?>
-
+<?php include 'src/admin/authentication.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,33 +69,42 @@ include 'src/admin/authentication.php';
                         <th>email</th>
                         <th>Contact</th>
                         <th>verified</th>
-                        <th>actions</th>
+                        <th>status</th>
                     </tr>
-                    <?php
-                    include("src/Database/connect.php");
+<?php
+    include 'src/Database/connect.php';
+    $sql = "SELECT * FROM `user` where isSeller = 1";
+    $result = mysqli_query($conn,$sql);
+    if($result){
+        while($row=mysqli_fetch_assoc($result)){
+        $id=$row['id'];
+        $first_name=$row['firstname'];
+        $last_name=$row['lastname'];
+        $email=$row['email'];
+        $contact=$row['contact'];
+        $status=$row['seller_status'];
+        echo'<tr>
+        <th scope="row">'.$id.'</th>
+        <td>'.$first_name.'</td>
+        <td>'.$last_name.'</td>
+        <td>'.$email.'</td>
+        <td>'.$contact.'</td>
+        <td>'.($row["isVerified"] == 1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>").'</td>
+        <td>';         
+        if($status=='enabled'){
+        
+           echo ' <a  href="/status?id='.$row['id'].'&status=disabled">'.$row['seller_status']. '</a> ';
+        }
+        else{
+            echo' <a  href="/status?id='.$row['id'].'&status=enabled">'.$row['seller_status'].'</a> ';
 
-                    $sql = "select * FROM user WHERE isseller = '1'";
-
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
-                                "</td><td>" . $row["contact"] .
-                                "</td><td>" .  ($row["isVerified"] == 1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>") .
-                                "</td><td><button class='enable-button' onclick= 'enable_seller(" . $row["id"] . " )'>
-                                enable</button></td>
-                                <td  > <button class='delete-button' onclick= 'disable_seller(" . $row["id"] . " )'>
-                                <svg class='delete-svgIcon' viewBox='0 0 448 512'>
-                                <path d='M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z'></path>
-                              </svg>
-                                 </button> </td></tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='4'>No sellers are registered</td></tr>";
-                    }
-                    ?>
+        }
+        echo ' </td>
+        </tr> '; 
+    }
+    }
+    ?>
+                    </tr>
 
                 </table>
             </div>
@@ -111,3 +117,10 @@ include 'src/admin/authentication.php';
 </body>
 
 </html>
+
+<!-- .  ($row["isVerified"] == 1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>"). -->
+<!-- if($row['seller_status'] == 'enabled'){
+                            echo '<p><a href="status.php?id='.$row['id'].'&status=enabled>enable</a></p>';
+                        }else{
+                            echo '<p><a href="status.php?id='.$row['id'].'&status=1>disabled</a></p>';
+                        } -->
