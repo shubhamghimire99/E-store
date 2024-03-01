@@ -88,7 +88,7 @@ include "src/seller/authentication.php";
                         <?php
                         include "src/Database/connect.php";
                         $user_id = $_SESSION['user_id'];
-                        $sql = "SELECT * from `product` where user_id = $user_id";
+                        $sql = "SELECT * from `product` where user_id = $user_id and product_status='active'";
                         $result = $conn->query($sql);
                         if ($result) {
                             while ($row = mysqli_fetch_assoc($result)) {

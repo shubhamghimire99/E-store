@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
                 <div class="profile">
                     P
                 </div>
-                <p></p>
+                <p><?php echo $row['firstname'] ?></p>
             </nav>
         </header>
 
