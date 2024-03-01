@@ -1,5 +1,5 @@
 <?php
-session_start();
+   include "src/user/navbar.php";
 require 'src/Database/connect.php';
 // get user id
 $user_id = $_SESSION['user_id'];
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 
 <body>
     <div class="main">
-
+     
         <div class="container">
             <div class="payment_details">
                 <h1>Payment Information</h1>
