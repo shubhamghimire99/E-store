@@ -10,6 +10,7 @@ $sql = "SELECT * FROM product limit 8";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
 ?>
 
 
