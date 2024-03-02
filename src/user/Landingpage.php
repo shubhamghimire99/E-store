@@ -29,7 +29,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div class="main">
-        <?php  ?>
+  
         <div class="first-main">
             <div class="categories">
                 <div class="category">
@@ -133,21 +133,21 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             <div class="category">
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=laptop'>
                         <img class="product-img" src="/src/images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
-                        <span>Electronics</span>
+                        <span>Laptops</span>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=Gaming accessories'>
                         <img class="product-img" src="/src/images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="image can't be loaded">
-                        <span>Furnitures</span>
+                        <span>Gaming accessories</span>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=KeyBoards and Mouse'>
                         <img class="product-img" src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <span>Shoes </span>
+                        <span>KeyBoards and Mouse</span>
                     </a>
                 </div>
             </div>
