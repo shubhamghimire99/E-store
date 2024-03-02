@@ -49,6 +49,7 @@ $routes = [
     "/status" => "src/admin/status.php",
     "/order_status" => "src/user/status.php",
     "/seller_status" => "src/seller/status.php",
+    "/filter" => "src/user/categoryfilter.php",
 
 
 ];

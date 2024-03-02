@@ -33,42 +33,42 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <div class="first-main">
             <div class="categories">
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=laptop'>
                     <i class="fa-solid fa-laptop"></i>
                         Laptops
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Smartphones and mobile'>
                     <i class="fa-solid fa-mobile"></i>
                         Smartphones and mobile
                     </a>
                 </div>
                 <div class="category">
-                    <a href=""> <i class="fa-solid fa-tv"></i>
+                    <a href='/filter?product_type=Monitors'> <i class="fa-solid fa-tv"></i>
                     Monitors    
                 </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=HeadPhone And EarPhone'>
                     <i class="fa-solid fa-headset"></i>
                         HeadPhone And EarPhone
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Gaming accessories'>
                     <i class="fa-solid fa-gamepad"></i>
                         Gaming accessories
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Airpods and EarBuds'>
                     <i class="fa-brands fa-apple"></i>
                         Airpods and EarBuds
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=KeyBoards and Mouse'>
                     <i class="fa-solid fa-computer-mouse"></i>
                         KeyBoards and Mouse
                     </a>

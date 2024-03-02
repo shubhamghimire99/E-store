@@ -101,6 +101,8 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                     while ($row = $products->fetch_assoc()) {
                         //    echo "id: " . $row["order_id"] . " - Name: " . $row["title"] . " " . $row["price"] . "<br>";
                         $order_id = $row['order_id'];
+                    //  show recent oders first
+                    
 
                         echo "<div class='order'>   
                                     <div class='order_details'>
