@@ -4,6 +4,7 @@ include "src/seller/authentication.php";
 include "src/Database/connect.php";
 
 // Check if the form was submitted
+$product_status = array("active", "draft");
 
 if (isset($_POST['submit'])) {
 
@@ -293,8 +294,18 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="extra">
-                    <h4>product type</h4>
-                    <input type="text" name="product_type" placeholder="product type">
+                    <h4>product categories</h4>
+                    <!-- <input type="text" name="product_type" placeholder="product type"> -->
+                    <select name="product_type" id="product_type">
+                        <option value="">Product category</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Smartphones and mobile">Smartphones and mobile</option>
+                        <option value="Monitors">Monitors</option>
+                        <option value="Gaming accessories">Gaming accessories</option>
+                        <option value="Airpods and EarBuds">Airpods and EarBuds</option>
+                        <option value="HeadPhone And EarPhone">HeadPhone And EarPhone </option>
+                        <option value="KeyBoards and Mouse">KeyBoards and Mouse </option>
+                    </select>
                     <h4>Vendor</h4>
                     <input type="text" name="vendor" placeholder="vendor">
                     <h4>Brand</h4>
@@ -302,7 +313,11 @@ if (isset($_POST['submit'])) {
                     <h4>Quantity</h4>
                     <input type="number" name="quantity" placeholder="quantity">
                     <h4>Status</h4>
-                    <input type="text" name="status" placeholder="status">
+                    <!-- <select name="status" id="status">
+                        <option value="status">Active</option>
+                        <option value="status">draft</option>
+                    </select> -->
+                    <input type="text" name="status" placeholder="Active or draft">
                 </div>
                 <button type="submit" name="submit">Save</button>
             </form>
