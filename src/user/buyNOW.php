@@ -20,7 +20,7 @@ if (isset($_POST['address_id'])) {
 
     // insert in table order
     $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status)
-     VALUES (NULL, '$user_id', '$seller_id', '$product_id', NULL ,'$address_id' ,CURRENT_TIMESTAMP, 'on process')";
+     VALUES (NULL, '$user_id', '$seller_id', '$product_id', NULL ,'$address_id' ,CURRENT_TIMESTAMP, 'pending')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         echo "order Placed Successfully";

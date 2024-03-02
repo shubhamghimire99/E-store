@@ -60,17 +60,20 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                 <h2>My Order</h1>
                     <hr>
                     <div class="orders">
-                                <?php
-                                $get_products =
-                                "SELECT orders.*, product.*  FROM orders INNER JOIN 
+                        <?php
+                        $get_products =
+                            "SELECT orders.*, product.*  FROM orders INNER JOIN 
                             product ON orders.product_id = product.product_id
                             WHERE orders.user_id = '$buyer_id'";
-                            $products = $conn->query($get_products);
-                            
-                            if ($products->num_rows > 0) {
-                                // output data of each row
-                                while ($row = $products->fetch_assoc()) {
+                        $products = $conn->query($get_products);
+                        
 
+                        if ($products->num_rows > 0) {
+                            
+                            // output data of each row
+                            while ($row = $products->fetch_assoc()) {
+                                $order_id = $row['order_id'];
+                                if ($row['order_status'] == 'pending' || $row['order_status'] == 'delivered') {
                                     echo "<div class='order'>   
                                     <div class='order_details'>
                                     " . $row['cart_id'] . "
@@ -128,24 +131,31 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                                             <p>done</p>
                                         </div>
                                     </div>
-                                </div>
-                                <button>Cancel Order</button>
-                            </div>
-                          ";
+                                </div>";
+                                    if ($row['order_status'] == 'pending' ) {
+                                        echo '<a href= "/order_status?order_id='.$row['order_id'].'&status=canceled">Cancel Order</a>';
+                                    }
+
+                                    
+                                    // <button >Cancel Order</button>
+                                    echo " </div
+            >  ";
                                 }
-                            } else {
-                                echo   "0 results";
                             }
-                            
-                                ?>
+                        } else {
+                            echo   "0 results";
+                        }
+
+                        ?>
 
                     </div>
-                    
-        
-                               
-                    
-                    
+
+
+
+
+
             </div>
-     
+
 </body>
+
 </html>

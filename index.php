@@ -47,6 +47,7 @@ $routes = [
     "/buyNow" => "src/user/buyNOW.php",
     "/buy" => "src/user/buyfromcart.php",
     "/status" => "src/admin/status.php",
+    "/order_status" => "src/user/status.php",
 
 
 ];
