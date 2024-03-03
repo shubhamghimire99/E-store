@@ -12,7 +12,7 @@
 
         $sql = "update product set product_status = 'draft' where product_id = $id";
         if($conn->query($sql) === TRUE){
-            header("Location: /inventory");
+            header("Location: /seller-inventory");
         }else{
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

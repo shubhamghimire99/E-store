@@ -54,12 +54,11 @@ if (isset($_POST['submit'])) {
      '$quantity','$status')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        header("Location: /inventory");
+        header("Location: /seller-inventory");
     } else {
         echo "Error:" . mysqli_error($conn);
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -182,11 +181,11 @@ if (isset($_POST['submit'])) {
                     <h4>Quantity</h4>
                     <input type="number" name="quantity" placeholder="quantity">
                     <h4>Status</h4>
-                    <!-- <select name="status" id="status">
-                        <option value="status">Active</option>
-                        <option value="status">draft</option>
-                    </select> -->
-                    <input type="text" name="status" placeholder="Active or draft">
+                    <select name="status" id="status">
+                        <option value="Active">Active</option>
+                        <option value="Draft">draft</option>
+                    </select>
+                    <!-- <input type="text" name="status" placeholder="Active or draft"> -->
                 </div>
                 <button type="submit" name="submit">Save</button>
             </form>

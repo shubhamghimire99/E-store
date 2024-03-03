@@ -5,6 +5,7 @@ $buyer_id = $_SESSION['user_id'];
 $sql = "select * from user where id = '$buyer_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
+$image= $row['profile_pic'];
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +50,16 @@ $row = mysqli_fetch_assoc($result);
                     <div class="profile">
                         <form action="/user-update" method="post" class="form">
                             <div class="detail-1">
+                                <div class="profile-card">
+                                    
+                                    <?php 
+                                        if($image == null){
+                                            echo "<img src=/src/images/profile-dummy.jpg/ class='profile-pic'>";
+                                        }else{
+                                            echo "<img src=/src/images/".$image." class='profile-pic' >";
+                                        }
+                                    ?>
+                                </div>
                                 <div class="first-name">
                                     <p>First Name</p>
                                     <p><?php echo $row['firstname']?></p>
@@ -57,12 +68,13 @@ $row = mysqli_fetch_assoc($result);
                                     <p>Last Name</p>
                                     <p><?php echo $row['lastname'] ?></p>
                                 </div>
-                                <div class="email">
+                                
+                            </div>
+                            <div class="detail-2">
+                            <div class="email">
                                     <p>Email</p>
                                     <p><?php echo $row['email'] ?></p>
                                 </div>
-                            </div>
-                            <div class="detail-2">
                                 <div class="phone">
                                     <p>Phone</p>
                                     <p><?php echo $row['contact'] ?></p>
