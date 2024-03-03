@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +28,21 @@ session_start();
 
             <li class="search">
                 <form action="/search" method="get">
-                    <input type="input" class="search-area" name="query" placeholder="Search for products, Brands and More . . .">
-                    <span class="search-output" style="display: none;">
+                    <input type="search" class="search-area" name="query" placeholder="Search for products, Brands and More . . .">
+                 
+                    <button>search</button>
+                </form>
+                <span class="search-output" style="display: none;">
                         <!-- list products related to search.value using addEventlistener to search input  -->
                     </span>
-                </form>
                 <script>
+                    
                     const search = document.querySelector('.search-area');
                     const searchOutput = document.querySelector('.search-output');
                     search.addEventListener('input', () => {
+
                         if (search.value === '') {
+                            console.log('empty');
                             searchOutput.style.display = 'none';
                             return;
                         }
@@ -60,18 +66,25 @@ session_start();
                             });
                     });
                 </script>
-                <i class="fas fa-search"></i>
             </li>
 
             <?php if (isset($_SESSION['user_id'])) : ?>
+
                 <li class="paste-button">
                     <button class="button">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="10" r="3" stroke="#A7B7DD" stroke-linecap="round" />
-                            <circle cx="12" cy="12" r="9" stroke="#A7B7DD" />
-                            <path d="M18 18.7059C17.6461 17.6427 16.8662 16.7033 15.7814 16.0332C14.6966 15.3632 13.3674 15 12 15C10.6326 15 9.30341 15.3632 8.21858 16.0332C7.13375 16.7033 6.35391 17.6427 6 18.7059" stroke="#A7B7DD" stroke-linecap="round" />
-                        </svg>
-
+                        <?php
+                        include "src/Database/connect.php";
+                        $buyer_id = $_SESSION['user_id'];
+                        $sql = "select * from user where id = '$buyer_id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $image = $row['profile_pic'];
+                        if ($image == null) {
+                            echo "<img src=/src/images/profile-dummy.jpg/ class='profile-pic'>";
+                        } else {
+                            echo "<img src=/src/images/" . $image . " width='30px' height= '30px'  class='profile-pic' style='border-radius: 50%' > ";
+                        }
+                        ?>
                         profile &nbsp; ▼</button>
                     <div class="dropdown-content">
                         <a id="top" href="/user-profile">Manage My Profile</a>

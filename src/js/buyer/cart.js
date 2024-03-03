@@ -14,19 +14,6 @@ function addQuantity(id) {
  
 }
 
-// function buyNow() {
-//     var addressId = $("input[name= 'address_id':checked]").val();
-//     $.ajax({
-//         type: "POST",
-//         url: "/buy",
-//         data: {address_id: addressId},
-//         successL: function(response){
-//             alert(response);
-//         }
-//     });
-//     // window.location.href = "/buy?id=" + id;
-    
-// }
 
 $(document).ready(function(){
     $("#submitBtn").click(function(){

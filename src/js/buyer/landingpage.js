@@ -9,21 +9,21 @@ setInterval(function() {
     }
 }, 3000);
 
-fetch('/productApi')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(element => {
-        const imageUrl = `/src/images/${element.image}`;
-        slide.ClassList.add('slide');
+// fetch('/productApi')
+//     .then(response => response.json())
+//     .then(data => {
+//         data.forEach(element => {
+//         const imageUrl = `/src/images/${element.image}`;
+//         slide.ClassList.add('slide');
 
-        const img = document.createElement('img');
-        img.src = imageUrl;
-        img.alt = "image can't be loaded";
-        slide.appendChild(img);
-        document.getElementById('slider').appendChild(slide);
+//         const img = document.createElement('img');
+//         img.src = imageUrl;
+//         img.alt = "image can't be loaded";
+//         slide.appendChild(img);
+//         document.getElementById('slider').appendChild(slide);
 
-        });  
-    });
+//         });  
+//     });
 
 
 
@@ -130,9 +130,6 @@ function loadMore() {
       }
       loading.style.display = "none"; // Hide loading animation
     }, 2000); // Simulated delay of 2 seconds
-
-  
-  
 }
 
 function addToCart(id){
