@@ -29,48 +29,48 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div class="main">
-  
+
         <div class="first-main">
             <div class="categories">
                 <div class="category">
                     <a href='/filter?product_type=laptop'>
-                    <i class="fa-solid fa-laptop"></i>
+                        <i class="fa-solid fa-laptop"></i>
                         Laptops
                     </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=Smartphones and mobile'>
-                    <i class="fa-solid fa-mobile"></i>
+                        <i class="fa-solid fa-mobile"></i>
                         Smartphones and mobile
                     </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=Monitors'> <i class="fa-solid fa-tv"></i>
-                    Monitors    
-                </a>
+                        Monitors
+                    </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=HeadPhone And EarPhone'>
-                    <i class="fa-solid fa-headset"></i>
+                        <i class="fa-solid fa-headset"></i>
                         HeadPhone And EarPhone
                     </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=Gaming accessories'>
-                    <i class="fa-solid fa-gamepad"></i>
+                        <i class="fa-solid fa-gamepad"></i>
                         Gaming accessories
                     </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=Airpods and EarBuds'>
-                    <i class="fa-brands fa-apple"></i>
+                        <i class="fa-brands fa-apple"></i>
                         Airpods and EarBuds
                     </a>
                 </div>
                 <div class="category">
                     <a href='/filter?product_type=KeyBoards and Mouse'>
-                    <i class="fa-solid fa-computer-mouse"></i>
-                        KeyBoards and Mouse
+                        <i class="fa-solid fa-computer-mouse"></i>
+                        Airpods and EarBuds
                     </a>
                 </div>
             </div>
@@ -89,19 +89,21 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     <!-- slide images start -->
                     <div class="slide first" id="slider">
-                        <img src="/src/images/slider/angela-bailey-jlo7Bf4tUoY-unsplash.jpg" alt="">
+                        <a href="">
+                            <img src="/src/images/slider/daniel-romero-6V5vTuoeCZg-unsplash.jpg" alt="">
+                        </a>
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/christopher-gower-_aXa21cf7rY-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/denny-muller-mGP8gyGb8zY-unsplash.jpg" alt="">
+                        <img src="/src/images/slider//insung-yoon-N1QwvJDvj4E-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/jazmin-quaynor-FoeIOgztCXo-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/mohamed-m-6MXDP9u6fmU-unsplash.jpg" alt="">
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/virender-singh-hE0nmTffKtM-unsplash.jpg" alt="">
+                        <img src="/src/images/slider/rishabh-malhotra-83ypHTv6J2M-unsplash.jpg" alt="">
                     </div>
                     <!-- Slide image end -->
                     <!-- automatic navigation start -->
@@ -224,9 +226,9 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </div>
 
     </div>
-        <script src="/src/js/buyer/landingpage.js"></script>
+    <script src="/src/js/buyer/landingpage.js"></script>
 
-        <script src="/src/js/FadeUpAnimation.js"></script>
+    <script src="/src/js/FadeUpAnimation.js"></script>
 
 </body>
 

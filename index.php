@@ -39,6 +39,7 @@ $routes = [
     "/user-profile" => "src/user/profile.php",
     "/user-settings" => "src/user/settings.php",
     "/search" => "src/user/search.php",
+    "/navsearch" => "src/user/navsearch.php",
     "/user-update" => "src/user/update.php",
     "/address-book" => "src/user/addressBook.php",
     "/addAddress" => "src/user/addAddress.php",
