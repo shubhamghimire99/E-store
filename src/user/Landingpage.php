@@ -10,6 +10,7 @@ $sql = "SELECT * FROM product limit 8";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
 ?>
 
 
@@ -28,46 +29,46 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div class="main">
-        <?php  ?>
+  
         <div class="first-main">
             <div class="categories">
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=laptop'>
                     <i class="fa-solid fa-laptop"></i>
                         Laptops
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Smartphones and mobile'>
                     <i class="fa-solid fa-mobile"></i>
                         Smartphones and mobile
                     </a>
                 </div>
                 <div class="category">
-                    <a href=""> <i class="fa-solid fa-tv"></i>
+                    <a href='/filter?product_type=Monitors'> <i class="fa-solid fa-tv"></i>
                     Monitors    
                 </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=HeadPhone And EarPhone'>
                     <i class="fa-solid fa-headset"></i>
                         HeadPhone And EarPhone
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Gaming accessories'>
                     <i class="fa-solid fa-gamepad"></i>
                         Gaming accessories
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=Airpods and EarBuds'>
                     <i class="fa-brands fa-apple"></i>
                         Airpods and EarBuds
                     </a>
                 </div>
                 <div class="category">
-                    <a href="">
+                    <a href='/filter?product_type=KeyBoards and Mouse'>
                     <i class="fa-solid fa-computer-mouse"></i>
                         KeyBoards and Mouse
                     </a>
@@ -132,21 +133,21 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             <div class="category">
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=laptop'>
                         <img class="product-img" src="/src/images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
-                        <span>Electronics</span>
+                        <span>Laptops</span>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=Gaming accessories'>
                         <img class="product-img" src="/src/images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="image can't be loaded">
-                        <span>Furnitures</span>
+                        <span>Gaming accessories</span>
                     </a>
                 </div>
                 <div class="product">
-                    <a href="">
+                    <a href='/filter?product_type=KeyBoards and Mouse'>
                         <img class="product-img" src="/src/images/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="image can't be loaded">
-                        <span>Shoes </span>
+                        <span>KeyBoards and Mouse</span>
                     </a>
                 </div>
             </div>

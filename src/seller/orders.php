@@ -1,5 +1,17 @@
 <?php
-    include "src/seller/authentication.php";
+include "src/seller/authentication.php";
+include "src/Database/connect.php";
+$seller_id = $_SESSION['user_id'];
+$sql = "select * from user where id = '$seller_id'";
+$result = mysqli_query($conn, $sql);
+$userdata = mysqli_fetch_assoc($result);
+
+$order_details = "select * from orders where seller_id = '$seller_id'";
+$order_result = mysqli_query($conn, $order_details);
+$order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
+
+
+
 ?>
 
 
@@ -11,69 +23,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders</title>
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
+    <link rel="stylesheet" href="/src/css/buyer/order.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-        .content{
-            width:80%;
-            background-color: #F8F7FC;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .wrappper{
+        .content {
             width: 80%;
-            height:80%;
             background-color: #F8F7FC;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 10px;
-            border: 5px  solid #FFFFFF;
-            margin-bottom: 20px;
-        }
-
-        .topic{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .status{
-            width: 50%;
-            height: auto;
-            padding: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-around;
-        }
-
-        .orders{
-            width: 100px;
-            height: 40px;
-            background-color: #F8F7FC;
-            border-radius: 5px;
-            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            border: 1px solid #A7B7DD;  
-        }
-
-        .orders a{
-            text-decoration: none;
-            color: #000000;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        table{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #A7B7DD;
-            padding: 8px;
-            text-align: center;
         }
     </style>
 </head>
@@ -88,7 +48,7 @@
         </div>
         <nav>
             <ul>
-            <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="/seller-dashboard"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 10H7C7.55 10 8 9.55 8 9V1C8 0.45 7.55 0 7 0H1C0.45 0 0 0.45 0 1V9C0 9.55 0.45 10 1 10ZM1 18H7C7.55 18 8 17.55 8 17V13C8 12.45 7.55 12 7 12H1C0.45 12 0 12.45 0 13V17C0 17.55 0.45 18 1 18ZM11 18H17C17.55 18 18 17.55 18 17V9C18 8.45 17.55 8 17 8H11C10.45 8 10 8.45 10 9V17C10 17.55 10.45 18 11 18ZM10 1V5C10 5.55 10.45 6 11 6H17C17.55 6 18 5.55 18 5V1C18 0.45 17.55 0 17 0H11C10.45 0 10 0.45 10 1Z" fill="#A7B7DD" />
                         </svg>Dashboard</a></li>
                 <li class="active"><a href="/seller-order"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,7 +59,7 @@
                             <path d="M14 4H12C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4H2C0.9 4 0 4.9 0 6V18C0 19.1 0.9 20 2 20H14C15.1 20 16 19.1 16 18V6C16 4.9 15.1 4 14 4ZM6 8C6 8.55 5.55 9 5 9C4.45 9 4 8.55 4 8V6H6V8ZM8 2C9.1 2 10 2.9 10 4H6C6 2.9 6.9 2 8 2ZM12 8C12 8.55 11.55 9 11 9C10.45 9 10 8.55 10 8V6H12V8Z" fill="#A7B7DD" />
                         </svg>Product
                     </a></li>
-                    <li>
+                <li>
                     <a href="/seller-inventory"><svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1916 5.13895L4.08961 7.18995L12.73 11.8701L16.8319 9.81914L8.1916 5.13895ZM2.96558 8.28701V17.2155C2.96558 17.4996 3.12608 17.7593 3.38017 17.8863L11.9655 22.179V13.162L2.96558 8.28701ZM13.4655 22.1791L22.051 17.8863C22.3051 17.7593 22.4656 17.4996 22.4656 17.2155V8.67937L18.9655 10.4294V13.2156C18.9655 13.6298 18.6297 13.9656 18.2155 13.9656C17.8013 13.9656 17.4655 13.6298 17.4655 13.2156V11.1794L13.4655 13.1794V22.1791ZM21.7159 7.37714L13.051 3.04467C12.8398 2.9391 12.5913 2.9391 12.3802 3.04467L9.82928 4.32011L18.4696 9.0003L21.7159 7.37714Z" fill="#A7B7DD" />
                         </svg>
@@ -113,7 +73,7 @@
                             <path d="M16.4783 10.94C16.5183 10.64 16.5383 10.33 16.5383 10C16.5383 9.68003 16.5183 9.36003 16.4683 9.06003L18.4983 7.48003C18.5858 7.40793 18.6456 7.30772 18.6675 7.19649C18.6894 7.08527 18.672 6.96989 18.6183 6.87003L16.6983 3.55003C16.6418 3.44959 16.5516 3.3724 16.4436 3.33214C16.3356 3.29187 16.2168 3.29112 16.1083 3.33003L13.7183 4.29003C13.2183 3.91003 12.6883 3.59003 12.0983 3.35003L11.7383 0.810027C11.7206 0.695557 11.6625 0.591234 11.5744 0.516003C11.4863 0.440772 11.3742 0.399623 11.2583 0.400027H7.41834C7.17834 0.400027 6.98834 0.570027 6.94834 0.810027L6.58834 3.35003C5.99834 3.59003 5.45834 3.92003 4.96834 4.29003L2.57834 3.33003C2.35834 3.25003 2.10834 3.33003 1.98834 3.55003L0.078343 6.87003C-0.0416569 7.08003 -0.00165707 7.34003 0.198343 7.48003L2.22834 9.06003C2.17834 9.36003 2.13834 9.69003 2.13834 10C2.13834 10.31 2.15834 10.64 2.20834 10.94L0.178343 12.52C0.0908669 12.5921 0.0310966 12.6923 0.00921549 12.8036C-0.0126656 12.9148 0.00469628 13.0302 0.0583431 13.13L1.97834 16.45C2.09834 16.67 2.34834 16.74 2.56834 16.67L4.95834 15.71C5.45834 16.09 5.98834 16.41 6.57834 16.65L6.93834 19.19C6.98834 19.43 7.17834 19.6 7.41834 19.6H11.2583C11.4983 19.6 11.6983 19.43 11.7283 19.19L12.0883 16.65C12.6783 16.41 13.2183 16.09 13.7083 15.71L16.0983 16.67C16.3183 16.75 16.5683 16.67 16.6883 16.45L18.6083 13.13C18.7283 12.91 18.6783 12.66 18.4883 12.52L16.4783 10.94ZM9.33834 13.6C7.35834 13.6 5.73834 11.98 5.73834 10C5.73834 8.02003 7.35834 6.40003 9.33834 6.40003C11.3183 6.40003 12.9383 8.02003 12.9383 10C12.9383 11.98 11.3183 13.6 9.33834 13.6Z" fill="#A7B7DD" />
                         </svg>
                         Settings</a></li>
-                        <li>
+                <li>
                     <a href="/logout">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.91625 14.7756C6.91625 15.0258 6.81689 15.2656 6.64002 15.4425C6.46315 15.6194 6.22326 15.7188 5.97313 15.7188H1.57188C1.15499 15.7188 0.755175 15.5531 0.460392 15.2584C0.165608 14.9636 0 14.5638 0 14.1469V1.57188C0 1.15499 0.165608 0.755175 0.460392 0.460392C0.755175 0.165608 1.15499 0 1.57188 0H5.97313C6.22326 0 6.46315 0.0993647 6.64002 0.276235C6.81689 0.453105 6.91625 0.692993 6.91625 0.943125C6.91625 1.19326 6.81689 1.43314 6.64002 1.61002C6.46315 1.78689 6.22326 1.88625 5.97313 1.88625H1.88625V13.8325H5.97313C6.22326 13.8325 6.46315 13.9319 6.64002 14.1087C6.81689 14.2856 6.91625 14.5255 6.91625 14.7756ZM15.4429 7.19211L12.2991 4.04836C12.122 3.87119 11.8817 3.77165 11.6311 3.77165C11.3805 3.77165 11.1402 3.87119 10.963 4.04836C10.7859 4.22554 10.6863 4.46584 10.6863 4.71641C10.6863 4.96698 10.7859 5.20728 10.963 5.38446L12.4964 6.91625H5.97313C5.72299 6.91625 5.48311 7.01561 5.30623 7.19248C5.12936 7.36936 5.03 7.60924 5.03 7.85938C5.03 8.10951 5.12936 8.34939 5.30623 8.52626C5.48311 8.70313 5.72299 8.8025 5.97313 8.8025H12.4964L10.9623 10.3359C10.7851 10.513 10.6855 10.7533 10.6855 11.0039C10.6855 11.2545 10.7851 11.4948 10.9623 11.672C11.1394 11.8491 11.3797 11.9487 11.6303 11.9487C11.8809 11.9487 12.1212 11.8491 12.2984 11.672L15.4421 8.52821C15.5301 8.44064 15.5999 8.33657 15.6476 8.22196C15.6952 8.10735 15.7198 7.98445 15.7199 7.86032C15.72 7.73619 15.6955 7.61327 15.648 7.49861C15.6005 7.38394 15.5308 7.27979 15.4429 7.19211Z" fill="#A7B7DD" />
@@ -125,44 +85,108 @@
         </nav>
     </div>
     <div class="content">
-        <div class="wrappper">
-            <div class="topic">
-                <h1>Orders</h1>
-                <div class="status">
-                <div class="orders">
-                    <a href="">New Orders</a>
-                </div>
-                <div class="orders">
-                    <a href="">Pending orders</a>
-                </div>
-                <div class="orders">
-                    <a href="">See all</a>
-                </div>    
+        <h2>My Order</h1>
+            <hr>
+            <div class="orders">
+                <?php
+                $get_products =
+                    "SELECT orders.*, product.*  FROM orders INNER JOIN 
+                            product ON orders.product_id = product.product_id
+                            WHERE orders.seller_id = '$seller_id'";
+                $products = $conn->query($get_products);
+
+
+                if ($products->num_rows > 0) {
+                    // output data of each row
+                    while ($row = $products->fetch_assoc()) {
+                        //    echo "id: " . $row["order_id"] . " - Name: " . $row["title"] . " " . $row["price"] . "<br>";
+                        $order_id = $row['order_id'];
+                    //  show recent oders first
+                    
+
+                        echo "<div class='order'>   
+                                    <div class='order_details'>
+                                    
+                                    <h3>Order Details</h3>
+
+
+                                    <div class='order_info
+                                    '>
+                                        <div class='order_id'>
+                                            <h4>Order ID</h4>
+                                            <p>" . $row['order_id'] . "</p>
+                                        </div>
+                                        <div class='order_date
+                                        '>
+                                            <h4>Order Date</h4>
+                                            <p>" . $row['order_date'] . "</p>
+                                        </div>
+                                        <div class='order_status'>
+                                            <h4>Order Status</h4>
+                                            <p>" . $row['order_status'] . "</p>
+                                            <div class='action'>";
+                        if ($row['order_status'] == 'pending') {
+                            echo '<a href= "/seller_status?order_id=' . $row['order_id'] . '&status=delivered">delivered</a>';
+                        }
+                        if ($row['order_status'] == 'pending') {
+                            echo '<a href= "/seller_status?order_id=' . $row['order_id'] . '&status=canceled">cancel</a>';
+                        }
+
+                        echo "</div></div>
+                                </div>
+                                </div>
+
+                                    <div class='product_details'>
+                                    <h3>Product Details</h3>
+                                    <div class='product_info'>
+                                        <div class='product_image'>
+                                            <img src='/src/images/" . $row['image'] . "' width='100px' height='100px' alt='Product Image'>
+                                        </div>
+                                        <div class='product_name'>
+                                            <h4>Product Name</h4>
+                                            <p>" . $row['title'] . "</p>
+                                        </div>
+                                        <div class='product_price'>
+                                            <h4>Product Price</h4>
+                                            <p>Rs. " . $row['price'] . "</p>
+                                        </div>
+                                        <div class='product_quantity'>
+                                            <h4>Product Quantity</h4>
+                                            <p></p>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                                <div class='payment_details'>
+                                    <h3>Payment Details</h3>
+                                    <div class='payment_info'>
+                                        <div class='payment_method'>
+                                            <h4>Payment Method</h4>
+                                            <p>Khalti</p>
+                                        </div>
+                                        <div class='payment_status'>
+                                            <h4>Payment Status</h4>
+                                            <p>done</p>
+                                        </div>
+                                    </div>
+                                </div>";
+                        // if ($row['order_status'] == 'pending') {
+                        //     echo '<a href= "/order_status?order_id=' . $row['order_id'] . '&status=canceled">Cancel Order</a>';
+                        // }
+
+
+                        // <button >Cancel Order</button>
+                        echo " </div
+            >  ";
+                    }
+                } else {
+                    echo   "0 results";
+                }
+
+                ?>
+
             </div>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Order ID</th>
-                        <th>Customer Name</th>
-                        <th>Order Date</th>
-                        <th>Order Status</th>
-                        <th>Order Total</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>12/12/2020</td>
-                        <td>Processing</td>
-                        <td>1000</td>
-                        <td><a href="">View</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    </div>
     </div>
 </body>
 

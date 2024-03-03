@@ -1,21 +1,25 @@
 <?php
-include "src/user/navbar.php";
-include 'src/database/connect.php';
 
-$user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM cart where user_id = $user_id";
-$result = mysqli_query($conn, $sql);
-$cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-$total_price = 0;
+    include "src/user/navbar.php";
+    include 'src/database/connect.php';
 
-$getuser = "SELECT firstname ,lastname FROM user WHERE id = $user_id";
-$users = mysqli_query($conn, $getuser);
-$users = mysqli_fetch_all($users, MYSQLI_ASSOC);
-// echo json_encode($users);
+    $user_id = $_SESSION['user_id'];
 
-$getaddress = "SELECT * FROM addressbook where user_id = $user_id";
-$address = mysqli_query($conn, $getaddress);
-$address = mysqli_fetch_all($address, MYSQLI_ASSOC);
+    $sql = "SELECT * FROM cart where user_id = $user_id";
+    $result = mysqli_query($conn, $sql);
+    $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $total_price = 0;
+
+    $getuser = "SELECT firstname ,lastname FROM user WHERE id = $user_id";
+    $users = mysqli_query($conn, $getuser);
+    $users = mysqli_fetch_all($users, MYSQLI_ASSOC);
+    // echo json_encode($users);
+
+    $getaddress = "SELECT * FROM addressbook where user_id = $user_id";
+    $address = mysqli_query($conn, $getaddress);
+    $address = mysqli_fetch_all($address, MYSQLI_ASSOC);    
+
+
 
 ?>
 
@@ -62,15 +66,15 @@ $address = mysqli_fetch_all($address, MYSQLI_ASSOC);
                             <!-- add it in radio with id of address -->
 
                             <div class="add_savedcard" method="post">
-                               
-                                    <input type="radio" name="address_id" value="<?php echo $address['address_id'] ?>">
-                                    <h4>Saved Address</h4>
-                                    <?php echo $address['address_id'] ?>
-                                    <p><?php echo $address['phone'] ?></p>
-                                    <p><?php echo $address['province'] . ', ' . $address['city']  . ', ' . $address['area']  ?></p>
-                                    <p><?php echo $address['address'] . ', ' . $address['Landmark'] ?></p>
-                                    </input>
-                             
+
+                                <input type="radio" name="address_id" value="<?php echo $address['address_id'] ?>">
+                                <h4>Saved Address</h4>
+                                <?php echo $address['address_id'] ?>
+                                <p><?php echo $address['phone'] ?></p>
+                                <p><?php echo $address['province'] . ', ' . $address['city']  . ', ' . $address['area']  ?></p>
+                                <p><?php echo $address['address'] . ', ' . $address['Landmark'] ?></p>
+                                </input>
+
                             </div>
                         <?php endforeach; ?>
                     </div>

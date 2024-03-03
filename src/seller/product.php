@@ -4,6 +4,7 @@ include "src/seller/authentication.php";
 include "src/Database/connect.php";
 
 // Check if the form was submitted
+$product_status = array("active", "draft");
 
 if (isset($_POST['submit'])) {
 
@@ -69,139 +70,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-        .content {
-            width: 80%;
-            height: auto;
-            background-color: #F8F7FC;
-        }
-
-        .content .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            /* font-weight: 500; */
-            color: #333333;
-            margin-left: 20px;
-        }
-
-        .form {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-            padding: 50px;
-        }
-
-        .title {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .title h4 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .title input {
-            width: 100%;
-            height: 40px;
-            margin: 10px 0px;
-            padding: 10px;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .title #short-des {
-            height: 150px;
-            width: 100%;
-            margin: 10px 0px;
-            padding: 5px;
-            color: grey;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-
-
-        .title #des {
-            height: 200px;
-            width: 100%;
-            margin: 10px 0px;
-            padding: 5px;
-            color: gray;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .Media {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .pricing {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .pricing h4 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .pricing h6 {
-            font-size: 14px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            display: flex;
-        }
-
-        .inner-price {
-            height: auto;
-            padding: 10px;
-        }
-
-        .extra {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/css/seller/product.css">
 </head>
 
 <body>
@@ -267,6 +136,7 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="Media">
+                    <h4>Choose image for your Product</h4>
                     <input type="file" name="image" placeholder="upload new">
                 </div>
 
@@ -293,8 +163,18 @@ if (isset($_POST['submit'])) {
                     </div>
                 </div>
                 <div class="extra">
-                    <h4>product type</h4>
-                    <input type="text" name="product_type" placeholder="product type">
+                    <h4>product categories</h4>
+                    <!-- <input type="text" name="product_type" placeholder="product type"> -->
+                    <select name="product_type" id="product_type">
+                        <option value="">Product category</option>
+                        <option value="Laptops">Laptops</option>
+                        <option value="Smartphones and mobile">Smartphones and mobile</option>
+                        <option value="Monitors">Monitors</option>
+                        <option value="Gaming accessories">Gaming accessories</option>
+                        <option value="Airpods and EarBuds">Airpods and EarBuds</option>
+                        <option value="HeadPhone And EarPhone">HeadPhone And EarPhone </option>
+                        <option value="KeyBoards and Mouse">KeyBoards and Mouse </option>
+                    </select>
                     <h4>Vendor</h4>
                     <input type="text" name="vendor" placeholder="vendor">
                     <h4>Brand</h4>
@@ -302,7 +182,11 @@ if (isset($_POST['submit'])) {
                     <h4>Quantity</h4>
                     <input type="number" name="quantity" placeholder="quantity">
                     <h4>Status</h4>
-                    <input type="text" name="status" placeholder="status">
+                    <!-- <select name="status" id="status">
+                        <option value="status">Active</option>
+                        <option value="status">draft</option>
+                    </select> -->
+                    <input type="text" name="status" placeholder="Active or draft">
                 </div>
                 <button type="submit" name="submit">Save</button>
             </form>

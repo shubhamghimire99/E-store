@@ -6,6 +6,16 @@ $sql = "select * from user where id = '$buyer_id'";
 $result = mysqli_query($conn, $sql);
 $userdata = mysqli_fetch_assoc($result);
 
+$order_details = "select * from orders where user_id = '$buyer_id'";
+$order_result = mysqli_query($conn, $order_details);
+$order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
+
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,11 +27,12 @@ $userdata = mysqli_fetch_assoc($result);
     <title>User Orders</title>
     <link rel="stylesheet" href="/src/css/seller/profile.css">
     <link rel="stylesheet" href="/src/css/buyer/profile.css">
+    <link rel="stylesheet" href="/src/css/buyer/order.css">
 </head>
 
 <body>
     <div class="container">
-       
+
 
         <div class="wrapper">
             <div class="menubar">
@@ -35,7 +46,7 @@ $userdata = mysqli_fetch_assoc($result);
                                 </g>
                             </svg>
                             Profile</a></li>
-                    <li ><a href="/address-book"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
+                    <li><a href="/address-book"><svg xmlns="http://www.w3.org/2000/svg" width="1.4em" height="1.4em" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="m17 16l-.15-1.25q-.2-.075-.35-.162t-.3-.238l-1.15.5l-1-1.75l1-.75q-.05-.2-.05-.375t.05-.375l-1-.75l1.05-1.7l1.1.45q.15-.125.3-.2t.35-.15L17 8h2l.15 1.25q.2.075.35.15t.3.2l1.1-.45l1.05 1.7l-1 .75q.05.2.05.375t-.05.375l1 .75l-1 1.75l-1.15-.5q-.15.15-.3.237t-.35.163L19 16zm1-2.5q.65 0 1.075-.425T19.5 12q0-.65-.425-1.075T18 10.5q-.65 0-1.075.425T16.5 12q0 .65.425 1.075T18 13.5M5 23V1h14v6h-2V6H7v12h10v-1h2v6z" />
                             </svg>
                             Address Book</a></li>
@@ -46,50 +57,105 @@ $userdata = mysqli_fetch_assoc($result);
                 </ul>
             </div>
             <div class="content">
-                <!-- <h2>My profile</h1>
+                <h2>My Order</h1>
                     <hr>
-                    <div class="box">
-                        <form action="/user-update" method="post" class="form">
-                            <div class="detail-1">
-                                <div class="first-name">
-                                    <p>First Name</p>
-                                    <p><?php echo $row['firstname'] ?></p>
-                                </div>
-                                <div class="last-name">
-                                    <p>Last Name</p>
-                                    <p><?php echo $row['lastname'] ?></p>
-                                </div>
-                                <div class="email">
-                                    <p>Email</p>
-                                    <p><?php echo $row['email'] ?></p>
-                                </div>
-                            </div>
-                            <div class="detail-2">
-                                <div class="phone">
-                                    <p>Phone</p>
-                                    <p><?php echo $row['contact'] ?></p>
-                                </div>
-                                <div class="gender">
-                                    <p>Gender</p>
-                                    <p><?php
+                    <div class="orders">
+                        <?php
+                        $get_products =
+                            "SELECT orders.*, product.*  FROM orders INNER JOIN 
+                            product ON orders.product_id = product.product_id
+                            WHERE orders.user_id = '$buyer_id'";
+                        $products = $conn->query($get_products);
+                        
 
-                                        if ($row['gender'] == null) {
-                                            echo "Gender";
-                                        }
-                                        echo  $row['gender'];
+                        if ($products->num_rows > 0) {
+                            
+                            // output data of each row
+                            while ($row = $products->fetch_assoc()) {
+                                $order_id = $row['order_id'];
+                                if ($row['order_status'] == 'pending' || $row['order_status'] == 'delivered') {
+                                    echo "<div class='order'>   
+                                    <div class='order_details'>
+                                    " . $row['cart_id'] . "
+                                    <h3>Order Details</h3>
 
-                                        ?></p>
+
+                                    <div class='order_info
+                                    '>
+                                        <div class='order_id'>
+                                            <h4>Order ID</h4>
+                                            <p>" . $row['order_id'] . "</p>
+                                        </div>
+                                        <div class='order_date
+                                        '>
+                                            <h4>Order Date</h4>
+                                            <p>" . $row['order_date'] . "</p>
+                                        </div>
+                                        <div class='order_status'>
+                                            <h4>Order Status</h4>
+                                            <p>" . $row['order_status'] . "</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="btn">
-                                <button type="submit">Edit Profile</button>
-                            </div>
+
+                                    <div class='product_details'>
+                                    <h3>Product Details</h3>
+                                    <div class='product_info'>
+                                        <div class='product_image'>
+                                            <img src='/src/images/" . $row['image'] . "' width='100px' height='100px' alt='Product Image'>
+                                        </div>
+                                        <div class='product_name'>
+                                            <h4>Product Name</h4>
+                                            <p>" . $row['title'] . "</p>
+                                        </div>
+                                        <div class='product_price'>
+                                            <h4>Product Price</h4>
+                                            <p>Rs. " . $row['price'] . "</p>
+                                        </div>
+                                        <div class='product_quantity'>
+                                            <h4>Product Quantity</h4>
+                                            <p></p>
+                                        </div>
+                                     
+                                    </div>
+                                </div>
+                                <div class='payment_details'>
+                                    <h3>Payment Details</h3>
+                                    <div class='payment_info'>
+                                        <div class='payment_method'>
+                                            <h4>Payment Method</h4>
+                                            <p>Khalti</p>
+                                        </div>
+                                        <div class='payment_status'>
+                                            <h4>Payment Status</h4>
+                                            <p>done</p>
+                                        </div>
+                                    </div>
+                                </div>";
+                                    if ($row['order_status'] == 'pending' ) {
+                                        echo '<a href= "/order_status?order_id='.$row['order_id'].'&status=canceled">Cancel Order</a>';
+                                    }
+
+                                    
+                                    // <button >Cancel Order</button>
+                                    echo " </div
+            >  ";
+                                }
+                            }
+                        } else {
+                            echo   "0 results";
+                        }
+
+                        ?>
+
                     </div>
-            </div> -->
-        </div>
-    </div>
 
-    </div>
+
+
+
+
+            </div>
+
 </body>
 
 </html>
