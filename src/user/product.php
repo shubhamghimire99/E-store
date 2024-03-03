@@ -24,8 +24,9 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
+<?php include 'src/user/navbar.php'; ?>
     <div class="background">
-        <?php include 'Navbar.php'; ?>
+       
         
         <div class="home">
             <a href="">

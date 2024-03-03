@@ -35,7 +35,5 @@ document.addEventListener("scroll", (e) => {
 scrollRevealCheck();
 
 
-// slider
-
 
 

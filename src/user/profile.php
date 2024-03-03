@@ -1,5 +1,5 @@
 <?php
- include 'src/user/Navbar.php';
+include 'src/user/Navbar.php';
 include "src/Database/connect.php";
 $buyer_id = $_SESSION['user_id'];
 $sql = "select * from user where id = '$buyer_id'";

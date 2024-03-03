@@ -479,6 +479,8 @@
     scale: 1;
 }
 
+/* css for typing indicator */
+
 .typing-indicator {
     width: 60px;
     height: 30px;

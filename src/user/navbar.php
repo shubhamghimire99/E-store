@@ -80,9 +80,9 @@ session_start();
                         $row = mysqli_fetch_assoc($result);
                         $image = $row['profile_pic'];
                         if ($image == null) {
-                            echo "<img src=/src/images/profile-dummy.jpg/ class='profile-pic'>";
+                            echo "<img src=/src/images/profile-dummy.jpg/ >";
                         } else {
-                            echo "<img src=/src/images/" . $image . " width='30px' height= '30px'  class='profile-pic' style='border-radius: 50%' > ";
+                            echo "<img src=/src/images/" . $image . " width='30px' height= '30px'  style='border-radius: 50%' > ";
                         }
                         ?>
                         profile &nbsp; ▼</button>
