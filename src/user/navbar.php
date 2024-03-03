@@ -32,6 +32,7 @@ session_start();
                  
                     <button>search</button>
                 </form>
+                <!-- <input type="search" class="search-area" placeholder="Search for products, Brands and More . . ."> -->
                 <span class="search-output" style="display: none;">
                         <!-- list products related to search.value using addEventlistener to search input  -->
                     </span>
@@ -42,10 +43,11 @@ session_start();
                     search.addEventListener('input', () => {
 
                         if (search.value === '') {
-                            console.log('empty');
+                            
                             searchOutput.style.display = 'none';
                             return;
                         }
+                        console.log(search.value);
                         searchOutput.style.display = 'flex';
                         searchOutput.style.flexDirection = 'column';
                         searchOutput.innerHTML = '';
