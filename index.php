@@ -25,7 +25,6 @@ $routes = [
     "/seller-payment" => "src/seller/payment.php",
     "/seller-setting" => "src/seller/settings.php",
     "/connect" => "src/Database/connect.php",
-    "/inventory" => "src/seller/inventory.php",
     "/verify" => "src/admin/verify.php",
     "/admin-seller" => "src/admin/seller.php",
     "/unverifyseller"=> "src/admin/unverify.php",

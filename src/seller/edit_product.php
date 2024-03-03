@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
         alert('Data Updated Successfully');
         </script>";
 
-        header('location: /inventory');
+        header('location: /seller-inventory');
     } else {
         die(mysqli_error($conn));
     }
@@ -224,6 +224,11 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+    <script>
+        function cancel(){
+            window.location.href = "/inventory";
+        }
+    </script>
     <div class="menubar">
         <div class="logo">
             <svg width="158" height="38" viewBox="0 0 158 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -322,7 +327,7 @@ if (isset($_POST['submit'])) {
                     <input type="number" name="quantity" value="<?php echo $product['quantity'] ?>">
                 </div>
                 <button type="submit" name="submit">update</button>
-                <button>cancel</button>
+                <button onclick="cancel()">cancel</button>
             </form>
         </div>
     </div>
