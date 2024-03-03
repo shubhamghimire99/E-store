@@ -11,12 +11,42 @@
 if (isset($_POST['submit'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
+    $profile = $_POST['profile'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $gender = $_POST['gender'];
 
+    if(isset($_FILES['profile'])){
+        echo "inside the saving file";
+        $errors= array();
+        $file_name = $_FILES['profile']['name'];
+        $file_size = $_FILES['profile']['size'];
+        $file_tmp = $_FILES['profile']['tmp_name'];
+        $file_type = $_FILES['profile']['type'];
+
+        $file_ext=strtolower(explode('.',$file_name)[1]);
+        
+        $extensions= array("jpeg","jpg","png");
+        
+        if(in_array($file_ext,$extensions)=== false){
+           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+        }
+        
+        if($file_size > 2097152) {
+           $errors[]='File size must be excately 2 MB';
+        }
+        
+        if(empty($errors)==true) {
+           move_uploaded_file($file_tmp,"src/images/".$file_name);
+           echo "Success";
+        }else{
+           print_r($errors);
+        }
+     }
+
+
     //sql query to update data to database
-    $sql = "update user set firstname='$firstname',lastname='$lastname',email='$email',contact='$phone',gender='$gender' where id='$buyer_id'";
+    $sql = "update user set firstname='$firstname',profile_pic='$file_name',lastname='$lastname',email='$email',contact='$phone',gender='$gender' where id='$buyer_id'";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -90,6 +120,26 @@ if (isset($_POST['submit'])) {
             justify-content: space-between;
             padding: 20px;
         }
+    .profile-pic{
+        height: 80px;
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-pic label{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #4D47C3;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    .profile-pic input{
+        display: none;
+    }
         .first-name, .last-name, .email{
             width: 30%;
             height:80px;
@@ -98,7 +148,7 @@ if (isset($_POST['submit'])) {
         }
 
         .detail-2{
-            width: 52%;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             padding: 20px;
@@ -171,8 +221,12 @@ if (isset($_POST['submit'])) {
             <h2>My profile</h1>
             <hr>
             <div class="box">
-                <form action="#" method="post" class="form">
+                <form action="#" method="post" class="form" enctype="multipart/form-data">
                     <div class="detail-1">
+                        <div class="profile-pic">
+                            <label for="input-file">Upload image</label>
+                            <input type="file" accept="" id="input-file" name="profile">
+                        </div>
                         <div class="first-name">
                             <p>First Name</p>
                             <input type="text" placeholder="Enter your first-name" value="<?php echo $row['firstname'] ?>" name="firstname">
@@ -181,12 +235,13 @@ if (isset($_POST['submit'])) {
                             <p>Last Name</p>
                             <input type="text" placeholder="Enter your last-name" value="<?php echo $row['lastname'] ?>" name="lastname" >
                         </div>
-                        <div class="email">
+                       
+                    </div>
+                    <div class="detail-2">
+                    <div class="email">
                             <p>Email</p>
                             <input type="text" placeholder="Enter your email" value="<?php echo $row['email'] ?>" name="email" >
                         </div>
-                    </div>
-                    <div class="detail-2">
                         <div class="phone">
                             <p>Phone</p>
                             <input type="text" placeholder="Phone No" value="<?php echo $row['contact'] ?>" name="phone">
