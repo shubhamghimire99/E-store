@@ -132,6 +132,16 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     </div>
     <?php include('Footer.php'); ?>
+    <script>
+        function addToCart(id) {
+            window.location.href = "/addtocart?id=" + id;
+        }
+
+
+        function showProduct(id) {
+            window.location.href = "/productdetails?id=" + id;
+        }
+    </script>
 </body>
 
 </html>

@@ -3,10 +3,11 @@ session_start();
 require 'src/Database/connect.php';
 // get user id
 $user_id = $_SESSION['user_id'];
+// echo json_encode($user_id);
 
 if (isset($_POST['address_id'])) {
     $address_id = $_POST['address_id'];
-    $allcartid = "SELECT cart_id FROM cart WHERE user_id = $user_id";
+    $allcartid = "SELECT cart_id FROM cart WHERE user_id = $user_id and cart_status='incart'";
     $result = mysqli_query($conn, $allcartid);
     $cart_user_id = [];
     while ($row = mysqli_fetch_assoc($result)) {
@@ -18,10 +19,12 @@ if (isset($_POST['address_id'])) {
     // for each cart id get product id
     foreach ($cart_user_id as $cart_id) {
         $cart_id = $cart_id['cart_id'];
-        $sql = "SELECT product_id FROM cart WHERE cart_id = $cart_id";
+        $sql = "SELECT product_id,product_quantity FROM cart WHERE cart_id = $cart_id and cart_status='incart'";
         $result = mysqli_query($conn, $sql);
-        $product_id = mysqli_fetch_assoc($result);
-        $product_id = $product_id['product_id'];
+        $row = mysqli_fetch_assoc($result);
+        $product_id = $row['product_id'];
+        $quantity = $row['product_quantity'];
+        // echo json_encode($quantity);
         // echo json_encode($product_id);
 
         // get seller id from product
@@ -31,8 +34,8 @@ if (isset($_POST['address_id'])) {
         $seller_id = $row['user_id'];
 
         //  insert in order table
-        $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status)
-     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , $address_id , CURRENT_TIMESTAMP, 'pending')";
+        $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status,order_quantity)
+     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , $address_id , CURRENT_TIMESTAMP, 'pending','$quantity')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             echo "order inserted";

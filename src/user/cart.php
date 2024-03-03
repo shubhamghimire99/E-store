@@ -23,7 +23,7 @@ include "src/user/navbar.php"
 
                 $user_id = $_SESSION['user_id'];
                 
-                $sql = "SELECT * FROM cart where user_id = $user_id";
+                $sql = "SELECT * FROM cart where user_id = $user_id and cart_status = 'incart'";
                 $result = mysqli_query($conn, $sql);
                 $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 $total_price = 0;

@@ -5,7 +5,7 @@ session_start();
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $sql = "DELETE FROM cart WHERE cart_id = $id";
+        $sql = "update cart set cart_status='deleted',product_quantity=NULL where cart_id = $id";
         if (mysqli_query($conn, $sql)) {
             header("Location: /cart");
         } else {

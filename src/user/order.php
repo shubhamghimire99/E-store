@@ -76,7 +76,8 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                                 if ($row['order_status'] == 'pending' || $row['order_status'] == 'delivered') {
                                     echo "<div class='order'>   
                                     <div class='order_details'>
-                                    " . $row['cart_id'] . "
+                                    <h3>Cart ID: " . $row['cart_id'] . "</h3>
+                                    
                                     <h3>Order Details</h3>
 
 
@@ -95,6 +96,10 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                                             <h4>Order Status</h4>
                                             <p>" . $row['order_status'] . "</p>
                                         </div>
+                                        <div class='order_quantity'>
+                                            <h4>Order Quantity:</h4>
+                                            <p>" . $row['order_quantity'] . "</p>
+                                        </div>    
                                     </div>
                                 </div>
 
