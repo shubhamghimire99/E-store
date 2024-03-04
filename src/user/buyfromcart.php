@@ -18,10 +18,11 @@ if (isset($_POST['address_id'])) {
     // for each cart id get product id
     foreach ($cart_user_id as $cart_id) {
         $cart_id = $cart_id['cart_id'];
-        $sql = "SELECT product_id FROM cart WHERE cart_id = $cart_id";
+        $sql = "SELECT product_id FROM cart WHERE cart_id = $cart_id ";
         $result = mysqli_query($conn, $sql);
         $product_id = mysqli_fetch_assoc($result);
         $product_id = $product_id['product_id'];
+        // $product_quantity = $product_id['product_quantity'];
         // echo json_encode($product_id);
 
         // get seller id from product
@@ -31,8 +32,8 @@ if (isset($_POST['address_id'])) {
         $seller_id = $row['user_id'];
 
         //  insert in order table
-        $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status)
-     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , $address_id , CURRENT_TIMESTAMP, 'pending')";
+        $sql = "INSERT INTO orders (order_id, user_id, seller_id, product_id, cart_id, address_id , order_date, order_status )
+     VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , $address_id , CURRENT_TIMESTAMP, 'pending'  )";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             echo "order inserted";

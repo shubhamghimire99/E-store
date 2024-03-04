@@ -208,10 +208,6 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </div>
             <div class="btn">
                 <button id="loadmorebtn" onclick="loadMore()">Show More</button>
-
-
-                <!-- <div id="loading" class="loading-animation" style="display: none;">
-                </div> -->
             </div>
             <div id="loading" class="typing-indicator" style="display: none;">
                 <div class="typing-circle"></div>

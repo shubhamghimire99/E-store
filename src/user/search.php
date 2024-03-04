@@ -24,10 +24,10 @@ include "src/user/navbar.php";
 
 <body>
     <div class="filter">
-        <div class="filter-content">
+        <!-- <div class="filter-content">
             <h1>Filter</h1>
             <div class="filter-type">
-                <!-- <h2>Product Type</h2>
+                <h2>Product Type</h2>
                 <div class="filter-type-content">
                 
                     <input type="checkbox" name="product_type" value="Laptops"> Laptops<br>
@@ -36,7 +36,7 @@ include "src/user/navbar.php";
                     <input type="checkbox" name="product_type" value="Gaming accessories">Gaming accessories<br>
                     <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
                     <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                </div> -->
+                </div>
             </div>
             <div class="filter-type">
                 <h2>Price</h2>
@@ -68,7 +68,7 @@ include "src/user/navbar.php";
                 </div>
             </div>
             <button>Filter products</button>
-        </div>
+        </div> -->
 
         <div class="cards">
 
@@ -79,11 +79,11 @@ include "src/user/navbar.php";
                     $searchQuery = $_GET['query'];
                     $sql = "SELECT * FROM product WHERE title LIKE '%$searchQuery%'";
                     $result = mysqli_query($conn, $sql);
-                    $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
-                    if ($product) {
-                        foreach ($product as $product) {
+                    if ($products) {
+                        foreach ($products as $product) {
                     echo "
                         <div class= 'card'>
                             <img src='/src/images/" . $product['image'] . "' alt='image can't be loaded'>
@@ -137,6 +137,8 @@ include "src/user/navbar.php";
         </div>
 
     </div> <?php include('Footer.php'); ?>
+
+    <script src="/src/js/buyer/landingpage.js"></script>
 
 </body>
 

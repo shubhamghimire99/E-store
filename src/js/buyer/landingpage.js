@@ -82,6 +82,7 @@ function loadMore() {
                 var ProductCards = document.getElementById("ProductCards");
                 ProductCards.innerHTML = "";
                 products.forEach(element => {
+                    
                     ProductCards.innerHTML += `<div class="card" >
                 <img src="/src/images/${element.image}" alt="image can't be loaded">
                 <div class="card-desc">

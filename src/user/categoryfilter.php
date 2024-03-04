@@ -10,6 +10,10 @@ $query = "SELECT * FROM product WHERE product_type = '$product_type'";
 $result = mysqli_query($conn, $query);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// print the product id
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>filer</title>
+    <title><?php echo $product_type ?></title>
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/landingpage.css">
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/filter.css">
     <link rel="stylesheet" href="/src/css/fadeup.css">
@@ -28,9 +32,9 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <div class="filter">
         <div class="filter-content">
             <h1>Filter</h1>
-            <div class="filter-type">
-                <!-- <h2>Product Type</h2> -->
-                <!-- <div class="filter-type-content">
+            <!-- <div class="filter-type">
+                <h2>Product Type</h2>
+               <div class="filter-type-content">
                     in check box
                     <input type="checkbox" name="product_type" value="Laptops"> Laptops<br>
                     <input type="checkbox" name="product_type" value="Smartphones and mobile">Smartphones and mobile<br>
@@ -38,30 +42,39 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <input type="checkbox" name="product_type" value="Gaming accessories">Gaming accessories<br>
                     <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
                     <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                </div> -->
-            </div>
+                </div>
+            </div> -->
             <div class="filter-type">
                 <h2>Price</h2>
                 <div class="filter-type-content">
-                    <!-- in check box -->
-                    <input type="checkbox" name="price" value="0-10000">0-10000<br>
-                    <input type="checkbox" name="price" value="10000-20000">10000-20000<br>
-                    <input type="checkbox" name="price" value="20000-30000">20000-30000<br>
-                    <input type="checkbox" name="price" value="30000-40000">30000-40000<br>
-                    <input type="checkbox" name="price" value="40000-50000">40000-50000<br>
-                    <input type="checkbox" name="price" value="50000-60000">50000-60000<br>
+                    in check box
+                    <form id='price-filter'>
+                        <input type="checkbox" name="price[]" value="0-10000">0-10000<br>
+                        <input type="checkbox" name="price[]" value="10000-20000">10000-20000<br>
+                        <input type="checkbox" name="price[]" value="20000-30000">20000-30000<br>
+                        <input type="checkbox" name="price[]" value="30000-40000">30000-40000<br>
+                        <input type="checkbox" name="price[]" value="40000-50000">40000-50000<br>
+                        <input type="checkbox" name="price[]" value="50000-60000">50000-60000<br>
+                        <input type="checkbox" name="price[]" value="60000-70000">60000-70000<br>
+                        <input type="checkbox" name="price[]" value="70000-80000">70000-80000<br>
+                        <input type="checkbox" name="price[]" value="80000-90000">80000-90000<br>
+                        <input type="checkbox" name="price[]" value="90000-100000">90000-100000<br>
+                        <input type="checkbox" name="price[]" value="100000-110000">100000-110000<br>
+                        <input type="checkbox" name="price[]" value="110000-120000">110000-120000<br>
+                        <input type="checkbox" name="price[]" value="120000-130000">120000-130000<br>
+                        <input type="checkbox" name="price[]" value="130000-140000">130000-140000<br>
+                    </form>
                 </div>
             </div>
-            <div class="filter-type">
+            <!-- <div class="filter-type">
                 <h2>Brand</h2>
                 <div class="filter-type-content">
                     <?php foreach ($products as $product) : ?>
-                        <!-- in check box -->
                         <input type="checkbox" name="brand" value="<?php echo $product['brand'] ?>"><?php echo $product['brand'] ?><br>
                     <?php endforeach; ?>
                 </div>
-            </div>
-            <button>Filter products</button>
+            </div> -->
+            <button id="filter-button">Apply Filter</button>
         </div>
 
         <div class="cards">
@@ -114,9 +127,12 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 <?php endforeach; ?>
 
+
             </div>
-            <!-- <div class="btn">
+            <div class="btn">
                 <button id="loadmorebtn" onclick="loadMore()">Show More</button>
+                <!-- <div id="loading" class="loading-animation" style="display: none;">
+                </div> -->
             </div>
             <div id="loading" class="typing-indicator" style="display: none;">
                 <div class="typing-circle"></div>
@@ -125,13 +141,11 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="typing-shadow"></div>
                 <div class="typing-shadow"></div>
                 <div class="typing-shadow"></div>
-            </div> -->
-
-
+            </div>
+            <?php include('Footer.php'); ?>
         </div>
-
-    </div>
-    <?php include('Footer.php'); ?>
+        <script src="/src/js/buyer/filter.js"></script>
+        <!-- <script src="/src/js/buyer/landingpage.js"></script> -->
 </body>
 
 </html>
