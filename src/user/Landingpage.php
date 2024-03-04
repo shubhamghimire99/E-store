@@ -167,7 +167,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <?php $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0, 60) . ".." : $product['des']; ?>
                             <p id="productDs" class="product_des"><?php echo $short_description; ?></p>
 
-                            <h3 id="ProductPtice" class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
+                            <h3 id="ProductPrice" class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
                         </div>
                         <div class="additional-content">
                             <div class="content">
