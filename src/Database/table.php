@@ -11,6 +11,7 @@
     isAdmin bool,
     isSeller bool,
     isVerified bool,
+    gender varchar(10),
     contact varchar(20),
     profile_pic varchar(100),
     seller_status enum('enabled','disabled') default 'enabled',
@@ -44,8 +45,10 @@ $carttable = "
         product_image varchar(200),
         product_quantity long,
         product_total int,
+       
         user_id INT,
         foreign key (user_id) references user(id),
+        cart_status enum('incart','deleted'),
         foreign key (product_id) references product(product_id),
         constraint pk_id primary key(cart_id)
     );";
@@ -71,6 +74,7 @@ $sellerdetailstable = "
         address varchar(100),
         Landmark varchar(100),
         delivery_label varchar(100),
+        address_status enum('active','deleted'),
         defaultdeliveryaddress bool,
         defaultbillingaddress bool,
         constraint pk_id primary key(Address_id),

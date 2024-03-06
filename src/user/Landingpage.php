@@ -33,7 +33,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <div class="first-main">
             <div class="categories">
                 <div class="category">
-                    <a href='/filter?product_type=laptop'>
+                    <a href='/filter?product_type=Laptops'>
                         <i class="fa-solid fa-laptop"></i>
                         Laptops
                     </a>
