@@ -280,7 +280,6 @@ select {
 }
 
 .radio-input input[type="radio"]:checked+label:before {
-
     background-color: green;
     color: white;
     top: 0;

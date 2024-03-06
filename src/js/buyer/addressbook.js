@@ -163,10 +163,12 @@ function editAddress(id) {
 
   console.log("id", id);
   // console.log(addressJson);
+  address_id = id;
+  document.getElementById("address_id").value = id;
 
   var address = addressJson.find((address) => address.address_id == id);
   console.log(address);
-  
+
 
 
   document.getElementById("edit-myForm").style.display = "block";

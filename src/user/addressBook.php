@@ -193,10 +193,10 @@ $address_json = json_encode($address);
                                         <label for="effective">Effective Delivery</label>
                                         <div class="effectivedelivery">
                                             <div class="radio-input">
-                                                <input value="Home" name="effectivedelivery" id="value-1" type="radio">
-                                                <label for="value-1">Home</label>
-                                                <input value="Office" name="effectivedelivery" id="value-2" type="radio">
-                                                <label for="value-2">Office</label>
+                                                <input value="Home" name="effectivedelivery" id="value-3" type="radio">
+                                                <label for="value-3">Home</label>
+                                                <input value="Office" name="effectivedelivery" id="value-4" type="radio">
+                                                <label for="value-4">Office</label>
                                             </div>
                                         </div>
                                     </div>
