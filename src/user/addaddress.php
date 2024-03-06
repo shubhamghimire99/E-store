@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $address = $_POST['address'];
     $landmark = $_POST['landmark'];
     $effectivedelivery = $_POST['effectivedelivery'];
-    $sql = "INSERT INTO addressbook (user_id, phone, province, city, area, address, landmark, effectivedelivery) VALUES ('$buyer_id', '$phone', '$province', '$city', '$area', '$address', '$landmark', '$effectivedelivery')";
+    $sql = "INSERT INTO addressbook (user_id, phone, province, city, area, address, landmark, effectivedelivery,address_status) VALUES ('$buyer_id', '$phone', '$province', '$city', '$area', '$address', '$landmark', '$effectivedelivery' ,'active')";
     if (mysqli_query($conn, $sql)) {
         header('Location: /address-book');
     } else {
