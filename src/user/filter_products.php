@@ -1,17 +1,64 @@
 <?php
-include "src/user/navbar.php";
+// Assuming $products is your array of products
+include 'src/Database/connect.php';
 
-include "src/Database/connect.php";
+
+$minPrice = isset($_GET['minPrice']) ? $_GET['minPrice'] : 0;
+$maxPrice = isset($_GET['maxPrice']) ? $_GET['maxPrice'] : PHP_INT_MAX;
+
+// Filter the products
+
+$sql = "SELECT * FROM product WHERE price BETWEEN $minPrice AND $maxPrice";
+$result = mysqli_query($conn, $sql);
+$filteredProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
-$product_type = $_GET['product_type'];
-
-$query = "SELECT * FROM product WHERE product_type = '$product_type'";
-$result = mysqli_query($conn, $query);
-$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-// print the product id
-
+// foreach ($filteredProducts as $product) {
+    
+//     // Assuming $product array is defined with necessary information
+    
+//     echo '<div class="card">';
+//     echo '    <img src="/src/images/' . $product['image'] . '" alt="image can\'t be loaded">';
+//     echo '    <div class="card-desc">';
+//     echo '        <h2 id="productTitle">' . (strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']) . '</h2>';
+//     $short_description = strlen($product['des']) > 60 ? substr($product['des'], 0, 60) . ".." : $product['des'];
+//     echo '        <p id="productDs" class="product_des">' . $short_description . '</p>';
+//     echo '        <h3 id="ProductPrice" class="product_price">Rs.' . number_format($product['price']) . '</h3>';
+//     echo '    </div>';
+//     echo '    <div class="additional-content">';
+//     echo '        <div class="content">';
+//     echo '            <button type="submit" id="addtocartbtn" onclick="addToCart(' . $product['product_id'] . ')">';
+//     echo '                <i class="fa-solid fa-cart-plus"></i>';
+//     echo '                Add To Cart';
+//     echo '            </button>';
+//     echo '            <div class="share">';
+//     echo '                <h6>';
+//     echo '                    <a href="">';
+//     echo '                        <i class="fa-solid fa-share-nodes"></i>';
+//     echo '                        Share';
+//     echo '                    </a>';
+//     echo '                </h6>';
+//     echo '                <h6>';
+//     echo '                    <a href="">';
+//     echo '                        <i class="fa-solid fa-code-compare"></i>';
+//     echo '                        Compare';
+//     echo '                    </a>';
+//     echo '                </h6>';
+//     echo '                <h6>';
+//     echo '                    <a href="">';
+//     echo '                        <i class="fa-regular fa-heart"></i>';
+//     echo '                        Like';
+//     echo '                    </a>';
+//     echo '                </h6>';
+//     echo '            </div>';
+//     echo '            <button onclick="showProduct(' . $product['product_id'] . ')">';
+//     echo '                Buy Now';
+//     echo '            </button>';
+//     echo '        </div>';
+//     echo '    </div>';
+//     echo '</div>';
+    
+// }
 
 
 ?>
@@ -30,38 +77,11 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 
 <body>
-    <div class="filter">
-        <div class="filter-content">
-            <h1>Filter</h1>
-            <!-- <div class="filter-type">
-                <h2>Product Type</h2>
-               <div class="filter-type-content">
-                    in check box
-                    <input type="checkbox" name="product_type" value="Laptops"> Laptops<br>
-                    <input type="checkbox" name="product_type" value="Smartphones and mobile">Smartphones and mobile<br>
-                    <input type="checkbox" name="product_type" value="HeadPhone And EarPhone">HeadPhone And EarPhone<br>
-                    <input type="checkbox" name="product_type" value="Gaming accessories">Gaming accessories<br>
-                    <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                    <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                </div>
-            </div> -->
-                    <form id="priceRangeForm">
-                        <label for="minPrice">Min Price:</label>
-                        <input type="number" id="minPrice" name="minPrice">
-
-                        <label for="maxPrice">Max Price:</label>
-                        <input type="number" id="maxPrice" name="maxPrice">
-
-                        <button type="button" onclick="filterProducts()">Apply Filter</button>
-                    </form>
+    <!-- <div class="filter"> -->
     
-        </div>
-
-        <div class="cards" id="productsContainer">
-            <h1>products - <?php echo $product_type ?></h1>
             <div class="product-card">
 
-                <?php foreach ($products as $product) : ?>
+                <?php foreach ($filteredProducts as $product) : ?>
                     <div class="card">
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
@@ -106,26 +126,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-
             </div>
-            <div class="btn">
-                <button id="loadmorebtn" onclick="loadMore()">Show More</button>
-                <!-- <div id="loading" class="loading-animation" style="display: none;">
-                </div> -->
-            </div>
-            <div id="loading" class="typing-indicator" style="display: none;">
-                <div class="typing-circle"></div>
-                <div class="typing-circle"></div>
-                <div class="typing-circle"></div>
-                <div class="typing-shadow"></div>
-                <div class="typing-shadow"></div>
-                <div class="typing-shadow"></div>
-            </div>
-            <?php include('Footer.php'); ?>
-        </div>
-        <script src="/src/js/buyer/filter.js"></script>
-        <!-- <script src="/src/js/buyer/landingpage.js"></script> -->
 </body>
 
 </html>

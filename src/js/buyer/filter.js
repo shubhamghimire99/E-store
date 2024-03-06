@@ -14,6 +14,24 @@ document.getElementById("loadMoreBtn").addEventListener("click", function () {
   }, 2000); // Simulated delay of 2 seconds
 });
 
+function filterProducts() {
+  var minPrice = $('#minPrice').val();
+  console.log(minPrice);
+  var maxPrice = $('#maxPrice').val();
+  console.log(maxPrice);
+  $.ajax({
+      type: 'GET',
+      url: '/filter_products',
+      data: {
+          minPrice: minPrice,
+          maxPrice: maxPrice
+      },
+      success: function(response) {
+          $('#productsContainer').html(response);
+      }
+  });
+}
+
 
 function loadMore() {
 
@@ -109,72 +127,3 @@ function addToCart(id) {
 function showProduct(id) {
   window.location.href = "/productdetails?id=" + id;
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  document.getElementById("filter-button").addEventListener("click", function () {
-    filterProducts();
-  });
-
-  function filterProducts(){
-    const selectedPrices = Array.from(document.querySelectorAll('input[name="price"]:checked')).map(checkbox => checkbox.value);
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/productApi', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function () {
-      if (this.status == 200) {
-        const products = JSON.parse(this.responseText);
-        const ProductCards = document.getElementById("ProductCards");
-        ProductCards.innerHTML = "";
-        products.forEach(element => {
-          ProductCards.innerHTML += `<div class="card" >
-          <img src="/src/images/${element.image}" alt="image can't be loaded">
-          <div class="card-desc">
-              <h2>${element.title}</h2>
-              <p>${element.des}</p>
-              <h3>Rs.${element.price}</h3>
-          </div>
-          <div class="additional-content">
-              <div class="content">
-                  <button>
-                      <i class="fa-solid fa-cart-plus"></i>
-                      Add To Cart
-                  </button>
-                  <div class="share">
-                      <h6>
-                          <a href="">
-                              <i class="fa-solid fa-share-nodes"></i>
-                              Share
-                          </a>
-                      </h6>
-                      <h6>
-                          <a href="">
-                              <i class="fa-solid fa-code-compare"></i>
-                              Compare
-                          </a>
-                      </h6>
-                      <h6>
-                          <a href="">
-                              <i class="fa-regular fa-heart"></i>
-                              Like
-                          </a>
-                      </h6>
-                  </div>
-                  <button onclick="showProduct(${element.product_id})">
-                      Buy Now
-                  </button>
-              </div>
-          </div>
-      </div>
-  `
-        });
-  }
-
-  xhr.send(JSON.stringify({ prices: selectedPrices }));
-  
-  }
-  filterProducts();
-}
-});

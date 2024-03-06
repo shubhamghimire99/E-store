@@ -17,60 +17,28 @@ include "src/user/navbar.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>search</title>
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/landingpage.css">
     <link rel="stylesheet" type="text/css" href="/src/css/buyer/filter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="filter">
-        <!-- <div class="filter-content">
+        <div class="filter-content">
             <h1>Filter</h1>
-            <div class="filter-type">
-                <h2>Product Type</h2>
-                <div class="filter-type-content">
-                
-                    <input type="checkbox" name="product_type" value="Laptops"> Laptops<br>
-                    <input type="checkbox" name="product_type" value="Smartphones and mobile">Smartphones and mobile<br>
-                    <input type="checkbox" name="product_type" value="HeadPhone And EarPhone">HeadPhone And EarPhone<br>
-                    <input type="checkbox" name="product_type" value="Gaming accessories">Gaming accessories<br>
-                    <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                    <input type="checkbox" name="product_type" value="Airpods and EarBuds">Airpods and EarBuds<br>
-                </div>
-            </div>
-            <div class="filter-type">
-                <h2>Price</h2>
-                <div class="filter-type-content">
-      
-                    <input type="checkbox" name="price" value="0-10000">0-10000<br>
-                    <input type="checkbox" name="price" value="10000-20000">10000-20000<br>
-                    <input type="checkbox" name="price" value="20000-30000">20000-30000<br>
-                    <input type="checkbox" name="price" value="30000-40000">30000-40000<br>
-                    <input type="checkbox" name="price" value="40000-50000">40000-50000<br>
-                    <input type="checkbox" name="price" value="50000-60000">50000-60000<br>
-                </div>
-            </div>
-            <div class="filter-type">
-                <h2>Brand</h2>
-                <div class="filter-type-content">
-                    
-                    <?php 
-                          if (isset($_GET['query'])) {
-                            $searchQuery = $_GET['query'];
-                            $sql = "SELECT * FROM product WHERE title LIKE '%$searchQuery%'";
-                            $result = mysqli_query($conn, $sql);
-                            $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                          }
-                    foreach ($product as $product) : ?>
+            <form id="priceRangeForm">
+                <label for="minPrice">Min Price:</label>
+                <input type="number" id="minPrice" name="minPrice">
 
-                        <input type="checkbox" name="brand" value="<?php echo $product['brand'] ?>"><?php echo $product['brand'] ?><br>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <button>Filter products</button>
-        </div> -->
+                <label for="maxPrice">Max Price:</label>
+                <input type="number" id="maxPrice" name="maxPrice">
 
-        <div class="cards">
+                <button type="button" onclick="filterProducts()">Apply Filter</button>
+            </form>
+
+        </div>
+        <div class="cards" id="productsContainer">
 
             <div class="product-card" id="ProductCards">
 
@@ -84,7 +52,7 @@ include "src/user/navbar.php";
 
                     if ($products) {
                         foreach ($products as $product) {
-                    echo "
+                            echo "
                         <div class= 'card'>
                             <img src='/src/images/" . $product['image'] . "' alt='image can't be loaded'>
                             <div class='card-desc'>
@@ -126,10 +94,8 @@ include "src/user/navbar.php";
                         </div>
                     ";
                         }
-                    }
-                    else{
+                    } else {
                         echo "<h1>No product found</h1>";
-                    
                     }
                 }
                 ?>
@@ -138,8 +104,26 @@ include "src/user/navbar.php";
 
     </div> <?php include('Footer.php'); ?>
 
-    <script src="/src/js/buyer/landingpage.js"></script>
-
+    <!-- <script src="/src/js/buyer/landingpage.js"></script> -->
+    <script>
+        function filterProducts() {
+            var minPrice = $('#minPrice').val();
+            console.log(minPrice);
+            var maxPrice = $('#maxPrice').val();
+            console.log(maxPrice);
+            $.ajax({
+                type: 'GET',
+                url: '/filter_products',
+                data: {
+                    minPrice: minPrice,
+                    maxPrice: maxPrice
+                },
+                success: function(response) {
+                    $('#productsContainer').html(response);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

@@ -50,8 +50,7 @@ $routes = [
     "/order_status" => "src/user/status.php",
     "/seller_status" => "src/seller/status.php",
     "/filter" => "src/user/categoryfilter.php",
-
-
+    "/filter_products" => "src/user/filter_products.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
