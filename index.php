@@ -3,6 +3,7 @@
 
 $routes = [
     "/" => "src/user/landingpage.php",
+    "/createtable" => "src/Database/table.php",
     "/login" => "src/user/login.php",
     "/register" => "src/user/register.php",
     "/seller-register" => "src/seller/register.php",
