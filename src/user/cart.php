@@ -26,6 +26,9 @@ include "src/user/navbar.php"
                 $sql = "SELECT * FROM cart where user_id = $user_id and cart_status = 'incart'";
                 $result = mysqli_query($conn, $sql);
                 $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                // calculate number of cart items
+                $cart_count = mysqli_num_rows($result);
+                
                 $total_price = 0;
                 
                 $getuser = "SELECT firstname ,lastname FROM user WHERE id = $user_id";

@@ -127,6 +127,8 @@ $filteredProducts = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 <?php endforeach; ?>
             </div>
+
+            <script src="/src/js/buyer/landingpage.js"></script>
 </body>
 
 </html>

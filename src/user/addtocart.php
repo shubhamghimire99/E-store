@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
         $sql = "UPDATE cart SET product_quantity='$product_quantity', product_total='$product_total' WHERE product_id='$id' AND user_id='$user_id'";
         if ($conn->query($sql) === TRUE) {
             echo "<script> alert('added to card sucessfully'); </script>";
-            header('location: /#');
+            header('location: /cart');
             
 
         } else {
@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
         if ($conn->query($sql) === TRUE) {
             // header('location: /cart');
             echo "<script> alert('added to card sucessfully'); </script>";
-            header('location: /#');
+            header('location: /cart');
         } else {
             echo "Error:" . mysqli_error($conn);
         }

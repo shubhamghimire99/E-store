@@ -10,7 +10,7 @@ $sql = "SELECT * FROM product limit 8";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-
+    
 ?>
 
 
@@ -29,7 +29,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div class="main">
-
+    
         <div class="first-main">
             <div class="categories">
                 <div class="category">
@@ -89,7 +89,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     <!-- slide images start -->
                     <div class="slide first" id="slider">
-                        <a href="">
+                        <a href="/filter?product_type=laptop">
                             <img src="/src/images/slider/daniel-romero-6V5vTuoeCZg-unsplash.jpg" alt="">
                         </a>
                     </div>
