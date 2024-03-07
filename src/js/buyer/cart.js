@@ -24,7 +24,8 @@ $(document).ready(function(){
             url: "/buy",
             data: { address_id: addressId },
             success: function(response){
-                alert(response);
+                alert("Order placed successfully");
+                window.location.href = "/order";
                
             }
         });

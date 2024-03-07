@@ -87,8 +87,8 @@ session_start();
                         profile &nbsp; ▼</button>
                     <div class="dropdown-content">
                         <a id="top" href="/user-profile">Manage My Profile</a>
-                        <a id="middle" href="/user-orders">My Orders</a>
-                        <a id="middle" href="/user-reviews">My Reviews</a>
+                        <a id="middle" href="/address-book">Address Book</a>
+                        <a id="middle" href="/order">My Orders</a>
                         <a id="bottom" href="/logout">Logout</a>
                     </div>
                 </li>
