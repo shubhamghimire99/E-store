@@ -67,8 +67,8 @@ $address = mysqli_fetch_assoc($addressresult);
                                             <p><?php echo $address['address'] . ', ' .$address['Landmark'] ?></p>
                                         </div>
                                         <div class="action-btn">
-                                            <button onclick="edditAddress(<?php $address['address_id'] ?>)">Edit</button>
-                                            <button onclick="edditAddress(<?php $address['address_id'] ?>)">Delete</button>
+                                            <button onclick="editAddress(<?php $address['address_id'] ?>)">Edit</button>
+                                            <button onclick="deleteAddress(<?php $address['address_id'] ?>)">Delete</button>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>

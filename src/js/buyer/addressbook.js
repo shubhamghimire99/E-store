@@ -118,8 +118,11 @@ var nepalData = {
 
   function editAddress(id) {
     window.location.href = "/editAddress?id=" + id;
+    document.getElementById("editForm").style.display = "block";
   }
 
   function deleteAddress(id) {
     window.location.href = "/deleteAddress?id=" + id;
   }
+
+  

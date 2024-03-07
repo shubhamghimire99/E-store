@@ -50,7 +50,7 @@ $routes = [
     "/order_status" => "src/user/status.php",
     "/seller_status" => "src/seller/status.php",
     "/filter" => "src/user/categoryfilter.php",
-
+    "/editAddress" => "src/user/editaddress.php",
 
 ];
 
