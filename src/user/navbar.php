@@ -69,7 +69,7 @@ session_start();
             </li>
 
             <?php if (isset($_SESSION['user_id'])) : ?>
-                <li class="paste-button profile">
+                <li class="paste-button">
                     <button class="button">
                         <?php
                         include "src/Database/connect.php";

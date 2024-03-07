@@ -25,6 +25,7 @@ $(document).ready(function(){
             data: { address_id: addressId },
             success: function(response){
                 alert(response);
+               
             }
         });
     });

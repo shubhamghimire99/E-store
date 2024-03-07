@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
         }
     }
 
-    if ($product_in_cart != null) {
+    if ($product_in_cart != null && $product_in_cart['cart_status'] == "incart") {
         $product_quantity = $product_in_cart['product_quantity'] + 1;
         $product_total = $product_price * $product_quantity;
         $sql = "UPDATE cart SET product_quantity='$product_quantity', product_total='$product_total' WHERE product_id='$id' AND user_id='$user_id'";

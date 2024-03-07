@@ -54,6 +54,8 @@ $routes = [
     "/seller_status" => "src/seller/status.php",
     "/filter" => "src/user/categoryfilter.php",
     "/filter_products" => "src/user/filter_products.php",
+
+    "/mail" => "src/Mail/mail.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

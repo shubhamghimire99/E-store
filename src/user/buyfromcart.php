@@ -38,12 +38,19 @@ if (isset($_POST['address_id'])) {
      VALUES (NULL, '$user_id', '$seller_id', '$product_id', '$cart_id' , $address_id , CURRENT_TIMESTAMP, 'pending','$quantity')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            echo "order inserted";
+            $deleteformcart = "update cart set cart_status='ordered' where cart_id = $cart_id";
+            $result = mysqli_query($conn, $deleteformcart);
+            if ($result) {
+                // echo "cart status updated";
+            } else {
+                // echo "cart status not updated";
+            }
+            // echo "order is inserted";
+            header("Location: /order");
+
             // header("Location: ");
         } else {
             echo "order not inserted";
         }
     }
-
-    
 }

@@ -6,7 +6,7 @@ include "src/Database/connect.php";
 
 $product_type = $_GET['product_type'];
 
-$query = "SELECT * FROM product WHERE product_type = '$product_type'";
+$query = "SELECT * FROM product WHERE product_type = '$product_type' AND product_status = 'active'";
 $result = mysqli_query($conn, $query);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

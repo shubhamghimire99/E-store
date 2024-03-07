@@ -47,7 +47,7 @@ $carttable = "
         product_total int,
         user_id INT,
         foreign key (user_id) references user(id),
-        cart_status enum('incart','deleted'),
+        cart_status enum('incart','deleted','ordered'),
         foreign key (product_id) references product(product_id),
         constraint pk_id primary key(cart_id)
     );";
@@ -86,11 +86,12 @@ $ordertable = "
         product_id int,
         cart_id int,
         address_id int,
+        order_quantity int,
         order_date TIMESTAMP,
         constraint pk_id PRIMARY KEY(order_id),
         foreign key (user_id) references user(id),
         foreign key (seller_id) references user(id),
-        order_status enum('pending' , 'canceled' , 'delivered'),
+        order_status enum('pending', 'canceled' , 'delivered'),
         foreign key (product_id) references product(product_id),
         foreign key (address_id) references addressbook(address_id),
         foreign key (cart_id) references cart(cart_id)
