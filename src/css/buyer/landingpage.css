@@ -22,7 +22,7 @@
 }
 
 .categories {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: start;
@@ -35,6 +35,7 @@
 }
 
 .categories .category {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: start;

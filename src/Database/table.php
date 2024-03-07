@@ -72,10 +72,8 @@ $sellerdetailstable = "
         area varchar(100),
         address varchar(100),
         Landmark varchar(100),
-        delivery_label varchar(100),
+        effectivedelivery varchar(100),
         address_status enum('active','deleted'),
-        defaultdeliveryaddress bool,
-        defaultbillingaddress bool,
         constraint pk_id primary key(Address_id),
         foreign key (user_id) references user(id)
     );
