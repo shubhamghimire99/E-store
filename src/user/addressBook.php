@@ -5,11 +5,15 @@ $buyer_id = $_SESSION['user_id'];
 $user = "select * from user where id = '$buyer_id'";
 $userresult = mysqli_query($conn, $user);
 $userdata = mysqli_fetch_assoc($userresult);
-$address = "SELECT * FROM addressbook WHERE user_id = '$buyer_id'";
+$address = "SELECT * FROM addressbook WHERE user_id = '$buyer_id' AND address_status = 'active'";
 $addressresult = mysqli_query($conn, $address);
-$address = mysqli_fetch_assoc($addressresult);
-?>
+$address = mysqli_fetch_all($addressresult, MYSQLI_ASSOC);
+$address_json = json_encode($address);
+// echo "<script>console.log($address_json);</script>";
 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +24,10 @@ $address = mysqli_fetch_assoc($addressresult);
     <link rel="stylesheet" href="/src/css/seller/profile.css">
     <link rel="stylesheet" href="/src/css/buyer/profile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <?php 
+       echo "<script> const addressJson = JSON.parse('$address_json'); </script>" 
+       
+    ?>
 </head>
 
 <body>
@@ -63,12 +71,12 @@ $address = mysqli_fetch_assoc($addressresult);
                                         </h3>
                                         <div class="address-details">
                                             <h1><?php echo $address['phone'] ?></h1>
-                                            <p><?php echo $address['province'] .', ' . $address['city']  . ', ' . $address['area']  ?></p>
-                                            <p><?php echo $address['address'] . ', ' .$address['Landmark'] ?></p>
+                                            <p><?php echo $address['province'] . ', ' . $address['city']  . ', ' . $address['area']  ?></p>
+                                            <p><?php echo $address['address'] . ', ' . $address['Landmark'] ?></p>
                                         </div>
                                         <div class="action-btn">
-                                            <button onclick="editAddress(<?php $address['address_id'] ?>)">Edit</button>
-                                            <button onclick="deleteAddress(<?php $address['address_id'] ?>)">Delete</button>
+                                            <button onclick="editAddress(<?php echo $address['address_id']?>)">Edit</button>
+                                            <button onclick="deleteAddress(<?php echo $address['address_id'] ?>)">Delete</button>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
@@ -86,8 +94,8 @@ $address = mysqli_fetch_assoc($addressresult);
                             }
 
                             ?>
-                            <!-- <p>Save your delivery and billing address here.</p>
-                            <button class="open-button" onclick="openForm()"> <i class="fa-solid fa-plus"></i> Add New Delivery Address</button> -->
+                          
+                            <!-- add form popup -->
 
                             <div class="form-popup" id="myForm">
                                 <form action="/addAddress" class="form-container" method="post">
@@ -117,7 +125,6 @@ $address = mysqli_fetch_assoc($addressresult);
                                         </select>
                                     </div>
                                     <div class="address-form-right">
-
                                         <label for="address">Address</label>
                                         <input type="text" placeholder="Enter Address" name="address" required>
 
@@ -139,7 +146,62 @@ $address = mysqli_fetch_assoc($addressresult);
                                         <button class="btn cancel" onclick="closeForm()">Close</button>
                                     </div>
                                 </form>
+                            </div>
+                            <!-- edit form popup -->
+                            <div class="form-popup" id="edit-myForm" >
+                                <form action="/editAddress" class="form-container" method="post">
+                                    
+                                    <h2>Edit Delivery Address</h2>
 
+
+                                    <input type="hidden" name="address_id" id="address_id">
+                                    <!-- get address details from address_id above -->
+                                    <div class="address-form-left">
+                                        <div class="input-field">
+                                            <label for="name"><b>Full Name</label>
+                                            <input type="text" value="<?php echo $userdata['firstname'] . ' ' . $userdata['lastname'] ?>" disable>
+                                        </div>
+                                        <label for="phonenumber">phonenumber</label>
+                                        <input type="text" id="edit-phone" placeholder="Enter phonenumber" value="" name="phone" required>
+
+                                        <label for="Province">Province</label>
+                                        <select id="edit-state" name="province" onchange="populateCities()">
+                                            <option id="Estate" value=""></option>
+                                            <!-- Options will be populated dynamically using JavaScript -->
+                                        </select>
+                                        <label for="City">City</label>
+                                        <select id="edit-city" name="city" onchange="populateAreas()">
+                                            <option id="Ecity" value="">Select City/Municipality</option>
+                                            <!-- Options will be populated dynamically using JavaScript -->
+                                        </select>
+                                        <label for="Area">Area</label>
+                                        <select id="edit-area" name="area">
+                                            <option id="Earea" value="">Select Area</option>
+                                            <!-- Options will be populated dynamically using JavaScript -->
+                                        </select>
+                                    </div>
+                                    <div class="address-form-right">
+                                        <label for="address">Address</label>
+                                        <input type="text" id="edit-address" placeholder="Enter Address" value="<?php echo $address['address'] ?>" name="address" required>
+
+                                        <label for="landmark">landMark (optional)</label>
+                                        <input type="text" id="edit-landmark" placeholder="Enter landmark" value="" name="landmark">
+
+                                        <label for="effective">Effective Delivery</label>
+                                        <div class="effectivedelivery">
+                                            <div class="radio-input" >
+                                                <input value="Home" name="effectivedelivery" id="value-3" type="radio">
+                                                <label for="value-3">Home</label>
+                                                <input value="Office" name="effectivedelivery" id="value-4" type="radio">
+                                                <label for="value-4">Office</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="action-btns">
+                                        <button type="Submit" class="btn">Save</button>
+                                        <button class="btn cancel" onclick="closeForm()">Close</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

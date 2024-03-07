@@ -136,13 +136,15 @@
 
 .delivery button {
     color: #4D47C3;
-    ;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
     display: none;
-    position: fixed;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 3px solid #f1f1f1;
 
 }
@@ -278,7 +280,6 @@ select {
 }
 
 .radio-input input[type="radio"]:checked+label:before {
-
     background-color: green;
     color: white;
     top: 0;

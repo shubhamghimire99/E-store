@@ -3,6 +3,7 @@
 
 $routes = [
     "/" => "src/user/landingpage.php",
+    "/createtable" => "src/Database/table.php",
     "/login" => "src/user/login.php",
     "/register" => "src/user/register.php",
     "/seller-register" => "src/seller/register.php",
@@ -42,6 +43,8 @@ $routes = [
     "/user-update" => "src/user/update.php",
     "/address-book" => "src/user/addressBook.php",
     "/addAddress" => "src/user/addAddress.php",
+    "/editAddress" => "src/user/editaddress.php",
+    "/deleteAddress" => "src/user/deleteaddress.php",
     "/order" => "src/user/order.php",
     "/buynow" => "src/user/buysingleproduct.php",
     "/buyNow" => "src/user/buyNOW.php",
@@ -50,8 +53,7 @@ $routes = [
     "/order_status" => "src/user/status.php",
     "/seller_status" => "src/seller/status.php",
     "/filter" => "src/user/categoryfilter.php",
-    "/editAddress" => "src/user/editaddress.php",
-
+    "/filter_products" => "src/user/filter_products.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

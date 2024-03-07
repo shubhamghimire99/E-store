@@ -17,37 +17,16 @@
     background-color: #ffffff;
     padding: 10px;
     border-radius: 5px;
-    width: 30%;
-}
-.filter-content h1{
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    text-align: center;
+    width: 20%;
 }
 
-
-.filter-type{
+#priceRangeForm{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    gap: 10px;
 }
-.filter-type h2{
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-.filter-type h2::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    margin-top: 5px;
-}
-.filter-type-content{
-    padding: 10px;
-    border-radius: 5px;
-}
+
+
 
 .filter-content button{
     padding: 10px;
