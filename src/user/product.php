@@ -108,12 +108,14 @@ if (isset($_GET['id'])) {
                 <hr>
                 <div class="des-footer">
                     <div class="footer-1">
-                        <p>SKU</p>
+                        <p>vendor</p>
+                        <p>Brand</p>
                         <p>Category</p>
                         <p>Share</p>
                     </div>
                     <div class="footer-2">
-                        <p>: SS001</p>
+                        <p>: <?php echo $product['vendor'] ?></p>
+                        <p>: <?php echo $product['brand'] ?></p>
                         <p>: <?php echo $product["product_type"] ?></p>
                         <div class="icons">
                             <p>:</p><a href=""><i class="fab fa-facebook"></i></a><a href=""><i class="fab fa-linkedin"></i></a><a href=""><i class="fab fa-twitter"></i></a>

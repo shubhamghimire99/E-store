@@ -158,7 +158,8 @@ if (isset($_GET['id'])) {
                         product_Id : productId
                     },
                     success: function(response) {
-                        alert(response);
+                        alert("Order placed successfully");
+                        window.location.href = "/order";
                     }
                 });
             });

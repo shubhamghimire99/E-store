@@ -6,7 +6,7 @@ include 'src/user/Navbar.php';
 include 'src/database/connect.php';
 
 // get all products
-$sql = "SELECT * FROM product limit 8";
+$sql = "SELECT * FROM product WHERE product_status = 'active' limit 8 " ;
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -70,7 +70,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="category">
                     <a href='/filter?product_type=KeyBoards and Mouse'>
                         <i class="fa-solid fa-computer-mouse"></i>
-                        Airpods and EarBuds
+                        KeyBoards and Mouse
                     </a>
                 </div>
             </div>
