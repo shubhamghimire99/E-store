@@ -42,6 +42,15 @@ if (isset($_POST['address_id'])) {
             $result = mysqli_query($conn, $deleteformcart);
             if ($result) {
                 // echo "cart status updated";
+
+                // insert into notification table
+                $getorder = "SELECT order_id FROM orders WHERE user_id='$user_id' AND product_id='$product_id' AND address_id='$address_id'";
+                $result = mysqli_query($conn, $getorder);
+                $row = mysqli_fetch_assoc($result);
+                $order_id = $row['order_id'];
+                $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status)
+                 VALUES (NULL, '$user_id', '$seller_id', NULL, '$product_id', $order_id, $cart_id, 'order placed', CURRENT_TIMESTAMP, 'unread')";
+                $result = mysqli_query($conn, $insert_query);
             } else {
                 // echo "cart status not updated";
             }

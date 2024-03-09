@@ -31,7 +31,9 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="/src/css/buyer/cart.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
-    <title>Cart</title>
+    <title>
+        E-store Payment
+    </title>
 </head>
 
 <body>
@@ -83,7 +85,8 @@ if (isset($_GET['id'])) {
                     <div class="proced_payment">
                         <!-- get address id from the selected radio -->
 
-                        <button name="submit" id="payment-button">Pay with Khalti</button>
+                        <!-- <button name="submit" id="payment-button">Pay with Khalti</button> -->
+                            <button type="submit"> proced to payment </button>
                     </div>
                 </div>
 
@@ -143,44 +146,28 @@ if (isset($_GET['id'])) {
 
         <?php include "src/user/Footer.php" ?>
     </div>
+<script>
+    $(document).ready(function(){
+    $("#submitBtn").click(function(){
+        var addressId = $("input[name='address_id']:checked").val();
 
-    <!-- <script src="/src/js/buyer/cart.js"></script> -->
+        $.ajax({
+            type: "POST",
+            url: "/buyNow",
+            data: { address_id: addressId },
+            success: function(response){
+                alert("Order placed successfully");
+                window.location.href = "/order";
+               
+            }
+        });
+    });
+});
+</script>
+    <script src="/src/js/buyer/cart.js"></script>
+    <script src="/src/"></script>
 
-    <script>
-        // $(document).ready(function() {
-        //     $("#submitBtn").click(function() {
-        //         var addressId = $("input[name='address_id']:checked").val();
-        //         var productId = <?php echo $product['product_id'] ?>;
-
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "/buyNow",
-        //             data: {
-        //                 address_id: addressId,
-        //                 product_Id : productId
-        //             },
-        //             success: function(response) {
-        //                 alert("Order placed successfully");
-        //                 window.location.href = "/order";
-        //             }
-        //         });
-        //     });
-        // });
-
-        // $(document).ready(function() {
-        //     // if the user selects an address then the field will be filled with the selected address
-        //     $("input[name='address_id']").click(function() {
-        //         var addressId = $("input[name='address_id']:checked").val();
-
-
-
-
-
-        //     });
-
-        // });
-    </script>
-    <script src="/src//js/buyer/khalti.js"></script>
+    <!-- <script src="/src//js/buyer/khalti.js"></script> -->
 </body>
 
 </html>

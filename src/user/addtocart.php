@@ -23,11 +23,16 @@ if (isset($_GET['id'])) {
     $result_in_cart = mysqli_query($conn, $productexists);
     $product_in_cart = mysqli_fetch_assoc($result_in_cart);
 
-    if($product_in_cart['cart_status']=="deleted"){
+    if ($product_in_cart['cart_status'] == "deleted") {
         $status_query = "UPDATE cart SET cart_status='incart'  WHERE product_id='$id' AND user_id='$user_id'";
         $result = mysqli_query($conn, $status_query);
         if ($result) {
+            $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status) VALUES (NULL, '$user_id', '$seller_id', NULL, '$product_id', NULL, NULL, 'added to cart', CURRENT_TIMESTAMP, 'unread')";
+            $result = mysqli_query($conn, $insert_query);
             echo "<script> alert('added to card sucessfully'); </script>";
+     header('location: /cart');
+
+           
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -39,9 +44,9 @@ if (isset($_GET['id'])) {
         $sql = "UPDATE cart SET product_quantity='$product_quantity', product_total='$product_total' WHERE product_id='$id' AND user_id='$user_id'";
         if ($conn->query($sql) === TRUE) {
             echo "<script> alert('added to card sucessfully'); </script>";
-            header('location: /cart');
+            // post the message in the notification data base
             
-
+            header('location: /cart');
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -52,7 +57,11 @@ if (isset($_GET['id'])) {
                  '$product_price', '$product_image', '$product_quantity', '$product_total','incart')";
         if ($conn->query($sql) === TRUE) {
             // header('location: /cart');
+            // post name of product and image in the notification data base
+            $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status) VALUES (NULL, '$user_id', NULL , NULL, '$product_id', NULL, NULL, 'added to cart', CURRENT_TIMESTAMP, 'unread')";
+            $result = mysqli_query($conn, $insert_query);
             echo "<script> alert('added to card sucessfully'); </script>";
+           
             header('location: /cart');
         } else {
             echo "Error:" . mysqli_error($conn);

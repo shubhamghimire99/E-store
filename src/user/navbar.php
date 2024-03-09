@@ -12,38 +12,10 @@ session_start();
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            function loadNotifications() {
-                $.ajax({
-                    url: '/get_notification',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        if (data.length > 0) {
-                            $('#notification-icon').addClass('has-notifications');
-                            $('#notification-dropdown').empty();
-                            $.each(data, function(index, notification) {
-                                $('#notification-dropdown').append('<li>' + notification.message + '</li>');
-                            });
-                        } else {
-                            $('#notification-icon').removeClass('has-notifications');
-                            $('#notification-dropdown').empty().append('<li>No notifications</li>');
-                        }
-                    }
-                });
-            }
 
-            // Load notifications on page load
-            loadNotifications();
-
-            // Load notifications every 10 seconds
-            setInterval(loadNotifications, 10000);
-        });
-    </script>
 
     <style>
-      .has-notifications:after {
+        .has-notifications:after {
             content: '!';
             position: absolute;
             top: 20px;
@@ -56,16 +28,19 @@ session_start();
             border-radius: 50%;
             line-height: 20px;
         }
-        #notification-dropdown {
-            display: block;
-            position: absolute;
 
+        #notification-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             padding: 12px 16px;
             z-index: 1;
         }
+
         #notification-dropdown li {
             list-style-type: none;
             padding: 8px 0;
@@ -167,16 +142,62 @@ session_start();
                 </li>
             <?php endif; ?>
 
-
-            <li class="wishlist">
-                <div id="notification-icon"></div>
-                <div id="notification-dropdown"></div>
-
-                <!-- <i class="fa-solid fa-bell"></i> -->
+            <?php if (isset($_SESSION['user_id'])) : ?>
 
 
 
-            </li>
+                <li class="wishlist">
+                    <div id="notification-icon"> <i class="fa-solid fa-bell"></i> </div>
+                    <div id="notification-dropdown"></div>
+
+                    <script>
+                        $(document).ready(function() {
+                            function loadNotifications() {
+                                $.ajax({
+                                    url: '/get_notification',
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    success: function(data) {
+                                        if (data.length > 0) {
+                                            $('#notification-icon').addClass('has-notifications');
+                                            $('#notification-dropdown').empty();
+                                            // show notifications driopdown
+                                            // $('#notification-dropdown').css('display', 'block');
+                                            $.each(data, function(index, notification) {
+                                                $('#notification-dropdown').append('<li>' + notification.message + '</li>');
+                                            });
+                                        } else {
+                                            $('#notification-icon').removeClass('has-notifications');
+                                            $('#notification-dropdown').empty().append('<li>No notifications</li>');
+                                        }
+                                    }
+                                });
+                            }
+
+
+                            // Load notifications on page load
+                            loadNotifications();
+
+                            // Load notifications every 10 seconds
+                            setInterval(loadNotifications, 10000);
+                        });
+                        // show notifiication dropdown on click
+                        $('#notification-icon').click(function() {
+                            $('#notification-dropdown').toggle();
+                        });
+                    </script>
+
+                    <!-- <i class="fa-solid fa-bell"></i> -->
+
+
+
+                </li>
+            <?php else : ?>
+                <li>
+                    <div id="notification-icon"> <i class="fa-solid fa-bell"></i> </div>
+                </li>
+
+            <?php endif; ?>
 
 
 
