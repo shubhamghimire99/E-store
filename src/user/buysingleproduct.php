@@ -1,5 +1,5 @@
 <?php
-   include "src/user/navbar.php";
+include "src/user/navbar.php";
 require 'src/Database/connect.php';
 // get user id
 $user_id = $_SESSION['user_id'];
@@ -30,12 +30,13 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/src/css/buyer/cart.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
     <title>Cart</title>
 </head>
 
 <body>
     <div class="main">
-     
+
         <div class="container">
             <div class="payment_details">
                 <h1>Payment Information</h1>
@@ -82,7 +83,7 @@ if (isset($_GET['id'])) {
                     <div class="proced_payment">
                         <!-- get address id from the selected radio -->
 
-                        <button id="submitBtn">Procced to payment</button>
+                        <button name="submit" id="payment-button">Pay with Khalti</button>
                     </div>
                 </div>
 
@@ -139,45 +140,47 @@ if (isset($_GET['id'])) {
         </div>
 
 
+
         <?php include "src/user/Footer.php" ?>
     </div>
 
     <!-- <script src="/src/js/buyer/cart.js"></script> -->
 
     <script>
-        $(document).ready(function() {
-            $("#submitBtn").click(function() {
-                var addressId = $("input[name='address_id']:checked").val();
-                var productId = <?php echo $product['product_id'] ?>;
+        // $(document).ready(function() {
+        //     $("#submitBtn").click(function() {
+        //         var addressId = $("input[name='address_id']:checked").val();
+        //         var productId = <?php echo $product['product_id'] ?>;
 
-                $.ajax({
-                    type: "POST",
-                    url: "/buyNow",
-                    data: {
-                        address_id: addressId,
-                        product_Id : productId
-                    },
-                    success: function(response) {
-                        alert("Order placed successfully");
-                        window.location.href = "/order";
-                    }
-                });
-            });
-        });
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "/buyNow",
+        //             data: {
+        //                 address_id: addressId,
+        //                 product_Id : productId
+        //             },
+        //             success: function(response) {
+        //                 alert("Order placed successfully");
+        //                 window.location.href = "/order";
+        //             }
+        //         });
+        //     });
+        // });
 
-        $(document).ready(function() {
-            // if the user selects an address then the field will be filled with the selected address
-            $("input[name='address_id']").click(function() {
-                var addressId = $("input[name='address_id']:checked").val();
-                
-
+        // $(document).ready(function() {
+        //     // if the user selects an address then the field will be filled with the selected address
+        //     $("input[name='address_id']").click(function() {
+        //         var addressId = $("input[name='address_id']:checked").val();
 
 
 
-            });
 
-        });
+
+        //     });
+
+        // });
     </script>
+    <script src="/src//js/buyer/khalti.js"></script>
 </body>
 
 </html>
