@@ -124,6 +124,26 @@ alter table user
 add column profile_pic varchar(100);
 
 
+-- Notification table
+
+create table Notification(
+	notification_id int auto_increment,
+    buyer_id int,
+    seller_id int,
+    admin_id int,
+    product_id int,
+    cart_id int,
+    message varchar(500),
+    notification_status enum ('UNREAD','READ','DELETED'),
+    foreign key (buyer_id) references user(id), 
+    foreign key (seller_id) references user(id),
+    foreign key (admin_id) references user(id),
+    foreign key (product_id) references product(product_id),
+    foreign key (cart_id) references cart(cart_id),
+    constraint pk_id primary key(notification_id)
+);
+
+
 
 
      

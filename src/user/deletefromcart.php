@@ -2,7 +2,6 @@
 session_start();
     include "src/Database/connect.php";
 
-
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $sql = "update cart set cart_status='deleted',product_quantity=NULL where cart_id = $id";
