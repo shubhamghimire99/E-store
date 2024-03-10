@@ -135,6 +135,7 @@ create table Notification(
     cart_id int,
     message varchar(500),
     notification_status enum ('UNREAD','READ','DELETED'),
+	notification_date timestamp,
     foreign key (buyer_id) references user(id), 
     foreign key (seller_id) references user(id),
     foreign key (admin_id) references user(id),
@@ -142,6 +143,7 @@ create table Notification(
     foreign key (cart_id) references cart(cart_id),
     constraint pk_id primary key(notification_id)
 );
+
 
 
 

@@ -55,6 +55,7 @@ $routes = [
     "/filter" => "src/user/categoryfilter.php",
     "/filter_products" => "src/user/filter_products.php",
     "/get_notification" => "src/user/get_notification.php",
+    "/get_buyer_notification" => "src/user/get_buyer_notification.php",
     "/mail" => "src/Mail/mail.php",
     "/payment-api" => "src/user/paymentapi.php",
 ];
