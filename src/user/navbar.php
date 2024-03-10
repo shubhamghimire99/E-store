@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base_dir = $_SERVER['DOCUMENT_ROOT'];
 ?>
 
 <!DOCTYPE html>

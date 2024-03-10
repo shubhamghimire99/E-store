@@ -1,5 +1,5 @@
 <?php
-include "src/user/navbar.php"
+include "src/user/navbar.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,26 +21,26 @@ include "src/user/navbar.php"
         <?php if (isset($_SESSION['user_id'])) : ?>
 
             <?php
-                include 'src/database/connect.php';
+            include 'src/database/connect.php';
 
-                $user_id = $_SESSION['user_id'];
-                
-                $sql = "SELECT * FROM cart where user_id = $user_id and cart_status = 'incart'";
-                $result = mysqli_query($conn, $sql);
-                $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                // calculate number of cart items
-                $cart_count = mysqli_num_rows($result);
-                
-                $total_price = 0;
-                
-                $getuser = "SELECT firstname ,lastname FROM user WHERE id = $user_id";
-                $users = mysqli_query($conn, $getuser);
-                $users = mysqli_fetch_all($users, MYSQLI_ASSOC);
-                // echo json_encode($users);
-                
-                $getaddress = "SELECT * FROM addressbook where user_id = $user_id";
-                $address = mysqli_query($conn, $getaddress);
-                $address = mysqli_fetch_all($address, MYSQLI_ASSOC);
+            $user_id = $_SESSION['user_id'];
+
+            $sql = "SELECT * FROM cart where user_id = $user_id and cart_status = 'incart'";
+            $result = mysqli_query($conn, $sql);
+            $cart_items = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // calculate number of cart items
+            $cart_count = mysqli_num_rows($result);
+
+            $total_price = 0;
+
+            $getuser = "SELECT firstname ,lastname FROM user WHERE id = $user_id";
+            $users = mysqli_query($conn, $getuser);
+            $users = mysqli_fetch_all($users, MYSQLI_ASSOC);
+            // echo json_encode($users);
+
+            $getaddress = "SELECT * FROM addressbook where user_id = $user_id";
+            $address = mysqli_query($conn, $getaddress);
+            $address = mysqli_fetch_all($address, MYSQLI_ASSOC);
             ?>
             <div class="container">
                 <div class="payment_details">
@@ -104,7 +104,7 @@ include "src/user/navbar.php"
                                     </div>
                                     <div class="product_info">
                                         <h1><?php echo $cart_items['product_name']; ?></h1>
-                                        <!-- <p><?php echo $cart_items['product_des']; ?></p> -->
+                                        <p><?php echo $cart_items['product_des']; ?></p>
                                         <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                             <i class="fa fa-close"></i>
                                         </button>
@@ -153,16 +153,27 @@ include "src/user/navbar.php"
         <?php endif; ?>
     </div>
     <script>
-        function verifyPayment(payload){
+        var message = "Error occured while processing payment. Please try again."
+
+        function verifyPayment(payload) {
             $.ajax({
-                url : "/payment-api",
-                type : "POST",
-                data :payload,
-                dataType: 'json',
-                success: function(response){alert(response)},
-                // error: function (error) {alert(error.responseJSON['message']) }
+                url: "/payment-api",
+                type: "POST",
+                data: {token : payload['token'], },
+                success: function(response) {
+                    if (response.success) {
+                        console.log(response);
+                        alert(response.message);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("An error occurred: " + error);
+                }
             });
         }
+
 
         var config = {
             // replace the publicKey with yours
@@ -171,22 +182,17 @@ include "src/user/navbar.php"
             "productName": "page",
             "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
             "paymentPreference": [
-                "KHALTI",
-                "EBANKING",
-                "MOBILE_BANKING",
-                "CONNECT_IPS",
-                "SCT",
-                ],
+                "KHALTI"
+            ],
             "eventHandler": {
-                onSuccess (payload) {
+                onSuccess(payload) {
                     // hit merchant api for initiating verfication                
-                    console.log(payload);
-                    verifyPayment(payload);
+                    verifyPayment(payload)
                 },
-                onError (error) {
+                onError(error) {
                     console.log(error);
                 },
-                onClose () {
+                onClose() {
                     console.log('widget is closing');
                 }
             }
@@ -194,10 +200,13 @@ include "src/user/navbar.php"
 
         var checkout = new KhaltiCheckout(config);
         var btn = document.getElementById("payment-button");
-        btn.onclick = function () {
+        btn.onclick = function() {
             // minimum transaction amount must be 10, i.e 1000 in paisa.
-            checkout.show({amount: 1000});
+            checkout.show({
+                amount: 1000
+            });
         }
+
     </script>
     <script src="/src/js/buyer/cart.js"></script>
 </body>
