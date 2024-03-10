@@ -1,5 +1,8 @@
 
 <?php
+
+use function PHPSTORM_META\sql_injection_subst;
+
     include "src/Database/connect.php";
     if(isset($_POST['submit'])){
         $firstname = $_POST['firstName'];   
@@ -15,6 +18,23 @@
     
         
         if($conn->query($sql) === TRUE){
+            // insert into notification database
+            $seller_id = $conn->insert_id;
+            // queary for finding admin id
+            $sql = "SELECT * FROM user WHERE isAdmin=1";
+            $result = $conn->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    $admin_id = $row['id'];
+                }
+            }
+            $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status) VALUES (NULL, NULL, $seller_id , $admin_id, NULL, NULL, NULL, ' new person registered as seller', CURRENT_TIMESTAMP, 'unread')";
+            if($conn->query($insert_query) === TRUE){
+                echo "New record created successfully";
+            }else{
+                echo "Error:" .mysqli_error($conn);
+            }
+
             header('location: /login');
         }else{
             echo "Error:" .mysqli_error($conn);
