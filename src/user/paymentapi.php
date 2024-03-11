@@ -5,11 +5,14 @@ header('Access-Control-Allow-Origin: *');
 // Get the token from the POST request
 $token = $_POST['token'];
 
+
 // Build the request parameters
 $args = http_build_query(array(
   'token' => $token,
   'amount' => 1000
 ));
+
+
 
 $url = "https://khalti.com/api/v2/payment/verify/";
 
