@@ -104,7 +104,7 @@ include "src/user/navbar.php";
                                     </div>
                                     <div class="product_info">
                                         <h1 id="product_name"><?php echo $cart_items['product_name']; ?></h1>
-                                        <p id="product_id" hidden><?php echo $cart_items['product_id']; ?></p>
+                                        <!-- <p id="product_id" hidden><?php echo $cart_items['product_id']; ?></p> -->
                                         <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                             <i class="fa fa-close"></i>
                                         </button>

@@ -105,6 +105,25 @@ $ordertable = "
     )
     
     ";
+    $notification = "
+    CREATE TABLE IF NOT EXISTS Notification(
+        notification_id int auto_increment,
+        buyer_id int,
+        seller_id int,
+        admin_id int,
+        product_id int,
+        cart_id int,
+        message varchar(500),
+        notification_status enum ('UNREAD','READ','DELETED'),
+        notification_date timestamp,
+        foreign key (buyer_id) references user(id), 
+        foreign key (seller_id) references user(id),
+        foreign key (admin_id) references user(id),
+        foreign key (product_id) references product(product_id),
+        foreign key (cart_id) references cart(cart_id),
+        constraint pk_id primary key(notification_id)
+    );
+    ";
 
     // create table
     if ($conn->query($usertable) === TRUE) {
@@ -146,6 +165,12 @@ $ordertable = "
   
     if ($conn->query($categorytable) === TRUE) {
         echo "Table Category created successfully <br>";
+    } else {
+        echo "Error creating table: " . $conn->error ."<br>";
+    }
+
+    if ($conn->query($notification) === TRUE) {
+        echo "Table Notification created successfully <br>";
     } else {
         echo "Error creating table: " . $conn->error ."<br>";
     }

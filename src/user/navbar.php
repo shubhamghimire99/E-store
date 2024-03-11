@@ -16,37 +16,7 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
 
 
     <style>
-        .has-notifications:after {
-            content: '!';
-            position: absolute;
-            top: 20px;
-            right: 140px;
-            background-color: red;
-            color: white;
-            width: 20px;
-            height: 20px;
-            text-align: center;
-            border-radius: 50%;
-            line-height: 20px;
-        }
-
-        #notification-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 20px;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
-
-        #notification-dropdown li {
-            list-style-type: none;
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
-        }
+     
     </style>
 
 </head>
@@ -144,13 +114,10 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
             <?php endif; ?>
 
             <?php if (isset($_SESSION['user_id'])) : ?>
-
-
-
                 <li class="wishlist">
                     <div id="notification-icon"> <i class="fa-solid fa-bell"></i> </div>
-                    <div id="notification-dropdown"></div>
-
+                    <div id="notification-dropdown">
+                    </div>
                     <script>
                         $(document).ready(function() {
                             function loadNotifications() {
@@ -162,30 +129,36 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                                         if (data.length > 0) {
                                             $('#notification-icon').addClass('has-notifications');
                                             $('#notification-dropdown').empty();
-                                            // show notifications driopdown
-                                            // $('#notification-dropdown').css('display', 'block');
+                                            $('#notification-dropdown').append('<h1> Notifications </h1>');
+                                            // count notification and display it in content and add class to icon
                                             $.each(data, function(index, notification) {
-                                                $('#notification-dropdown').append('<li>' + notification.message + '</li>');
+                                                console.log(notification);
+                                                $('#notification-dropdown').append('<li> <img src="src/images/acer-nitro-5-an515-44-r99q-main-100865204-orig.png " alt="product" width="30" height="30"> ' + notification.message + '</li>');
+                                                
                                             });
                                         } else {
                                             $('#notification-icon').removeClass('has-notifications');
-                                            $('#notification-dropdown').empty().append('<li>No notifications</li>');
+                                            // display no notifications
+                                            $('#notification-dropdown').empty();
+                                            $('#notification-dropdown').append('<li >No notifications</li>');
                                         }
                                     }
                                 });
+                                
                             }
-
-
                             // Load notifications on page load
                             loadNotifications();
-
                             // Load notifications every 10 seconds
-                            setInterval(loadNotifications, 10000);
+                            // setInterval(loadNotifications, 10000);
                         });
-                        // show notifiication dropdown on click
                         $('#notification-icon').click(function() {
                             $('#notification-dropdown').toggle();
+                            // show no notifications on click if there are no data in dropdown
+                            if ($('#notification-dropdown').children().length == 0) {
+                                $('#notification-dropdown').append('<li >No notifications</li>');
+                            }
                         });
+                        // show notifiication dropdown on click
                     </script>
 
                     <!-- <i class="fa-solid fa-bell"></i> -->
@@ -195,7 +168,8 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                 </li>
             <?php else : ?>
                 <li>
-                    <div id="notification-icon"> <i class="fa-solid fa-bell"></i> </div>
+                    <div id="notification-icon"> <i class="fa-solid fa-bell">
+                        </i> </div>
                 </li>
 
             <?php endif; ?>
