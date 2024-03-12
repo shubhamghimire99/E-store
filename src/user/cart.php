@@ -103,8 +103,8 @@ include "src/user/navbar.php";
                                         <img src="/src/images/<?php echo $cart_items['product_image']; ?>" alt="image not found" />
                                     </div>
                                     <div class="product_info">
-                                        <h1><?php echo $cart_items['product_name']; ?></h1>
-                                        <!-- <p><?php echo $cart_items['product_des']; ?></p> -->
+                                        <h1 id="product_name"><?php echo $cart_items['product_name']; ?></h1>
+                                        <!-- <p id="product_id" hidden><?php echo $cart_items['product_id']; ?></p> -->
                                         <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                             <i class="fa fa-close"></i>
                                         </button>
@@ -134,7 +134,7 @@ include "src/user/navbar.php";
                         </div>
                         <div class="order_total">
                             <p>Total Amount</p>
-                            <h4>Rs.<?php echo  number_format($total_price + 65) ?></h4>
+                            <h4 id="total-quantity">Rs.<?php echo  number_format($total_price + 65) ?></h4>
                         </div>
 
                         <!-- <button >Buy now</button> -->
@@ -153,13 +153,18 @@ include "src/user/navbar.php";
         <?php endif; ?>
     </div>
     <script>
+        var name = document.getElementById("product_name").textContent;
+        var id =document.getElementById("product_id").textContent;
+        var url ="http://localhost:3000/cart?id="+id;
+        var totalprice = parseFloat($('#total-quantity').text().replace('Rs.', '').replace(/,/g, ''));
+
         var message = "Error occured while processing payment. Please try again."
 
         function verifyPayment(payload) {
             $.ajax({
                 url: "/payment-api",
                 type: "POST",
-                data: {token : payload['token'], },
+                data: {token : payload['token']},
                 success: function(response) {
                     if (response.success) {
                         console.log(response);
@@ -178,15 +183,16 @@ include "src/user/navbar.php";
         var config = {
             // replace the publicKey with yours
             "publicKey": "test_public_key_c6c15d2d463d4bdfb744141e7d28a761",
-            "productIdentity": "1234567890",
-            "productName": "page",
-            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "productIdentity": id,
+            "productName": name,
+            "productUrl": url,
             "paymentPreference": [
                 "KHALTI"
             ],
             "eventHandler": {
                 onSuccess(payload) {
-                    // hit merchant api for initiating verfication                
+                    // hit merchant api for initiating verfication 
+                    // console.log(payload);               
                     verifyPayment(payload)
                 },
                 onError(error) {
@@ -203,6 +209,7 @@ include "src/user/navbar.php";
         btn.onclick = function() {
             // minimum transaction amount must be 10, i.e 1000 in paisa.
             checkout.show({
+                // amount: totalprice * 100
                 amount: 1000
             });
         }
