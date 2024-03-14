@@ -175,6 +175,25 @@ include "src/user/navbar.php";
                     if (response.success) {
                         console.log(response);
                         alert(response.message);
+                        $.ajax({
+                    url: "/buy",
+                    type: "POST",
+                    data: {
+                        address_id: $('input[name="address_id"]:checked').val()
+                    },
+                    success: function(orderResponse) {
+                        if (orderResponse.success) {
+                            console.log(orderResponse);
+                            alert(orderResponse.message);
+                            window.location.href = "/order";
+                        } else {
+                            alert(orderResponse.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("An error occurred while handling orders: " + error);
+                    }
+                });
                     } else {
                         alert(response.message);
                     }
