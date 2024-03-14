@@ -15,13 +15,14 @@ if (isset($_GET['id'])) {
     $product_name = $product['title'];
     $product_price = $product['price'];
     $product_image = $product['image'];
+    $seller_id = $product['user_id'];
 
     $product_quantity = 1;
     $product_total = $product_price * $product_quantity;
 
     $productexists = "SELECT * FROM cart WHERE product_id='$id' AND user_id='$user_id'";
     $result_in_cart = mysqli_query($conn, $productexists);
-    $product_in_cart = mysqli_fetch_all($result_in_cart , MYSQLI_ASSOC);
+    $product_in_cart = mysqli_fetch_array($result_in_cart , MYSQLI_ASSOC);
 
     if ($product_in_cart['cart_status'] == "deleted") {
         $status_query = "UPDATE cart SET cart_status='incart'  WHERE product_id='$id' AND user_id='$user_id'";
