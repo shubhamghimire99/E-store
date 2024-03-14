@@ -56,14 +56,15 @@
 }
 
 .categories .category:hover {
-    background-color: #40d3dc;
-    color: #FFFFFF;
+    background-color: #F0EFFF;
+    color: #A7B7DD;
     border-radius: 10px;
     transition: all 1s ease-in;
 }
 
 .categories .category a:hover {
-    color: #FFFFFF;
+
+    color: #A7B7DD;
 }
 
 /* slider start */

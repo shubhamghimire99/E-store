@@ -274,8 +274,19 @@ ul li {
     list-style-type: none;
     padding: 8px 0;
     border-bottom: 1px solid #ddd;
-
-
+}
+#notification-dropdown li:last-child {
+    border-bottom: none;
+}
+#notification-dropdown a {
+    text-decoration: none;
+    color: #A7B7DD;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 @keyframes scale-in {

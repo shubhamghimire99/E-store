@@ -54,8 +54,10 @@ $routes = [
     "/seller_status" => "src/seller/status.php",
     "/filter" => "src/user/categoryfilter.php",
     "/filter_products" => "src/user/filter_products.php",
-    "/get_notification" => "src/user/get_notification.php",
-    "/get_buyer_notification" => "src/user/get_buyer_notification.php",
+    "/get_order_notification" => "src/user/get_order_notification.php",
+    "/get_cart_notification" => "src/user/get_cart_notification.php",
+    "/get_product_notification" => "src/user/get_product_notification.php",
+    "/get_seller_notification" => "src/user/get_seller_notification.php",
     "/mail" => "src/Mail/mail.php",
     "/payment-api" => "src/user/paymentapi.php",
 ];
