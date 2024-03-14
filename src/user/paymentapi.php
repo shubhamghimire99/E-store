@@ -67,7 +67,8 @@ if ($response === false) {
 
   $response = array(
     'success' => 1,
-    'message' => 'Payment verification successful. Thank you for your purchase.',
+    'message' => 'Payment verification successful. Thank you for your purchase.
+    Your order has been placed successfully.',
     'data' => json_decode($response)
   );
 

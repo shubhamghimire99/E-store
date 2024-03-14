@@ -3,7 +3,6 @@ session_start();
 require 'src/Database/connect.php';
 // get user id
 $user_id = $_SESSION['user_id'];
-// echo json_encode($user_id);
 
 if (isset($_POST['address_id'])) {
     $address_id = $_POST['address_id'];
@@ -24,8 +23,6 @@ if (isset($_POST['address_id'])) {
         $row = mysqli_fetch_assoc($result);
         $product_id = $row['product_id'];
         $quantity = $row['product_quantity'];
-        // echo json_encode($quantity);
-        // echo json_encode($product_id);
 
         // get seller id from product
         $getseller = "SELECT user_id FROM product WHERE product_id='$product_id'";
@@ -41,23 +38,16 @@ if (isset($_POST['address_id'])) {
             $deleteformcart = "update cart set cart_status='ordered' where cart_id = $cart_id";
             $result = mysqli_query($conn, $deleteformcart);
             if ($result) {
-                // echo "cart status updated";
 
                 // insert into notification table
                 $getorder = "SELECT order_id FROM orders WHERE user_id='$user_id' AND product_id='$product_id' AND address_id='$address_id'";
                 $result = mysqli_query($conn, $getorder);
                 $row = mysqli_fetch_assoc($result);
                 $order_id = $row['order_id'];
-                $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status)
-                 VALUES (NULL, '$user_id', '$seller_id', NULL, '$product_id', $order_id, $cart_id, 'order placed', CURRENT_TIMESTAMP, 'unread')";
-                $result = mysqli_query($conn, $insert_query);
             } else {
-                // echo "cart status not updated";
             }
-            // echo "order is inserted";
             header("Location: /order");
 
-            // header("Location: ");
         } else {
             echo "order not inserted";
         }
