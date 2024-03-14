@@ -21,10 +21,12 @@ if (isset($_POST['submit'])) {
     $short_des = $_POST['short-des'];
     $des = $_POST['des'];
     $image = $_POST['image'];
-    $price = $_POST['price'];
+    $marketPrice = $_POST['price'];
     $brand = $_POST['brand'];
     $product_type = $_POST['product_type'];
     $vendor = $_POST['vendor'];
+    $costPrice = $_POST['cost-price'];
+    $profit = $_POST['profit'];
     $quantity = $_POST['quantity'];
 
     if ($image == '') {
@@ -62,7 +64,7 @@ if (isset($_POST['submit'])) {
     //sql query to update data to database
     $sql = "update product set title='$title',
     short_des='$short_des', des='$des',image='$file_name',
-    price=$price ,brand='$brand', product_type='$product_type',
+    price=$marketPrice ,brand='$brand',profit='$profit',cost_price='$costprice', product_type='$product_type',
     vendor='$vendor', quantity=$quantity
     where product_id=$product_id ";
 
@@ -88,147 +90,10 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-        .content {
-            width: 80%;
-            height: auto;
-            background-color: #F8F7FC;
-        }
-
-        .content .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 30px;
-        }
-
-        .header h1 {
-            font-size: 24px;
-            /* font-weight: 500; */
-            color: #333333;
-            margin-left: 20px;
-        }
-
-        .form {
-            width: 100%;
-            height: auto;
-            margin: 0 auto;
-            padding: 50px;
-        }
-
-        .title {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .title h4 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .title input {
-            width: 100%;
-            height: 40px;
-            margin: 10px 0px;
-            padding: 10px;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .title #short-des {
-            height: 150px;
-            width: 100%;
-            margin: 10px 0px;
-            padding: 5px;
-            color: grey;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-
-
-        .title #des {
-            height: 200px;
-            width: 100%;
-            margin: 10px 0px;
-            padding: 5px;
-            color: gray;
-            border: 1px solid #E5E5E5;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .Media {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .pricing {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .pricing h4 {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .pricing h6 {
-            font-size: 14px;
-            font-weight: 500;
-            color: #333333;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            display: flex;
-        }
-
-        .inner-price {
-            height: auto;
-            padding: 10px;
-        }
-
-        .extra {
-            width: 60%;
-            height: auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/css/seller/product.css">
 </head>
 
 <body>
-    <script>
-        function cancel(){
-            window.location.href = "/inventory";
-        }
-    </script>
     <div class="menubar">
         <div class="logo">
             <svg width="158" height="38" viewBox="0 0 158 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,8 +144,7 @@ if (isset($_POST['submit'])) {
         <div class="header">
             <h1>Edit Product</h1>
         </div>
-        <div class="form">
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="#" method="post" enctype="multipart/form-data" class="form">
                 <div class="title">
                     <h4>Title</h3>
                         <input type="text" name="title" id="title" value="<?php echo $product['title'] ?>">
@@ -291,7 +155,9 @@ if (isset($_POST['submit'])) {
                 </div>
 
                 <div class="Media">
-                    <input type="file" name="image" placeholder="upload new">
+                    <h4>Choose image for your Product</h4>
+                    <input type="file" name="image" id="image-tag" placeholder="upload new" hidden>
+                    <label for="image-tag" id="upload-button">Edit</label>
                 </div>
 
                 <div class="pricing">
@@ -299,19 +165,21 @@ if (isset($_POST['submit'])) {
                     <div class="price">
 
                         <div class="inner-price">
-                            <h6>Price</h6>
+                            <h6>Market Price</h6>
                             <input type="text" name="price" value="<?php echo $product['price'] ?>">
                         </div>
                         <div class="inner-price">
-                            <h6>Compare-at price</h6>
-                            <input type="text" name="compare-price" placeholder="compare price">
+                            <h6>Cost price</h6>
+                            <input type="text" name="cost-price" placeholder="cost price" value="<?php echo $product['cost_price'] ?>">
                         </div>
                     </div>
                     <div class="profit">
                         <div class="inner-profit">
-                            <input type="text" placeholder="Rs 100">
+                            <h6>Profit</h6>
+                            <input type="text" placeholder="Rs 100" value="<?php echo $product['profit'] ?>">
                         </div>
                         <div class="inner-profit">
+                            <h6>Margin %</h6>
                             <input type="text" placeholder="--">
                         </div>
                     </div>
@@ -331,6 +199,11 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
+    <script>
+        function cancel(){
+            window.location.href = "/seller-inventory";
+        }
+    </script>
 </body>
 
 </html>

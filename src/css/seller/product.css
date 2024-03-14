@@ -14,20 +14,28 @@
 
 .header h1 {
     font-size: 24px;
-    /* font-weight: 500; */
     color: #333333;
     margin-left: 20px;
 }
 
 .form {
     width: 100%;
-    margin-left: 40px;
-    height: auto;
-    background-color: #FFFFFF;
+    height: 100vh;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+.form button{
+    width: 20%;
+    height: 40px;
+    background-color: #4D47C3;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .title {
@@ -84,6 +92,10 @@
 
 .Media {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     float: right;
     height: auto;
     background-color: #FFFFFF;
@@ -91,6 +103,27 @@
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+}
+
+.Media label{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4D47C3;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.Media h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 10px;
 }
 
 .pricing {
@@ -120,11 +153,56 @@
 
 .price {
     display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 30px   
 }
 
+
+
 .inner-price {
+    width: 50%;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inner-price input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0px;
     padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    outline: none;
+}
+
+.profit{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 30px   
+}
+
+.profit .inner-profit{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inner-profit input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    outline: none;
 }
 
 .extra {
@@ -137,3 +215,30 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
+
+.extra h4{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.extra select{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    outline: none;
+}
+
+.extra input{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    outline: none;
+}   

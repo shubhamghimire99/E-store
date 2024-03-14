@@ -74,7 +74,7 @@ include "src/user/navbar.php";
 
                                 <div class="add_savedcard" method="post">
 
-                                    <input type="radio" name="address_id" value="<?php echo $address['address_id'] ?>">
+                                    <input type="radio" name="address_id" id="address_id" value="<?php echo $address['address_id'] ?>">
                                     <h4>Saved Address</h4>
                                     <?php echo $address['address_id'] ?>
                                     <p><?php echo $address['phone'] ?></p>
@@ -104,7 +104,7 @@ include "src/user/navbar.php";
                                     </div>
                                     <div class="product_info">
                                         <h1 id="product_name"><?php echo $cart_items['product_name']; ?></h1>
-                                        <!-- <p id="product_id" hidden><?php echo $cart_items['product_id']; ?></p> -->
+                                        <p id="product_id" hidden><?php echo $cart_items['product_id']; ?></p>
                                         <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                             <i class="fa fa-close"></i>
                                         </button>
@@ -154,18 +154,24 @@ include "src/user/navbar.php";
     </div>
     <script>
         var name = document.getElementById("product_name").textContent;
-        var id =document.getElementById("product_id").textContent;
-        var url ="http://localhost:3000/cart?id="+id;
+        var id = document.getElementById("product_id").textContent;
+        var url = "http://localhost:3000/cart?id=" + id;
+        // var address_id =document.getElementById('address_id').value;
         var totalprice = parseFloat($('#total-quantity').text().replace('Rs.', '').replace(/,/g, ''));
 
         var message = "Error occured while processing payment. Please try again."
 
         function verifyPayment(payload) {
+
             $.ajax({
                 url: "/payment-api",
                 type: "POST",
-                data: {token : payload['token']},
-                success: function(response) {
+                data: { payload: JSON.stringify(payload)
+                //         amount: 1000,    
+                //         product_id: id,
+                //         product_name: name,
+                 },
+                success: function(response) { 
                     if (response.success) {
                         console.log(response);
                         alert(response.message);
@@ -192,7 +198,6 @@ include "src/user/navbar.php";
             "eventHandler": {
                 onSuccess(payload) {
                     // hit merchant api for initiating verfication 
-                    // console.log(payload);               
                     verifyPayment(payload)
                 },
                 onError(error) {
@@ -213,7 +218,6 @@ include "src/user/navbar.php";
                 amount: 1000
             });
         }
-
     </script>
     <script src="/src/js/buyer/cart.js"></script>
 </body>

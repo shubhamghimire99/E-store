@@ -16,6 +16,7 @@ if (isset($_GET['id'])) {
     $product_name = $product['title'];
     $product_price = $product['price'];
     $product_image = $product['image'];
+    $seller_id = $product['user_id'];
 
     $product_quantity = 1;
     $product_total = $product_price * $product_quantity;

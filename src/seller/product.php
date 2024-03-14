@@ -12,10 +12,12 @@ if (isset($_POST['submit'])) {
     $short_des = $_POST['short-des'];
     $des = $_POST['des'];
     // $image = $_POST['image'];
-    $price = $_POST['price'];
+    $marketPrice = $_POST['price'];
     $brand = $_POST['brand'];
     $product_type = $_POST['product_type'];
     $vendor = $_POST['vendor'];
+    $costPrice = $_POST['cost-price'];
+    $profit = $_POST['profit'];
     $quantity = $_POST['quantity'];
     $userid = $_SESSION['user_id']; 
     $status = $_POST['status'];
@@ -48,10 +50,10 @@ if (isset($_POST['submit'])) {
         }
      }
 
-    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`,`product_status`)
+    $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`,`product_status`,`cost_price`,`profit`)
      VALUES (NULL,'$title', '$short_des', '$des','$file_name' , 
-     '$userid','$price', '$brand', '$product_type', '$vendor', 
-     '$quantity','$status')";
+     '$userid','$marketPrice', '$brand', '$product_type', '$vendor', 
+     '$quantity','$status','$costPrice','$profit')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: /seller-inventory");
@@ -103,10 +105,10 @@ if (isset($_POST['submit'])) {
                             <path d="M18 0H2C0.89 0 0.00999999 0.89 0.00999999 2L0 14C0 15.11 0.89 16 2 16H18C19.11 16 20 15.11 20 14V2C20 0.89 19.11 0 18 0ZM18 14H2V8H18V14ZM18 4H2V2H18V4Z" fill="#A7B7DD" />
                         </svg>
                         Payment</a></li>
-                <li><a href="/seller-setting"><svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li><a href="/seller-profile"><svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.4783 10.94C16.5183 10.64 16.5383 10.33 16.5383 10C16.5383 9.68003 16.5183 9.36003 16.4683 9.06003L18.4983 7.48003C18.5858 7.40793 18.6456 7.30772 18.6675 7.19649C18.6894 7.08527 18.672 6.96989 18.6183 6.87003L16.6983 3.55003C16.6418 3.44959 16.5516 3.3724 16.4436 3.33214C16.3356 3.29187 16.2168 3.29112 16.1083 3.33003L13.7183 4.29003C13.2183 3.91003 12.6883 3.59003 12.0983 3.35003L11.7383 0.810027C11.7206 0.695557 11.6625 0.591234 11.5744 0.516003C11.4863 0.440772 11.3742 0.399623 11.2583 0.400027H7.41834C7.17834 0.400027 6.98834 0.570027 6.94834 0.810027L6.58834 3.35003C5.99834 3.59003 5.45834 3.92003 4.96834 4.29003L2.57834 3.33003C2.35834 3.25003 2.10834 3.33003 1.98834 3.55003L0.078343 6.87003C-0.0416569 7.08003 -0.00165707 7.34003 0.198343 7.48003L2.22834 9.06003C2.17834 9.36003 2.13834 9.69003 2.13834 10C2.13834 10.31 2.15834 10.64 2.20834 10.94L0.178343 12.52C0.0908669 12.5921 0.0310966 12.6923 0.00921549 12.8036C-0.0126656 12.9148 0.00469628 13.0302 0.0583431 13.13L1.97834 16.45C2.09834 16.67 2.34834 16.74 2.56834 16.67L4.95834 15.71C5.45834 16.09 5.98834 16.41 6.57834 16.65L6.93834 19.19C6.98834 19.43 7.17834 19.6 7.41834 19.6H11.2583C11.4983 19.6 11.6983 19.43 11.7283 19.19L12.0883 16.65C12.6783 16.41 13.2183 16.09 13.7083 15.71L16.0983 16.67C16.3183 16.75 16.5683 16.67 16.6883 16.45L18.6083 13.13C18.7283 12.91 18.6783 12.66 18.4883 12.52L16.4783 10.94ZM9.33834 13.6C7.35834 13.6 5.73834 11.98 5.73834 10C5.73834 8.02003 7.35834 6.40003 9.33834 6.40003C11.3183 6.40003 12.9383 8.02003 12.9383 10C12.9383 11.98 11.3183 13.6 9.33834 13.6Z" fill="#A7B7DD" />
                         </svg>
-                        Settings</a></li>
+                        profile</a></li>
                 <li>
                     <a href="/logout">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,8 +125,7 @@ if (isset($_POST['submit'])) {
         <div class="header">
             <h1>Add Product</h1>
         </div>
-        <div class="form">
-            <form action="# " method="post" enctype="multipart/form-data">
+            <form action="# " method="post" enctype="multipart/form-data" class="form">
                 <div class="title">
                     <h4>Title</h3>
                         <input type="text" name="title" id="title" placeholder="Enter product title">
@@ -136,7 +137,8 @@ if (isset($_POST['submit'])) {
 
                 <div class="Media">
                     <h4>Choose image for your Product</h4>
-                    <input type="file" name="image" placeholder="upload new">
+                    <input type="file" name="image" id="image-tag" placeholder="upload new" hidden>
+                    <label for="image-tag" id="upload-button">Upload</label>
                 </div>
 
                 <div class="pricing">
@@ -144,19 +146,21 @@ if (isset($_POST['submit'])) {
                     <div class="price">
 
                         <div class="inner-price">
-                            <h6>Price</h6>
-                            <input type="text" name="price" placeholder="price">
+                            <h6>Market price</h6>
+                            <input type="text" name="price" placeholder="market price">
                         </div>
                         <div class="inner-price">
-                            <h6>Compare-at price</h6>
-                            <input type="text" name="compare-price" placeholder="compare price">
+                            <h6>Cost price</h6>
+                            <input type="text" name="cost-price" placeholder="cost-price">
                         </div>
                     </div>
                     <div class="profit">
                         <div class="inner-profit">
-                            <input type="text" placeholder="Rs 100">
+                            <h6>Profit</h6>
+                            <input type="text" name="profit" placeholder="Rs 100">
                         </div>
                         <div class="inner-profit">
+                            <h6>% of market price</h6>
                             <input type="text" placeholder="--">
                         </div>
                     </div>
@@ -190,7 +194,7 @@ if (isset($_POST['submit'])) {
                 <button type="submit" name="submit">Save</button>
             </form>
         </div>
-    </div>
+    <!-- </div> -->
 </body>
 
 </html>
