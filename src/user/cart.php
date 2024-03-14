@@ -167,13 +167,13 @@ include "src/user/navbar.php";
                 url: "/payment-api",
                 type: "POST",
                 data: { payload: JSON.stringify(payload)
-                //         amount: 1000,
+                //         amount: 1000,    
                 //         product_id: id,
                 //         product_name: name,
                  },
                 success: function(response) { 
                     if (response.success) {
-                        // console.log(response);
+                        console.log(response);
                         alert(response.message);
                     } else {
                         alert(response.message);
@@ -198,8 +198,6 @@ include "src/user/navbar.php";
             "eventHandler": {
                 onSuccess(payload) {
                     // hit merchant api for initiating verfication 
-                    // console.log(payload);
-
                     verifyPayment(payload)
                 },
                 onError(error) {

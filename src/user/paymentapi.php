@@ -10,8 +10,8 @@ $payload = $_POST['payload'];
 // $product_name = $_POST['product_name'];
 $token = json_decode($payload)->token;
 $amount = json_decode($payload)->amount;
-// $product_id = json_decode($payload)->productIdentity;
-// $product_name = json_decode($payload)->productName;
+$product_id = json_decode($payload)->product_identity;
+// $product_name = json_decode($payload)->product_name;
 
 // Build the request parameters
 $args = http_build_query(array(
@@ -19,7 +19,7 @@ $args = http_build_query(array(
   'amount' => $amount
 ));
 
-// $sql = "INSERT INTO payment (payment_id, product_id, product_name, amount) VALUES (NULL, '$product_id', '$product_name', '$amount')";
+// $sql = "INSERT INTO payment (payment_id, product_id, amount) VALUES (NULL, '$product_id', '$amount')";
 // $result = mysqli_query($conn, $sql);
 // if ($result) {
 //   echo "Payment added to database";
@@ -56,26 +56,22 @@ if ($response === false) {
     'message' => 'cURL Error: ' . $error_message
   );
 } elseif ($status_code == 200) {
-  // If the status code is 200 (success), add the success response to the response from API
-  // $response_data = json_decode($response,true);
 
-  // $product_id = $response_data['productIdentity'];
-  // $amount = $response_data['amount'];
+  $sql = "INSERT INTO payment (payment_id, product_id, amount) VALUES (NULL,'$product_id', '$amount')";
+  $result = mysqli_query($conn, $sql);
+  if ($result) {
+    // echo "Payment added to database";
+  } else {
+    echo "Error: " . mysqli_error($conn);
+  }
 
-  // $sql = "INSERT INTO payment (payment_id, product_id, amount) VALUES (NULL, '$product_id', '$amount')";
-  // $result = mysqli_query($conn, $sql);
-  // if ($result) {
-  //   echo "Payment added to database";
-  // } else {
-  //   echo "Error: " . mysqli_error($conn);
-  // }
-  
   $response = array(
     'success' => 1,
     'message' => 'Payment verification successful. Thank you for your purchase.',
     'data' => json_decode($response)
   );
 
+  // insert the product id and product amount in database by fetchng form response
 
 } else {
   // If the status code is not 200, construct an error response
