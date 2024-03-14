@@ -116,6 +116,7 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                             function loadNotifications() {
                                 $.ajax({
                                     url: '/get_order_notification',
+                                    
                                     type: 'GET',
                                     dataType: 'json',
                                     success: function(data) {
@@ -125,7 +126,7 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                                             $('#notification-dropdown').empty();
                                             $('#notification-dropdown').append('<h1> Notifications </h1>');
                                             $.each(data , function(index, order) {
-                                                // for order notifications with product details
+
                                                 if(order.order_status == 'pending'){
                                                     $('#notification-dropdown').append(
                                                     '<a href="/order"> <li>  <img src= "/src/images/' + order.image + ' " width="30px" height= "30px"> </img> ' + order.title + 
@@ -143,8 +144,12 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                                                     '<a href="/order"> <li>  <img src= "/src/images/' + order.image + ' " width="30px" height= "30px"> </img> ' + order.title + 
                                                     ' Your Order is cancelled </a> </li>');
                                                 }
+                                                if(order.cart_status == 'incart'){
+                                                    $('#notification-dropdown').append(
+                                                    '<a href="/cart"> <li>  <img src= "/src/images/' + order.product_image + ' " width="30px" height= "30px"> </img> ' + order.product_name + 
+                                                    ' is added to cart </a> </li>');
+                                                }
                                             });
-                                       
                                         } 
                                         else {
                                             $('#notification-icon').removeClass('has-notifications');
@@ -160,6 +165,7 @@ $base_dir = $_SERVER['DOCUMENT_ROOT'];
                             // Load notifications every 10 seconds
                             setInterval(loadNotifications, 10000);
                         });
+                        
                         $('#notification-icon').click(function() {
                             $('#notification-dropdown').toggle();
                             // show no notifications on click if there are no data in dropdown

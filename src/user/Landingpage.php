@@ -6,11 +6,11 @@ include 'src/user/Navbar.php';
 include 'src/database/connect.php';
 
 // get all products
-$sql = "SELECT * FROM product WHERE product_status = 'active' limit 8 " ;
+$sql = "SELECT * FROM product WHERE product_status = 'active' limit 8 ";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    
+
 ?>
 
 
@@ -29,7 +29,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div class="main">
-    
+
         <div class="first-main">
             <div class="categories">
                 <div class="category">
@@ -89,21 +89,29 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                     <!-- slide images start -->
                     <div class="slide first" id="slider">
-                        <a href="/filter?product_type=laptop">
+                        <a href="/filter?product_type=Laptops">
                             <img src="/src/images/slider/daniel-romero-6V5vTuoeCZg-unsplash.jpg" alt="">
                         </a>
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg" alt="">
+                        <a href="/filter?product_type=laptop">
+                            <img src="/src/images/slider/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg" alt="">
+                        </a>
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider//insung-yoon-N1QwvJDvj4E-unsplash.jpg" alt="">
+                        <a href="/filter?product_type=laptop">
+                            <img src="/src/images/slider//insung-yoon-N1QwvJDvj4E-unsplash.jpg" alt="">
+                        </a>
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/mohamed-m-6MXDP9u6fmU-unsplash.jpg" alt="">
+                        <a href="/filter?product_type=laptop">
+                            <img src="/src/images/slider/mohamed-m-6MXDP9u6fmU-unsplash.jpg" alt="">
+                        </a>
                     </div>
                     <div class="slide">
-                        <img src="/src/images/slider/rishabh-malhotra-83ypHTv6J2M-unsplash.jpg" alt="">
+                        <a href="/filter?product_type=Laptops">
+                            <img src="/src/images/slider/rishabh-malhotra-83ypHTv6J2M-unsplash.jpg" alt="">
+                        </a>
                     </div>
                     <!-- Slide image end -->
                     <!-- automatic navigation start -->
@@ -135,7 +143,7 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             <div class="category">
                 <div class="product">
-                    <a href='/filter?product_type=laptop'>
+                    <a href="/filter?product_type=Laptops">
                         <img class="product-img" src="/src/images/dmitry-chernyshov-mP7aPSUm7aE-unsplash.jpg" alt="image can't be loaded">
                         <span>Laptops</span>
                     </a>
