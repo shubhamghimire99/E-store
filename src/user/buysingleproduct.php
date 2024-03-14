@@ -86,7 +86,7 @@ if (isset($_GET['id'])) {
                         <!-- get address id from the selected radio -->
 
                         <!-- <button name="submit" id="payment-button">Pay with Khalti</button> -->
-                            <button type="submit"> proced to payment </button>
+                            <button type="submit" id="payment-button" > pay with khalti </button>
                     </div>
                 </div>
 
@@ -101,9 +101,9 @@ if (isset($_GET['id'])) {
                                     <img src="/src/images/<?php echo $product['image']; ?>" alt="image not found" />
                                 </div>
                                 <div class="product_info">
-                                    <h1><?php echo $product['title']; ?></h1>
+                                    <h1 id="product_name"><?php echo $product['title']; ?></h1>
 
-                                    <!-- <p><?php echo $product['product_des']; ?></p> -->
+                                    <p id="product_id" hidden><?php echo $product['product_id']; ?></p>
                                     <!-- <button class="close-btn" onclick="deleteFromCart(<?php echo  $cart_items['cart_id'] ?>)">
                                         <i class="fa fa-close"></i>
                                     </button> -->
@@ -165,9 +165,89 @@ if (isset($_GET['id'])) {
 });
 </script>
     <script src="/src/js/buyer/cart.js"></script>
-    <script src="/src/"></script>
+    <script>
+          var name = document.getElementById("product_name").textContent;
+        var id = document.getElementById("product_id").textContent;
+        var url = "http://localhost:3000/buyNow?id=" + id;        
+        // var address_id =document.getElementById('address_id').value;
+        var totalprice = parseFloat($('#total-quantity').text().replace('Rs.', '').replace(/,/g, ''));
 
-    <!-- <script src="/src//js/buyer/khalti.js"></script> -->
+        var message = "Error occured while processing payment. Please try again."
+
+        function verifyPayment(payload) {
+
+            $.ajax({
+                url: "/payment-api",
+                type: "POST",
+                data: {
+                    payload: JSON.stringify(payload)
+                    //         amount: 1000,    
+                    //         product_id: id,
+                    //         product_name: name,
+                },
+                success: function(response) {
+                    if (response.success) {
+                        console.log(response);
+                        alert(response.message);
+                        
+                        $.ajax({
+                            url: "/buyNow",
+                            type: "POST",
+                            data: {
+                                address_id: $('input[name="address_id"]:checked').val()
+                            },
+                            success: function(orderResponse) {
+                                window.location.href = "/order";
+                            },
+                            error: function(xhr, status, error) {
+                                console.log("An error occurred while handling orders: " + error);
+                            }
+                        });
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.log("An error occurred: " + error);
+                }
+            });
+        }
+
+
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_c6c15d2d463d4bdfb744141e7d28a761",
+            "productIdentity": id,
+            "productName": name,
+            "productUrl": url,
+            "paymentPreference": [
+                "KHALTI"
+            ],
+            "eventHandler": {
+                onSuccess(payload) {
+                    // hit merchant api for initiating verfication 
+                    verifyPayment(payload)
+                },
+                onError(error) {
+                    console.log(error);
+                },
+                onClose() {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function() {
+            // minimum transaction amount must be 10, i.e 1000 in paisa.
+            checkout.show({
+                // amount: totalprice * 100
+                amount: 1000
+            });
+        }
+    </script>
+
 </body>
 
 </html>

@@ -92,7 +92,7 @@ $order_data = mysqli_fetch_all($order_result, MYSQLI_ASSOC);
                 $get_products =
                     "SELECT orders.*, product.*  FROM orders INNER JOIN 
                             product ON orders.product_id = product.product_id
-                            WHERE orders.seller_id = '$seller_id'";
+                            WHERE orders.seller_id = '$seller_id' and orders.order_status != 'canceled' ORDER BY order_id DESC";
                 $products = $conn->query($get_products);
 
 

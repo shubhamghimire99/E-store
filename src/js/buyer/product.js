@@ -33,3 +33,4 @@ function buyNow(id) {
     window.location.href = "/buynow?id=" + id;
 }
 
+

@@ -166,34 +166,31 @@ include "src/user/navbar.php";
             $.ajax({
                 url: "/payment-api",
                 type: "POST",
-                data: { payload: JSON.stringify(payload)
-                //         amount: 1000,    
-                //         product_id: id,
-                //         product_name: name,
-                 },
-                success: function(response) { 
+                data: {
+                    payload: JSON.stringify(payload)
+                    //         amount: 1000,    
+                    //         product_id: id,
+                    //         product_name: name,
+                },
+                success: function(response) {
                     if (response.success) {
                         console.log(response);
                         alert(response.message);
+                        
                         $.ajax({
-                    url: "/buy",
-                    type: "POST",
-                    data: {
-                        address_id: $('input[name="address_id"]:checked').val()
-                    },
-                    success: function(orderResponse) {
-                        if (orderResponse.success) {
-                            console.log(orderResponse);
-                            alert(orderResponse.message);
-                            window.location.href = "/order";
-                        } else {
-                            alert(orderResponse.message);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log("An error occurred while handling orders: " + error);
-                    }
-                });
+                            url: "/buy",
+                            type: "POST",
+                            data: {
+                                address_id: $('input[name="address_id"]:checked').val()
+                            },
+                            success: function(orderResponse) {
+                                alert("chiruu mug ho ");
+                                window.location.href = "/order";
+                            },
+                            error: function(xhr, status, error) {
+                                console.log("An error occurred while handling orders: " + error);
+                            }
+                        });
                     } else {
                         alert(response.message);
                     }
