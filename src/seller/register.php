@@ -15,8 +15,6 @@ use function PHPSTORM_META\sql_injection_subst;
     
         //sql query to insert data into database
         $sql = "INSERT INTO `user` (`id`,`firstname`, `lastname`,`email`,`isAdmin`,`isSeller`,`isVerified`, `contact`, `pass`) VALUES (NULL,'$firstname', '$lastname', '$email',0,1,0,'$contact', '$ctext')";
-    
-        
         if($conn->query($sql) === TRUE){
             // insert into notification database
             $seller_id = $conn->insert_id;
@@ -28,13 +26,6 @@ use function PHPSTORM_META\sql_injection_subst;
                     $admin_id = $row['id'];
                 }
             }
-            $insert_query = "INSERT INTO notification(notification_id, buyer_id , seller_id , admin_id , product_id , order_id , cart_id , message , notification_date , notification_status) VALUES (NULL, NULL, $seller_id , $admin_id, NULL, NULL, NULL, ' new person registered as seller', CURRENT_TIMESTAMP, 'unread')";
-            if($conn->query($insert_query) === TRUE){
-                echo "New record created successfully";
-            }else{
-                echo "Error:" .mysqli_error($conn);
-            }
-
             header('location: /login');
         }else{
             echo "Error:" .mysqli_error($conn);

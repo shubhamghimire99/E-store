@@ -21,7 +21,6 @@ if (mysqli_num_rows($result) > 0) {
                 // place order status in array in same index as the product
                 $row1['order_status'] = $row['order_status'];
                 $data[] = $row1;
-               
             }
         }
     }
