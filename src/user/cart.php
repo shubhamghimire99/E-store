@@ -184,7 +184,6 @@ include "src/user/navbar.php";
                                 address_id: $('input[name="address_id"]:checked').val()
                             },
                             success: function(orderResponse) {
-                                alert("chiruu mug ho ");
                                 window.location.href = "/order";
                             },
                             error: function(xhr, status, error) {
