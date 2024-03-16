@@ -58,7 +58,7 @@
 
 
     <div class="content">
-        <h1>sellers Records</h1>
+        <h1>Sellers Records</h1>
         <div class="wrapper">
             <div class="table">
 
@@ -117,10 +117,3 @@
 </body>
 
 </html>
-
-<!-- .  ($row["isVerified"] == 1 ? "<i class='fa-solid fa-check'></i>" : "<i class='fa-solid fa-xmark'></i>"). -->
-<!-- if($row['seller_status'] == 'enabled'){
-                            echo '<p><a href="status.php?id='.$row['id'].'&status=enabled>enable</a></p>';
-                        }else{
-                            echo '<p><a href="status.php?id='.$row['id'].'&status=1>disabled</a></p>';
-                        } -->

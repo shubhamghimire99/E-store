@@ -118,6 +118,7 @@
     border-radius: 8px;
     background-color: #F0EFFF;
     border: none;
+    outline: none;
 }
 
 .form button{
