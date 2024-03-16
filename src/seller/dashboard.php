@@ -249,6 +249,13 @@ foreach ($recentorder as $order) {
             <div class="first">
                 <div class="card" id="card-1">
                     <p>Total Sales</p>
+<<<<<<< HEAD
+                    <h1>Rs17,000</h1>
+                </div>
+                <div class="card" >
+                    <p>Total Profit</p>
+                    <h1>Rs1,920</h1>
+=======
                     <h1 id="totalSales">
                         0.00
                         <?php
@@ -257,6 +264,7 @@ foreach ($recentorder as $order) {
                         // echo  $formattedprice;
                         ?>
                     </h1>
+>>>>>>> fad6b8e57ee5f734e2bc128c83fb58dbe2d557dd
                 </div>
                 <div class="card">
                     <p>Pending Orders</p>
