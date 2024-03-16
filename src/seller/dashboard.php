@@ -8,15 +8,81 @@ $seller_id = $_SESSION['user_id'];
 $sql = "select seller_status from user where id = '$seller_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-if($row['seller_status'] == 'disabled'){
+if ($row['seller_status'] == 'disabled') {
     echo "<script>";
     echo " alert('You have been restricted from accessing this page due to violation of our terms and conditions. Please contact the admin for more information.');";
     echo "window.location.href = '/logout'";
     echo "</script>";
 }
+
+$getproductid = "SELECT  product_id, order_quantity FROM orders Where seller_id = '$seller_id' AND order_status = 'delivered'";
+$productdetail = mysqli_query($conn, $getproductid);
+$productdetail = mysqli_fetch_all($productdetail, MYSQLI_ASSOC);
+$totalSales = 0;
+
+// calculate total sales
+foreach ($productdetail as $product) {
+    $product_id = $product['product_id'];
+    $order_quantity = $product['order_quantity'];
+    $getproduct = "SELECT price FROM product Where product_id = '$product_id'";
+    $product = mysqli_query($conn, $getproduct);
+    $product = mysqli_fetch_assoc($product);
+    $price = $product['price'];
+    $totalSales += $price * $order_quantity;
+}
+
+
+
+
+// get total numbers of products and total numbers of orders
+$getproduct = "SELECT COUNT(product_id) as totalproduct FROM product Where user_id = '$seller_id' AND product_status = 'active'";
+$product = mysqli_query($conn, $getproduct);
+$product = mysqli_fetch_assoc($product);
+$totalproduct = $product['totalproduct'];
+
+$getorder = "SELECT COUNT(order_id) as totalorder FROM orders Where seller_id = '$seller_id' AND order_status = 'delivered'";
+$order = mysqli_query($conn, $getorder);
+$order = mysqli_fetch_assoc($order);
+$totalorder = $order['totalorder'];
+
+// get total pending orders
+$getpendingorder = "SELECT COUNT(order_id) as totalpendingorder FROM orders Where seller_id = '$seller_id' AND order_status = 'pending'";
+$pendingorder = mysqli_query($conn, $getpendingorder);
+$pendingorder = mysqli_fetch_assoc($pendingorder);
+$totalpendingorder = $pendingorder['totalpendingorder'];
+
+// get recent orders max 6 and get customer name form user table
+$getrecentorder = "SELECT * FROM orders Where seller_id = '$seller_id'  ORDER BY order_date DESC LIMIT 6";
+$recentorder = mysqli_query($conn, $getrecentorder);
+$recentorders = mysqli_fetch_all($recentorder, MYSQLI_ASSOC);
+
+
+
+
+
+
+// get each orders customer name
+foreach ($recentorder as $order) {
+    $product_id = $order['product_id'];
+    $user_id = $order['user_id'];
+    $getcustomername = "SELECT firstname, lastname FROM user Where id = '$user_id'";
+    $customername = mysqli_query($conn, $getcustomername);
+    $customername = mysqli_fetch_all($customername, MYSQLI_ASSOC);
+
+    $order_id = $order['order_id'];
+    $order_date = $order['order_date'];
+    $order_status = $order['order_status'];
+    $order_quantity = $order['order_quantity'];
+    $getproductprice = "SELECT price FROM product Where product_id = '$product_id'";
+    $productprice = mysqli_query($conn, $getproductprice);
+    $productprice = mysqli_fetch_all($productprice, MYSQLI_ASSOC);
+    $order_price = $productprice[0]['price'] * $order_quantity;
+    $customername = $customername[0]['firstname'] . " " . $customername[0]['lastname'];
+    $orderdetail[] = array('order_id' => $order_id, 'order_date' => $order_date, 'order_status' => $order_status, 'order_quantity' => $order_quantity, 'order_price' => $order_price, 'customername' => $customername);
+    // echo json_encode($orderdetail);
+}
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +104,7 @@ if($row['seller_status'] == 'disabled'){
             /* flex-direction: column; */
         }
 
-        .wrapper{
+        .wrapper {
             height: 80%;
             width: 90%;
             background-color: #F8F7FC;
@@ -47,15 +113,16 @@ if($row['seller_status'] == 'disabled'){
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .first{
+        .first {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width:100%;
+            width: 100%;
             padding: 20px;
+            gap: 20px;
         }
 
-        .card{
+        .card {
             width: 30%;
             height: 200px;
             padding: 20px;
@@ -64,32 +131,32 @@ if($row['seller_status'] == 'disabled'){
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-        
-        .card p{
+
+        .card p {
             font-size: 16px;
             font-weight: 500;
             color: #000000;
             margin-bottom: 15px;
         }
 
-        .card h1{
+        .card h1 {
             font-size: 30px;
             font-weight: 700;
             color: #000000;
             font-family: 'poppins', sans-serif;
             padding: 20px;
         }
-        
-        .second{
-            width:100%;
-            padding: 20px 40px ;
+
+        .second {
+            width: 100%;
+            padding: 20px 40px;
             height: 330px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .detail{
+        .detail {
             width: 100%;
             height: 100%;
             background-color: #FFFFFF;
@@ -98,45 +165,44 @@ if($row['seller_status'] == 'disabled'){
             padding: 20px;
         }
 
-        
-        .detail p{
+
+        .detail p {
             font-size: 16px;
             font-weight: 800;
             color: #000000;
             margin-bottom: 15px;
         }
 
-        .detail .inner{
+        .detail .inner {
             display: flex;
             justify-content: space-between;
             /* align-items: center; */
         }
 
-        .inner a{
+        .inner a {
             font-size: 16px;
             font-weight: 700;
             color: #3751FF;
             text-decoration: none;
         }
-        
-        .table{
+
+        .table {
             padding: 20px 0;
             width: 100%;
             height: auto;
         }
 
-        table{
+        table {
             width: 100%;
             border-collapse: collapse;
 
         }
 
-        td{
+        td {
             padding: 10px 0;
             text-align: center;
             border-bottom: 1px solid #A7B7DD;
         }
-
     </style>
 </head>
 
@@ -192,38 +258,79 @@ if($row['seller_status'] == 'disabled'){
             <div class="first">
                 <div class="card" id="card-1">
                     <p>Total Sales</p>
+<<<<<<< HEAD
                     <h1>Rs17,000</h1>
                 </div>
                 <div class="card" >
                     <p>Total Profit</p>
                     <h1>Rs1,920</h1>
+=======
+                    <h1 id="totalSales">
+                        0.00
+                        <?php
+                        // $price = $totalSales;
+                        // $formattedprice = number_format($price, 2);
+                        // echo  $formattedprice;
+                        ?>
+                    </h1>
+>>>>>>> fad6b8e57ee5f734e2bc128c83fb58dbe2d557dd
                 </div>
                 <div class="card">
-                    <p>New Orders</p>
-                    <h1>780</h1>
+                    <p>Pending Orders</p>
+                    <h1 id="pendingOrders"> 0</h1>
+                </div>
+                <div class="card">
+                    <p>Delivered Orders</p>
+                    <h1 id="deliveredOrders">0</h1>
+                </div>
+                <div class="card">
+                    <p>Total Items</p>
+                    <h1 id="totalItems">0</h1>
                 </div>
             </div>
             <div class="second">
                 <div class="detail">
                     <div class="inner">
                         <p>Recent activity</p>
-                        <a href="">View all</a>
+                        <a href="/seller-order">View all</a>
                     </div>
                     <div class="table">
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>OD-1234</td>
-                                    <td>John Doe</td>
-                                    <td>Rs 1,200</td>
-                                    <td>Delivered</td>  
+                                    <th>Order ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
                                 </tr>
-                                <tr>
-                                    <td>OD-2345</td>
-                                    <td>Red rock</td>
-                                    <td>Rs 2,000</td>
-                                    <td>Pending</td>
-                                </tr>
+                                <?php foreach ($orderdetail as $order) : ?>
+
+                                    <tr>
+                                        <td><?php echo $order['order_id'] ?></td>
+                                        <td><?php echo $order['customername'] ?></td>
+                                        <td> <?php echo $order['order_quantity'] ?> </td>
+                                        <td>
+                                            <?php
+                                            $price = $order['order_price'];
+                                            $formattedprice = number_format($price, 2);
+                                            echo $formattedprice;
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            $dateString = $order['order_date'];
+                                            $date = new DateTime($dateString);
+                                            $formattedDate = $date->format("F j, Y , g:i a");
+                                            echo $formattedDate
+                                            ?>
+                                        </td>
+                                        <td><?php echo $order['order_status'] ?></td>
+                                    </tr>
+
+                                <?php endforeach; ?>
+
                             </tbody>
                         </table>
                     </div>
@@ -232,5 +339,34 @@ if($row['seller_status'] == 'disabled'){
         </div>
     </div>
 </body>
+<script>
+// Function to animate counting
+function animateCount(finalValue, elementId, duration) {
+    var element = document.getElementById(elementId);
+    var startTime = Date.now();
+    var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
+    var increment = (finalValue - startValue) / duration;
+
+    function update() {
+        var elapsedTime = Date.now() - startTime;
+        if (elapsedTime < duration) {
+            var newValue = startValue + (increment * elapsedTime);
+            element.textContent = newValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display with commas and 2 decimal places
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = finalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display final value with commas and 2 decimal places
+        }
+    }
+
+    update();
+}
+
+// Call the animateCount function to animate the total sales number
+animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
+
+</script>
 
 </html>

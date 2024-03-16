@@ -428,12 +428,12 @@
 .card img {
     width: 300px;
     height: 300px;
-    object-fit : cover;
+    object-fit: cover;
     /* give box shadow in buttom of the image */
     /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
 }
 
-.card-desc{
+.card-desc {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -441,8 +441,13 @@
     gap: 10px;
 }
 
+<<<<<<< HEAD
 .card-desc h2{
     font-size: 22px;
+=======
+.card-desc h1 {
+    font-size: 20px;
+>>>>>>> fad6b8e57ee5f734e2bc128c83fb58dbe2d557dd
     font-weight: 600;
     color: #1D1D1F;
 
@@ -529,9 +534,9 @@
     height: 30px;
     position: relative;
     z-index: 4;
-  }
-  
-  .typing-circle {
+}
+
+.typing-circle {
     width: 8px;
     height: 8px;
     position: absolute;
@@ -540,39 +545,39 @@
     left: 15%;
     transform-origin: 50%;
     animation: typing-circle7124 0.5s alternate infinite ease;
-  }
-  
-  @keyframes typing-circle7124 {
+}
+
+@keyframes typing-circle7124 {
     0% {
-      top: 20px;
-      height: 5px;
-      border-radius: 50px 50px 25px 25px;
-      transform: scaleX(1.7);
+        top: 20px;
+        height: 5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
     }
-  
+
     40% {
-      height: 8px;
-      border-radius: 50%;
-      transform: scaleX(1);
+        height: 8px;
+        border-radius: 50%;
+        transform: scaleX(1);
     }
-  
+
     100% {
-      top: 0%;
+        top: 0%;
     }
-  }
-  
-  .typing-circle:nth-child(2) {
+}
+
+.typing-circle:nth-child(2) {
     left: 45%;
     animation-delay: 0.2s;
-  }
-  
-  .typing-circle:nth-child(3) {
+}
+
+.typing-circle:nth-child(3) {
     left: auto;
     right: 15%;
     animation-delay: 0.3s;
-  }
-  
-  .typing-shadow {
+}
+
+.typing-shadow {
     width: 5px;
     height: 4px;
     border-radius: 50%;
@@ -584,31 +589,31 @@
     left: 15%;
     filter: blur(1px);
     animation: typing-shadow046 0.5s alternate infinite ease;
-  }
-  
-  @keyframes typing-shadow046 {
+}
+
+@keyframes typing-shadow046 {
     0% {
-      transform: scaleX(1.5);
+        transform: scaleX(1.5);
     }
-  
+
     40% {
-      transform: scaleX(1);
-      opacity: 0.7;
+        transform: scaleX(1);
+        opacity: 0.7;
     }
-  
+
     100% {
-      transform: scaleX(0.2);
-      opacity: 0.4;
+        transform: scaleX(0.2);
+        opacity: 0.4;
     }
-  }
-  
-  .typing-shadow:nth-child(4) {
+}
+
+.typing-shadow:nth-child(4) {
     left: 45%;
     animation-delay: 0.2s;
-  }
-  
-  .typing-shadow:nth-child(5) {
+}
+
+.typing-shadow:nth-child(5) {
     left: auto;
     right: 15%;
     animation-delay: 0.3s;
-  }
+}

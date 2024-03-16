@@ -97,15 +97,6 @@ $ordertable = "
         foreign key (cart_id) references cart(cart_id)
     )";
 
-    $categorytable = "
-    CREATE TABLE IF NOT EXISTS Category(
-        c_id int auto_increment,
-        c_name varchar(50),
-        constraint pk_id primary key(c_id)
-    )
-    
-    ";
-
     $paymenttable = "
     CREATE TABLE IF NOT EXISTS payment(
         payment_id int auto_increment,
@@ -154,12 +145,6 @@ $ordertable = "
         echo "Error creating table: " . $conn->error ."<br>";
     }
 
-  
-    if ($conn->query($categorytable) === TRUE) {
-        echo "Table Category created successfully <br>";
-    } else {
-        echo "Error creating table: " . $conn->error ."<br>";
-    }
 
     if ($conn->query($paymenttable) === TRUE) {
         echo "Table payment created successfully <br>";
