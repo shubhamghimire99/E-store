@@ -176,7 +176,7 @@ include "src/user/navbar.php";
                     if (response.success) {
                         console.log(response);
                         alert(response.message);
-                        
+
                         $.ajax({
                             url: "/buy",
                             type: "POST",

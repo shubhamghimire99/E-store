@@ -195,8 +195,8 @@ if($row['seller_status'] == 'disabled'){
                     <h1>Rs17,000</h1>
                 </div>
                 <div class="card" >
-                    <p>Pending Orders</p>
-                    <h1>1,920</h1>
+                    <p>Total Profit</p>
+                    <h1>Rs1,920</h1>
                 </div>
                 <div class="card">
                     <p>New Orders</p>
