@@ -65,11 +65,11 @@ function loadMore() {
                 var products = JSON.parse(this.responseText);
                 // make abbreviations for long descriptions for products api
                 products.forEach(element => {
-                    if (element.des.length > 60) {
-                        element.des = element.des.substring(0, 60) + "...";
+                    if (element.des.length > 10) {
+                        element.des = element.des.substring(0, 25) + "...";
                     }
-                    if (element.title.length > 20) {
-                        element.title = element.title.substring(0, 20) + "...";
+                    if (element.title.length > 30) {
+                        element.title = element.title.substring(0, 30) + "...";
                     }
                 });
 

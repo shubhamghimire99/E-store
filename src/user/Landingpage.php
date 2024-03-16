@@ -172,8 +172,8 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="card">
                         <img src="/src/images/<?php echo $product['image']; ?>" alt="image can't be loaded">
                         <div class="card-desc">
-                            <h2 id="productTitle"><?php echo strlen($product['title']) > 20 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
-                            <?php $short_description = strlen($product['short_des']) > 60 ? substr($product['short_des'], 0, 60) . ".." : $product['short_des']; ?>
+                            <h2 id="productTitle"><?php echo strlen($product['title']) > 10 ? substr($product['title'], 0, 20) . ".." : $product['title']; ?></h2>
+                            <?php $short_description = strlen($product['short_des']) > 30 ? substr($product['short_des'], 0, 30) . ".." : $product['short_des']; ?>
                             <p id="productDs" class="product_des"><?php echo $short_description; ?></p>
 
                             <h3 id="ProductPrice" class="product_price">Rs.<?php echo number_format($product['price']); ?></h3>
