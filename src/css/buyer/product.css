@@ -116,7 +116,7 @@
     width: 423px;
     height: 500px;
     aspect-ratio: 423/500;
-    object-fit:cover ;
+    object-fit: cover;
 }
 
 .container .description {

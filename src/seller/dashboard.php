@@ -31,9 +31,6 @@ foreach ($productdetail as $product) {
     $totalSales += $price * $order_quantity;
 }
 
-
-
-
 // get total numbers of products and total numbers of orders
 $getproduct = "SELECT COUNT(product_id) as totalproduct FROM product Where user_id = '$seller_id' AND product_status = 'active'";
 $product = mysqli_query($conn, $getproduct);
@@ -56,11 +53,6 @@ $getrecentorder = "SELECT * FROM orders Where seller_id = '$seller_id'  ORDER BY
 $recentorder = mysqli_query($conn, $getrecentorder);
 $recentorders = mysqli_fetch_all($recentorder, MYSQLI_ASSOC);
 
-
-
-
-
-
 // get each orders customer name
 foreach ($recentorder as $order) {
     $product_id = $order['product_id'];
@@ -68,7 +60,6 @@ foreach ($recentorder as $order) {
     $getcustomername = "SELECT firstname, lastname FROM user Where id = '$user_id'";
     $customername = mysqli_query($conn, $getcustomername);
     $customername = mysqli_fetch_all($customername, MYSQLI_ASSOC);
-
     $order_id = $order['order_id'];
     $order_date = $order['order_date'];
     $order_status = $order['order_status'];
@@ -79,7 +70,6 @@ foreach ($recentorder as $order) {
     $order_price = $productprice[0]['price'] * $order_quantity;
     $customername = $customername[0]['firstname'] . " " . $customername[0]['lastname'];
     $orderdetail[] = array('order_id' => $order_id, 'order_date' => $order_date, 'order_status' => $order_status, 'order_quantity' => $order_quantity, 'order_price' => $order_price, 'customername' => $customername);
-    // echo json_encode($orderdetail);
 }
 
 ?>
@@ -96,7 +86,7 @@ foreach ($recentorder as $order) {
 
         .content {
             width: 80%;
-            height: 100vh;
+            height: auto;
             background-color: #F8F7FC;
             display: flex;
             justify-content: center;
@@ -105,12 +95,13 @@ foreach ($recentorder as $order) {
         }
 
         .wrapper {
-            height: 80%;
+            /* height: 100%; */
             width: 90%;
             background-color: #F8F7FC;
             border: 5px solid #FFFFFF;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
 
         .first {
@@ -126,7 +117,6 @@ foreach ($recentorder as $order) {
             width: 30%;
             height: 200px;
             padding: 20px;
-            /* text-align: center; */
             background-color: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -148,6 +138,7 @@ foreach ($recentorder as $order) {
         }
 
         .second {
+            height: 100%;
             width: 100%;
             padding: 20px 40px;
             height: 330px;
@@ -157,8 +148,8 @@ foreach ($recentorder as $order) {
         }
 
         .detail {
+            /* height: 100%; */
             width: 100%;
-            height: 100%;
             background-color: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -193,6 +184,7 @@ foreach ($recentorder as $order) {
         }
 
         table {
+
             width: 100%;
             border-collapse: collapse;
 
@@ -258,26 +250,15 @@ foreach ($recentorder as $order) {
             <div class="first">
                 <div class="card" id="card-1">
                     <p>Total Sales</p>
-<<<<<<< HEAD
-                    <h1>Rs17,000</h1>
+                    <h1 id="totalSales">0</h1>
                 </div>
-                <div class="card" >
+                <div class="card">
                     <p>Total Profit</p>
-                    <h1>Rs1,920</h1>
-=======
-                    <h1 id="totalSales">
-                        0.00
-                        <?php
-                        // $price = $totalSales;
-                        // $formattedprice = number_format($price, 2);
-                        // echo  $formattedprice;
-                        ?>
-                    </h1>
->>>>>>> fad6b8e57ee5f734e2bc128c83fb58dbe2d557dd
+                    <h1 id = "">Rs1,920</h1>
                 </div>
                 <div class="card">
                     <p>Pending Orders</p>
-                    <h1 id="pendingOrders"> 0</h1>
+                    <h1 id="pendingOrders">0</h1>
                 </div>
                 <div class="card">
                     <p>Delivered Orders</p>
@@ -305,8 +286,13 @@ foreach ($recentorder as $order) {
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
-                                <?php foreach ($orderdetail as $order) : ?>
-
+                                <?php
+                                $count = 0; // Initialize counter variable
+                                foreach ($orderdetail as $order) :
+                                    if ($count >= 4) {
+                                        break; // Break the loop if 6 rows have been displayed
+                                    }
+                                ?>
                                     <tr>
                                         <td><?php echo $order['order_id'] ?></td>
                                         <td><?php echo $order['customername'] ?></td>
@@ -328,8 +314,11 @@ foreach ($recentorder as $order) {
                                         </td>
                                         <td><?php echo $order['order_status'] ?></td>
                                     </tr>
+                                <?php
+                                    $count++; // Increment the counter variable
+                                endforeach;
+                                ?>
 
-                                <?php endforeach; ?>
 
                             </tbody>
                         </table>
@@ -340,33 +329,38 @@ foreach ($recentorder as $order) {
     </div>
 </body>
 <script>
-// Function to animate counting
-function animateCount(finalValue, elementId, duration) {
-    var element = document.getElementById(elementId);
-    var startTime = Date.now();
-    var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
-    var increment = (finalValue - startValue) / duration;
+    // Function to animate counting
+    function animateCount(finalValue, elementId, duration) {
+        var element = document.getElementById(elementId);
+        var startTime = Date.now();
+        var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
+        var increment = (finalValue - startValue) / duration;
 
-    function update() {
-        var elapsedTime = Date.now() - startTime;
-        if (elapsedTime < duration) {
-            var newValue = startValue + (increment * elapsedTime);
-            element.textContent = newValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display with commas and 2 decimal places
-            requestAnimationFrame(update);
-        } else {
-            element.textContent = finalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display final value with commas and 2 decimal places
+        function update() {
+            var elapsedTime = Date.now() - startTime;
+            if (elapsedTime < duration) {
+                var newValue = startValue + (increment * elapsedTime);
+                element.textContent = newValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }); // Display with commas and 2 decimal places
+                requestAnimationFrame(update);
+            } else {
+                element.textContent = finalValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }); // Display final value with commas and 2 decimal places
+            }
         }
+
+        update();
     }
 
-    update();
-}
-
-// Call the animateCount function to animate the total sales number
-animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
-
+    // Call the animateCount function to animate the total sales number
+    animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
 </script>
 
 </html>

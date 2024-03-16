@@ -441,13 +441,8 @@
     gap: 10px;
 }
 
-<<<<<<< HEAD
-.card-desc h2{
-    font-size: 22px;
-=======
 .card-desc h1 {
     font-size: 20px;
->>>>>>> fad6b8e57ee5f734e2bc128c83fb58dbe2d557dd
     font-weight: 600;
     color: #1D1D1F;
 
