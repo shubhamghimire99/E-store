@@ -6,6 +6,7 @@ include 'src/user/Navbar.php';
 include 'src/database/connect.php';
 
 // get all products
+
 $sql = "SELECT * FROM product WHERE product_status = 'active' limit 8 ";
 $result = mysqli_query($conn, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
