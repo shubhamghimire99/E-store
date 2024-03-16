@@ -258,25 +258,26 @@ foreach ($recentorder as $order) {
             <div class="first">
                 <div class="card" id="card-1">
                     <p>Total Sales</p>
-                    <h1>
+                    <h1 id="totalSales">
+                        0.00
                         <?php
-                        $price = $totalSales;
-                        $formattedprice = number_format($price, 2);
-                        echo  $formattedprice;
+                        // $price = $totalSales;
+                        // $formattedprice = number_format($price, 2);
+                        // echo  $formattedprice;
                         ?>
                     </h1>
                 </div>
                 <div class="card">
                     <p>Pending Orders</p>
-                    <h1><?php echo $totalpendingorder ?></h1>
+                    <h1 id="pendingOrders"> 0</h1>
                 </div>
                 <div class="card">
-                    <p>delivered Orders</p>
-                    <h1><?php echo $totalorder ?></h1>
+                    <p>Delivered Orders</p>
+                    <h1 id="deliveredOrders">0</h1>
                 </div>
                 <div class="card">
-                    <p>Inventory</p>
-                    <h1><?php echo $totalproduct ?></h1>
+                    <p>Total Items</p>
+                    <h1 id="totalItems">0</h1>
                 </div>
             </div>
             <div class="second">
@@ -297,31 +298,31 @@ foreach ($recentorder as $order) {
                                     <th>Status</th>
                                 </tr>
                                 <?php foreach ($orderdetail as $order) : ?>
-                                   
-                                        <tr>
-                                            <td><?php echo $order['order_id'] ?></td>
-                                            <td><?php echo $order['customername'] ?></td>
-                                            <td> <?php echo $order['order_quantity'] ?> </td>
-                                            <td>
-                                                <?php
-                                                $price = $order['order_price'];
-                                                $formattedprice = number_format($price, 2);
-                                                echo $formattedprice;
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <?php
-                                                $dateString = $order['order_date'];
-                                                $date = new DateTime($dateString);
-                                                $formattedDate = $date->format("F j, Y , g:i a");
-                                                echo $formattedDate
-                                                ?>
-                                            </td>
-                                            <td><?php echo $order['order_status'] ?></td>
-                                        </tr>
-                                    
+
+                                    <tr>
+                                        <td><?php echo $order['order_id'] ?></td>
+                                        <td><?php echo $order['customername'] ?></td>
+                                        <td> <?php echo $order['order_quantity'] ?> </td>
+                                        <td>
+                                            <?php
+                                            $price = $order['order_price'];
+                                            $formattedprice = number_format($price, 2);
+                                            echo $formattedprice;
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            $dateString = $order['order_date'];
+                                            $date = new DateTime($dateString);
+                                            $formattedDate = $date->format("F j, Y , g:i a");
+                                            echo $formattedDate
+                                            ?>
+                                        </td>
+                                        <td><?php echo $order['order_status'] ?></td>
+                                    </tr>
+
                                 <?php endforeach; ?>
-                              
+
                             </tbody>
                         </table>
                     </div>
@@ -330,5 +331,34 @@ foreach ($recentorder as $order) {
         </div>
     </div>
 </body>
+<script>
+// Function to animate counting
+function animateCount(finalValue, elementId, duration) {
+    var element = document.getElementById(elementId);
+    var startTime = Date.now();
+    var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
+    var increment = (finalValue - startValue) / duration;
+
+    function update() {
+        var elapsedTime = Date.now() - startTime;
+        if (elapsedTime < duration) {
+            var newValue = startValue + (increment * elapsedTime);
+            element.textContent = newValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display with commas and 2 decimal places
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = finalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display final value with commas and 2 decimal places
+        }
+    }
+
+    update();
+}
+
+// Call the animateCount function to animate the total sales number
+animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
+animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
+
+</script>
 
 </html>
