@@ -58,12 +58,12 @@ include "src/seller/authentication.php";
             cursor: pointer;
             border-radius: 10px;
             border: 2px solid #4D47C3;
+            transform: scale(1);
             transition: 0.3s ease all;
         }
         .button:hover{
-            background-color: #4D47C3;
-            border-color: #FFFFFF;
-            color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transform: scale(1.05);
         }
 
         .button a{
@@ -74,9 +74,9 @@ include "src/seller/authentication.php";
             transition: 0.3 ease all;
         }
 
-        .button a:hover{
+        /* .button a:hover{
             color: #fff;
-        }
+        } */
     </style>
 </head>
 
