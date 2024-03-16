@@ -95,12 +95,13 @@ foreach ($recentorder as $order) {
         }
 
         .wrapper {
-            height: 100%;
+            /* height: 100%; */
             width: 90%;
             background-color: #F8F7FC;
             border: 5px solid #FFFFFF;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
 
         .first {
@@ -116,7 +117,6 @@ foreach ($recentorder as $order) {
             width: 30%;
             height: 200px;
             padding: 20px;
-            /* text-align: center; */
             background-color: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -184,6 +184,7 @@ foreach ($recentorder as $order) {
         }
 
         table {
+
             width: 100%;
             border-collapse: collapse;
 
@@ -249,15 +250,15 @@ foreach ($recentorder as $order) {
             <div class="first">
                 <div class="card" id="card-1">
                     <p>Total Sales</p>
-                    <h1>Rs17,000</h1>
+                    <h1 id="totalSales">0</h1>
                 </div>
-                <div class="card" >
+                <div class="card">
                     <p>Total Profit</p>
-                    <h1>Rs1,920</h1>
+                    <h1 id = "">Rs1,920</h1>
                 </div>
                 <div class="card">
                     <p>Pending Orders</p>
-                    <h1 id="pendingOrders"> 0</h1>
+                    <h1 id="pendingOrders">0</h1>
                 </div>
                 <div class="card">
                     <p>Delivered Orders</p>
@@ -285,8 +286,13 @@ foreach ($recentorder as $order) {
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
-                                <?php foreach ($orderdetail as $order ) : ?>
-
+                                <?php
+                                $count = 0; // Initialize counter variable
+                                foreach ($orderdetail as $order) :
+                                    if ($count >= 4) {
+                                        break; // Break the loop if 6 rows have been displayed
+                                    }
+                                ?>
                                     <tr>
                                         <td><?php echo $order['order_id'] ?></td>
                                         <td><?php echo $order['customername'] ?></td>
@@ -308,8 +314,11 @@ foreach ($recentorder as $order) {
                                         </td>
                                         <td><?php echo $order['order_status'] ?></td>
                                     </tr>
+                                <?php
+                                    $count++; // Increment the counter variable
+                                endforeach;
+                                ?>
 
-                                <?php endforeach; ?>
 
                             </tbody>
                         </table>
@@ -320,33 +329,38 @@ foreach ($recentorder as $order) {
     </div>
 </body>
 <script>
-// Function to animate counting
-function animateCount(finalValue, elementId, duration) {
-    var element = document.getElementById(elementId);
-    var startTime = Date.now();
-    var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
-    var increment = (finalValue - startValue) / duration;
+    // Function to animate counting
+    function animateCount(finalValue, elementId, duration) {
+        var element = document.getElementById(elementId);
+        var startTime = Date.now();
+        var startValue = parseFloat(element.textContent.replace(/,/g, '')); // Remove commas from the text content
+        var increment = (finalValue - startValue) / duration;
 
-    function update() {
-        var elapsedTime = Date.now() - startTime;
-        if (elapsedTime < duration) {
-            var newValue = startValue + (increment * elapsedTime);
-            element.textContent = newValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display with commas and 2 decimal places
-            requestAnimationFrame(update);
-        } else {
-            element.textContent = finalValue.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); // Display final value with commas and 2 decimal places
+        function update() {
+            var elapsedTime = Date.now() - startTime;
+            if (elapsedTime < duration) {
+                var newValue = startValue + (increment * elapsedTime);
+                element.textContent = newValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }); // Display with commas and 2 decimal places
+                requestAnimationFrame(update);
+            } else {
+                element.textContent = finalValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }); // Display final value with commas and 2 decimal places
+            }
         }
+
+        update();
     }
 
-    update();
-}
-
-// Call the animateCount function to animate the total sales number
-animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
-animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
-
+    // Call the animateCount function to animate the total sales number
+    animateCount(<?php echo $totalSales; ?>, 'totalSales', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalorder; ?>, 'deliveredOrders', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalpendingorder; ?>, 'pendingOrders', 2000); // Adjust duration as needed
+    animateCount(<?php echo $totalproduct; ?>, 'totalItems', 2000); // Adjust duration as needed
 </script>
 
 </html>
