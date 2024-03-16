@@ -136,7 +136,11 @@ create table payment(
     amount int,
     constraint pk_id primary key(payment_id)
 );
-
+ALTER TABLE `estore`.`product` 
+ADD COLUMN `image1` VARCHAR(200) NULL AFTER `product_status`,
+ADD COLUMN `image2` VARCHAR(200) NULL AFTER `image1`,
+ADD COLUMN `image3` VARCHAR(200) NULL AFTER `image2`,
+ADD COLUMN `image4` VARCHAR(200) NULL AFTER `image3`;
 
 
 

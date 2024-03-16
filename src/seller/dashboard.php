@@ -31,9 +31,6 @@ foreach ($productdetail as $product) {
     $totalSales += $price * $order_quantity;
 }
 
-
-
-
 // get total numbers of products and total numbers of orders
 $getproduct = "SELECT COUNT(product_id) as totalproduct FROM product Where user_id = '$seller_id' AND product_status = 'active'";
 $product = mysqli_query($conn, $getproduct);
@@ -56,11 +53,6 @@ $getrecentorder = "SELECT * FROM orders Where seller_id = '$seller_id'  ORDER BY
 $recentorder = mysqli_query($conn, $getrecentorder);
 $recentorders = mysqli_fetch_all($recentorder, MYSQLI_ASSOC);
 
-
-
-
-
-
 // get each orders customer name
 foreach ($recentorder as $order) {
     $product_id = $order['product_id'];
@@ -68,7 +60,6 @@ foreach ($recentorder as $order) {
     $getcustomername = "SELECT firstname, lastname FROM user Where id = '$user_id'";
     $customername = mysqli_query($conn, $getcustomername);
     $customername = mysqli_fetch_all($customername, MYSQLI_ASSOC);
-
     $order_id = $order['order_id'];
     $order_date = $order['order_date'];
     $order_status = $order['order_status'];
@@ -79,7 +70,6 @@ foreach ($recentorder as $order) {
     $order_price = $productprice[0]['price'] * $order_quantity;
     $customername = $customername[0]['firstname'] . " " . $customername[0]['lastname'];
     $orderdetail[] = array('order_id' => $order_id, 'order_date' => $order_date, 'order_status' => $order_status, 'order_quantity' => $order_quantity, 'order_price' => $order_price, 'customername' => $customername);
-    // echo json_encode($orderdetail);
 }
 
 ?>
@@ -96,7 +86,7 @@ foreach ($recentorder as $order) {
 
         .content {
             width: 80%;
-            height: 100vh;
+            height: auto;
             background-color: #F8F7FC;
             display: flex;
             justify-content: center;
@@ -105,7 +95,7 @@ foreach ($recentorder as $order) {
         }
 
         .wrapper {
-            height: 80%;
+            height: 100%;
             width: 90%;
             background-color: #F8F7FC;
             border: 5px solid #FFFFFF;
@@ -148,6 +138,7 @@ foreach ($recentorder as $order) {
         }
 
         .second {
+            height: 100%;
             width: 100%;
             padding: 20px 40px;
             height: 330px;
@@ -157,8 +148,8 @@ foreach ($recentorder as $order) {
         }
 
         .detail {
+            /* height: 100%; */
             width: 100%;
-            height: 100%;
             background-color: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -297,7 +288,7 @@ foreach ($recentorder as $order) {
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
-                                <?php foreach ($orderdetail as $order) : ?>
+                                <?php foreach ($orderdetail as $order ) : ?>
 
                                     <tr>
                                         <td><?php echo $order['order_id'] ?></td>

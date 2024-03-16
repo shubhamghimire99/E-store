@@ -19,36 +19,36 @@ if (isset($_POST['submit'])) {
     $costPrice = $_POST['cost-price'];
     $profit = $_POST['profit'];
     $quantity = $_POST['quantity'];
-    $userid = $_SESSION['user_id']; 
+    $userid = $_SESSION['user_id'];
     $status = $_POST['status'];
 
-    if(isset($_FILES['image'])){
+    if (isset($_FILES['image'])) {
         echo "inside the saving file";
-        $errors= array();
+        $errors = array();
         $file_name = $_FILES['image']['name'];
         $file_size = $_FILES['image']['size'];
         $file_tmp = $_FILES['image']['tmp_name'];
         $file_type = $_FILES['image']['type'];
 
-        $file_ext=strtolower(explode('.',$file_name)[1]);
-        
-        $extensions= array("jpeg","jpg","png");
-        
-        if(in_array($file_ext,$extensions)=== false){
-           $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+        $file_ext = strtolower(explode('.', $file_name)[1]);
+
+        $extensions = array("jpeg", "jpg", "png");
+
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
         }
-        
-        if($file_size > 2097152) {
-           $errors[]='File size must be excately 2 MB';
+
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be excately 2 MB';
         }
-        
-        if(empty($errors)==true) {
-           move_uploaded_file($file_tmp,"src/images/".$file_name);
-           echo "Success";
-        }else{
-           print_r($errors);
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file_tmp, "src/images/" . $file_name);
+            echo "Success";
+        } else {
+            print_r($errors);
         }
-     }
+    }
 
     $sql = "INSERT INTO product (`product_id`,`title`, `short_des`, `des`,`image`, `user_id` ,`price`, `brand`, `product_type`,`vendor`, `quantity`,`product_status`,`cost_price`,`profit`)
      VALUES (NULL,'$title', '$short_des', '$des','$file_name' , 
@@ -125,75 +125,73 @@ if (isset($_POST['submit'])) {
         <div class="header">
             <h1>Add Product</h1>
         </div>
-            <form action="# " method="post" enctype="multipart/form-data" class="form">
-                <div class="title">
-                    <h4>Title</h3>
-                        <input type="text" name="title" id="title" placeholder="Enter product title">
-                        <h4>Short Description</h3>
-                            <textarea name="short-des" id="short-des" cols="30" rows="10">Short Description</textarea>
-                            <h4>Description</h4>
-                            <textarea name="des" id="des" cols="30" rows="10">Description</textarea>
-                </div>
-
+        <form action="# " method="post" enctype="multipart/form-data" class="form">
+            <div class="title">
+                <h4>Title</h3>
+                    <input type="text" name="title" id="title" placeholder="Enter product title">
+                    <h4>Short Description</h3>
+                        <textarea name="short-des" id="short-des" cols="30" rows="10">Short Description</textarea>
+                        <h4>Description</h4>
+                        <textarea name="des" id="des" cols="30" rows="10">Description</textarea>
+            </div>
                 <div class="Media">
-                    <h4>Choose image for your Product</h4>
+                    <h4>Choose images for your Product</h4>
                     <input type="file" name="image" id="image-tag" placeholder="upload new" hidden>
-                    <label for="image-tag" id="upload-button">Upload</label>
+                    <label for="image-tag" id="upload-button">Upload first image</label>
                 </div>
+            <div class="pricing">
+                <h4>Pricing</h4>
+                <div class="price">
 
-                <div class="pricing">
-                    <h4>Pricing</h4>
-                    <div class="price">
-
-                        <div class="inner-price">
-                            <h6>Market price</h6>
-                            <input type="text" name="price" placeholder="market price">
-                        </div>
-                        <div class="inner-price">
-                            <h6>Cost price</h6>
-                            <input type="text" name="cost-price" placeholder="cost-price">
-                        </div>
+                    <div class="inner-price">
+                        <h6>Market price</h6>
+                        <input type="text" name="price" placeholder="market price">
                     </div>
-                    <div class="profit">
-                        <div class="inner-profit">
-                            <h6>Profit</h6>
-                            <input type="text" name="profit" placeholder="Rs 100">
-                        </div>
-                        <div class="inner-profit">
-                            <h6>% of market price</h6>
-                            <input type="text" placeholder="--">
-                        </div>
+                    <div class="inner-price">
+                        <h6>Cost price</h6>
+                        <input type="text" name="cost-price" placeholder="cost-price">
                     </div>
                 </div>
-                <div class="extra">
-                    <h4>product categories</h4>
-                    <!-- <input type="text" name="product_type" placeholder="product type"> -->
-                    <select name="product_type" id="product_type">
-                        <option value="">Product category</option>
-                        <option value="Laptops">Laptops</option>
-                        <option value="Smartphones and mobile">Smartphones and mobile</option>
-                        <option value="Monitors">Monitors</option>
-                        <option value="Gaming accessories">Gaming accessories</option>
-                        <option value="Airpods and EarBuds">Airpods and EarBuds</option>
-                        <option value="HeadPhone And EarPhone">HeadPhone And EarPhone </option>
-                        <option value="KeyBoards and Mouse">KeyBoards and Mouse </option>
-                    </select>
-                    <h4>Vendor</h4>
-                    <input type="text" name="vendor" placeholder="vendor">
-                    <h4>Brand</h4>
-                    <input type="text" name="brand" placeholder="brand">
-                    <h4>Quantity</h4>
-                    <input type="number" name="quantity" placeholder="quantity">
-                    <h4>Status</h4>
-                    <select name="status" id="status">
-                        <option value="Active">Active</option>
-                        <option value="Draft">draft</option>
-                    </select>
-                    <!-- <input type="text" name="status" placeholder="Active or draft"> -->
+                <div class="profit">
+                    <div class="inner-profit">
+                        <h6>Profit</h6>
+                        <input type="text" name="profit" placeholder="Rs 100">
+                    </div>
+                    <div class="inner-profit">
+                        <h6>% of market price</h6>
+                        <input type="text" placeholder="--">
+                    </div>
                 </div>
-                <button type="submit" name="submit">Save</button>
-            </form>
-        </div>
+            </div>
+            <div class="extra">
+                <h4>product categories</h4>
+                <!-- <input type="text" name="product_type" placeholder="product type"> -->
+                <select name="product_type" id="product_type">
+                    <option value="">Product category</option>
+                    <option value="Laptops">Laptops</option>
+                    <option value="Smartphones and mobile">Smartphones and mobile</option>
+                    <option value="Monitors">Monitors</option>
+                    <option value="Gaming accessories">Gaming accessories</option>
+                    <option value="Airpods and EarBuds">Airpods and EarBuds</option>
+                    <option value="HeadPhone And EarPhone">HeadPhone And EarPhone </option>
+                    <option value="KeyBoards and Mouse">KeyBoards and Mouse </option>
+                </select>
+                <h4>Vendor</h4>
+                <input type="text" name="vendor" placeholder="vendor">
+                <h4>Brand</h4>
+                <input type="text" name="brand" placeholder="brand">
+                <h4>Quantity</h4>
+                <input type="number" name="quantity" placeholder="quantity">
+                <h4>Status</h4>
+                <select name="status" id="status">
+                    <option value="Active">Active</option>
+                    <option value="Draft">draft</option>
+                </select>
+                <!-- <input type="text" name="status" placeholder="Active or draft"> -->
+            </div>
+            <button type="submit" name="submit">Save</button>
+        </form>
+    </div>
     <!-- </div> -->
 </body>
 
