@@ -60,6 +60,7 @@ $routes = [
     "/get_seller_notification" => "src/user/get_seller_notification.php",
     "/mail" => "src/Mail/mail.php",
     "/payment-api" => "src/user/paymentapi.php",
+    "/get_seller_details" => "src/admin/getsellerdetails.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];

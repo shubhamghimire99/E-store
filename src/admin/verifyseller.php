@@ -13,7 +13,84 @@ include 'src/admin/authentication.php';
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
     <link rel="stylesheet" href="/src/css/admin/dashboard.css">
     <script src="https://kit.fontawesome.com/d4ad7cd31c.js" crossorigin="anonymous"></script>
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            width: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .popup-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .seller-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .seller-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .seller-info h3 {
+            font-size: 1.2rem;
+        }
+
+        .seller-info p {
+            font-size: 1.2rem;
+        }
+
+        .media {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .seller-media {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .seller-media h3 {
+            font-size: 1.2rem;
+        }
+
+        .seller-media img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
 
 <body>
 
@@ -85,14 +162,18 @@ include 'src/admin/authentication.php';
                     if ($result->num_rows > 0) {
 
                         while ($row = $result->fetch_assoc()) {
+
                             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td> <td>" . $row["email"] .
                                 "</td><td>" . $row["contact"] .
-                                "</td><td class='action-btns'> <button class='view-button'>
+                                "</td><td class='action-btns'> 
+                                <button class='view-button' onclick= 'showPopup(". $row["id"].")'>
                                 <svg class='view-svgIcon'  width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
                                 <circle cx='12' cy='12' r='3' stroke='#000000' stroke-width='2'/>
                                 <path d='M20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C18.7679 14.7899 15.6357 18 12 18C8.36427 18 5.23206 14.7899 3.81197 13.0657C3.42381 12.5944 3.22973 12.3588 3.22973 12C3.22973 11.6412 3.42381 11.4056 3.81197 10.9343C5.23206 9.21014 8.36427 6 12 6C15.6357 6 18.7679 9.21014 20.188 10.9343Z' stroke='#000000' stroke-width='2'/>
                                 </svg>
                                 </button>
+                                
+                               
                                 <button id='verifyButton' class='verify-button'  onclick =
                                 'verifySeller(" . $row["id"] . ", " . $row["isVerified"] . ")'> "
                                 . ($row["isVerified"] == 1 ? "<svg class='verify-svgIcon' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -110,9 +191,41 @@ include 'src/admin/authentication.php';
                 </table>
 
             </div>
+            <div class='popup' id='popup'>
+            </div>
+
+
+
         </div>
     </div>
+
     <script src="/src/js/admin/admin.js"></script>
+    <script>
+        function showPopup(id) {
+            var popup = document.getElementById("popup");
+
+            // Make an AJAX request to fetch seller information
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        console.log(response);
+                        popup.innerHTML = "Seller Name: " + response.name + "<br>" +
+                            "Seller Email: " + response.email;
+                        popup.style.display = "block";
+                    } else {
+                        popup.innerHTML = "Failed to fetch seller information.";
+                        popup.style.display = "block";
+                    }
+                }
+            };
+            xhr.open("GET", "/get_seller_details?id=" + id, true);
+            xhr.send();
+
+        }
+
+    </script>
 </body>
 
 </html>
