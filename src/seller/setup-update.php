@@ -15,17 +15,69 @@ $imagepath2 = "/src/images/" . $imagename2;
 
 if (isset($_POST['submit'])) {
     $store_name = $_POST['store'];
-    $citizenship = $_POST['citizenship'];
+    // $citizenship = $_POST['citizenship'];
     $PAN = $_POST['PAN'];
-    $certificate = $_POST['certificate'];
+    // $certificate = $_POST['certificate'];
 
+    if (isset($_FILES['citizenship'])) {
+        echo "inside the saving file";
+        $errors = array();
+        $file_name = $_FILES['citizenship']['name'];
+        $file_size = $_FILES['citizenship']['size'];
+        $file_tmp = $_FILES['citizenship']['tmp_name'];
+        $file_type = $_FILES['citizenship']['type'];
 
-    if ($citizenship == '' && $certificate == '') {
-        $citizenship = $row['citizenship'];
-        $certificate = $row['certificate'];
+        $file_ext = strtolower(explode('.', $file_name)[1]);
+
+        $extensions = array("jpeg", "jpg", "png");
+
+        if (in_array($file_ext, $extensions) === false) {
+            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+        }
+
+        if ($file_size > 2097152) {
+            $errors[] = 'File size must be excately 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file_tmp, "src/images/" . $file_name);
+            echo "Success";
+        } else {
+            print_r($errors);
+        }
     }
+
+    
+    if (isset($_FILES['certificate'])) {
+        echo "inside the saving file";
+        $errors = array();
+        $file2_name = $_FILES['certificate']['name'];
+        $file2_size = $_FILES['certificate']['size'];
+        $file2_tmp = $_FILES['certificate']['tmp_name'];
+        $file2_type = $_FILES['certificate']['type'];
+
+        $file2_ext = strtolower(explode('.', $file_name)[1]);
+
+        $extensions = array("jpeg", "jpg", "png");
+
+        if (in_array($file2_ext, $extensions) === false) {
+            $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
+        }
+
+        if ($file2_size > 2097152) {
+            $errors[] = 'File size must be excately 2 MB';
+        }
+
+        if (empty($errors) == true) {
+            move_uploaded_file($file2_tmp, "src/images/" . $file2_name);
+            echo "Success";
+        } else {
+            print_r($errors);
+        }
+    }
+
     //sql query to update data to database
-    $sql = "update seller_details set store_name='$store_name',citizenship='$citizenship',PAN='$PAN',certificate='$certificate' where id='$seller_id'";
+    $sql = "update seller_details set store_name='$store_name',citizenship='$file_name',PAN='$PAN',certificate='$file2_name' where id='$seller_id'";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -48,6 +100,8 @@ if (isset($_POST['submit'])) {
     <title>seller profile</title>
     <link rel="stylesheet" href="/src/css/seller/profile.css">
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
         .content {
             padding: 0 10% 0 18%;
             display: flex;
@@ -59,12 +113,12 @@ if (isset($_POST['submit'])) {
         .content h1 {
             margin-top: 20px;
             font-size: 1.5em;
-            font-weight: 500;
+            font-weight: 800;
             margin-bottom: 20px;
         }
 
         .details {
-            width: 60%;
+            width: 100%;
             height: auto;
             background-color: #FFFFFF;
             /* padding: 20px; */
@@ -85,13 +139,99 @@ if (isset($_POST['submit'])) {
             padding: 20px 0px 20px 0;
             height: auto;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
         }
-        
+
+        .box p {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
         .citizenship img,
-        .certificate img{
+        .certificate img {
             width: 150px;
             height: 100px;
+            object-fit: cover;
+        }
+
+        .store{
+            padding: 20px;  
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .store p{
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .store input{
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .citizenship,
+        .certificate {
+            padding: 20px;  
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 20px;
+        }
+
+        .citizenship p,
+        .certificate p{
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .citizenship label,
+        .certificate label{
+            padding: 10px 20px;
+            background-color: #605C5C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 53%;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .pan{
+            padding: 20px;  
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .pan p{
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .pan input{
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: #605C5C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 24%;
+            font-size: 12px;
+            text-align: center;
+            margin: 20px 20px;
         }
     </style>
 </head>
@@ -142,7 +282,7 @@ if (isset($_POST['submit'])) {
                 <hr>
                 <div class="box">
                     <p>Please provide the following information to set up your store and verify.</p>
-                    <form action="" method="post" class="details">
+                    <form action="" method="post" enctype="multipart/form-data" class="details">
                         <div class="store">
                             <p>Name your store</p>
                             <input type="text" name="store" value="<?php if ($row['store_name'] != "") {
@@ -154,7 +294,8 @@ if (isset($_POST['submit'])) {
                         <div class="citizenship">
                             <p>Upload your citizenship</p>
                             <img src="/src/images/<?php echo $row['citizenship'] ?>" alt="">
-                            <input type="file" name="citizenship" required>
+                            <input type="file" name="citizenship" id="citizenship"  hidden>
+                            <label for="citizenship">Upload New</label>
                         </div>
                         <hr>
                         <div class="pan">
@@ -168,7 +309,8 @@ if (isset($_POST['submit'])) {
                         <div class="certificate">
                             <p>Upload certificate</p>
                             <img src="/src/images/<?php echo $row['certificate'] ?>" alt="">
-                            <input type="file" name="certificate" required>
+                            <input type="file" name="certificate" required id="certificate" hidden>
+                            <label for="certificate">Upload New</label>
                         </div>
                         <hr>
                         <button type="submit" name="submit">update</button>

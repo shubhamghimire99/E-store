@@ -142,7 +142,7 @@ include 'src/admin/authentication.php';
         <div class="wrapper">
             <div class="table">
                 <div class="heading">
-                    <h4>Products</h4>
+                    <h4>Total Sellers on E-Store</h4>
                 </div>
                 <table>
                     <tr>

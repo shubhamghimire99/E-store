@@ -36,6 +36,8 @@ if (isset($_POST['submit'])) {
     <title>seller profile</title>
     <link rel="stylesheet" href="/src/css/seller/profile.css">
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
         .content {
             padding: 0 10% 0 18%;
             display: flex;
@@ -71,7 +73,7 @@ if (isset($_POST['submit'])) {
         }
 
         .details {
-            width: 60%;
+            width: 90%;
             height: auto;
             background-color: #FFFFFF;
             /* padding: 20px; */
@@ -87,6 +89,30 @@ if (isset($_POST['submit'])) {
             padding: 20px;
             margin-top: 20px;
             margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .name .first,
+        .name .last {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .name .first label, 
+        .name .last label {
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .name .first input,
+        .name .last input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
         }
 
         .details hr {
@@ -97,21 +123,79 @@ if (isset($_POST['submit'])) {
 
         .email-box {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 10px;
         }
 
-        .contact-box {
+        .email {
+            width: 40%;
             display: flex;
-            justify-content: space-between;
-            padding: 10px;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .save {
+        .email input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .email label {
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .contact-box {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 10px;
+        }
+        .contact {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact input{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .contact label {
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .save {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .save button {
+            width: 30%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            background-color: #474747;
+            color: #FFFFFF;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .save button:hover {
+            background-color: #000000;
         }
     </style>
 </head>
@@ -161,7 +245,7 @@ if (isset($_POST['submit'])) {
                 <h2>General</h1>
                     <hr>
                     <div class="box">
-                        <h1>Details</h1>
+                        <h1>Details:</h1>
                         <form action="" method="post" class="details">
 
                             <div class="name">

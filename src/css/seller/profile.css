@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 *{
     margin: 0;
@@ -62,8 +62,11 @@ body{
     width: 15%;
     background-color: #FFFFFF;
     border-right :1px solid #A7A3FF;
+    /* position: -webkit-sticky; */
     position: sticky;
     top: 0;
+    z-index: 1000; 
+    height: 100vh;
 }
 .menubar h2{
     font-size: 20px;
@@ -98,6 +101,11 @@ li svg{
 li a{
     text-decoration: none;
     color: black;
+    transition: transform 0.3s ease;
+}
+
+li a:hover{
+    transform: translateX(-10px);
 }
 
 li:hover{

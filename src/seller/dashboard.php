@@ -82,7 +82,7 @@ foreach ($recentorder as $order) {
     <title>Seller Dashboard</title>
     <link rel="stylesheet" href="/src/css/seller/dashboard.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
         .content {
             width: 80%;
@@ -102,6 +102,12 @@ foreach ($recentorder as $order) {
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .wrapper:hover {
+            transform: scale(1.01);
         }
 
         .first {
@@ -120,6 +126,12 @@ foreach ($recentorder as $order) {
             background-color: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
         }
 
         .card p {
@@ -145,6 +157,12 @@ foreach ($recentorder as $order) {
             display: flex;
             justify-content: center;
             align-items: center;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .second:hover {
+            transform: scale(1.03);
         }
 
         .detail {

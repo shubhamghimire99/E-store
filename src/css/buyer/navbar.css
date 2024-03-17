@@ -15,7 +15,7 @@ nav {
     display: flex;
     justify-content: center;
     background-color: #FFFFFF;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     width: 100%;
 
 }
@@ -39,13 +39,16 @@ form {
     display: flex;
     border: 1px solid #A7B7DD;
     border-radius: 30px;
-
+    transform: scale(0.95);
+    transition: 0.5s ease all;
 }
+
 
 form:hover{
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adjust shadow parameters as needed */
     border-radius: 30px;
+    transform: scale(1);
 }
 
 .search button {
@@ -136,6 +139,12 @@ i:hover{
     position: relative;
     display: block;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: scale(0.9);
+    transition: 0.5s ease all;
+}
+
+.paste-button:hover {
+    transform: scale(1);
 }
 
 .button {
